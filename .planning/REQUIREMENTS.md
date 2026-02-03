@@ -131,13 +131,20 @@ Which phases cover which requirements. Updated during roadmap creation.
 | CHAT-01 through CHAT-09 | Phase 3 | Pending |
 | CALL-01 through CALL-08 | Phase 3 | Pending |
 | MEDL-01 through MEDL-07 | Phase 4 | Pending |
-| PLAT-01 through PLAT-08 | Phases 1-4 | Pending |
+| PLAT-01 through PLAT-05 | Phase 1 | Pending |
+| PLAT-06 through PLAT-08 | Phase 4 | Pending |
 
 **Coverage:**
-- v1 requirements: 59 total
-- Mapped to phases: 59
+- v1 requirements: 61 total
+- Mapped to phases: 61
 - Unmapped: 0 ✓
+
+**Phase Distribution:**
+- Phase 1 (Foundation + Auth + Navigation): 16 requirements
+- Phase 2 (Social Feed + Teams): 18 requirements
+- Phase 3 (Chat + Agora Video Calling): 17 requirements
+- Phase 4 (Media Library + Polish + Builds): 10 requirements
 
 ---
 *Requirements defined: 2026-02-03*
-*Last updated: 2026-02-03 after initial definition*
+*Last updated: 2026-02-03 after roadmap creation*
