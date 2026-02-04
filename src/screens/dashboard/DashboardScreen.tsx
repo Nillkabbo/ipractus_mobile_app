@@ -37,6 +37,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     padding: 24,
   },
+  header: {
+    alignItems: 'center',
+    marginBottom: 32,
+  },
   title: {
     fontSize: 24,
     fontWeight: '700',
@@ -44,5 +48,16 @@ const styles = StyleSheet.create({
   },
   subtitle: {
     fontSize: 16,
+  },
+  settingsButton: {
+    padding: 16,
+    borderRadius: 8,
+    marginTop: 24,
+    minWidth: 200,
+  },
+  settingsButtonText: {
+    fontSize: 16,
+    fontWeight: '600',
+    textAlign: 'center',
   },
 });
