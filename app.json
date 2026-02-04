@@ -1,27 +1,39 @@
 {
   "expo": {
-    "name": "expo-temp",
-    "slug": "expo-temp",
+    "sdkVersion": "52.0.0",
+    "name": "iPractus",
+    "slug": "ipractus",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
-    "userInterfaceStyle": "light",
-    "newArchEnabled": true,
+    "userInterfaceStyle": "automatic",
     "splash": {
       "image": "./assets/splash-icon.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#000000"
     },
     "ios": {
-      "supportsTablet": true
+      "bundleIdentifier": "com.ipractus.app",
+      "supportsTablet": true,
+      "infoPlist": {
+        "NSFaceIDUsageDescription": "Use Face ID to quickly sign in to your iPractus account.",
+        "NSCameraUsageDescription": "Allow iPractus to access your camera to take profile photos.",
+        "NSPhotoLibraryUsageDescription": "Allow iPractus to access your photo library to upload profile photos."
+      }
     },
     "android": {
+      "package": "com.ipractus.app",
+      "permissions": [
+        "USE_BIOMETRIC",
+        "USE_FINGERPRINT",
+        "CAMERA",
+        "READ_EXTERNAL_STORAGE",
+        "WRITE_EXTERNAL_STORAGE"
+      ],
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
-      },
-      "edgeToEdgeEnabled": true,
-      "predictiveBackGestureEnabled": false
+        "backgroundColor": "#000000"
+      }
     },
     "web": {
       "favicon": "./assets/favicon.png"
