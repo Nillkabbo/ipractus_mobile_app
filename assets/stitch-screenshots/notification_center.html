@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Notification Center - iPractus</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Lexend", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Lexend', sans-serif;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen">
+<div class="max-w-md mx-auto min-h-screen bg-background-light dark:bg-background-dark flex flex-col">
+<!-- TopAppBar -->
+<header class="sticky top-0 z-50 bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
+<div class="flex items-center p-4 justify-between">
+<div class="text-slate-900 dark:text-white flex size-10 shrink-0 items-center justify-center rounded-full hover:bg-slate-200 dark:hover:bg-slate-800 cursor-pointer">
+<span class="material-symbols-outlined">arrow_back_ios</span>
+</div>
+<h2 class="text-slate-900 dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center">Notifications</h2>
+<div class="flex items-center justify-end">
+<button class="text-primary text-sm font-bold leading-normal tracking-[0.015em] shrink-0 active:opacity-70">Mark all as read</button>
+</div>
+</div>
+</header>
+<main class="flex-1 overflow-y-auto pb-20">
+<!-- SectionHeader: Today -->
+<section>
+<h3 class="text-slate-900 dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] px-4 pb-2 pt-6">Today</h3>
+<!-- ListItem: Mention (Unread) -->
+<div class="flex items-center gap-4 px-4 py-4 justify-between border-b border-slate-200/50 dark:border-slate-800/50 hover:bg-slate-50 dark:hover:bg-slate-800/30 transition-colors">
+<div class="flex items-center gap-4">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full h-14 w-14 ring-2 ring-primary/20" data-alt="Portrait of a female athletic coach Sarah" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuALTTzUXYxdaQn0j1zqQXZ8i6IjV0HVBUR2gYXc73vjISKFavxWIKx2LVQwdzIGv776UV0rJV1IqxsuP4xNRSF0aNGTpe-ZwbtnreJX-PybFbsP81w_2B-TbHH8GDPNKLzOTtknQsXHfqsJ6_kB9Vyneree8xgX_RuDMnG1ygDOm_PVvraxmY1n-fujHDNUWtom-kCaHOcvhf5j_ykKKbDUtbWBokfpQi9b5iyW2SmHi6IIOacjH4QKTV5O01aNvoUOcyXotat4AVyn");'></div>
+<div class="flex flex-col justify-center">
+<p class="text-slate-900 dark:text-white text-base font-medium leading-normal line-clamp-2">
+<span class="font-bold">Coach Sarah</span> mentioned you in a comment
+                            </p>
+<p class="text-slate-500 dark:text-[#9dabb9] text-xs font-normal leading-normal">10m ago</p>
+</div>
+</div>
+<div class="shrink-0">
+<div class="flex size-7 items-center justify-center">
+<div class="size-2.5 rounded-full bg-primary shadow-[0_0_8px_rgba(19,127,236,0.6)]"></div>
+</div>
+</div>
+</div>
+<!-- ListItem: Live Stream (Unread) -->
+<div class="flex items-center gap-4 px-4 py-4 justify-between border-b border-slate-200/50 dark:border-slate-800/50 hover:bg-slate-50 dark:hover:bg-slate-800/30 transition-colors">
+<div class="flex items-center gap-4">
+<div class="text-white flex items-center justify-center rounded-xl bg-red-500 shrink-0 size-14 shadow-lg shadow-red-500/20">
+<span class="material-symbols-outlined">videocam</span>
+</div>
+<div class="flex flex-col justify-center">
+<p class="text-slate-900 dark:text-white text-base font-medium leading-normal line-clamp-1">Team Lions is going live!</p>
+<p class="text-slate-500 dark:text-[#9dabb9] text-xs font-normal leading-normal">1h ago</p>
+</div>
+</div>
+<div class="shrink-0">
+<div class="flex size-7 items-center justify-center">
+<div class="size-2.5 rounded-full bg-primary shadow-[0_0_8px_rgba(19,127,236,0.6)]"></div>
+</div>
+</div>
+</div>
+<!-- ListItem: Invitation (Actionable) -->
+<div class="flex flex-col gap-3 px-4 py-4 border-b border-slate-200/50 dark:border-slate-800/50 hover:bg-slate-50 dark:hover:bg-slate-800/30 transition-colors">
+<div class="flex gap-4 justify-between">
+<div class="flex items-start gap-4">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-xl h-14 w-14" data-alt="Team Titans athletic logo with a shield" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBTqyFQd42THkAk1jtFI0iHIOWfBa49M_mXoytjVPLK4Es7IKr42wv7vLYGixWKB0IbMyupxFl2Vibr2G7-v81TpE9Kuxmt0F9EbhSRPrdsIASYeCTrRXHJYwVxTrasosXcy1QgbtGDs-PCocDroWsgv5MMImDOoKOYouHvWlmjeAl0Tfnd5kHLtciFs1fsVEXQ9JqKGjllszLrW4qqsDDkPgJGV5W0pF0HIbmXmklakvIi2VnOcjnSeVygD26hPWx-9H2APv9CobOw");'></div>
+<div class="flex flex-1 flex-col justify-center">
+<p class="text-slate-900 dark:text-white text-base font-bold leading-normal">Invitation: Team Titans</p>
+<p class="text-slate-600 dark:text-[#9dabb9] text-sm font-normal leading-normal">Coach Mike invited you to join the elite squad.</p>
+<p class="text-slate-500 dark:text-slate-500 text-xs font-normal leading-normal mt-1">2h ago</p>
+</div>
+</div>
+<div class="shrink-0">
+<div class="flex size-7 items-center justify-center"><div class="size-2.5 rounded-full bg-primary shadow-[0_0_8px_rgba(19,127,236,0.6)]"></div></div>
+</div>
+</div>
+<div class="flex gap-3 mt-1 ml-18">
+<button class="flex-1 py-2 bg-primary text-white rounded-lg font-bold text-sm transition-transform active:scale-95">Accept</button>
+<button class="flex-1 py-2 bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-200 rounded-lg font-bold text-sm transition-transform active:scale-95">Decline</button>
+</div>
+</div>
+</section>
+<!-- SectionHeader: Earlier -->
+<section>
+<h3 class="text-slate-900 dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] px-4 pb-2 pt-8">Earlier</h3>
+<!-- ListItem: System Update (Read) -->
+<div class="flex items-center gap-4 px-4 py-4 justify-between border-b border-slate-200/50 dark:border-slate-800/50 opacity-80">
+<div class="flex items-center gap-4">
+<div class="text-slate-500 dark:text-slate-400 flex items-center justify-center rounded-full bg-slate-100 dark:bg-slate-800 shrink-0 size-14">
+<span class="material-symbols-outlined">schedule</span>
+</div>
+<div class="flex flex-col justify-center">
+<p class="text-slate-900 dark:text-white text-base font-medium leading-normal line-clamp-2">Your training session was rescheduled</p>
+<p class="text-slate-500 dark:text-[#9dabb9] text-xs font-normal leading-normal">Yesterday, 4:30 PM</p>
+</div>
+</div>
+<div class="shrink-0 w-7"></div>
+</div>
+<!-- ListItem: New Follower (Read) -->
+<div class="flex items-center gap-4 px-4 py-4 justify-between border-b border-slate-200/50 dark:border-slate-800/50 opacity-80">
+<div class="flex items-center gap-4">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full h-14 w-14" data-alt="Young athlete profile picture" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDo4NdE2HQGwSh6qh-pk4-wt0--uwaE1LPnN2txBBcFJk2X5GorFHkQx13_WcgBaN2T8wk60foPY2UbhtZydZadiF4bv7sGD5n2IvAYo1lMFHLNxJm1FCwuf9cGLteXzoojxNki_tulqjnF797Lszh1YPxHUIhN385WEHFxBG-wZ7ngs_gnKPq3Tv6rlNrzfAe4W099GLEk9Q8DsbXG0olo-AFPqYQXYL-Q1fXMJZOnSgmvdfCtKY0oC9R-QZ8LZg8eXmzPkTFvj63W");'></div>
+<div class="flex flex-col justify-center">
+<p class="text-slate-900 dark:text-white text-base font-medium leading-normal line-clamp-1"><span class="font-bold">Jordan Smith</span> followed you</p>
+<p class="text-slate-500 dark:text-[#9dabb9] text-xs font-normal leading-normal">Oct 24, 2023</p>
+</div>
+</div>
+<div class="shrink-0 w-7"></div>
+</div>
+<!-- ListItem: Achievement (Read) -->
+<div class="flex items-center gap-4 px-4 py-4 justify-between border-b border-slate-200/50 dark:border-slate-800/50 opacity-80">
+<div class="flex items-center gap-4">
+<div class="text-amber-500 flex items-center justify-center rounded-full bg-amber-500/10 shrink-0 size-14">
+<span class="material-symbols-outlined">emoji_events</span>
+</div>
+<div class="flex flex-col justify-center">
+<p class="text-slate-900 dark:text-white text-base font-medium leading-normal line-clamp-2">New Badge! "Weekly Warrior" earned</p>
+<p class="text-slate-500 dark:text-[#9dabb9] text-xs font-normal leading-normal">Oct 23, 2023</p>
+</div>
+</div>
+<div class="shrink-0 w-7"></div>
+</div>
+</section>
+</main>
+<!-- iOS Bottom Tab Bar Navigation -->
+<nav class="fixed bottom-0 left-0 right-0 max-w-md mx-auto bg-background-light/90 dark:bg-background-dark/90 backdrop-blur-lg border-t border-slate-200 dark:border-slate-800 px-6 py-3 flex justify-between items-center z-50">
+<div class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined text-2xl">home</span>
+<span class="text-[10px] font-medium uppercase">Home</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined text-2xl">search</span>
+<span class="text-[10px] font-medium uppercase">Explore</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-slate-400">
+<div class="bg-primary text-white p-2 rounded-full -mt-8 shadow-lg shadow-primary/40">
+<span class="material-symbols-outlined text-3xl">add</span>
+</div>
+<span class="text-[10px] font-medium uppercase mt-1">Post</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-primary">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">notifications</span>
+<span class="text-[10px] font-medium uppercase">Alerts</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined text-2xl">person</span>
+<span class="text-[10px] font-medium uppercase">Profile</span>
+</div>
+</nav>
+</div>
+</body></html>

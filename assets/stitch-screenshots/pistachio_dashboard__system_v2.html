@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Pistachio Dashboard (System v2)</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#B2F162",
+                        "obsidian": "#0B132B",
+                        "elevated-obsidian": "#1C2541",
+                        "stormy-blue": "#4E7D96",
+                        "pale-yellow": "#E5F1AF",
+                        "background-light": "#f7f8f6",
+                        "background-dark": "#0B132B",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark min-h-screen text-white font-display">
+<!-- Status Bar Spacer (iOS) -->
+<div class="h-12 w-full"></div>
+<!-- TopAppBar -->
+<nav class="flex items-center px-6 py-4 justify-between sticky top-0 z-50 bg-background-dark/80 backdrop-blur-md">
+<div class="flex size-10 shrink-0 items-center justify-center rounded-full bg-elevated-obsidian overflow-hidden border border-stormy-blue/30">
+<div class="bg-center bg-no-repeat aspect-square bg-cover size-full" data-alt="Athletic user profile portrait" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAg7LMKF2xU3kktncNp0tNYlah1SfKileZnAkSENfSZDugiUQhEPiqIcoE96BrLZU20Z6gFtx-o-_T0Q7XLT45mGAbVKYhAlWJ3BpQTfmGBt0NgwkOL0wr7bSBMlT1_nVjdw5L4_UnPpXEMQ0_7VSiUTkQpQrIX96hY4GlqF9wcmqSGZ8fmSelIvPcTMr2q6c_6RWJr7dI5dxyKJKS6pcllksI9kodPdGRUSSRcUv04abty3lPrcCJtswMvrdx3GYCvvruGYKYxIWw2");'>
+</div>
+</div>
+<h2 class="text-primary text-[20px] font-semibold leading-tight tracking-tight flex-1 text-center">Pistachio Dashboard</h2>
+<div class="flex size-10 items-center justify-end">
+<button class="flex items-center justify-center rounded-full size-10 bg-elevated-obsidian text-primary border border-stormy-blue/20">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+</div>
+</nav>
+<!-- Main Content Container -->
+<main class="px-4 pb-32">
+<!-- ActionPanel (Resume Button) -->
+<div class="py-6">
+<div class="flex flex-col items-center justify-between gap-6 rounded-[16px] border border-stormy-blue/20 bg-elevated-obsidian p-6">
+<div class="flex flex-col gap-1 text-center">
+<p class="text-white text-lg font-semibold leading-tight">Current Session: Interval Run</p>
+<p class="text-pale-yellow text-sm font-normal opacity-80">iPrActUS high-performance mode active</p>
+</div>
+<button class="flex w-full cursor-pointer items-center justify-center rounded-full h-14 bg-primary text-obsidian text-lg font-bold shadow-[0_0_20px_rgba(178,241,98,0.3)]">
+<span class="material-symbols-outlined mr-2">play_arrow</span>
+<span class="truncate">Resume Session</span>
+</button>
+</div>
+</div>
+<!-- SectionHeader -->
+<div class="flex items-center justify-between px-2">
+<h2 class="text-white text-[20px] font-semibold leading-tight tracking-tight py-4">Live Metrics</h2>
+<span class="text-pale-yellow text-xs font-medium bg-stormy-blue/20 px-3 py-1 rounded-full border border-stormy-blue/30">System v2.0</span>
+</div>
+<!-- Stats Grid -->
+<div class="flex flex-wrap gap-4 pb-6">
+<div class="flex min-w-[150px] flex-1 flex-col gap-3 rounded-[16px] p-5 bg-elevated-obsidian border border-stormy-blue/10">
+<div class="flex items-center justify-between">
+<p class="text-pale-yellow text-sm font-medium">Heart Rate</p>
+<span class="material-symbols-outlined text-primary text-lg">favorite</span>
+</div>
+<p class="text-white tracking-tight text-3xl font-bold leading-none">142 <span class="text-sm font-normal text-pale-yellow/60">BPM</span></p>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-primary text-sm">trending_up</span>
+<p class="text-primary text-xs font-semibold">+2.4%</p>
+</div>
+</div>
+<div class="flex min-w-[150px] flex-1 flex-col gap-3 rounded-[16px] p-5 bg-elevated-obsidian border border-stormy-blue/10">
+<div class="flex items-center justify-between">
+<p class="text-pale-yellow text-sm font-medium">Pace</p>
+<span class="material-symbols-outlined text-primary text-lg">speed</span>
+</div>
+<p class="text-white tracking-tight text-3xl font-bold leading-none">4'32" <span class="text-sm font-normal text-pale-yellow/60">/km</span></p>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-primary text-sm">trending_down</span>
+<p class="text-primary text-xs font-semibold">-1.2%</p>
+</div>
+</div>
+<div class="flex w-full flex-col gap-3 rounded-[16px] p-5 bg-elevated-obsidian border border-stormy-blue/10">
+<div class="flex items-center justify-between">
+<p class="text-pale-yellow text-sm font-medium">Recovery Readiness</p>
+<span class="material-symbols-outlined text-stormy-blue text-lg">bolt</span>
+</div>
+<div class="flex items-end justify-between">
+<p class="text-white tracking-tight text-3xl font-bold leading-none">88 <span class="text-sm font-normal text-pale-yellow/60">%</span></p>
+<div class="w-32 h-2 bg-obsidian rounded-full overflow-hidden">
+<div class="h-full bg-stormy-blue" style="width: 88%"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- SectionHeader Progress -->
+<h2 class="text-white text-[20px] font-semibold leading-tight tracking-tight px-2 pt-4 pb-2">Weekly Performance</h2>
+<!-- Charts Section -->
+<div class="px-2 py-4">
+<div class="flex flex-col gap-6 rounded-[16px] bg-elevated-obsidian p-6 border border-stormy-blue/10">
+<div class="flex justify-between items-start">
+<div class="flex flex-col gap-1">
+<p class="text-pale-yellow text-sm font-medium opacity-80 uppercase tracking-widest">Efficiency Score</p>
+<p class="text-white tracking-tight text-[36px] font-bold leading-tight">92.4</p>
+</div>
+<div class="flex flex-col items-end gap-1">
+<p class="text-primary text-base font-semibold">+5.2%</p>
+<p class="text-stormy-blue text-xs font-normal">vs last week</p>
+</div>
+</div>
+<div class="flex items-end justify-between h-[160px] gap-2 px-1">
+<div class="flex flex-col items-center gap-2 flex-1 group">
+<div class="bg-stormy-blue/20 hover:bg-primary/40 rounded-t-md w-full transition-all" style="height: 60%;"></div>
+<p class="text-pale-yellow text-[11px] font-bold opacity-60">M</p>
+</div>
+<div class="flex flex-col items-center gap-2 flex-1 group">
+<div class="bg-stormy-blue/20 hover:bg-primary/40 rounded-t-md w-full transition-all" style="height: 85%;"></div>
+<p class="text-pale-yellow text-[11px] font-bold opacity-60">T</p>
+</div>
+<div class="flex flex-col items-center gap-2 flex-1 group">
+<div class="bg-primary/80 rounded-t-md w-full transition-all" style="height: 95%;"></div>
+<p class="text-primary text-[11px] font-bold">W</p>
+</div>
+<div class="flex flex-col items-center gap-2 flex-1 group">
+<div class="bg-stormy-blue/20 hover:bg-primary/40 rounded-t-md w-full transition-all" style="height: 45%;"></div>
+<p class="text-pale-yellow text-[11px] font-bold opacity-60">T</p>
+</div>
+<div class="flex flex-col items-center gap-2 flex-1 group">
+<div class="bg-stormy-blue/20 hover:bg-primary/40 rounded-t-md w-full transition-all" style="height: 70%;"></div>
+<p class="text-pale-yellow text-[11px] font-bold opacity-60">F</p>
+</div>
+<div class="flex flex-col items-center gap-2 flex-1 group">
+<div class="bg-stormy-blue/20 hover:bg-primary/40 rounded-t-md w-full transition-all" style="height: 30%;"></div>
+<p class="text-pale-yellow text-[11px] font-bold opacity-60">S</p>
+</div>
+<div class="flex flex-col items-center gap-2 flex-1 group">
+<div class="bg-stormy-blue/20 hover:bg-primary/40 rounded-t-md w-full transition-all" style="height: 55%;"></div>
+<p class="text-pale-yellow text-[11px] font-bold opacity-60">S</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Secondary Info -->
+<div class="p-2 text-center">
+<p class="text-pale-yellow/40 text-[10px] uppercase tracking-[0.2em]">iPrActUS high-performance athletic design system version 2</p>
+</div>
+</main>
+<!-- Bottom Tab Bar (iOS Style) -->
+<div class="fixed bottom-0 left-0 right-0 bg-background-dark/95 border-t border-stormy-blue/20 backdrop-blur-xl px-8 pt-3 pb-8 flex justify-between items-center z-[100]">
+<button class="flex flex-col items-center gap-1 text-primary">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-[10px] font-medium">Home</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-stormy-blue">
+<span class="material-symbols-outlined">monitoring</span>
+<span class="text-[10px] font-medium">Stats</span>
+</button>
+<div class="relative -top-6">
+<button class="size-14 bg-primary text-obsidian rounded-full flex items-center justify-center shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined font-bold text-3xl">add</span>
+</button>
+</div>
+<button class="flex flex-col items-center gap-1 text-stormy-blue">
+<span class="material-symbols-outlined">map</span>
+<span class="text-[10px] font-medium">Explore</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-stormy-blue">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-[10px] font-medium">System</span>
+</button>
+</div>
+<!-- Home Indicator (iOS) -->
+<div class="fixed bottom-1 left-1/2 -translate-x-1/2 w-32 h-1 bg-white/20 rounded-full z-[101]"></div>
+</body></html>

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>iPractus Streamer Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(16, 25, 34, 0.6);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+        .chat-mask {
+            mask-image: linear-gradient(to top, black 80%, transparent 100%);
+            -webkit-mask-image: linear-gradient(to top, black 80%, transparent 100%);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-display bg-background-dark text-white overflow-hidden">
+<!-- Full-screen Camera Feed Background -->
+<div class="fixed inset-0 z-0 bg-center bg-cover" data-alt="Athlete demonstrating a basketball drill on a professional court" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBofOPFH7pSid8N1bHdk8HFGBLwZs6HyRbMWEtWjsG34WdjFcyNThwQ_TayLWGV_kdd3PhtfJzuY-KGXA0E0WKgRSR_Qs-08CijmxBBHPgoXxuISeINA5599mNspqclt-N39cAK-wUas_3w0q0DVUEVGWxZm5FRn7Ua76zjaW7m1rldwSxF6ual-07Rp6Kfe0ZgxCv_417BkJYQV2jWXmuNDQ5_xnxrRqQvnoLWAHOd3AURTQtj-cjkQ4xreXVQMJvOcSiInubXE75b');">
+<!-- Dark Overlay for better UI contrast -->
+<div class="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/60"></div>
+</div>
+<!-- Main UI Layer -->
+<div class="relative z-10 flex flex-col h-screen w-full max-w-md mx-auto overflow-hidden">
+<!-- Top Navigation / App Bar -->
+<header class="flex items-center justify-between p-6 pt-12">
+<div class="flex items-center gap-2 px-3 py-1.5 glass-panel rounded-full">
+<div class="flex items-center gap-1.5">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-500 opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-red-500"></span>
+</span>
+<span class="text-xs font-bold tracking-wider uppercase">Live</span>
+</div>
+<div class="w-px h-3 bg-white/20 mx-1"></div>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">visibility</span>
+<span class="text-xs font-medium">1.2k</span>
+</div>
+</div>
+<button class="px-4 py-2 bg-red-600 hover:bg-red-700 text-white text-sm font-bold rounded-lg transition-colors">
+                End Stream
+            </button>
+</header>
+<!-- Spacer to push content to bottom -->
+<div class="flex-grow"></div>
+<!-- Chat Overlay -->
+<div class="px-4 chat-mask max-h-64 overflow-y-auto mb-4">
+<div class="space-y-3">
+<!-- SingleComment variant 1 -->
+<div class="flex w-full flex-row items-start justify-start gap-3 p-2 rounded-lg glass-panel max-w-[85%]">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full w-8 shrink-0" data-alt="User avatar of Coach Mike" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCCMf-P_RJq69jHsHtGxdQtFB2UZUdPe7RS-V7vZoz3NINfJ2cAsVyROQvKGng0yKJ6MJZLqSg6ddHa7bgcEd9s-62JPUIxKj3PM-R8l8MwgOatekH9jdnudd-iP1Cfd-cT9bMmq568RgMPAhQY3d-_TEs5n6h35JcUKSVGicX-J-2LM69go4UWAeCLwMy99GTCHtZb0Jnji4FItbaIFU9KtRMQjPYUgx35hKHyFP02Z0us25pujBwMEk4UveMwnRJR_PmfRNopGgnT");'></div>
+<div class="flex h-full flex-1 flex-col items-start justify-start">
+<div class="flex w-full flex-row items-center gap-x-2">
+<p class="text-white text-xs font-bold leading-none">Coach_Mike</p>
+<p class="text-white/60 text-[10px] font-normal leading-none">now</p>
+</div>
+<p class="text-white text-sm font-normal mt-1">Great form on those crossovers! 🔥</p>
+</div>
+</div>
+<!-- SingleComment variant 2 -->
+<div class="flex w-full flex-row items-start justify-start gap-3 p-2 rounded-lg glass-panel max-w-[85%]">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full w-8 shrink-0" data-alt="User avatar of Athlete Sarah" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDJB3183kjoM-fWnhp8wnDgHoQsUbpE0_qoLvhrEN6nfkvsSn2AqdIx6TTq1s_PO3N9jI6_X9PlrtkvckXnjFQ5UFTfwUjrNRtlZYOp8fGhccMhDTaGdShwDAAbHJasmT_F5vR2gizv-LWpxcNIqavvAr7XmpASSgUQE7a8GFjcbCwNkC34NBHf7Z7s-rNZeGTKtzw_hcjxH1S42K00GpauiGsAJFabJcjsNp5QRjwLdgVN4jWQHenevyFyUldu5xopCNRAt9fiwUHF");'></div>
+<div class="flex h-full flex-1 flex-col items-start justify-start">
+<div class="flex w-full flex-row items-center gap-x-2">
+<p class="text-white text-xs font-bold leading-none">Athlete_Sarah</p>
+<p class="text-white/60 text-[10px] font-normal leading-none">1m</p>
+</div>
+<p class="text-white text-sm font-normal mt-1">How many reps for this set?</p>
+</div>
+</div>
+<!-- SingleComment variant 3 -->
+<div class="flex w-full flex-row items-start justify-start gap-3 p-2 rounded-lg glass-panel max-w-[85%]">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full w-8 shrink-0" data-alt="User avatar of Jordan" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuACqdHAv0ACSNSBhv1RWfZYNXyDLtjKESjwwFeKAEc8Jiy4mC1fB3GHnW4qk84hwcjaoc09hWfiGGY8qxWCxOoFWjx-QX8JgsddLjrx-Cqpa62lwnwBsiwVS4t2RuugvH4v-ldgodIHn1atC3s33swCN6YUX6lGA8ejnSLTGG7-MGZqrFV5MFwf6ua6sTmagZ3TlB9Uti-gRMG9Rgl35bbL_aDnjWYR7lyOsEKXodXQ5jZ5mfcg32idpMePgopSK7D29X95naSWqs35");'></div>
+<div class="flex h-full flex-1 flex-col items-start justify-start">
+<div class="flex w-full flex-row items-center gap-x-2">
+<p class="text-white text-xs font-bold leading-none">Jordan_B</p>
+<p class="text-white/60 text-[10px] font-normal leading-none">2m</p>
+</div>
+<p class="text-white text-sm font-normal mt-1">Watching from NYC! Let's go!</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Dashboard Controls Area -->
+<div class="px-6 pb-10 space-y-6">
+<!-- Stream Stats HUD -->
+<div class="flex items-center justify-between glass-panel px-6 py-3 rounded-xl border border-white/10">
+<div class="flex flex-col items-center">
+<span class="text-white/60 text-[10px] uppercase font-bold tracking-widest">Duration</span>
+<span class="text-white text-lg font-bold">00:45:12</span>
+</div>
+<div class="w-px h-8 bg-white/10"></div>
+<div class="flex flex-col items-center">
+<span class="text-white/60 text-[10px] uppercase font-bold tracking-widest">Peak Viewers</span>
+<span class="text-white text-lg font-bold">1,850</span>
+</div>
+<div class="w-px h-8 bg-white/10"></div>
+<div class="flex flex-col items-center">
+<span class="text-white/60 text-[10px] uppercase font-bold tracking-widest">Engagement</span>
+<span class="text-white text-lg font-bold">84%</span>
+</div>
+</div>
+<!-- Streamer Controls -->
+<div class="flex items-center justify-between gap-4">
+<button class="flex flex-col items-center gap-2 group">
+<div class="size-14 rounded-full glass-panel border border-white/20 flex items-center justify-center group-active:bg-white/20 transition-all">
+<span class="material-symbols-outlined text-white text-2xl">flip_camera_ios</span>
+</div>
+<span class="text-[10px] font-bold text-white uppercase">Flip</span>
+</button>
+<button class="flex flex-col items-center gap-2 group">
+<div class="size-14 rounded-full glass-panel border border-white/20 flex items-center justify-center group-active:bg-white/20 transition-all">
+<span class="material-symbols-outlined text-white text-2xl">mic</span>
+</div>
+<span class="text-[10px] font-bold text-white uppercase">Mute</span>
+</button>
+<button class="flex flex-col items-center gap-2 group">
+<div class="size-14 rounded-full bg-primary flex items-center justify-center shadow-lg shadow-primary/30 group-active:scale-95 transition-all">
+<span class="material-symbols-outlined text-white text-2xl">share</span>
+</div>
+<span class="text-[10px] font-bold text-primary uppercase">Share</span>
+</button>
+<button class="flex flex-col items-center gap-2 group">
+<div class="size-14 rounded-full glass-panel border border-white/20 flex items-center justify-center group-active:bg-white/20 transition-all">
+<span class="material-symbols-outlined text-white text-2xl">analytics</span>
+</div>
+<span class="text-[10px] font-bold text-white uppercase">Stats</span>
+</button>
+<button class="flex flex-col items-center gap-2 group">
+<div class="size-14 rounded-full glass-panel border border-white/20 flex items-center justify-center group-active:bg-white/20 transition-all">
+<span class="material-symbols-outlined text-white text-2xl">flash_on</span>
+</div>
+<span class="text-[10px] font-bold text-white uppercase">Flash</span>
+</button>
+</div>
+</div>
+<!-- iOS Home Indicator Space -->
+<div class="h-6 w-full"></div>
+</div>
+</body></html>

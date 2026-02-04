@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>iPractus Connections</title>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&amp;family=Noto+Sans:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#1173d4",
+              "background-light": "#f6f7f8",
+              "background-dark": "#101922",
+            },
+            fontFamily: {
+              "display": ["Lexend", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-[#111418] dark:text-white transition-colors duration-200">
+<div class="relative flex h-auto min-h-screen w-full flex-col max-w-[480px] mx-auto bg-white dark:bg-background-dark overflow-x-hidden shadow-xl">
+<!-- Header Section (Sticky) -->
+<div class="sticky top-0 z-10 bg-white/80 dark:bg-background-dark/80 backdrop-blur-md">
+<!-- Top App Bar -->
+<div class="flex items-center p-4 pb-2 justify-between">
+<div class="text-[#111418] dark:text-white flex size-12 shrink-0 items-center justify-start">
+<span class="material-symbols-outlined cursor-pointer">arrow_back_ios</span>
+</div>
+<h2 class="text-[#111418] dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center">Connections</h2>
+<div class="flex w-12 items-center justify-end">
+<button class="flex cursor-pointer items-center justify-center rounded-lg h-12 bg-transparent text-[#111418] dark:text-white">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+</div>
+<!-- Search Bar -->
+<div class="px-4 py-2">
+<label class="flex flex-col min-w-40 h-10 w-full">
+<div class="flex w-full flex-1 items-stretch rounded-lg h-full">
+<div class="text-[#617589] dark:text-gray-400 flex border-none bg-gray-100 dark:bg-gray-800 items-center justify-center pl-4 rounded-l-lg" data-icon="search">
+<span class="material-symbols-outlined text-[20px]">search</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#111418] dark:text-white focus:outline-0 focus:ring-0 border-none bg-gray-100 dark:bg-gray-800 focus:border-none h-full placeholder:text-[#617589] px-4 rounded-l-none border-l-0 pl-2 text-sm font-normal leading-normal" placeholder="Search connections by name or role" value=""/>
+</div>
+</label>
+</div>
+<!-- Segmented Buttons -->
+<div class="flex px-4 py-3">
+<div class="flex h-10 flex-1 items-center justify-center rounded-lg bg-gray-100 dark:bg-gray-800 p-1">
+<label class="flex cursor-pointer h-full grow items-center justify-center overflow-hidden rounded-lg px-2 has-[:checked]:bg-white dark:has-[:checked]:bg-gray-700 has-[:checked]:shadow-sm has-[:checked]:text-primary text-[#617589] dark:text-gray-400 text-sm font-medium transition-all">
+<span class="truncate">Following</span>
+<input checked="" class="invisible w-0" name="connection-toggle" type="radio" value="Following"/>
+</label>
+<label class="flex cursor-pointer h-full grow items-center justify-center overflow-hidden rounded-lg px-2 has-[:checked]:bg-white dark:has-[:checked]:bg-gray-700 has-[:checked]:shadow-sm has-[:checked]:text-primary text-[#617589] dark:text-gray-400 text-sm font-medium transition-all">
+<span class="truncate">Followers</span>
+<input class="invisible w-0" name="connection-toggle" type="radio" value="Followers"/>
+</label>
+</div>
+</div>
+<div class="h-px bg-gray-100 dark:bg-gray-800 w-full"></div>
+</div>
+<!-- Connection List -->
+<div class="flex flex-col flex-1 pb-10">
+<!-- Connection 1 -->
+<div class="flex items-center gap-4 bg-white dark:bg-background-dark px-4 min-h-[80px] py-3 justify-between border-b border-gray-50 dark:border-gray-800/50">
+<div class="flex items-center gap-4">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full h-14 w-14 border-2 border-primary/10" data-alt="Portrait of Marcus Thompson professional athlete" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCJW35KrVq-Y79ZlNhlalZXY0IYiULm6LWS-40Z9lFgADz0QfKwVfzRvJcXCzDBythc5YNqSZoOuH91T1gf3zKG0DpkZUe2iE8mO0QLGIk9wZGFxNzKd7t9yLzsXfFA8r2iLc_4-GIXxAL_mcxQ6aq4-l14i72iX4mYK7aKrIPiv9TWdb9gOaEouCDYoqPT6OBohd8gus0vaAyoI9pEv9uhlyiPDrGjujBW0K12xq9h7tx1722jmLE0lBO9L_VsNueKdrGcnYhq1Nu0");'></div>
+<div class="flex flex-col justify-center">
+<p class="text-[#111418] dark:text-white text-base font-semibold leading-normal line-clamp-1">Marcus Thompson</p>
+<p class="text-[#617589] dark:text-gray-400 text-xs font-normal leading-normal line-clamp-1">Pro Athlete • Basketball</p>
+</div>
+</div>
+<div class="shrink-0">
+<button class="flex min-w-[96px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-9 px-4 border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-[#111418] dark:text-white text-sm font-medium transition-colors hover:bg-gray-50">
+<span class="truncate">Following</span>
+</button>
+</div>
+</div>
+<!-- Connection 2 -->
+<div class="flex items-center gap-4 bg-white dark:bg-background-dark px-4 min-h-[80px] py-3 justify-between border-b border-gray-50 dark:border-gray-800/50">
+<div class="flex items-center gap-4">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full h-14 w-14 border-2 border-primary/10" data-alt="Portrait of Coach Sarah Jenkins head coach" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC8n8B0btVU-aVnVIa4VBWNkC1JDK4nhstfjcL4FAc6SIJWrOGOq0Dt8W2TZKOnRmN012RLpRL0rHHz4rwoooGcpFEvHZEN09Q9BvEduF3lmjJ21OdwRF4ZwMudwZQBC_Pvz3yC-KIIyqZQDZYwnGfr8t_Y6CGojbNqH1hkhges-qMo9iuyQrGa3WP6vn_Jz-DqCX8t1CZbJmHxeMZ4MpCmTkO0n_KxQwEn0Cb6ii4nNKfNC-qj5GeL4pHXWdNiPi8XpMjzb5vdheAK");'></div>
+<div class="flex flex-col justify-center">
+<p class="text-[#111418] dark:text-white text-base font-semibold leading-normal line-clamp-1">Sarah Jenkins</p>
+<p class="text-[#617589] dark:text-gray-400 text-xs font-normal leading-normal line-clamp-1">Head Coach • Track &amp; Field</p>
+</div>
+</div>
+<div class="shrink-0">
+<button class="flex min-w-[96px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-9 px-4 bg-primary text-white text-sm font-medium transition-opacity hover:opacity-90">
+<span class="truncate">Follow</span>
+</button>
+</div>
+</div>
+<!-- Connection 3 -->
+<div class="flex items-center gap-4 bg-white dark:bg-background-dark px-4 min-h-[80px] py-3 justify-between border-b border-gray-50 dark:border-gray-800/50">
+<div class="flex items-center gap-4">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full h-14 w-14 border-2 border-primary/10" data-alt="Portrait of David Chen sports recruiter" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCBRTHnhsgQiDgsMtaBfqzYBnNbW5dYdyWhRfmy4Hg_3P9aY6zjYxhSA3eXv7LXQ8iIKyRDGkt5h0xdauLvWkQKo5eFzVA9QtdemJIIoEBE1xR1OwIvaYcfe5RsYBFxUenK5NN9W3y3Y4bYTxqY_wmRMBzuH5-lpwu43H8VVGxmy0W-0Ox3JDMPvh7OMlrf3kYelEaTA2b03s3JMWk7yEYaN_w9S8rVnkKw_zb7rz9Pn-q6DIjaWH_n6GQjtO31jk1pD8UjwtzaAZik");'></div>
+<div class="flex flex-col justify-center">
+<p class="text-[#111418] dark:text-white text-base font-semibold leading-normal line-clamp-1">David Chen</p>
+<p class="text-[#617589] dark:text-gray-400 text-xs font-normal leading-normal line-clamp-1">Talent Scout • UEFA</p>
+</div>
+</div>
+<div class="shrink-0">
+<button class="flex min-w-[96px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-9 px-4 border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-[#111418] dark:text-white text-sm font-medium">
+<span class="truncate">Following</span>
+</button>
+</div>
+</div>
+<!-- Connection 4 -->
+<div class="flex items-center gap-4 bg-white dark:bg-background-dark px-4 min-h-[80px] py-3 justify-between border-b border-gray-50 dark:border-gray-800/50">
+<div class="flex items-center gap-4">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full h-14 w-14 border-2 border-primary/10" data-alt="Portrait of Elena Rodriguez physiotherapist" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBCM5m67KDCeMkqOTQyRmaY5ZDq5V5hC5EUOFdP0hydRRdX0_XmBFw0mIZ7qjchUXSQXQP4Ni0EPe90PnIPmV_Ix7IOT6FCLdfbeQyMaWZXtN__2CUWNjR48_9_Id_5_Ksy0ztUqmMu61HIn1xjSls1HwMptFNB0VoheONOYXx72Bt_9wfaDwxm4toFECzKclCFhHSHrJKqnAU2s0lyC89Ajt0W32J-fkOwOcV_oVWlZafDVWQZbwUc5kf_1Wns2R4oUe3ja-oelH_N");'></div>
+<div class="flex flex-col justify-center">
+<p class="text-[#111418] dark:text-white text-base font-semibold leading-normal line-clamp-1">Elena Rodriguez</p>
+<p class="text-[#617589] dark:text-gray-400 text-xs font-normal leading-normal line-clamp-1">Sports Physiotherapist</p>
+</div>
+</div>
+<div class="shrink-0">
+<button class="flex min-w-[96px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-9 px-4 bg-primary text-white text-sm font-medium transition-opacity hover:opacity-90">
+<span class="truncate">Follow</span>
+</button>
+</div>
+</div>
+<!-- Connection 5 -->
+<div class="flex items-center gap-4 bg-white dark:bg-background-dark px-4 min-h-[80px] py-3 justify-between border-b border-gray-50 dark:border-gray-800/50">
+<div class="flex items-center gap-4">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full h-14 w-14 border-2 border-primary/10" data-alt="Portrait of Michael Brown strength coach" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCW0kZF9iABdrTnTuVahTSCx-VVg7fKClnNQMpxVKjEyZW1zLh3gNZW8U4eRdF_AT5OK6JAK-I33C0q7oPAHY5U2ZehvmYyBfWqknBQB0_mim8g9EOrbH4mf_FY9M2yEVk3JE5Nwp_hnQV091zKSxysJjHXPoW2IkCHmSK0EY_rEPpNYPi4i6ST6DxuuoZ543PLTLvtASLct29JcgdBfZtG02K9sS3rSVOtcJH3VXBZWAH2YqpHjsXO20a9AMQEwz3R6Fezhl-YjMjL");'></div>
+<div class="flex flex-col justify-center">
+<p class="text-[#111418] dark:text-white text-base font-semibold leading-normal line-clamp-1">Michael Brown</p>
+<p class="text-[#617589] dark:text-gray-400 text-xs font-normal leading-normal line-clamp-1">Strength &amp; Conditioning</p>
+</div>
+</div>
+<div class="shrink-0">
+<button class="flex min-w-[96px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-9 px-4 border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-[#111418] dark:text-white text-sm font-medium">
+<span class="truncate">Following</span>
+</button>
+</div>
+</div>
+<!-- Connection 6 -->
+<div class="flex items-center gap-4 bg-white dark:bg-background-dark px-4 min-h-[80px] py-3 justify-between border-b border-gray-50 dark:border-gray-800/50">
+<div class="flex items-center gap-4">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full h-14 w-14 border-2 border-primary/10" data-alt="Portrait of Jessica Wu youth coach" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBCPxVMjKGTXKzfPQU7JvdVjSN-RIHVcscAgTbuYtOCRvHA5Gv2tP1FmPxRsdbTkxjvsYibwGYBDSpbPRV8O64bvyh3rgJs4B9FUO_oX2VZ2sPdxPW1SpO9GMOz1KJS5oorJb4dV0rYEQG63DGSfPbM0dQYAhnr-0mI0Z3-J-BFn_6u29-ZOEJjUMcbWWmRGx5sqXwUIw0VAFlxYfzB2vIyCeXDzUHlA2pW4G-bPV-eeBYfiOdtjVFtxs2Gt4dCs7t-AX51Hgum7pAZ");'></div>
+<div class="flex flex-col justify-center">
+<p class="text-[#111418] dark:text-white text-base font-semibold leading-normal line-clamp-1">Jessica Wu</p>
+<p class="text-[#617589] dark:text-gray-400 text-xs font-normal leading-normal line-clamp-1">Youth Coach • Swimming</p>
+</div>
+</div>
+<div class="shrink-0">
+<button class="flex min-w-[96px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-9 px-4 bg-primary text-white text-sm font-medium">
+<span class="truncate">Follow</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Sticky Bottom Navigation Mockup -->
+<div class="sticky bottom-0 w-full bg-white/90 dark:bg-background-dark/90 backdrop-blur-md border-t border-gray-100 dark:border-gray-800 px-6 py-3 flex justify-between items-center">
+<div class="flex flex-col items-center gap-1 text-gray-400">
+<span class="material-symbols-outlined">home</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-primary">
+<span class="material-symbols-outlined">group</span>
+<div class="w-1 h-1 rounded-full bg-primary"></div>
+</div>
+<div class="flex flex-col items-center gap-1 text-gray-400">
+<span class="material-symbols-outlined">explore</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-gray-400">
+<span class="material-symbols-outlined">notifications</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-gray-400">
+<span class="material-symbols-outlined">account_circle</span>
+</div>
+</div>
+</div>
+</body></html>

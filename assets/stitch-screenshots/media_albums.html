@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>iPractus Media Albums</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Lexend"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Lexend', sans-serif;
+        }
+        .album-stack::before {
+            content: '';
+            position: absolute;
+            top: -4px;
+            right: -4px;
+            width: 100%;
+            height: 100%;
+            background: #232d36;
+            border-radius: 0.5rem;
+            z-index: -1;
+        }
+        .album-stack::after {
+            content: '';
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            width: 100%;
+            height: 100%;
+            background: #1c252e;
+            border-radius: 0.5rem;
+            z-index: -2;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white min-h-screen">
+<!-- Top Navigation Bar -->
+<header class="sticky top-0 z-50 bg-background-light dark:bg-background-dark/95 backdrop-blur-md px-4 py-3 flex items-center justify-between border-b border-slate-200 dark:border-slate-800">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-2xl">arrow_back_ios</span>
+<h1 class="text-lg font-bold tracking-tight">Media Albums</h1>
+</div>
+<div class="flex items-center gap-3">
+<button class="p-2 hover:bg-slate-200 dark:hover:bg-slate-800 rounded-full transition-colors">
+<span class="material-symbols-outlined">search</span>
+</button>
+<button class="p-2 hover:bg-slate-200 dark:hover:bg-slate-800 rounded-full transition-colors">
+<span class="material-symbols-outlined">filter_list</span>
+</button>
+</div>
+</header>
+<!-- Navigation Tabs -->
+<nav class="px-4 mt-2">
+<div class="flex border-b border-slate-200 dark:border-slate-800 gap-6">
+<a class="flex flex-col items-center justify-center border-b-2 border-transparent text-slate-500 dark:text-slate-400 pb-3 pt-2 text-sm font-medium" href="#">
+                All Media
+            </a>
+<a class="flex flex-col items-center justify-center border-b-2 border-primary text-primary pb-3 pt-2 text-sm font-bold" href="#">
+                Albums
+            </a>
+<a class="flex flex-col items-center justify-center border-b-2 border-transparent text-slate-500 dark:text-slate-400 pb-3 pt-2 text-sm font-medium" href="#">
+                Shared
+            </a>
+</div>
+</nav>
+<!-- Main Content: Album Grid -->
+<main class="p-4 pb-24">
+<div class="grid grid-cols-2 gap-x-4 gap-y-8 mt-2">
+<!-- Create New Album Card -->
+<div class="relative flex flex-col gap-3">
+<div class="aspect-square flex flex-col items-center justify-center rounded-lg border-2 border-dashed border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-[#161e27] cursor-pointer hover:border-primary/50 transition-colors group">
+<div class="bg-primary/10 group-hover:bg-primary/20 p-3 rounded-full transition-colors">
+<span class="material-symbols-outlined text-primary font-bold">add</span>
+</div>
+</div>
+<div class="px-1">
+<p class="text-sm font-bold">New Album</p>
+<p class="text-xs text-slate-500 dark:text-slate-400">Create collection</p>
+</div>
+</div>
+<!-- Album Card 1: Game Highlights -->
+<div class="relative flex flex-col gap-3 group cursor-pointer">
+<div class="album-stack relative aspect-square rounded-lg bg-cover bg-center overflow-hidden" data-alt="Intense sports game action shot under bright stadium lights" style="background-image: linear-gradient(180deg, rgba(0,0,0,0) 60%, rgba(0,0,0,0.8) 100%), url('https://lh3.googleusercontent.com/aida-public/AB6AXuAYsPZMkgXykI_hrMUFPWV52kW2iLZFeV4-UM8m6XLN1yVoePQNLg9fsPqz4RKTrzp0GLsGIOo186Rm57TzKpWubHj5ZNe66pZi_eroAfRZBtiN96AABanpiXuDlRnYrEQDoSLpZabuiJdM9X6bp3cdgqeBKQgR_7_VlHlsYx0yy_AWwLq1OoC0Ru27K6G-glw_6JQApjWXmP0nJZerEwO3bEeSnpEh8nUWe2HCLAzD5S3AuxVjPWsjWRUUn607LJBq7Pu-1nN_aqZL');">
+</div>
+<div class="px-1">
+<p class="text-sm font-bold truncate">Game Highlights</p>
+<div class="flex items-center gap-1.5 mt-0.5">
+<span class="material-symbols-outlined text-[14px] text-primary">video_library</span>
+<p class="text-xs text-slate-500 dark:text-slate-400">42 items</p>
+</div>
+</div>
+</div>
+<!-- Album Card 2: Training Drills -->
+<div class="relative flex flex-col gap-3 group cursor-pointer">
+<div class="album-stack relative aspect-square rounded-lg bg-cover bg-center overflow-hidden" data-alt="Neat row of orange training cones on a green turf field" style="background-image: linear-gradient(180deg, rgba(0,0,0,0) 60%, rgba(0,0,0,0.8) 100%), url('https://lh3.googleusercontent.com/aida-public/AB6AXuCQF__VD6pSoQUwwzWIB_q_yvrMxoL7GSg-aqLNjbu0BKskHCNB5BN6ZiMQy7YaZvvHAtGNi0jleP3KGh58ZJOWgx4k8WqqE3iRqyFOeA8xoleS1kPGwngxUC-6lKqS_9VXvqbFZDrPzmcC5XDKb8-OOl2fQAIIfm1o6L1_OFPS87djyq78O6BxJEI0SkGUV4vaxrstnCWDucoGBeafCXV7BQbI246xW3ZDsMRhsrT9Vpg_mmHBJZ8Y0hB6s-Gz8gKZmCfixWHfgAMD');">
+</div>
+<div class="px-1">
+<p class="text-sm font-bold truncate">Training Drills</p>
+<div class="flex items-center gap-1.5 mt-0.5">
+<span class="material-symbols-outlined text-[14px] text-primary">movie</span>
+<p class="text-xs text-slate-500 dark:text-slate-400">128 items</p>
+</div>
+</div>
+</div>
+<!-- Album Card 3: Team Socials -->
+<div class="relative flex flex-col gap-3 group cursor-pointer">
+<div class="album-stack relative aspect-square rounded-lg bg-cover bg-center overflow-hidden" data-alt="Happy sports team members celebrating together in locker room" style="background-image: linear-gradient(180deg, rgba(0,0,0,0) 60%, rgba(0,0,0,0.8) 100%), url('https://lh3.googleusercontent.com/aida-public/AB6AXuCOwM8uWATBLmF1ar-TmxxIrSS9hll-4TsrrrxbA41LAR5OcXvuS26onn6V8joqSOfra1QJlwLbI4cqotZjL7UHtVGbHdT8EkvpDWb3nMmUGTsvAAtP0qUiG9GEURRnNVD4ZfS1hchOiWZwadtF38HbIiN5tPEkPWlptKHjnRCcmAwt1jtpchOho4Tm7gFPEmAt42T6QVQvLzsTBPPqa5H9U5Acr6qQAtVDPSpmEp2Cw0gpSLB9yYkX6g4QggVohHJAs_0dncNRY_zI');">
+</div>
+<div class="px-1">
+<p class="text-sm font-bold truncate">Team Socials</p>
+<div class="flex items-center gap-1.5 mt-0.5">
+<span class="material-symbols-outlined text-[14px] text-primary">photo_library</span>
+<p class="text-xs text-slate-500 dark:text-slate-400">85 items</p>
+</div>
+</div>
+</div>
+<!-- Album Card 4: Scouting Footage -->
+<div class="relative flex flex-col gap-3 group cursor-pointer">
+<div class="album-stack relative aspect-square rounded-lg bg-cover bg-center overflow-hidden" data-alt="Cinematic slow motion shot of an athlete in motion" style="background-image: linear-gradient(180deg, rgba(0,0,0,0) 60%, rgba(0,0,0,0.8) 100%), url('https://lh3.googleusercontent.com/aida-public/AB6AXuAt6h8uxf9mc7gJn4iwy2_JUoxeXl5-M3kl7jLSDgoxwyu2TMvnZjJlYxmnw2kPw2TwBEV1GfJ_p_Ebl50NWTOvEh6EFs_apxeFWZZvjyw5b0LT2hm0QjihI8BxnKkCN1n-yzrk9cmeJNijmjC7nP497EW1rmFStDUXxyeCRAfqXIwktYz7oNFLwEM-yHjJ9ek8UgCHGKvzVUHgYFSJz5ZsFVi3sJeT1ZgOSwlFKFoQ-slerOUadIz--cy6LHb0aMB26wiA35FiWcuL');">
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="bg-black/30 backdrop-blur-sm rounded-full p-2">
+<span class="material-symbols-outlined text-white text-3xl">play_circle</span>
+</div>
+</div>
+</div>
+<div class="px-1">
+<p class="text-sm font-bold truncate">Scouting Footage</p>
+<div class="flex items-center gap-1.5 mt-0.5">
+<span class="material-symbols-outlined text-[14px] text-primary">monitoring</span>
+<p class="text-xs text-slate-500 dark:text-slate-400">15 items</p>
+</div>
+</div>
+</div>
+<!-- Album Card 5: Pre-season Prep -->
+<div class="relative flex flex-col gap-3 group cursor-pointer">
+<div class="album-stack relative aspect-square rounded-lg bg-cover bg-center overflow-hidden" data-alt="Dumbbells and gym equipment in a high-performance training center" style="background-image: linear-gradient(180deg, rgba(0,0,0,0) 60%, rgba(0,0,0,0.8) 100%), url('https://lh3.googleusercontent.com/aida-public/AB6AXuCFW1D8LmTtR9nk2wXNIL4yUMNtLQhQD82yzXf8BpV71Tx-sWebmwn3sxNQSH1ELEJS5YH99omugjw2EikLdcoynn4JoJXSJOr2TmDLXAK-plwFNI-B-B6U7lVZ3fMXMbXzSLGrjkAKjgTpB6QQU-QW1GVKGbQrKJnx4eTHU1hVf9610BTFTUiGWImh-Cv6MQyAO2Jm80gmoJ4Ei7ytPRsU1n0cEU7llm7eqb2ZuHEIiD1OcuJsMnRh-hZ-vB7FlGKqti9dwlXmxLI6');">
+</div>
+<div class="px-1">
+<p class="text-sm font-bold truncate">Pre-season Prep</p>
+<div class="flex items-center gap-1.5 mt-0.5">
+<span class="material-symbols-outlined text-[14px] text-primary">fitness_center</span>
+<p class="text-xs text-slate-500 dark:text-slate-400">33 items</p>
+</div>
+</div>
+</div>
+<!-- Album Card 6: Tournaments -->
+<div class="relative flex flex-col gap-3 group cursor-pointer">
+<div class="album-stack relative aspect-square rounded-lg bg-cover bg-center overflow-hidden" data-alt="Close up of a shiny gold trophy against dark background" style="background-image: linear-gradient(180deg, rgba(0,0,0,0) 60%, rgba(0,0,0,0.8) 100%), url('https://lh3.googleusercontent.com/aida-public/AB6AXuDjiSR74cWTXbxzQ2fhVnwTcMrZef4-rCtN7kWSBX_DaeHhAAMf7TxJJKcTxpa5E-B8WFwTVNHQoacKZqmraIyh2An0Ghv1dGPeIrXr7MFKJLX7FKDQO6YhBGBqHBSeUw0BP3DCW4ylrFQGn8LiOFrCblM1LQ5lvizCwbz75z9QS3ZokLfFLN5OeLbsD089ez23IohSOYjytHzmlrslAI5ea4tfvIaD3flQrLbA3JPVPxeBtZj0wHNZ_anESMOWE1Y7LGbH-5Ic47qn');">
+</div>
+<div class="px-1">
+<p class="text-sm font-bold truncate">Tournaments</p>
+<div class="flex items-center gap-1.5 mt-0.5">
+<span class="material-symbols-outlined text-[14px] text-primary">emoji_events</span>
+<p class="text-xs text-slate-500 dark:text-slate-400">21 items</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation Bar (iOS Style) -->
+<footer class="fixed bottom-0 left-0 right-0 bg-background-light dark:bg-background-dark/95 backdrop-blur-xl border-t border-slate-200 dark:border-slate-800 pb-8 pt-3 px-6 flex justify-between items-center z-50">
+<div class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined">home</span>
+<span class="text-[10px] font-medium">Home</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-primary">
+<span class="material-symbols-outlined">perm_media</span>
+<span class="text-[10px] font-bold">Media</span>
+</div>
+<div class="relative -top-6">
+<div class="bg-primary size-14 rounded-full flex items-center justify-center shadow-lg shadow-primary/40 border-4 border-background-light dark:border-background-dark">
+<span class="material-symbols-outlined text-white text-2xl">add</span>
+</div>
+</div>
+<div class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined">groups</span>
+<span class="text-[10px] font-medium">Team</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined">account_circle</span>
+<span class="text-[10px] font-medium">Profile</span>
+</div>
+</footer>
+</body></html>

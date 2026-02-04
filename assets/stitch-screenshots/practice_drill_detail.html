@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Practice Drill Detail - iPractus</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Lexend"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Lexend', sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.fill {
+            font-variation-settings: 'FILL' 1;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white min-h-screen flex flex-col overflow-x-hidden">
+<!-- Top Navigation Bar -->
+<header class="fixed top-0 left-0 right-0 z-50 bg-background-dark/80 backdrop-blur-md">
+<div class="flex items-center p-4 justify-between max-w-md mx-auto">
+<div class="flex size-10 shrink-0 items-center justify-center rounded-full bg-white/10 text-white cursor-pointer">
+<span class="material-symbols-outlined">arrow_back_ios_new</span>
+</div>
+<h2 class="text-white text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center">Drill Detail</h2>
+<div class="flex w-10 items-center justify-end">
+<button class="flex items-center justify-center text-white p-2">
+<span class="material-symbols-outlined">share</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="flex-1 w-full max-w-md mx-auto pt-16 pb-32">
+<!-- Media Player Section -->
+<section class="relative">
+<div class="relative flex items-center justify-center bg-slate-800 aspect-video w-full overflow-hidden" data-alt="Basketball player shooting a three pointer in a gym" style='background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url("https://lh3.googleusercontent.com/aida-public/AB6AXuB9QQcvaOBp3Xwil81B_G9J21IhxGKnkbnrV_tmxd8nwnKspdmMtBhfkPan7fOXuXubgdXGrjetulWP7TguQHfH5GMyLqDqXRncP8j__a_PmZvtcQLJsg0ACM109gqdSBw2QzXjQCaXnkdYhsbRJqLF4nHXVQZ4IyZHZ6B2y4D1Y3d-nHMleLLXiy0-2DMTgre43tE9CPprX46WW2e80qNk0omnWzfs5N8tD_jvf_lFc-2HI07FWudw9gWxrAqne0JS0SxsMKAixMC7"); background-size: cover; background-position: center;'>
+<button class="flex shrink-0 items-center justify-center rounded-full size-16 bg-primary/90 text-white shadow-xl">
+<span class="material-symbols-outlined fill text-4xl">play_arrow</span>
+</button>
+<div class="absolute inset-x-0 bottom-0 px-4 py-3 bg-gradient-to-t from-black/80 to-transparent">
+<div class="flex h-1.5 items-center justify-center mb-2">
+<div class="h-1.5 flex-1 rounded-full bg-primary"></div>
+<div class="relative">
+<div class="absolute -left-1.5 -top-1.5 size-3 rounded-full bg-white ring-2 ring-primary"></div>
+</div>
+<div class="h-1.5 flex-[3] rounded-full bg-white/30"></div>
+</div>
+<div class="flex items-center justify-between">
+<p class="text-white text-[10px] font-medium tracking-wider">04:12</p>
+<p class="text-white text-[10px] font-medium tracking-wider">12:45</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Headline & Tags -->
+<section class="px-4 pt-6">
+<div class="flex items-center gap-2 mb-2">
+<div class="flex h-6 shrink-0 items-center justify-center rounded bg-primary/20 px-2.5">
+<p class="text-primary text-[10px] font-bold uppercase tracking-widest">Intermediate</p>
+</div>
+<div class="flex h-6 shrink-0 items-center justify-center rounded bg-orange-500/20 px-2.5">
+<p class="text-orange-500 text-[10px] font-bold uppercase tracking-widest">Pro Pick</p>
+</div>
+</div>
+<h1 class="text-slate-900 dark:text-white text-3xl font-bold leading-tight mb-2 font-display">Three-Point Precision</h1>
+<p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">Master the art of the long-range shot with this professional-grade accuracy drill used by top-tier athletes.</p>
+</section>
+<!-- Stats Info Cards -->
+<section class="flex flex-wrap gap-3 p-4">
+<div class="flex min-w-[100px] flex-1 flex-col gap-1 rounded-xl p-4 bg-slate-100 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700">
+<div class="flex items-center gap-2 text-primary">
+<span class="material-symbols-outlined text-sm">schedule</span>
+<p class="text-slate-500 dark:text-slate-400 text-xs font-medium uppercase tracking-tighter">Duration</p>
+</div>
+<p class="text-slate-900 dark:text-white text-lg font-bold">15 min</p>
+</div>
+<div class="flex min-w-[100px] flex-1 flex-col gap-1 rounded-xl p-4 bg-slate-100 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700">
+<div class="flex items-center gap-2 text-primary">
+<span class="material-symbols-outlined text-sm">target</span>
+<p class="text-slate-500 dark:text-slate-400 text-xs font-medium uppercase tracking-tighter">Focus</p>
+</div>
+<p class="text-slate-900 dark:text-white text-lg font-bold">Shooting</p>
+</div>
+<div class="flex min-w-[100px] flex-1 flex-col gap-1 rounded-xl p-4 bg-slate-100 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700">
+<div class="flex items-center gap-2 text-primary">
+<span class="material-symbols-outlined text-sm">bolt</span>
+<p class="text-slate-500 dark:text-slate-400 text-xs font-medium uppercase tracking-tighter">Intensity</p>
+</div>
+<p class="text-slate-900 dark:text-white text-lg font-bold">High</p>
+</div>
+</section>
+<!-- Instructions List -->
+<section class="px-4 pb-10">
+<h3 class="text-slate-900 dark:text-white text-lg font-bold mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">format_list_numbered</span>
+                Instructions
+            </h3>
+<div class="space-y-6">
+<div class="flex gap-4">
+<div class="flex-none flex items-center justify-center size-8 rounded-full bg-primary text-white font-bold text-sm">1</div>
+<div class="flex-1">
+<p class="text-slate-900 dark:text-white font-semibold mb-1">Set the Baseline</p>
+<p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">Position yourself at the top of the key. Start with 5 warm-up shots from the free-throw line to find your rhythm.</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="flex-none flex items-center justify-center size-8 rounded-full bg-primary text-white font-bold text-sm">2</div>
+<div class="flex-1">
+<p class="text-slate-900 dark:text-white font-semibold mb-1">Corner Rotations</p>
+<p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">Move to the left corner. Take 10 shots, sprinting to the right corner after each attempt.</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="flex-none flex items-center justify-center size-8 rounded-full bg-primary text-white font-bold text-sm">3</div>
+<div class="flex-1">
+<p class="text-slate-900 dark:text-white font-semibold mb-1">Catch and Shoot</p>
+<p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">Utilize a partner or a shooting machine. Receive the pass and release within 1.5 seconds.</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="flex-none flex items-center justify-center size-8 rounded-full bg-primary text-white font-bold text-sm">4</div>
+<div class="flex-1">
+<p class="text-slate-900 dark:text-white font-semibold mb-1">Contested Finish</p>
+<p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">Perform 5 sets of three-pointers with a defender closing out to simulate game-time pressure.</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Sticky Footer Action -->
+<footer class="fixed bottom-0 left-0 right-0 p-4 bg-background-light/90 dark:bg-background-dark/90 backdrop-blur-lg border-t border-slate-200 dark:border-slate-800">
+<div class="max-w-md mx-auto">
+<button class="w-full bg-primary hover:bg-primary/90 text-white font-bold py-4 rounded-xl shadow-lg flex items-center justify-center gap-2 transition-colors">
+<span class="material-symbols-outlined fill">add_task</span>
+                Track This Session
+            </button>
+</div>
+</footer>
+</body></html>

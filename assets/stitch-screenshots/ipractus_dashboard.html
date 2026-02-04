@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>iPrActUS Dashboard (Dark Mode)</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "charcoal": "#0f1115",
+                        "elevation": "#1b1e24",
+                        "background-dark": "#0f1115",
+                    },
+                    fontFamily: {
+                        "display": ["Lexend", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "1rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        body {
+            font-family: 'Lexend', sans-serif;
+            background-color: #0f1115;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .fill-1 {
+            font-variation-settings: 'FILL' 1;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-charcoal text-white min-h-screen">
+<div class="relative flex h-auto min-h-screen w-full flex-col bg-charcoal group/design-root overflow-x-hidden max-w-md mx-auto">
+<div class="flex items-center bg-charcoal/90 backdrop-blur-md p-4 pb-2 justify-between sticky top-0 z-10">
+<div class="flex size-12 shrink-0 items-center">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-11 border-2 border-primary" data-alt="Alex profile picture professional headshot" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBhn--7fugXw2cmurMcooOMZvmvU7rgB5uF2IM5cUI_ceR6MvCaUcTVcHMTM9-uxbqqlrz7NXfpRtXsHlc-c_w1JJbxpxqCnx6-fqRCq0OSkgf0iHmjEUJau8ffU0BzMNrv1dpjuanp-62SjEB1iyuJorIyuPW1jVMRglQ1lsBFZwoUNMixTNNYD49KXlX95IwIhN84qG9DLn2mxxb4qzMnkszlbaR4HgNespSGo5kwz-8L79G-ChqrssYeBxdorJgZ0Yjw7bVtvf5R");'></div>
+</div>
+<div class="flex-1 px-3">
+<p class="text-slate-400 text-[10px] font-bold uppercase tracking-[0.1em]">Welcome back</p>
+<h2 class="text-white text-xl font-bold leading-tight tracking-tight">Hello, Alex!</h2>
+</div>
+<div class="flex w-12 items-center justify-end">
+<button class="relative flex cursor-pointer items-center justify-center rounded-xl h-10 w-10 bg-elevation text-white transition-colors active:scale-95">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2.5 right-2.5 flex h-2 w-2 rounded-full bg-primary ring-2 ring-charcoal"></span>
+</button>
+</div>
+</div>
+<div class="px-4 py-4">
+<h3 class="text-white text-base font-bold leading-tight tracking-wide pb-3">Continue Learning</h3>
+<div class="flex flex-col items-stretch justify-start rounded-2xl shadow-xl bg-elevation border border-white/5 overflow-hidden">
+<div class="w-full bg-center bg-no-repeat aspect-video bg-cover relative" data-alt="Abstract medical and data visualization background" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAxX-uTEFWJ8YwdCLY8WYisTB6ya1v2E7-AyT2vrHpih1Kq7z5O4tVFdB1LgX4u2MYYY59POqeccMxMIMZZdS73rkJ5CCJNn40GujR6lEft73ioMtS_EvBgkP03-ZXBqXSxdeIodVrlRFVneFUSPYQKf7_0HP-gtWBBzFo6_oS3RQP2X4vhqn0iRIwnZaCr52mSRAXWy1650buRGHX-T4iYgbK1yWrlpQhiKwKBGC2RYjE-E6WCL9N62HdcuVpoMmZ8lQgbLRP0nuNy");'>
+<div class="absolute inset-0 bg-gradient-to-t from-elevation via-transparent to-transparent"></div>
+</div>
+<div class="flex w-full min-w-72 grow flex-col items-stretch justify-center gap-1 py-5 px-5 -mt-4 relative z-10">
+<p class="text-white text-lg font-bold leading-tight tracking-tight">Advanced Clinical Practice</p>
+<div class="mt-4 space-y-2.5">
+<div class="flex gap-6 justify-between items-center">
+<p class="text-slate-400 text-sm font-medium">Course Progress</p>
+<p class="text-primary text-sm font-bold">75%</p>
+</div>
+<div class="rounded-full bg-charcoal h-2 w-full overflow-hidden border border-white/5">
+<div class="h-full rounded-full bg-primary shadow-[0_0_12px_rgba(19,127,236,0.4)]" style="width: 75%;"></div>
+</div>
+</div>
+<div class="flex items-center gap-3 justify-end mt-6">
+<button class="flex flex-1 min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-12 px-4 bg-primary text-white text-sm font-bold leading-normal transition-all hover:brightness-110 active:scale-[0.98] shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined text-sm mr-2 fill-1">play_arrow</span>
+<span class="truncate">Resume Module</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<div class="px-4 pt-2">
+<h3 class="text-white text-base font-bold leading-tight tracking-wide pb-3">My Progress</h3>
+<div class="grid grid-cols-2 gap-3">
+<div class="flex flex-col gap-2 rounded-2xl p-4 border border-white/5 bg-elevation">
+<div class="flex items-center justify-between">
+<span class="material-symbols-outlined text-primary mb-1 text-xl">schedule</span>
+</div>
+<p class="text-slate-400 text-[10px] font-bold leading-normal uppercase tracking-wider">Hours Practiced</p>
+<p class="text-white tracking-tight text-2xl font-bold leading-tight">42h</p>
+</div>
+<div class="flex flex-col gap-2 rounded-2xl p-4 border border-white/5 bg-elevation">
+<div class="flex items-center justify-between">
+<span class="material-symbols-outlined text-primary mb-1 text-xl">check_circle</span>
+</div>
+<p class="text-slate-400 text-[10px] font-bold leading-normal uppercase tracking-wider">Modules</p>
+<p class="text-white tracking-tight text-2xl font-bold leading-tight">12/15</p>
+</div>
+<div class="flex flex-col gap-2 rounded-2xl p-5 border border-white/5 bg-elevation col-span-2">
+<div class="flex items-center justify-between">
+<div>
+<span class="material-symbols-outlined text-orange-400 mb-1 text-xl fill-1">local_fire_department</span>
+<p class="text-slate-400 text-[10px] font-bold leading-normal uppercase tracking-wider">Current Streak</p>
+<p class="text-white tracking-tight text-2xl font-bold leading-tight">5 Days</p>
+</div>
+<div class="flex -space-x-2">
+<div class="w-9 h-9 rounded-full bg-primary/10 border border-primary/30 flex items-center justify-center text-primary text-[11px] font-bold">M</div>
+<div class="w-9 h-9 rounded-full bg-primary/10 border border-primary/30 flex items-center justify-center text-primary text-[11px] font-bold">T</div>
+<div class="w-9 h-9 rounded-full bg-primary flex items-center justify-center text-white text-[11px] font-bold ring-4 ring-elevation">W</div>
+<div class="w-9 h-9 rounded-full bg-charcoal border border-white/5 flex items-center justify-center text-slate-500 text-[11px] font-bold">T</div>
+<div class="w-9 h-9 rounded-full bg-charcoal border border-white/5 flex items-center justify-center text-slate-500 text-[11px] font-bold">F</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="px-4 pt-8 pb-32">
+<div class="flex items-center justify-between pb-4">
+<h3 class="text-white text-base font-bold leading-tight tracking-wide">Upcoming Tasks</h3>
+<button class="text-primary text-xs font-bold uppercase tracking-wider">View All</button>
+</div>
+<div class="space-y-3">
+<div class="flex items-center gap-4 p-4 rounded-2xl bg-elevation border border-white/5 shadow-sm">
+<div class="flex size-11 items-center justify-center rounded-xl bg-orange-400/10 text-orange-400">
+<span class="material-symbols-outlined">assignment</span>
+</div>
+<div class="flex-1">
+<p class="text-white text-sm font-bold leading-tight">Ethics Assessment</p>
+<p class="text-slate-400 text-xs font-medium mt-0.5">Due in 2 days • Lab</p>
+</div>
+<div class="text-right">
+<span class="inline-flex items-center rounded-lg bg-red-400/10 px-2 py-1 text-[10px] font-bold text-red-400 uppercase tracking-wider">
+                            High
+                        </span>
+</div>
+</div>
+<div class="flex items-center gap-4 p-4 rounded-2xl bg-elevation border border-white/5 shadow-sm">
+<div class="flex size-11 items-center justify-center rounded-xl bg-primary/10 text-primary">
+<span class="material-symbols-outlined">description</span>
+</div>
+<div class="flex-1">
+<p class="text-white text-sm font-bold leading-tight">Clinical Journal Submission</p>
+<p class="text-slate-400 text-xs font-medium mt-0.5">Due Friday • Portfolio</p>
+</div>
+<div class="text-right">
+<span class="inline-flex items-center rounded-lg bg-primary/10 px-2 py-1 text-[10px] font-bold text-primary uppercase tracking-wider">
+                            Normal
+                        </span>
+</div>
+</div>
+</div>
+</div>
+<div class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-md bg-elevation/90 backdrop-blur-xl border-t border-white/10 flex justify-around items-center py-3 px-6 z-20 pb-8">
+<button class="flex flex-col items-center gap-1 text-primary">
+<span class="material-symbols-outlined fill-1">grid_view</span>
+<span class="text-[10px] font-bold tracking-tight">Home</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-500">
+<span class="material-symbols-outlined">menu_book</span>
+<span class="text-[10px] font-bold tracking-tight">Courses</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-500">
+<span class="material-symbols-outlined">leaderboard</span>
+<span class="text-[10px] font-bold tracking-tight">Stats</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-500">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-[10px] font-bold tracking-tight">Settings</span>
+</button>
+</div>
+</div>
+
+</body></html>
