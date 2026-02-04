@@ -1,18 +1,31 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { useTheme } from '../../hooks/useTheme';
+import { useNavigation } from '@react-navigation/native';
 
 export const DashboardScreen: React.FC = () => {
   const { theme } = useTheme();
+  const navigation = useNavigation();
 
   return (
     <View style={[styles.container, { backgroundColor: theme.colors.background }]}>
-      <Text style={[styles.title, { color: theme.colors.text }]}>
-        iPrActUS Dashboard
-      </Text>
-      <Text style={[styles.subtitle, { color: theme.colors.textSecondary }]}>
-        Welcome to iPractus
-      </Text>
+      <View style={styles.header}>
+        <Text style={[styles.title, { color: theme.colors.text }]}>
+          iPrActUS Dashboard
+        </Text>
+        <Text style={[styles.subtitle, { color: theme.colors.textSecondary }]}>
+          Welcome to iPractus
+        </Text>
+      </View>
+
+      <TouchableOpacity
+        style={[styles.settingsButton, { backgroundColor: theme.colors.surfaceVariant }]}
+        onPress={() => navigation.navigate('Settings' as never)}
+      >
+        <Text style={[styles.settingsButtonText, { color: theme.colors.text }]}>
+          Open Settings
+        </Text>
+      </TouchableOpacity>
     </View>
   );
 };

@@ -12,6 +12,9 @@ import { LivePlaceholderScreen } from '../screens/dashboard/LivePlaceholderScree
 import { MessagesPlaceholderScreen } from '../screens/dashboard/MessagesPlaceholderScreen';
 import { ProfilePlaceholderScreen } from '../screens/dashboard/ProfilePlaceholderScreen';
 
+// Dashboard stack screens
+import { SettingsScreen } from '../screens/dashboard/SettingsScreen';
+
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
 
@@ -22,6 +25,7 @@ const DashboardStack: React.FC = () => {
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }}>
       <Stack.Screen name="DashboardMain" component={DashboardScreen} />
+      <Stack.Screen name="Settings" component={SettingsScreen} />
     </Stack.Navigator>
   );
 };
