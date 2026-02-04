@@ -1,20 +1,37 @@
+import React from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { useFonts } from 'expo-font';
+import { Lexend_400Regular } from '@expo-google-fonts/lexend';
+import { ThemeProvider, useTheme } from './src/hooks/useTheme';
+import { RootNavigator } from './src/navigators/RootNavigator';
 
+// App wrapper with theme provider
 export default function App() {
+  const [fontsLoaded] = useFonts({
+    Lexend_400Regular,
+  });
+
+  if (!fontsLoaded) {
+    return null; // Or loading screen
+  }
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <ThemeProvider>
+      <AppContent />
+    </ThemeProvider>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+function AppContent() {
+  const { theme } = useTheme();
+
+  return (
+    <>
+      <StatusBar style="auto" />
+      <NavigationContainer theme={theme}>
+        <RootNavigator />
+      </NavigationContainer>
+    </>
+  );
+}
