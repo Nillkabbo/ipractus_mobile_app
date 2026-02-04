@@ -25,7 +25,7 @@ Athletes, coaches, and fans can connect, share, and communicate in real-time thr
 - [ ] 1-on-1 chat with real-time messaging
 - [ ] Group chat creation and management
 - [ ] Media sharing in conversations (images)
-- [ ] 1-on-1 video and audio calling (Jitsi SDK integration)
+- [ ] 1-on-1 video and audio calling (Agora SDK integration)
 - [ ] Live streaming capability (go live, watch streams via AWS IVS)
 - [ ] Real-time notifications
 - [ ] Personal media library (photos, videos, audio)
@@ -89,6 +89,7 @@ Athletes, coaches, and fans can connect, share, and communicate in real-time thr
 | Bottom tab navigation | Standard mobile pattern users expect, better UX than web-style drawer/sidebar | — Pending |
 | Create mobile screens from scratch | Web Figma is 1920px desktop, requires mobile adaptation; using web design as style reference only | — Pending |
 | Follow web architecture patterns | Existing Redux Toolkit, service layer patterns proven; maintain consistency across platforms | — Pending |
+| Agora for video calling | Official React Native SDK with Expo support, 10k free min/month, eliminates Jitsi integration risk | ✓ Good |
 
 ---
 *Last updated: 2026-02-03 after initialization*

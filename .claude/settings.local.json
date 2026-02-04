@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__figma__get_metadata",
+      "mcp__figma__get_screenshot",
+      "mcp__figma__get_design_context",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "WebSearch",
+      "mcp__web-search-prime__webSearchPrime",
+      "Bash(git check-ignore:*)",
+      "mcp__figma__whoami"
+    ]
+  }
+}
