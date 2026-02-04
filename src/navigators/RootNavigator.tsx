@@ -1,37 +1,31 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, ActivityIndicator } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { useAuth } from '../hooks/useAuth';
 import { useTheme } from '../hooks/useTheme';
+import { AuthNavigator } from './AuthNavigator';
+import { AppNavigator } from './AppNavigator';
 
-// Placeholder RootNavigator - will be fully implemented in plan 01-03
-export const RootNavigator = () => {
-  const { theme, isDark } = useTheme();
+/**
+ * Root navigator that switches between auth and app based on authentication state
+ * Implements the dual-stack pattern from React Navigation auth flow documentation
+ * NOTE: NavigationContainer is created HERE (not in App.tsx) to use auth state
+ */
+export const RootNavigator: React.FC = () => {
+  const { isAuthenticated, isLoading } = useAuth();
+  const { theme } = useTheme();
+
+  if (isLoading) {
+    return (
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: theme.colors.background }}>
+        <ActivityIndicator size="large" color={theme.colors.primary} />
+      </View>
+    );
+  }
 
   return (
-    <View style={[styles.container, { backgroundColor: theme.colors.background }]}>
-      <Text style={[styles.text, { color: theme.colors.text }]}>
-        iPractus - {isDark ? 'Dark' : 'Light'} Theme
-      </Text>
-      <Text style={[styles.subtext, { color: theme.colors.textSecondary }]}>
-        Navigation will be implemented in plan 01-03
-      </Text>
-    </View>
+    <NavigationContainer theme={theme}>
+      {isAuthenticated ? <AppNavigator /> : <AuthNavigator />}
+    </NavigationContainer>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    padding: 20,
-  },
-  text: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    marginBottom: 10,
-  },
-  subtext: {
-    fontSize: 16,
-    textAlign: 'center',
-  },
-});
