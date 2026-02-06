@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Privacy Settings - iPractus</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1173d4",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: "Plus Jakarta Sans", sans-serif;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark min-h-screen">
+<div class="max-w-[430px] mx-auto bg-white dark:bg-background-dark min-h-screen flex flex-col shadow-xl">
+<!-- TopAppBar -->
+<div class="sticky top-0 z-50 flex items-center bg-primary p-4 pb-4 justify-between text-white">
+<div class="flex size-10 shrink-0 items-center justify-center cursor-pointer">
+<span class="material-symbols-outlined">arrow_back_ios</span>
+</div>
+<h2 class="text-lg font-bold leading-tight tracking-tight flex-1 text-center pr-10">Privacy Settings</h2>
+</div>
+<div class="flex-1 overflow-y-auto pb-10">
+<!-- Section: Account Privacy -->
+<div class="pt-2">
+<h3 class="text-[#111418] dark:text-white text-sm font-bold leading-tight tracking-wider uppercase px-4 pb-2 pt-6 opacity-60">Account Privacy</h3>
+<!-- Private Account Item -->
+<div class="flex items-center gap-4 bg-white dark:bg-background-dark px-4 min-h-[72px] py-2 justify-between border-b border-gray-100 dark:border-gray-800">
+<div class="flex items-center gap-4">
+<div class="text-primary flex items-center justify-center rounded-lg bg-primary/10 shrink-0 size-12">
+<span class="material-symbols-outlined">lock</span>
+</div>
+<div class="flex flex-col justify-center">
+<p class="text-[#111418] dark:text-white text-base font-semibold leading-normal line-clamp-1">Private Account</p>
+<p class="text-[#617589] dark:text-gray-400 text-xs font-normal leading-normal line-clamp-2">Only approved followers can see your posts and activity.</p>
+</div>
+</div>
+<div class="shrink-0">
+<label class="relative flex h-[31px] w-[51px] cursor-pointer items-center rounded-full border-none bg-gray-200 dark:bg-gray-700 p-0.5 has-[:checked]:justify-end has-[:checked]:bg-primary">
+<div class="h-full w-[27px] rounded-full bg-white shadow-sm"></div>
+<input checked="" class="invisible absolute" type="checkbox"/>
+</label>
+</div>
+</div>
+<!-- Show Active Status Item -->
+<div class="flex items-center gap-4 bg-white dark:bg-background-dark px-4 min-h-14 py-3 justify-between border-b border-gray-100 dark:border-gray-800">
+<div class="flex items-center gap-4">
+<div class="text-[#111418] dark:text-white flex items-center justify-center rounded-lg bg-gray-100 dark:bg-gray-800 shrink-0 size-10">
+<span class="material-symbols-outlined">account_circle</span>
+</div>
+<p class="text-[#111418] dark:text-white text-base font-medium leading-normal flex-1 truncate">Show Active Status</p>
+</div>
+<div class="shrink-0">
+<label class="relative flex h-[31px] w-[51px] cursor-pointer items-center rounded-full border-none bg-gray-200 dark:bg-gray-700 p-0.5 has-[:checked]:justify-end has-[:checked]:bg-primary">
+<div class="h-full w-[27px] rounded-full bg-white shadow-sm"></div>
+<input checked="" class="invisible absolute" type="checkbox"/>
+</label>
+</div>
+</div>
+<!-- Hide Last Seen Item -->
+<div class="flex items-center gap-4 bg-white dark:bg-background-dark px-4 min-h-14 py-3 justify-between border-b border-gray-100 dark:border-gray-800">
+<div class="flex items-center gap-4">
+<div class="text-[#111418] dark:text-white flex items-center justify-center rounded-lg bg-gray-100 dark:bg-gray-800 shrink-0 size-10">
+<span class="material-symbols-outlined">visibility_off</span>
+</div>
+<p class="text-[#111418] dark:text-white text-base font-medium leading-normal flex-1 truncate">Hide Last Seen</p>
+</div>
+<div class="shrink-0">
+<label class="relative flex h-[31px] w-[51px] cursor-pointer items-center rounded-full border-none bg-gray-200 dark:bg-gray-700 p-0.5 has-[:checked]:justify-end has-[:checked]:bg-primary">
+<div class="h-full w-[27px] rounded-full bg-white shadow-sm"></div>
+<input class="invisible absolute" type="checkbox"/>
+</label>
+</div>
+</div>
+</div>
+<!-- Section: Interactions -->
+<div class="mt-4">
+<h3 class="text-[#111418] dark:text-white text-sm font-bold leading-tight tracking-wider uppercase px-4 pb-2 pt-4 opacity-60">Interactions</h3>
+<!-- Allow Mentions Item -->
+<div class="flex items-center gap-4 bg-white dark:bg-background-dark px-4 min-h-14 py-3 justify-between border-b border-gray-100 dark:border-gray-800">
+<div class="flex items-center gap-4">
+<div class="text-[#111418] dark:text-white flex items-center justify-center rounded-lg bg-gray-100 dark:bg-gray-800 shrink-0 size-10">
+<span class="material-symbols-outlined">alternate_email</span>
+</div>
+<p class="text-[#111418] dark:text-white text-base font-medium leading-normal flex-1 truncate">Allow Mentions from Everyone</p>
+</div>
+<div class="shrink-0">
+<label class="relative flex h-[31px] w-[51px] cursor-pointer items-center rounded-full border-none bg-gray-200 dark:bg-gray-700 p-0.5 has-[:checked]:justify-end has-[:checked]:bg-primary">
+<div class="h-full w-[27px] rounded-full bg-white shadow-sm"></div>
+<input checked="" class="invisible absolute" type="checkbox"/>
+</label>
+</div>
+</div>
+<!-- Blocked Users Item -->
+<div class="flex items-center gap-4 bg-white dark:bg-background-dark px-4 min-h-14 py-3 justify-between cursor-pointer border-b border-gray-100 dark:border-gray-800">
+<div class="flex items-center gap-4">
+<div class="text-[#111418] dark:text-white flex items-center justify-center rounded-lg bg-gray-100 dark:bg-gray-800 shrink-0 size-10">
+<span class="material-symbols-outlined">block</span>
+</div>
+<p class="text-[#111418] dark:text-white text-base font-medium leading-normal flex-1 truncate">Blocked Users</p>
+</div>
+<div class="shrink-0 text-[#617589]">
+<span class="material-symbols-outlined">chevron_right</span>
+</div>
+</div>
+</div>
+<!-- Section: Profile Visibility -->
+<div class="mt-4">
+<h3 class="text-[#111418] dark:text-white text-sm font-bold leading-tight tracking-wider uppercase px-4 pb-2 pt-4 opacity-60">Who can see my profile</h3>
+<div class="bg-white dark:bg-background-dark">
+<!-- Option: Everyone -->
+<label class="flex items-center gap-4 px-4 min-h-14 py-3 justify-between cursor-pointer border-b border-gray-100 dark:border-gray-800">
+<div class="flex flex-col">
+<p class="text-[#111418] dark:text-white text-base font-medium leading-normal">Everyone</p>
+</div>
+<div class="shrink-0">
+<input checked="" class="size-5 text-primary border-gray-300 focus:ring-primary" name="visibility" type="radio"/>
+</div>
+</label>
+<!-- Option: Followers Only -->
+<label class="flex items-center gap-4 px-4 min-h-14 py-3 justify-between cursor-pointer border-b border-gray-100 dark:border-gray-800">
+<div class="flex flex-col">
+<p class="text-[#111418] dark:text-white text-base font-medium leading-normal">Followers Only</p>
+</div>
+<div class="shrink-0">
+<input class="size-5 text-primary border-gray-300 focus:ring-primary" name="visibility" type="radio"/>
+</div>
+</label>
+<!-- Option: No one -->
+<label class="flex items-center gap-4 px-4 min-h-14 py-3 justify-between cursor-pointer">
+<div class="flex flex-col">
+<p class="text-[#111418] dark:text-white text-base font-medium leading-normal">No one</p>
+</div>
+<div class="shrink-0">
+<input class="size-5 text-primary border-gray-300 focus:ring-primary" name="visibility" type="radio"/>
+</div>
+</label>
+</div>
+</div>
+<!-- Footer Message -->
+<div class="px-4 py-8 text-center">
+<p class="text-[#617589] text-xs font-normal leading-relaxed">
+                    Changes to these settings may take a few moments to reflect across the iPractus community. Your safety and privacy are our top priority.
+                </p>
+</div>
+</div>
+<!-- Bottom Safe Area Spacer (iOS) -->
+<div class="h-8 bg-white dark:bg-background-dark"></div>
+</div>
+</body></html>

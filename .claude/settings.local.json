@@ -44,7 +44,12 @@
       "Bash(mcp__stitch__list_projects)",
       "mcp__zai-mcp-server__ui_to_artifact",
       "mcp__zai-mcp-server__analyze_image",
-      "Bash(find:*)"
+      "Bash(find:*)",
+      "Bash(wc:*)",
+      "Bash(open:*)",
+      "Bash(grep:*)",
+      "mcp__figma__generate_diagram",
+      "Bash(chmod:*)"
     ]
   }
 }

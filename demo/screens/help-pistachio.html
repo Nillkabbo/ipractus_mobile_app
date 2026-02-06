@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Pistachio Support (System v2)</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#b2f15f",
+                        "obsidian": "#0B132B",
+                        "obsidian-elevated": "#1C2541",
+                        "stormy-blue": "#4E7D96",
+                        "pale-yellow": "#E5F1AF",
+                        "background-light": "#f7f8f6",
+                        "background-dark": "#0B132B", // Overriding to match prompt Obsidian
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .ios-status-bar {
+            height: 44px;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark min-h-screen text-white">
+<div class="max-w-md mx-auto min-h-screen flex flex-col shadow-2xl relative overflow-hidden bg-background-light dark:bg-background-dark">
+<!-- TopAppBar -->
+<div class="sticky top-0 z-50 bg-background-light/90 dark:bg-background-dark/90 backdrop-blur-md">
+<div class="ios-status-bar w-full"></div>
+<div class="flex items-center p-4 pb-2 justify-between">
+<div class="text-primary flex size-10 shrink-0 items-center justify-center cursor-pointer">
+<span class="material-symbols-outlined text-2xl">arrow_back_ios</span>
+</div>
+<h2 class="text-white text-lg font-bold leading-tight tracking-tight flex-1 text-center pr-10">Support Center</h2>
+</div>
+</div>
+<!-- SearchBar -->
+<div class="px-4 py-3">
+<div class="relative flex flex-col min-w-40 h-14 w-full">
+<div class="flex w-full flex-1 items-stretch rounded-xl h-full shadow-lg overflow-hidden bg-white dark:bg-obsidian-elevated border border-white/5">
+<div class="text-pale-yellow flex items-center justify-center pl-4">
+<span class="material-symbols-outlined text-2xl">search</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden border-none bg-transparent focus:outline-0 focus:ring-0 text-white placeholder:text-pale-yellow/60 px-4 pl-2 text-base font-normal leading-normal" placeholder="Search for topics or articles..."/>
+</div>
+</div>
+</div>
+<!-- Section Header: FAQs -->
+<div class="px-4 pt-6 pb-2">
+<h3 class="text-white text-xl font-bold leading-tight tracking-tight">Frequently Asked Questions</h3>
+</div>
+<!-- Accordions -->
+<div class="flex flex-col p-4 gap-3">
+<details class="flex flex-col rounded-xl bg-stormy-blue/20 border border-stormy-blue/30 px-4 py-1 group" open="">
+<summary class="flex cursor-pointer items-center justify-between gap-6 py-4">
+<p class="text-white text-base font-semibold leading-normal">Account &amp; Billing</p>
+<div class="text-primary group-open:rotate-180 transition-transform duration-200">
+<span class="material-symbols-outlined">expand_more</span>
+</div>
+</summary>
+<div class="pb-4">
+<p class="text-white/80 text-sm font-normal leading-relaxed">
+                        Manage your subscription settings directly in the high-performance profile tab. Changes to billing cycles take effect at the start of the next period.
+                    </p>
+<button class="mt-3 text-primary text-xs font-bold uppercase tracking-wider flex items-center gap-1">
+                        View Details <span class="material-symbols-outlined text-xs">open_in_new</span>
+</button>
+</div>
+</details>
+<details class="flex flex-col rounded-xl bg-stormy-blue/20 border border-stormy-blue/30 px-4 py-1 group">
+<summary class="flex cursor-pointer items-center justify-between gap-6 py-4">
+<p class="text-white text-base font-semibold leading-normal">Performance Tracking</p>
+<div class="text-primary group-open:rotate-180 transition-transform duration-200">
+<span class="material-symbols-outlined">expand_more</span>
+</div>
+</summary>
+<div class="pb-4 text-white/80 text-sm leading-relaxed">
+                    Sync your biometric data and track VO2 Max, recovery scores, and explosive power metrics in real-time.
+                </div>
+</details>
+<details class="flex flex-col rounded-xl bg-stormy-blue/20 border border-stormy-blue/30 px-4 py-1 group">
+<summary class="flex cursor-pointer items-center justify-between gap-6 py-4">
+<p class="text-white text-base font-semibold leading-normal">Device Sync</p>
+<div class="text-primary group-open:rotate-180 transition-transform duration-200">
+<span class="material-symbols-outlined">expand_more</span>
+</div>
+</summary>
+<div class="pb-4 text-white/80 text-sm leading-relaxed">
+                    Ensure your iPrActUS wearable is updated to firmware v4.2 for seamless multi-device synchronization.
+                </div>
+</details>
+</div>
+<!-- Section Header: Contact -->
+<div class="px-4 pt-6 pb-2">
+<h3 class="text-white text-xl font-bold leading-tight tracking-tight">Contact Support</h3>
+</div>
+<!-- Support Channel Cards -->
+<div class="grid grid-cols-2 gap-4 px-4 pb-8">
+<!-- Live Chat Card -->
+<div class="bg-obsidian-elevated rounded-xl p-5 flex flex-col items-start gap-4 border border-white/5 shadow-xl">
+<div class="bg-primary text-obsidian rounded-full p-2 flex items-center justify-center">
+<span class="material-symbols-outlined text-2xl font-bold">chat_bubble</span>
+</div>
+<div>
+<h4 class="text-white font-bold text-base">Live Chat</h4>
+<p class="text-pale-yellow/70 text-xs mt-1 leading-tight">Speak with a coach now.</p>
+</div>
+<button class="w-full bg-primary text-obsidian font-bold py-2 rounded-lg text-sm mt-2 active:scale-95 transition-transform">
+                    Start Chat
+                </button>
+</div>
+<!-- Email Card -->
+<div class="bg-obsidian-elevated rounded-xl p-5 flex flex-col items-start gap-4 border border-white/5 shadow-xl">
+<div class="bg-primary text-obsidian rounded-full p-2 flex items-center justify-center">
+<span class="material-symbols-outlined text-2xl font-bold">mail</span>
+</div>
+<div>
+<h4 class="text-white font-bold text-base">Email Support</h4>
+<p class="text-pale-yellow/70 text-xs mt-1 leading-tight">Response in 24 hours.</p>
+</div>
+<button class="w-full border border-primary text-primary font-bold py-2 rounded-lg text-sm mt-2 active:scale-95 transition-transform">
+                    Send Email
+                </button>
+</div>
+</div>
+<!-- Footer / Version Info -->
+<div class="mt-auto p-8 text-center">
+<p class="text-white/30 text-xs font-medium uppercase tracking-[0.2em]">iPrActUS System v2.0.4</p>
+<div class="flex justify-center gap-4 mt-4 text-white/40 text-[10px] font-semibold uppercase tracking-widest">
+<a class="hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<span>•</span>
+<a class="hover:text-primary transition-colors" href="#">Terms of Service</a>
+</div>
+</div>
+<!-- Safe Area Spacer for iOS -->
+<div class="h-8"></div>
+</div>
+</body></html>

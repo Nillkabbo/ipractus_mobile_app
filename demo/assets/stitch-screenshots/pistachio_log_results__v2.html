@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Pistachio Log Results (v2)</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#b2f15f",
+                        "obsidian-base": "#0B132B",
+                        "obsidian-elevated": "#1C2541",
+                        "pale-yellow": "#E5F1AF",
+                        "background-light": "#f7f8f6",
+                        "background-dark": "#0B132B",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .ios-status-bar {
+            height: 44px;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-white min-h-screen flex flex-col">
+<!-- iOS Status Bar Spacer -->
+<div class="ios-status-bar w-full"></div>
+<!-- Top Navigation Bar -->
+<div class="flex items-center px-4 py-2 justify-between">
+<button class="text-white/70 hover:text-white transition-colors flex items-center justify-center p-2 rounded-full hover:bg-white/10">
+<span class="material-symbols-outlined">arrow_back_ios</span>
+</button>
+<div class="flex flex-col items-center">
+<span class="text-[10px] font-bold tracking-[0.2em] text-primary uppercase">Set 4 of 10</span>
+<div class="flex gap-1 mt-1">
+<div class="h-1 w-4 rounded-full bg-primary"></div>
+<div class="h-1 w-4 rounded-full bg-primary"></div>
+<div class="h-1 w-4 rounded-full bg-primary"></div>
+<div class="h-1 w-4 rounded-full bg-primary/30"></div>
+<div class="h-1 w-4 rounded-full bg-primary/30"></div>
+</div>
+</div>
+<button class="text-white/70 hover:text-white transition-colors flex items-center justify-center p-2 rounded-full hover:bg-white/10">
+<span class="material-symbols-outlined">more_horiz</span>
+</button>
+</div>
+<!-- Main Content Area -->
+<main class="flex-1 px-4 pb-10">
+<!-- Header Section -->
+<header class="pt-6 pb-8">
+<h1 class="text-white text-[32px] font-extrabold leading-none tracking-tight uppercase font-display">
+                LOG DRILL<br/>RESULTS
+            </h1>
+<p class="text-primary/70 text-sm mt-2 font-medium">iPrActUS High-Performance v2</p>
+</header>
+<!-- Metric Cards -->
+<div class="space-y-4">
+<!-- Success Rate Metric -->
+<div class="bg-obsidian-elevated p-6 rounded-xl border border-white/5">
+<div class="flex justify-between items-center mb-4">
+<h3 class="text-white text-xs font-bold tracking-widest uppercase opacity-60">Success Rate</h3>
+<span class="material-symbols-outlined text-primary text-sm">bolt</span>
+</div>
+<div class="flex items-center justify-between">
+<button class="size-14 rounded-full bg-primary flex items-center justify-center text-obsidian-base active:scale-95 transition-transform">
+<span class="material-symbols-outlined font-bold">remove</span>
+</button>
+<div class="flex flex-col items-center">
+<div class="flex items-baseline">
+<span class="text-5xl font-extrabold text-white tracking-tighter">85</span>
+<span class="text-xl font-bold text-primary ml-1">%</span>
+</div>
+</div>
+<button class="size-14 rounded-full bg-primary flex items-center justify-center text-obsidian-base active:scale-95 transition-transform">
+<span class="material-symbols-outlined font-bold">add</span>
+</button>
+</div>
+</div>
+<!-- Repetitions Metric -->
+<div class="bg-obsidian-elevated p-6 rounded-xl border border-white/5">
+<div class="flex justify-between items-center mb-4">
+<h3 class="text-white text-xs font-bold tracking-widest uppercase opacity-60">Repetitions</h3>
+<span class="material-symbols-outlined text-primary text-sm">reorder</span>
+</div>
+<div class="flex items-center justify-between">
+<button class="size-14 rounded-full bg-primary flex items-center justify-center text-obsidian-base active:scale-95 transition-transform">
+<span class="material-symbols-outlined font-bold">remove</span>
+</button>
+<div class="flex flex-col items-center">
+<div class="flex items-baseline">
+<span class="text-5xl font-extrabold text-white tracking-tighter">12</span>
+</div>
+</div>
+<button class="size-14 rounded-full bg-primary flex items-center justify-center text-obsidian-base active:scale-95 transition-transform">
+<span class="material-symbols-outlined font-bold">add</span>
+</button>
+</div>
+</div>
+<!-- Time/Duration Metric (Variation) -->
+<div class="bg-obsidian-elevated p-6 rounded-xl border border-white/5">
+<div class="flex justify-between items-center mb-4">
+<h3 class="text-white text-xs font-bold tracking-widest uppercase opacity-60">Time Under Tension</h3>
+<span class="material-symbols-outlined text-primary text-sm">timer</span>
+</div>
+<div class="flex items-center justify-between">
+<button class="size-14 rounded-full bg-primary flex items-center justify-center text-obsidian-base active:scale-95 transition-transform">
+<span class="material-symbols-outlined font-bold">remove</span>
+</button>
+<div class="flex flex-col items-center">
+<div class="flex items-baseline">
+<span class="text-5xl font-extrabold text-white tracking-tighter">45</span>
+<span class="text-xl font-bold text-primary ml-1">s</span>
+</div>
+</div>
+<button class="size-14 rounded-full bg-primary flex items-center justify-center text-obsidian-base active:scale-95 transition-transform">
+<span class="material-symbols-outlined font-bold">add</span>
+</button>
+</div>
+</div>
+<!-- Training Observations Field -->
+<div class="mt-8">
+<label class="text-pale-yellow text-[10px] font-bold tracking-[0.2em] uppercase mb-3 block px-1">Training Observations</label>
+<div class="relative">
+<textarea class="w-full bg-[#1e273d] border-none rounded-2xl p-4 text-white text-base placeholder:text-white/20 focus:ring-2 focus:ring-primary/50 min-h-[120px] resize-none" placeholder="Note any technical breakdowns or physical fatigue here..."></textarea>
+<div class="absolute bottom-4 right-4 text-[10px] text-white/30 font-mono">0/240</div>
+</div>
+</div>
+</div>
+<!-- Primary Action Button -->
+<div class="mt-10 pb-6">
+<button class="w-full bg-primary hover:bg-[#c2ff70] active:scale-[0.98] transition-all py-5 rounded-full flex items-center justify-center gap-3 shadow-lg shadow-primary/10">
+<span class="text-obsidian-base font-black text-lg tracking-tight uppercase">Save Results</span>
+<span class="material-symbols-outlined text-obsidian-base font-bold">check_circle</span>
+</button>
+<button class="w-full mt-4 py-3 text-white/40 font-bold text-xs tracking-widest uppercase hover:text-white/60 transition-colors">
+                Skip This Drill
+            </button>
+</div>
+</main>
+<!-- Navigation Bar (iOS Style) -->
+<nav class="sticky bottom-0 bg-obsidian-base/80 backdrop-blur-md border-t border-white/5 pb-8 pt-3 px-8">
+<div class="flex justify-between items-center max-w-md mx-auto">
+<div class="flex flex-col items-center gap-1">
+<span class="material-symbols-outlined text-white/40">dashboard</span>
+<span class="text-[10px] font-bold text-white/40">DASHBOARD</span>
+</div>
+<div class="flex flex-col items-center gap-1">
+<span class="material-symbols-outlined text-primary">fitness_center</span>
+<span class="text-[10px] font-bold text-primary">LOGGING</span>
+</div>
+<div class="flex flex-col items-center gap-1">
+<span class="material-symbols-outlined text-white/40">analytics</span>
+<span class="text-[10px] font-bold text-white/40">ANALYTICS</span>
+</div>
+<div class="flex flex-col items-center gap-1">
+<span class="material-symbols-outlined text-white/40">person</span>
+<span class="text-[10px] font-bold text-white/40">PROFILE</span>
+</div>
+</div>
+</nav>
+</body></html>

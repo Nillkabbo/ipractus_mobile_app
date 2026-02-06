@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Pistachio Analytics (System v2)</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              colors: {
+                "primary": "#b2f15f",
+                "obsidian-base": "#0B132B",
+                "obsidian-elevated": "#1C2541",
+                "cyan-accent": "#66D9E8",
+                "background-light": "#f7f8f6",
+                "background-dark": "#0B132B",
+              },
+              fontFamily: {
+                "display": ["Inter", "sans-serif"]
+              },
+              borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+            },
+          },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .glow-cyan {
+            filter: drop-shadow(0 0 4px rgba(178, 241, 95, 0.4));
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white min-h-screen">
+<!-- Top Navigation -->
+<div class="sticky top-0 z-50 bg-background-light dark:bg-background-dark/95 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
+<div class="flex items-center p-4 justify-between max-w-md mx-auto">
+<div class="text-slate-900 dark:text-white flex size-10 shrink-0 items-center justify-center rounded-full bg-slate-100 dark:bg-obsidian-elevated">
+<span class="material-symbols-outlined">menu</span>
+</div>
+<h2 class="text-slate-900 dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center">Performance Analytics</h2>
+<div class="flex size-10 shrink-0 items-center justify-center rounded-full bg-primary/20">
+<span class="material-symbols-outlined text-primary text-[20px]">account_circle</span>
+</div>
+</div>
+</div>
+<div class="max-w-md mx-auto pb-24">
+<!-- Time Filter Segmented Buttons -->
+<div class="flex px-4 py-4">
+<div class="flex h-11 flex-1 items-center justify-center rounded-xl bg-slate-200 dark:bg-obsidian-elevated p-1">
+<label class="flex cursor-pointer h-full grow items-center justify-center overflow-hidden rounded-lg px-2 has-[:checked]:bg-white dark:has-[:checked]:bg-background-dark has-[:checked]:shadow-sm has-[:checked]:text-primary text-slate-500 dark:text-slate-400 text-sm font-semibold transition-all">
+<span class="truncate">Day</span>
+<input class="invisible w-0" name="timeframe" type="radio" value="Day"/>
+</label>
+<label class="flex cursor-pointer h-full grow items-center justify-center overflow-hidden rounded-lg px-2 has-[:checked]:bg-white dark:has-[:checked]:bg-background-dark has-[:checked]:shadow-sm has-[:checked]:text-primary text-slate-500 dark:text-slate-400 text-sm font-semibold transition-all">
+<span class="truncate">Week</span>
+<input checked="" class="invisible w-0" name="timeframe" type="radio" value="Week"/>
+</label>
+<label class="flex cursor-pointer h-full grow items-center justify-center overflow-hidden rounded-lg px-2 has-[:checked]:bg-white dark:has-[:checked]:bg-background-dark has-[:checked]:shadow-sm has-[:checked]:text-primary text-slate-500 dark:text-slate-400 text-sm font-semibold transition-all">
+<span class="truncate">Month</span>
+<input class="invisible w-0" name="timeframe" type="radio" value="Month"/>
+</label>
+</div>
+</div>
+<!-- Key Stats Grid -->
+<div class="grid grid-cols-2 gap-3 px-4">
+<div class="flex flex-col gap-1 rounded-xl p-5 bg-white dark:bg-obsidian-elevated shadow-sm border border-slate-100 dark:border-slate-800">
+<p class="text-slate-500 dark:text-slate-400 text-xs font-semibold uppercase tracking-wider">Avg. Team Load</p>
+<p class="text-slate-900 dark:text-primary tracking-tight text-3xl font-bold leading-tight">74%</p>
+<div class="flex items-center gap-1 text-emerald-500 text-sm font-medium mt-1">
+<span class="material-symbols-outlined text-sm">trending_up</span>
+<span>+5%</span>
+</div>
+</div>
+<div class="flex flex-col gap-1 rounded-xl p-5 bg-white dark:bg-obsidian-elevated shadow-sm border border-slate-100 dark:border-slate-800">
+<p class="text-slate-500 dark:text-slate-400 text-xs font-semibold uppercase tracking-wider">Readiness</p>
+<p class="text-slate-900 dark:text-primary tracking-tight text-3xl font-bold leading-tight">88%</p>
+<div class="flex items-center gap-1 text-rose-500 text-sm font-medium mt-1">
+<span class="material-symbols-outlined text-sm">trending_down</span>
+<span>-2%</span>
+</div>
+</div>
+<div class="flex flex-col gap-1 rounded-xl p-5 bg-white dark:bg-obsidian-elevated shadow-sm border border-slate-100 dark:border-slate-800 col-span-2">
+<div class="flex justify-between items-center">
+<div>
+<p class="text-slate-500 dark:text-slate-400 text-xs font-semibold uppercase tracking-wider">Sleep Efficiency</p>
+<p class="text-slate-900 dark:text-primary tracking-tight text-3xl font-bold leading-tight">92%</p>
+</div>
+<div class="bg-primary/10 p-3 rounded-full">
+<span class="material-symbols-outlined text-primary text-3xl">nights_stay</span>
+</div>
+</div>
+<div class="flex items-center gap-1 text-emerald-500 text-sm font-medium">
+<span class="material-symbols-outlined text-sm">trending_up</span>
+<span>+1% vs last week</span>
+</div>
+</div>
+</div>
+<!-- Chart Section -->
+<div class="mt-6 px-4">
+<h2 class="text-slate-900 dark:text-white text-xl font-bold leading-tight tracking-[-0.015em] pb-4">Team Performance Trend</h2>
+<div class="rounded-xl bg-white dark:bg-obsidian-elevated p-5 shadow-sm border border-slate-100 dark:border-slate-800">
+<div class="flex items-end justify-between mb-6">
+<div>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-medium">Weekly Progress</p>
+<p class="text-slate-900 dark:text-white text-3xl font-bold">82.5 <span class="text-sm font-normal text-slate-400">pts</span></p>
+</div>
+<div class="flex items-center gap-1 bg-emerald-500/10 text-emerald-500 px-2 py-1 rounded-lg text-sm font-bold">
+<span class="material-symbols-outlined text-sm">arrow_upward</span>
+                        12%
+                    </div>
+</div>
+<div class="relative h-[180px] w-full mt-4">
+<svg class="w-full h-full glow-cyan" fill="none" preserveaspectratio="none" viewbox="0 0 472 150" xmlns="http://www.w3.org/2000/svg">
+<path d="M0 120C20 120 40 40 60 40C80 40 100 90 120 90C140 90 160 30 180 30C200 30 220 100 240 100C260 100 280 50 300 50C320 50 340 130 360 130C380 130 400 10 420 10C440 10 460 80 472 80" stroke="#66D9E8" stroke-linecap="round" stroke-width="4"></path>
+<defs>
+<lineargradient id="chartGradient" x1="0%" x2="0%" y1="0%" y2="100%">
+<stop offset="0%" stop-color="#66D9E8" stop-opacity="0.2"></stop>
+<stop offset="100%" stop-color="#66D9E8" stop-opacity="0"></stop>
+</lineargradient>
+</defs>
+<path d="M0 120C20 120 40 40 60 40C80 40 100 90 120 90C140 90 160 30 180 30C200 30 220 100 240 100C260 100 280 50 300 50C320 50 340 130 360 130C380 130 400 10 420 10C440 10 460 80 472 80V150H0V120Z" fill="url(#chartGradient)"></path>
+</svg>
+</div>
+<div class="flex justify-between mt-4 px-1">
+<p class="text-slate-400 text-xs font-bold">MON</p>
+<p class="text-slate-400 text-xs font-bold">TUE</p>
+<p class="text-slate-400 text-xs font-bold">WED</p>
+<p class="text-slate-400 text-xs font-bold text-primary">THU</p>
+<p class="text-slate-400 text-xs font-bold">FRI</p>
+<p class="text-slate-400 text-xs font-bold">SAT</p>
+<p class="text-slate-400 text-xs font-bold">SUN</p>
+</div>
+</div>
+</div>
+<!-- Leaderboard Section -->
+<div class="mt-8 px-4">
+<div class="flex items-center justify-between mb-4">
+<h2 class="text-slate-900 dark:text-white text-xl font-bold leading-tight tracking-[-0.015em]">Athlete Leaderboard</h2>
+<button class="text-primary text-sm font-bold">View All</button>
+</div>
+<div class="space-y-3">
+<!-- Athlete 1 -->
+<div class="flex items-center gap-4 bg-white dark:bg-obsidian-elevated p-4 rounded-xl shadow-sm border border-slate-100 dark:border-slate-800">
+<div class="flex items-center justify-center size-8 rounded-lg bg-primary text-obsidian-base font-black text-sm">1</div>
+<img class="size-12 rounded-full object-cover" data-alt="Male athlete in high intensity workout" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCepbgfbG5vC6v-OztwYzNFdZJVjvM7gCrXCWhlAQSyMuDuZL1z49lRBPKJMwq2KBhgI0KsPyF9fV1Q-5uGkl88MHkmq3IvQQx5G6uTgeXDF-w_bGZ8Ultwxd4qUYc_eqsCqo_WJo2o1MlbxE7liEfqI-usaKC8EnMfX_aXfZqnsprVEBeLekRRHX7CNnRnupBt1JlXWlkodqSn1CbfnCDL1Dulff72YqdhBmRYpxePqI45xXWj4bSqCvl6T0LrQNR2ypcdC_umwFlI"/>
+<div class="flex-1">
+<p class="text-slate-900 dark:text-white font-bold">Marcus Thorne</p>
+<p class="text-slate-500 dark:text-slate-400 text-xs">Elite Division • Striker</p>
+</div>
+<div class="text-right">
+<p class="text-primary font-black text-lg">98</p>
+<p class="text-[10px] text-slate-400 uppercase font-bold tracking-tighter">SCORE</p>
+</div>
+</div>
+<!-- Athlete 2 -->
+<div class="flex items-center gap-4 bg-white dark:bg-obsidian-elevated p-4 rounded-xl shadow-sm border border-slate-100 dark:border-slate-800">
+<div class="flex items-center justify-center size-8 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-400 dark:text-white font-black text-sm">2</div>
+<img class="size-12 rounded-full object-cover" data-alt="Female track athlete starting a race" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVrORgOx2nQR7RU-AcBYz-Q5Vc2y_bHT7ZJxKU15s-4KSLqjBNKwTr_Q8TXGtOLLScPaGF70v6o6C-mqHcWGJBFR1Rfyr5AUY9T2-fKnoGC6YMclwtF4HVHUTsLKACfnijH5-xPNot88sBTH6pe8wjvGP0SLqn1J88ZdmZlpMf99SD_E9IWJvUIjntZhQJCDcrXgvEABcwuB1VkgCtOX6MQ4hj6IjSjolafHapBAhIWRSx9G70aYno92pzXPt4DLHl23rftJpFNOpM"/>
+<div class="flex-1">
+<p class="text-slate-900 dark:text-white font-bold">Elena Rodriguez</p>
+<p class="text-slate-500 dark:text-slate-400 text-xs">Elite Division • Midfield</p>
+</div>
+<div class="text-right">
+<p class="text-primary font-black text-lg">95</p>
+<p class="text-[10px] text-slate-400 uppercase font-bold tracking-tighter">SCORE</p>
+</div>
+</div>
+<!-- Athlete 3 -->
+<div class="flex items-center gap-4 bg-white dark:bg-obsidian-elevated p-4 rounded-xl shadow-sm border border-slate-100 dark:border-slate-800">
+<div class="flex items-center justify-center size-8 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-400 dark:text-white font-black text-sm">3</div>
+<img class="size-12 rounded-full object-cover" data-alt="Male athlete lifting heavy weights" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAInkOaFj3N7l7eV6WA0MBtNY1DCaYQRsDy_TxMGchbgmGC_pe7FaXS1xQt8hBxswNsO518YUsFvibXU1hhOnb5r4yFbYvc4HOb5m083N6EaUW1sh81ETlCy4GImuiZBcpjBSl8llue9wUuslMW_izRlDHvu_RFSn1rLGK-na6Wfe0KonrItNSxbcduVM4POBH7Ha4yDHTQuznylNIVjBIDHr7Lc3cuXGIAgYXDRMSL0JCx22aeTO73P_YAC1qboz-E9I5KaG_kuvDN"/>
+<div class="flex-1">
+<p class="text-slate-900 dark:text-white font-bold">Jaxson Briggs</p>
+<p class="text-slate-500 dark:text-slate-400 text-xs">Elite Division • Defender</p>
+</div>
+<div class="text-right">
+<p class="text-primary font-black text-lg">92</p>
+<p class="text-[10px] text-slate-400 uppercase font-bold tracking-tighter">SCORE</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom Navigation Bar -->
+<div class="fixed bottom-0 left-0 right-0 bg-white/80 dark:bg-obsidian-base/80 backdrop-blur-xl border-t border-slate-200 dark:border-slate-800 pb-8 pt-3 px-6">
+<div class="max-w-md mx-auto flex justify-between items-center">
+<button class="flex flex-col items-center gap-1 text-primary">
+<span class="material-symbols-outlined font-variation-fill-1">dashboard</span>
+<span class="text-[10px] font-bold uppercase tracking-widest">Dash</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-400 dark:text-slate-500">
+<span class="material-symbols-outlined">groups</span>
+<span class="text-[10px] font-bold uppercase tracking-widest">Team</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-400 dark:text-slate-500">
+<span class="material-symbols-outlined">analytics</span>
+<span class="text-[10px] font-bold uppercase tracking-widest">Stats</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-400 dark:text-slate-500">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-[10px] font-bold uppercase tracking-widest">Tools</span>
+</button>
+</div>
+</div>
+</body></html>

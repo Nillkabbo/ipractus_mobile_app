@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>iPractus Navigation Demo - Exact Designs</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #1a1a2e;
+            min-height: 100vh;
+        }
+
+        /* Demo Navigation Bar */
+        #demo-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 9999;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            padding: 12px 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        #demo-nav h1 {
+            font-size: 14px;
+            font-weight: 600;
+            color: #fff;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        #demo-nav-controls {
+            display: flex;
+            gap: 8px;
+        }
+
+        .nav-btn {
+            padding: 8px 16px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            color: #fff;
+            font-size: 12px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .nav-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .nav-btn:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+
+        /* Screen List Dropdown */
+        #demo-screen-list {
+            position: fixed;
+            top: 56px;
+            left: 0;
+            right: 0;
+            z-index: 9998;
+            background: rgba(26, 26, 46, 0.98);
+            backdrop-filter: blur(10px);
+            max-height: 0;
+            overflow-y: auto;
+            transition: max-height 0.3s ease;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        #demo-screen-list.open {
+            max-height: calc(100vh - 56px);
+        }
+
+        .category-header {
+            padding: 12px 20px 8px;
+            background: rgba(0, 0, 0, 0.2);
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #888;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .screen-item {
+            width: 100%;
+            padding: 12px 20px;
+            background: none;
+            border: none;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            color: #fff;
+            text-align: left;
+            font-size: 13px;
+            cursor: pointer;
+            transition: background 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .screen-item:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .screen-item .theme-badge {
+            font-size: 9px;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .theme-light { background: #137fec; }
+        .theme-dark { background: #1173d4; }
+        .theme-pistachio { background: #b2f15f; color: #0B132B; }
+
+        /* Iframe Container */
+        #screen-frame-container {
+            margin-top: 56px;
+            height: calc(100vh - 56px);
+            display: flex;
+            flex-direction: column;
+        }
+
+        #current-screen-title {
+            padding: 8px 16px;
+            background: rgba(0, 0, 0, 0.3);
+            color: #fff;
+            font-size: 12px;
+            text-align: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        #screen-frame {
+            flex: 1;
+            width: 100%;
+            height: 100%;
+            border: none;
+            background: #000;
+        }
+
+        /* Mobile Device Frame */
+        .device-frame {
+            max-width: 430px;
+            margin: 0 auto;
+            height: 100%;
+            background: #000;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Scrollbar */
+        #demo-screen-list::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        #demo-screen-list::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        #demo-screen-list::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 4px;
+        }
+
+        #demo-screen-list::-webkit-scrollbar-thumb:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        /* Loading state */
+        .loading {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            color: #fff;
+            font-size: 14px;
+        }
+
+        .loading-spinner {
+            width: 40px;
+            height: 40px;
+            border: 3px solid rgba(255, 255, 255, 0.2);
+            border-top-color: #fff;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-right: 12px;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Quick navigation buttons */
+        #quick-nav {
+            display: flex;
+            gap: 4px;
+            padding: 8px 16px;
+            background: rgba(0, 0, 0, 0.2);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            overflow-x: auto;
+        }
+
+        .quick-nav-btn {
+            padding: 6px 12px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            color: #fff;
+            font-size: 11px;
+            white-space: nowrap;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .quick-nav-btn:hover {
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .quick-nav-btn.active {
+            background: #137fec;
+            border-color: #137fec;
+        }
+    </style>
+</head>
+<body>
+    <!-- Demo Navigation -->
+    <nav id="demo-nav">
+        <h1>🏟️ iPractus Demo <span style="opacity: 0.6; font-weight: 400; font-size: 12px;">80 Screens</span></h1>
+        <div id="demo-nav-controls">
+            <button class="nav-btn" onclick="toggleScreenList()">📁 Screens</button>
+            <button class="nav-btn" id="back-btn" onclick="goBack()" disabled>← Back</button>
+        </div>
+    </nav>
+
+    <!-- Screen List Dropdown -->
+    <div id="demo-screen-list">
+        <!-- Populated by JavaScript -->
+    </div>
+
+    <!-- Screen Frame Container -->
+    <div id="screen-frame-container">
+        <!-- Quick Navigation -->
+        <div id="quick-nav">
+            <!-- Populated by JavaScript -->
+        </div>
+
+        <!-- Current Screen Title -->
+        <div id="current-screen-title">Loading...</div>
+
+        <!-- Device Frame with Iframe -->
+        <div class="device-frame">
+            <iframe id="screen-frame" src="" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox"></iframe>
+        </div>
+    </div>
+
+    <script>
+        // Screen definitions with original file names
+        const screens = {
+            // Onboarding Flow
+            welcome: { file: 'assets/stitch-screenshots/welcome_to_ipractus.html', name: 'Welcome to iPractus', category: 'Onboarding', theme: 'light', flow: 'onboarding' },
+            role: { file: 'assets/stitch-screenshots/choose_your_role.html', name: 'Choose Your Role', category: 'Onboarding', theme: 'light', flow: 'onboarding' },
+            setup_profile: { file: 'assets/stitch-screenshots/set_up_your_profile.html', name: 'Set Up Your Profile', category: 'Onboarding', theme: 'light', flow: 'onboarding' },
+            otp: { file: 'assets/stitch-screenshots/otp_verification.html', name: 'OTP Verification', category: 'Onboarding', theme: 'light', flow: 'onboarding' },
+            success: { file: 'assets/stitch-screenshots/success___achievement.html', name: 'Success / Achievement', category: 'Onboarding', theme: 'light', flow: 'onboarding' },
+            role_pistachio: { file: 'assets/stitch-screenshots/pistachio_onboarding__system_v2.html', name: 'Choose Role (Pistachio)', category: 'Onboarding', theme: 'pistachio', flow: 'onboarding' },
+            otp_pistachio: { file: 'assets/stitch-screenshots/pistachio_otp_verify__v2.html', name: 'OTP Verify (Pistachio)', category: 'Onboarding', theme: 'pistachio', flow: 'onboarding' },
+            success_pistachio: { file: 'assets/stitch-screenshots/pistachio_success__system_v2.html', name: 'Success (Pistachio)', category: 'Onboarding', theme: 'pistachio', flow: 'onboarding' },
+
+            // Authentication
+            forgot_password: { file: 'assets/stitch-screenshots/forgot_password.html', name: 'Forgot Password', category: 'Authentication', theme: 'light' },
+            reset_password: { file: 'assets/stitch-screenshots/reset_new_password.html', name: 'Reset New Password', category: 'Authentication', theme: 'light' },
+            forgot_password_pistachio: { file: 'assets/stitch-screenshots/pistachio_forgot_password__v2.html', name: 'Forgot Password (Pistachio)', category: 'Authentication', theme: 'pistachio' },
+            reset_password_pistachio: { file: 'assets/stitch-screenshots/pistachio_reset_password__v2.html', name: 'Reset Password (Pistachio)', category: 'Authentication', theme: 'pistachio' },
+
+            // Main App - Feed
+            feed: { file: 'assets/stitch-screenshots/social_feed.html', name: 'Social Feed', category: 'Main App', theme: 'dark' },
+            feed_pistachio: { file: 'assets/stitch-screenshots/pistachio_feed__system_v2.html', name: 'Feed (Pistachio)', category: 'Main App', theme: 'pistachio' },
+
+            // Main App - Messages
+            messages: { file: 'assets/stitch-screenshots/messages.html', name: 'Messages', category: 'Main App', theme: 'light' },
+            messages_pistachio: { file: 'assets/stitch-screenshots/pistachio_messages__system_v2.html', name: 'Messages (Pistachio)', category: 'Main App', theme: 'pistachio' },
+            chat_1on1: { file: 'assets/stitch-screenshots/1_on_1_message_chat.html', name: '1-on-1 Message Chat', category: 'Main App', theme: 'dark' },
+            chat_1on1_pistachio: { file: 'assets/stitch-screenshots/pistachio_1_on_1_chat__v2.html', name: '1-on-1 Chat (Pistachio)', category: 'Main App', theme: 'pistachio' },
+
+            // Main App - Teams
+            teams: { file: 'assets/stitch-screenshots/find_teams.html', name: 'Find Teams', category: 'Main App', theme: 'light' },
+            teams_pistachio: { file: 'assets/stitch-screenshots/pistachio_teams__system_v2.html', name: 'Teams (Pistachio)', category: 'Main App', theme: 'pistachio' },
+            team_profile: { file: 'assets/stitch-screenshots/team_profile.html', name: 'Team Profile', category: 'Main App', theme: 'light' },
+            team_roster: { file: 'assets/stitch-screenshots/team_roster_management.html', name: 'Team Roster Management', category: 'Main App', theme: 'light' },
+
+            // Main App - Profile
+            profile: { file: 'assets/stitch-screenshots/my_profile.html', name: 'My Profile', category: 'Main App', theme: 'light' },
+            profile_pistachio: { file: 'assets/stitch-screenshots/pistachio_profile__system_v2.html', name: 'Profile (Pistachio)', category: 'Main App', theme: 'pistachio' },
+            edit_profile: { file: 'assets/stitch-screenshots/edit_profile.html', name: 'Edit Profile', category: 'Main App', theme: 'light' },
+
+            // Settings
+            settings: { file: 'assets/stitch-screenshots/settings.html', name: 'Settings', category: 'Settings', theme: 'dark' },
+            settings_pistachio: { file: 'assets/stitch-screenshots/pistachio_settings__system_v2.html', name: 'Settings (Pistachio)', category: 'Settings', theme: 'pistachio' },
+            privacy: { file: 'assets/stitch-screenshots/privacy_settings.html', name: 'Privacy Settings', category: 'Settings', theme: 'light' },
+            privacy_pistachio: { file: 'assets/stitch-screenshots/pistachio_privacy__system_v2.html', name: 'Privacy (Pistachio)', category: 'Settings', theme: 'pistachio' },
+
+            // Analytics & Dashboard
+            dashboard: { file: 'assets/stitch-screenshots/ipractus_dashboard.html', name: 'iPractus Dashboard', category: 'Analytics', theme: 'light' },
+            dashboard_pistachio: { file: 'assets/stitch-screenshots/pistachio_dashboard__system_v2.html', name: 'Dashboard (Pistachio)', category: 'Analytics', theme: 'pistachio' },
+            analytics_pistachio: { file: 'assets/stitch-screenshots/pistachio_analytics__system_v2.html', name: 'Analytics (Pistachio)', category: 'Analytics', theme: 'pistachio' },
+            athlete_stats: { file: 'assets/stitch-screenshots/athlete_performance_stats.html', name: 'Athlete Performance Stats', category: 'Analytics', theme: 'light' },
+            athlete_stats_pistachio: { file: 'assets/stitch-screenshots/pistachio_athlete_stats__v2.html', name: 'Athlete Stats (Pistachio)', category: 'Analytics', theme: 'pistachio' },
+            coach_analytics: { file: 'assets/stitch-screenshots/coach_performance_analytics.html', name: 'Coach Performance Analytics', category: 'Analytics', theme: 'light' },
+            coach_hub_pistachio: { file: 'assets/stitch-screenshots/pistachio_coach_hub__system_v2.html', name: 'Coach Hub (Pistachio)', category: 'Analytics', theme: 'pistachio' },
+            training_plan: { file: 'assets/stitch-screenshots/training_plan_overview.html', name: 'Training Plan Overview', category: 'Analytics', theme: 'light' },
+            training_plan_pistachio: { file: 'assets/stitch-screenshots/pistachio_plan_overview__v2.html', name: 'Training Plan (Pistachio)', category: 'Analytics', theme: 'pistachio' },
+            drill: { file: 'assets/stitch-screenshots/practice_drill_detail.html', name: 'Practice Drill Detail', category: 'Analytics', theme: 'light' },
+            drill_pistachio: { file: 'assets/stitch-screenshots/pistachio_drill__system_v2.html', name: 'Drill (Pistachio)', category: 'Analytics', theme: 'pistachio' },
+            log_results: { file: 'assets/stitch-screenshots/log_drill_results.html', name: 'Log Drill Results', category: 'Analytics', theme: 'light' },
+            log_results_pistachio: { file: 'assets/stitch-screenshots/pistachio_log_results__v2.html', name: 'Log Results (Pistachio)', category: 'Analytics', theme: 'pistachio' },
+            session: { file: 'assets/stitch-screenshots/training_session_details.html', name: 'Training Session Details', category: 'Analytics', theme: 'light' },
+            session_pistachio: { file: 'assets/stitch-screenshots/pistachio_session_details__v2.html', name: 'Session Details (Pistachio)', category: 'Analytics', theme: 'pistachio' },
+
+            // Events & Live
+            event: { file: 'assets/stitch-screenshots/event_details___rsvp.html', name: 'Event Details / RSVP', category: 'Events & Live', theme: 'light' },
+            event_pistachio: { file: 'assets/stitch-screenshots/pistachio_event__system_v2.html', name: 'Event (Pistachio)', category: 'Events & Live', theme: 'pistachio' },
+            live_sports: { file: 'assets/stitch-screenshots/live_sports.html', name: 'Live Sports', category: 'Events & Live', theme: 'light' },
+            live_pistachio: { file: 'assets/stitch-screenshots/pistachio_live__system_v2.html', name: 'Live (Pistachio)', category: 'Events & Live', theme: 'pistachio' },
+            live_chat: { file: 'assets/stitch-screenshots/live_stream_expanded_chat.html', name: 'Live Stream Expanded Chat', category: 'Events & Live', theme: 'dark' },
+            live_chat_pistachio: { file: 'assets/stitch-screenshots/pistachio_live_chat__v2.html', name: 'Live Chat (Pistachio)', category: 'Events & Live', theme: 'pistachio' },
+            go_live: { file: 'assets/stitch-screenshots/go_live_setup.html', name: 'Go Live Setup', category: 'Events & Live', theme: 'light' },
+            streamer: { file: 'assets/stitch-screenshots/streamer_dashboard.html', name: 'Streamer Dashboard', category: 'Events & Live', theme: 'light' },
+            stream_summary: { file: 'assets/stitch-screenshots/stream_summary.html', name: 'Stream Summary', category: 'Events & Live', theme: 'light' },
+
+            // Other Screens
+            connections: { file: 'assets/stitch-screenshots/connections.html', name: 'Connections', category: 'Other', theme: 'light' },
+            explore: { file: 'assets/stitch-screenshots/explore_ipractus.html', name: 'Explore iPractus', category: 'Other', theme: 'light' },
+            notifications: { file: 'assets/stitch-screenshots/notification_center.html', name: 'Notification Center', category: 'Other', theme: 'light' },
+            activity_alerts: { file: 'assets/stitch-screenshots/activity_alerts.html', name: 'Activity Alerts', category: 'Other', theme: 'light' },
+            media_library: { file: 'assets/stitch-screenshots/media_library.html', name: 'Media Library', category: 'Other', theme: 'light' },
+            media_albums: { file: 'assets/stitch-screenshots/media_albums.html', name: 'Media Albums', category: 'Other', theme: 'light' },
+            achievements: { file: 'assets/stitch-screenshots/achievements_gallery.html', name: 'Achievements Gallery', category: 'Other', theme: 'light' },
+            team_schedule: { file: 'assets/stitch-screenshots/team_schedule.html', name: 'Team Schedule', category: 'Other', theme: 'light' },
+            video_call: { file: 'assets/stitch-screenshots/video_call.html', name: 'Video Call', category: 'Other', theme: 'light' },
+            video_call_pistachio: { file: 'assets/stitch-screenshots/pistachio_video_call__system_v2.html', name: 'Video Call (Pistachio)', category: 'Other', theme: 'pistachio' },
+            video_player: { file: 'assets/stitch-screenshots/drill_video_player.html', name: 'Drill Video Player', category: 'Other', theme: 'light' },
+            blocked: { file: 'assets/stitch-screenshots/blocked_users.html', name: 'Blocked Users', category: 'Other', theme: 'light' },
+            help: { file: 'assets/stitch-screenshots/help___support.html', name: 'Help & Support', category: 'Other', theme: 'light' },
+            help_pistachio: { file: 'assets/stitch-screenshots/pistachio_support__system_v2.html', name: 'Help (Pistachio)', category: 'Other', theme: 'pistachio' },
+            about: { file: 'assets/stitch-screenshots/about_ipractus.html', name: 'About iPractus', category: 'Other', theme: 'light' },
+            about_pistachio: { file: 'assets/stitch-screenshots/pistachio_about__system_v2.html', name: 'About (Pistachio)', category: 'Other', theme: 'pistachio' },
+            terms: { file: 'assets/stitch-screenshots/terms_of_service.html', name: 'Terms of Service', category: 'Other', theme: 'light' },
+            terms_pistachio: { file: 'assets/stitch-screenshots/pistachio_terms__system_v2.html', name: 'Terms (Pistachio)', category: 'Other', theme: 'pistachio' },
+            privacy_policy: { file: 'assets/stitch-screenshots/privacy_policy.html', name: 'Privacy Policy', category: 'Other', theme: 'light' },
+            pro: { file: 'assets/stitch-screenshots/ipractus_pro_upgrade.html', name: 'iPractus Pro Upgrade', category: 'Other', theme: 'light' },
+            refer: { file: 'assets/stitch-screenshots/refer_a_friend.html', name: 'Refer a Friend', category: 'Other', theme: 'light' },
+            refer_pistachio: { file: 'assets/stitch-screenshots/pistachio_refer__system_v2.html', name: 'Refer (Pistachio)', category: 'Other', theme: 'pistachio' },
+            group_settings: { file: 'assets/stitch-screenshots/group_chat_settings.html', name: 'Group Chat Settings', category: 'Other', theme: 'light' },
+            group_settings_pistachio: { file: 'assets/stitch-screenshots/pistachio_group_settings__v2.html', name: 'Group Settings (Pistachio)', category: 'Other', theme: 'pistachio' },
+            group_invite: { file: 'assets/stitch-screenshots/group_invitation_landing.html', name: 'Group Invitation Landing', category: 'Other', theme: 'light' },
+            coach_dashboard: { file: 'assets/stitch-screenshots/coach_management_dashboard.html', name: 'Coach Management Dashboard', category: 'Analytics', theme: 'light' },
+        };
+
+        // State
+        let history = [];
+        let currentIndex = -1;
+        let currentScreen = null;
+
+        // Initialize
+        function init() {
+            populateScreenList();
+            populateQuickNav();
+            loadScreen('welcome');
+        }
+
+        // Populate screen list dropdown
+        function populateScreenList() {
+            const list = document.getElementById('demo-screen-list');
+            let currentCategory = '';
+
+            for (const [key, screen] of Object.entries(screens)) {
+                // Add category header
+                if (screen.category !== currentCategory) {
+                    currentCategory = screen.category;
+                    const header = document.createElement('div');
+                    header.className = 'category-header';
+                    header.textContent = currentCategory;
+                    list.appendChild(header);
+                }
+
+                // Add screen item
+                const item = document.createElement('button');
+                item.className = 'screen-item';
+
+                const themeClass = screen.theme === 'light' ? 'theme-light' :
+                                  screen.theme === 'dark' ? 'theme-dark' : 'theme-pistachio';
+
+                item.innerHTML = '<span class="theme-badge ' + themeClass + '">' + screen.theme + '</span><span>' + screen.name + '</span>';
+                item.onclick = function() {
+                    loadScreen(key);
+                    list.classList.remove('open');
+                };
+                list.appendChild(item);
+            }
+        }
+
+        // Populate quick navigation
+        function populateQuickNav() {
+            const nav = document.getElementById('quick-nav');
+            const flows = {
+                'Onboarding': ['welcome', 'role', 'setup_profile', 'otp', 'success'],
+                'Auth': ['forgot_password', 'reset_password'],
+                'Feed Theme': ['feed', 'feed_pistachio'],
+                'Chat Theme': ['chat_1on1', 'chat_1on1_pistachio'],
+            };
+
+            for (const [flowName, screenKeys] of Object.entries(flows)) {
+                const divider = document.createElement('span');
+                divider.style.cssText = 'color: #666; font-size: 10px; padding: 6px 8px; white-space: nowrap;';
+                divider.textContent = flowName;
+                nav.appendChild(divider);
+
+                for (const key of screenKeys) {
+                    if (screens[key]) {
+                        const btn = document.createElement('button');
+                        btn.className = 'quick-nav-btn';
+                        btn.textContent = screens[key].name;
+                        btn.onclick = function() { loadScreen(key); };
+                        nav.appendChild(btn);
+                    }
+                }
+            }
+        }
+
+        // Toggle screen list
+        function toggleScreenList() {
+            document.getElementById('demo-screen-list').classList.toggle('open');
+        }
+
+        // Load screen in iframe
+        function loadScreen(screenKey) {
+            const screen = screens[screenKey];
+            if (!screen) return;
+
+            const iframe = document.getElementById('screen-frame');
+            const titleEl = document.getElementById('current-screen-title');
+
+            // Update title
+            titleEl.textContent = screen.category + ' → ' + screen.name;
+
+            // Load in iframe
+            iframe.src = screen.file;
+
+            // Add to history
+            if (currentScreen !== screenKey) {
+                history = history.slice(0, currentIndex + 1);
+                history.push(screenKey);
+                currentIndex = history.length - 1;
+                currentScreen = screenKey;
+                updateBackButton();
+                updateQuickNavActive(screenKey);
+            }
+        }
+
+        // Go back
+        function goBack() {
+            if (currentIndex > 0) {
+                currentIndex--;
+                const screenKey = history[currentIndex];
+                currentScreen = screenKey;
+                const screen = screens[screenKey];
+
+                document.getElementById('screen-frame').src = screen.file;
+                document.getElementById('current-screen-title').textContent = screen.category + ' → ' + screen.name;
+
+                updateBackButton();
+                updateQuickNavActive(screenKey);
+            }
+        }
+
+        // Update back button state
+        function updateBackButton() {
+            document.getElementById('back-btn').disabled = currentIndex <= 0;
+        }
+
+        // Update quick nav active state
+        function updateQuickNavActive(screenKey) {
+            const btns = document.querySelectorAll('.quick-nav-btn');
+            for (let i = 0; i < btns.length; i++) {
+                btns[i].classList.remove('active');
+                if (btns[i].textContent === screens[screenKey].name) {
+                    btns[i].classList.add('active');
+                }
+            }
+        }
+
+        // Keyboard shortcuts
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') goBack();
+        });
+
+        // Initialize on load
+        document.addEventListener('DOMContentLoaded', init);
+    </script>
+</body>
+</html>

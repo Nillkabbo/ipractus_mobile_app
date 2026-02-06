@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>iPractus - Live Stream Expanded Chat (Dark Mode)</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&amp;family=Noto+Sans:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1173d4",
+                        "deep-charcoal": "#0a0c10",
+                        "navy-dark": "#0d141c",
+                        "surface-dark": "#1a222d",
+                        "pinned-blue": "#0f2540",
+                    },
+                    fontFamily: {
+                        "display": ["Lexend"],
+                        "sans": ["Noto Sans"]
+                    },
+                    borderRadius: { "DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        body {
+            font-family: 'Lexend', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+            background-color: #0a0c10;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #2d3a4a;
+            border-radius: 10px;
+        }
+        .video-container {
+            height: 40vh;
+        }
+        .chat-container {
+            height: 60vh;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-deep-charcoal text-white font-display antialiased">
+<div class="flex flex-col h-screen max-w-md mx-auto overflow-hidden relative shadow-2xl bg-deep-charcoal">
+<div class="video-container relative bg-black shrink-0">
+<div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDD6gYXBhcWGgB_dY61e1PD1_gC4OOt_gFkKF-XPGRBabVKcO-OLItjUU7aHYrtORdnv3S-PO65k_L54Ws4iscLBnMqd6GBBJ7Rj9TA4rzl7UJ0gplDL7EMhsicQ3N9jrgfXL_Ox4Mq5TFA6hbasP9hdDd93elvqVAUh1aBUFHm5El87V7Cu-iUBbeeKBkzfDHsNjD0sAFKn_neWxVrl8OlGKrzd18DaeiVuJ6Gw-lhHngOfxzWO_UtcENpi0pG_7tlxRFZbd8-JS3k')">
+<div class="absolute inset-0 bg-gradient-to-b from-black/70 via-transparent to-black/30"></div>
+</div>
+<div class="relative flex flex-col h-full justify-between p-4">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="bg-red-600 text-[10px] font-bold px-2.5 py-1 rounded-full flex items-center gap-1 uppercase tracking-widest">
+<span class="size-1.5 bg-white rounded-full animate-pulse"></span> LIVE
+                        </span>
+<div class="bg-black/50 backdrop-blur-md rounded-full px-3 py-1 flex items-center gap-1 border border-white/10">
+<span class="material-symbols-outlined text-sm">visibility</span>
+<span class="text-xs font-semibold">1,248</span>
+</div>
+</div>
+<button class="bg-black/50 backdrop-blur-md size-10 rounded-full flex items-center justify-center border border-white/10 text-white">
+<span class="material-symbols-outlined">expand_more</span>
+</button>
+</div>
+<div class="flex items-center justify-center">
+<button class="size-16 bg-white/10 backdrop-blur-xl rounded-full flex items-center justify-center border border-white/20 transition-transform active:scale-95">
+<span class="material-symbols-outlined text-4xl text-white fill-1">play_arrow</span>
+</button>
+</div>
+<div class="flex items-center gap-3 bg-black/30 backdrop-blur-sm p-2 rounded-2xl w-fit border border-white/5">
+<div class="size-10 rounded-full border-2 border-primary overflow-hidden shadow-lg">
+<img alt="Streamer Avatar" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCmEzSQey-u9UuMiuTnGZBoNmmewyi6o8WdtPPr1CbE1uLqX0oaL_0jI5uVo9xQWVQ-PUhwa9knZbYqdp4PzPIbO8_WCLG8jL_U2kCzRHa8fd1undNphcPexHtWEh-73ziSNlQvaKhEFIfO5sCLXV_wUF4HmQ1TccasnI-89lUzaJ3nXayHAhBi2zj4zvleQedlDKVReKly7KxHQwSdCZkkNmE26PMCADaanvWQvC0C2gDvaDm4unR8kYvkNjLxl7fH3Fc1PyKdbDL4"/>
+</div>
+<div>
+<p class="text-sm font-bold text-white">Coach Mike</p>
+<p class="text-[10px] text-gray-300">Tennis Fundamentals Mastery</p>
+</div>
+</div>
+</div>
+</div>
+<div class="chat-container flex flex-col bg-navy-dark rounded-t-[2.5rem] z-10 -mt-6 shadow-[0_-10px_40px_rgba(0,0,0,0.5)] border-t border-white/5">
+<div class="flex items-center justify-between px-6 pt-6 pb-3">
+<div class="flex items-center gap-2">
+<h2 class="text-white text-lg font-bold">Live Chat</h2>
+<span class="size-2 bg-green-500 rounded-full"></span>
+</div>
+<div class="flex items-center gap-4 text-gray-400">
+<button class="hover:text-white"><span class="material-symbols-outlined text-2xl">settings</span></button>
+<button class="hover:text-white"><span class="material-symbols-outlined text-2xl">close</span></button>
+</div>
+</div>
+<div class="px-5 pb-4">
+<div class="flex items-center justify-between gap-3 rounded-2xl bg-pinned-blue border border-primary/30 p-4 shadow-inner">
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-xl mt-0.5 fill-1">push_pin</span>
+<div class="flex flex-col">
+<p class="text-primary text-[11px] font-black uppercase tracking-wider">Pinned by Coach Mike</p>
+<p class="text-white text-sm font-medium leading-relaxed">Remember to keep your knees bent during the serve for maximum power! 🎾</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-gray-500">chevron_right</span>
+</div>
+</div>
+<div class="flex-1 overflow-y-auto px-6 space-y-5 custom-scrollbar pb-4">
+<div class="flex items-start gap-3">
+<div class="size-9 rounded-full bg-cover bg-center shrink-0 border border-white/10" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD5Q7mv4y_rXROfcAKQ47enuD2t1MGmdE7c9czafVqt4oPtTjlWN-9HIhkVq_AK6Uu86cjfnU6YGJFDd3pPscM-PzmUtW1bZVSe13eevy1PH92EHMGP3uWDvQrpzQ0UaZgT59lmk_cBLsDK6LswplPlLN0OlfYJUiGTuArrYNMEK95qs-pjMh8Gvy5rK3DgvHRPwEY1waUfqyp3ugruclP5LdmDFAlXQzW_fwTv6Csxgfha9cQnOSRqxuE2pE1aAT3lSgEw52wM9-as')"></div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<p class="text-white text-xs font-bold">Alex Rivera</p>
+<p class="text-gray-500 text-[10px]">2m</p>
+</div>
+<p class="text-gray-300 text-[13px] leading-snug mt-0.5">Great tip! Definitely helps with balance. I was standing too tall.</p>
+</div>
+</div>
+<div class="flex items-start gap-3">
+<div class="size-9 rounded-full bg-cover bg-center shrink-0 border border-white/10" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBlFVYgJthVpH4Zpi6ANMKAocbOeOEFfQTM92jQNzVQt_Ti43T1jodLeqJRjg0DkhzkSbpNoxlaUm0wqgZGINARDO4luuMvevIgTzqQb9Rl8FvOA9sKI-vJdwoBVTjyWIIppny2UiMLiwqGj24BbVU91Y2RpVeirZjXA2JvR5Wy_E1FjjuTz9_uSnTpfyDJY8Yn9oGA265YPwGjQQAz-lqsZyJefYsM-fuEP4CfJRewAKl5LTKo8CUWy6uAa2ZmJAxwr35lw2vk_LKD')"></div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<p class="text-white text-xs font-bold">Sarah Chen</p>
+<p class="text-gray-500 text-[10px]">1m</p>
+</div>
+<p class="text-gray-300 text-[13px] leading-snug mt-0.5">Can you show the backhand grip again? The camera angle was perfect for it.</p>
+</div>
+</div>
+<div class="flex items-start gap-3">
+<div class="size-9 rounded-full bg-cover bg-center shrink-0 border border-white/10" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD3jWb6mR-Mf7KO8_Hj8_jzCdNwZqPaO8YW4ezp0y7ZHgIVOCXYKsQhBqIJkszW9URWFEcUmcjL1TNGcr6H7wyPMx2CkrSoB6eFwhhv9rjxKBI7lz8cnfUY_p3xzFpExigXR4_80QiGU4Jw4RiuEamNIZ8bCd_mu_rAEZjF8gSAeZg1FcxlO7vP_NsmXN7on5MEdTxNEoecQNiX80ITeWq25rRxlDrpJJGX3UBNEVQ-jHScTi52KIJT6-Cg86ulpKwoNJx-SSfaMute')"></div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<p class="text-white text-xs font-bold">Marcus Johnson</p>
+<p class="text-gray-500 text-[10px]">Just now</p>
+</div>
+<p class="text-gray-300 text-[13px] leading-snug mt-0.5">Liking this perspective! 🎾🔥 The quality is insane today.</p>
+</div>
+</div>
+<div class="flex items-start gap-3">
+<div class="size-9 rounded-full bg-cover bg-center shrink-0 border border-white/10" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBmgrEcaLJEZXjC9H1FGdOUfx2uKVvc1KJ_aqm_UcByH4Lxch_Omf1BXChXwHWNCJAjLEPJq70SFxGzalfUFGlmqRoMdOGYJS20VpdB3dkvnVW-xARaud1AFVvkrMBIFgpbpfuT3KcDR-AdOMqt_uKe7z-1jkN5eZ_aLETeHH8vqT3-2x1JabVOWbRQnMETHvRA5-0rCA8dyJSSBOQRpd5BpglQR4YFcVPCMYvaB3pbI0sXiATIC8N7e-_hQ9b7klK0Pv07Xul8ht-Z')"></div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<p class="text-white text-xs font-bold">David L.</p>
+<p class="text-gray-500 text-[10px]">Just now</p>
+</div>
+<p class="text-gray-300 text-[13px] leading-snug mt-0.5">Let's gooo iPractus family! Best community out here.</p>
+</div>
+</div>
+</div>
+<div class="p-4 bg-navy-dark border-t border-white/5 pb-10">
+<div class="flex items-center gap-3">
+<div class="flex-1 relative">
+<input class="w-full bg-surface-dark border-none rounded-2xl px-5 py-3.5 text-sm text-white placeholder-gray-500 focus:ring-2 focus:ring-primary shadow-lg" placeholder="Say something..." type="text"/>
+<div class="absolute right-3 top-1/2 -translate-y-1/2 flex items-center gap-2">
+<span class="material-symbols-outlined text-gray-500 text-xl cursor-pointer hover:text-white">sentiment_satisfied</span>
+<button class="bg-primary hover:bg-blue-600 text-white font-bold text-[10px] uppercase tracking-wider px-3 py-1.5 rounded-lg transition-colors">Send</button>
+</div>
+</div>
+<button class="size-12 rounded-2xl bg-surface-dark border border-white/5 flex items-center justify-center text-pink-500 transition-all active:scale-90 shadow-lg">
+<span class="material-symbols-outlined fill-1 text-2xl">favorite</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+
+</body></html>

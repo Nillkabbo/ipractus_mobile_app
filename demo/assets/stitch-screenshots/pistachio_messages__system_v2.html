@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Pistachio Messages (System v2)</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#b2f15f",
+                        "obsidian-base": "#0B132B",
+                        "obsidian-elevated": "#1C2541",
+                        "cyan-status": "#66D9E8",
+                        "background-light": "#f7f8f6",
+                        "background-dark": "#0B132B",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .status-glow {
+            box-shadow: 0 0 8px #66D9E8;
+        }
+        .pistachio-glow {
+            box-shadow: 0 0 12px rgba(178, 241, 95, 0.4);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-white antialiased">
+<!-- Header Section -->
+<header class="sticky top-0 z-30 bg-background-dark/80 backdrop-blur-md px-4 pt-6 pb-2">
+<div class="flex items-center justify-between mb-4">
+<h1 class="text-3xl font-bold tracking-tight">Messages</h1>
+<div class="flex gap-3">
+<button class="flex items-center justify-center size-10 rounded-full bg-obsidian-elevated text-primary">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<div class="size-10 rounded-full bg-center bg-cover border-2 border-primary/20" data-alt="User profile avatar portrait" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCU1R2P4TWENVl1LEWyWVdi2F4iRMrZVSgOGBcslFsX1mSLarJ4gJ2ds5Z2DQHNnazeEC-hz_u0xDT2Gs5fAVpUCcXR4ZPVIWTNM6lvGDlHulsmDTJhfgqMEtlwcg3qQlF5G2vtn-Ss9K4dqjY99C-D4e96Cotsgdcs3LSZMICuWFRnVuZWn_2zHgep4d-4qdXkPx1uYJ0ltOlS2BuvRSz_wmPaxRyjEfpOtnaNdn_NZHTM8B3ITEQdQmPLlD5pSVmWH4-qsGvkNGrD");'>
+</div>
+</div>
+</div>
+<!-- Search Bar -->
+<div class="mb-4">
+<label class="flex flex-col w-full">
+<div class="flex w-full items-stretch rounded-xl h-12 bg-obsidian-elevated border border-white/5">
+<div class="text-primary/60 flex items-center justify-center pl-4">
+<span class="material-symbols-outlined">search</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 border-none bg-transparent focus:ring-0 text-white placeholder:text-gray-500 px-4 text-base font-normal" placeholder="Search athletes and coaches..." value=""/>
+</div>
+</label>
+</div>
+</header>
+<main class="pb-24">
+<!-- Story Carousel / Active Athletes -->
+<section class="mb-6">
+<div class="flex w-full overflow-x-auto no-scrollbar px-4 py-2">
+<div class="flex flex-row items-start justify-start gap-5">
+<!-- Story Item 1 (Active) -->
+<div class="flex flex-col items-center gap-2 w-16 group">
+<div class="relative">
+<div class="w-16 h-16 bg-center bg-no-repeat bg-cover rounded-full border-2 border-cyan-status p-0.5" data-alt="Athlete profile picture coach" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBfWrdCUJojX_tzQPMH75-FoL7k_MtaX776CkXjXZTpviewFthzdBhChtf5TWcgG0uMPTEtPCjWF7qTFYESUGIpXURAFI7ThyzpMhBc7jrCt8B0fXVAJdzJd22UeWUBuBKeCzY7JkLhIPOmbu82mgJVVNL99Tsgd80xZXr3euhMT_y0xtPUFRmXXmNyjTJC1EfToM-72QNOgNFWF_OW8hnxUW0X4Zy4kUhmw4W1MJ64ZNI7VwEtGbkvplK_YcFs1G0fE-sm3T_5Lrev");'>
+</div>
+<div class="absolute bottom-0 right-0 size-4 bg-cyan-status rounded-full border-2 border-obs-base status-glow"></div>
+</div>
+<p class="text-primary text-[11px] font-semibold uppercase tracking-wider">Coach</p>
+</div>
+<!-- Story Item 2 -->
+<div class="flex flex-col items-center gap-2 w-16">
+<div class="relative">
+<div class="w-16 h-16 bg-center bg-no-repeat bg-cover rounded-full border-2 border-transparent" data-alt="Athlete profile Sarah" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDQm3kGAwelmym13r1Sj1TMdllMcHL4t8mJMpNGjCBpCNaSEDgpEnfgJJspYIfl_jvlhUuGQ2P3cogr9dnP7FhmUC-gQ6YR0gXjgtgED_6ABqj1c2UwrGOga7kFCrM4FvXjbTRw1VFs0d5mKaADUBb3NIMpS9YZc482i2pS05Lij3MSclKab3Mi39dUz4RQSYO5vowXSAvukhGd6NQUbcXtjN0-G2SE6ByfwLgQnxE_krn6X9VshLpd1SdCgrR3-v0dZkn2zlpFqylp");'>
+</div>
+<div class="absolute bottom-0 right-0 size-4 bg-cyan-status rounded-full border-2 border-obs-base status-glow"></div>
+</div>
+<p class="text-white/70 text-[11px] font-medium">Sarah</p>
+</div>
+<!-- Story Item 3 -->
+<div class="flex flex-col items-center gap-2 w-16">
+<div class="w-16 h-16 bg-center bg-no-repeat bg-cover rounded-full border-2 border-transparent" data-alt="Athlete profile Mike" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAS1GQdbh75sXzx6MBDnyuGftnl_-mEuTwq2I4geG3Il9QYOQMZpb1cv5GASGjMtgPiu_NH1-1XFD4l_LFFyAIy0BmwBhP15y6oem7WzUUpccPrqp_V1bdubckv_4VW-cxzorxeB-ZMQfXn4txye4jy7-GYIPGJRdkbXSMhzaEWsKGSHVW7Q4FFgfiAnmV5f-KOcaprK1K2cX_PhoJJi94FvLxr3_sG1wNWSa4A1F7ikdNp3oLmf0k-kgMi7i9oRHBLw2BSQfVayFzU");'>
+</div>
+<p class="text-white/70 text-[11px] font-medium">Mike</p>
+</div>
+<!-- Story Item 4 -->
+<div class="flex flex-col items-center gap-2 w-16">
+<div class="relative">
+<div class="w-16 h-16 bg-center bg-no-repeat bg-cover rounded-full border-2 border-transparent" data-alt="Athlete profile Elena" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuChQX8T1ztasBtMg89C0ohzvIApxG8t7cNzyhcQFKBdih237cdfJUb_S3Be1zFBD802Pqlwp-vzCySKWcL4VxheXsNNzgBaLr0-fvAFe5uhKExLdSCFHnJrMhGY4jyvx5kEDZdQK4gO6Bbq9PKaM5ZlXPZsrrqkyLtHNxU7R-d6Y2v1SpIsAOk3nCgyVgCb5oKMSms4L9ny3yfFTVOEgusGvLJQqV3WXLZDQVMuToAG_eRHUcvpBnRnBaYb5HLlAmjZDJ-UHXTP1dNw");'>
+</div>
+<div class="absolute bottom-0 right-0 size-4 bg-cyan-status rounded-full border-2 border-obs-base status-glow"></div>
+</div>
+<p class="text-white/70 text-[11px] font-medium">Elena</p>
+</div>
+<!-- Story Item 5 -->
+<div class="flex flex-col items-center gap-2 w-16">
+<div class="w-16 h-16 bg-center bg-no-repeat bg-cover rounded-full border-2 border-transparent" data-alt="Athlete profile Jordan" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuB_dp5LIvCLq604SVEdPyBX5ncZGK-b-aIxb8R4aY6IRa79odPqeUqQDbuKEZ7BfPfe1pYMMMubV9TcXrX7cOnPVV2GckKsq3cEUEsoyH84iePDHBaQka-LuO-Y_XgBOBU_uC7KuZvuSq26FxhNXKI5JHbiblsMxBbgo2TRBg8SUr2kvVkZgq9Rau3M7lsw3oIUnjt1i_jOP7qd17kz_9G_gq5j_OPIdact_N8zHpL6OGIByf3Umn8b9F6wdkOJfA_JxiozorBB97Un");'>
+</div>
+<p class="text-white/70 text-[11px] font-medium">Jordan</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Message List -->
+<section class="flex flex-col gap-1 px-4">
+<!-- Message Row 1 (Unread) -->
+<div class="flex items-center gap-4 bg-obsidian-elevated px-4 min-h-[84px] py-3 rounded-2xl border-l-4 border-primary">
+<div class="relative">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full h-14 w-14 border border-white/10" data-alt="Avatar Coach Carter" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC1_ZcEITZUJm-k3DVjF_8PoUdhg_YsB5TbxBrPyN60KUJyj9GXgm0imxkJ6ISUdJyKT92rbKbWreBw-wUye0rpH9h2iUA5l95Gba7fs8ysIctjGU1bj_GOueHTzBvnPK1H_78_rUGGF2Ij6ZBGPZcO43uxlgDA_SnXbFf0Jp1LL-Xg0Icu14RFXdjOpKzkLg1q-azmCr04FtxcNYNIDNRYT9eV0eDQJwIFspzuWemsPwy9qX_xrLF8I97Wu2aKpuwcScB4kgS7qI4x");'></div>
+<div class="absolute -top-1 -right-1 size-5 bg-primary rounded-full flex items-center justify-center text-[10px] font-bold text-obsidian-base">1</div>
+</div>
+<div class="flex flex-col flex-1 min-w-0">
+<div class="flex justify-between items-baseline">
+<p class="text-white text-base font-bold leading-tight">Coach Carter</p>
+<p class="text-primary text-xs font-semibold">2m</p>
+</div>
+<p class="text-white text-sm font-medium leading-snug line-clamp-1 mt-0.5">Great session today, keep it up!</p>
+</div>
+</div>
+<!-- Message Row 2 (Active Status) -->
+<div class="flex items-center gap-4 bg-obsidian-elevated/50 px-4 min-h-[84px] py-3 rounded-2xl hover:bg-obsidian-elevated transition-colors">
+<div class="relative">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full h-14 w-14 border border-white/10" data-alt="Avatar Sarah Miller" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBEtuiNfhSlrhZmEJj5da28ivHn_eZfVuJxtHgdz9aPY2GVjc6GLIXGZbUT-m98-qkmWPrL0lX3mLs5X30eq9r_bqLhReYJUWIYtdQ41NtXJwJExoKdXOsEBqETuhD3J3ejRYbevoBSCUJzzOlg3oOUgcQwgfD6ANg6xkQgpZ8_XxlOz1g9wXaGT97DU1gxpp2KzPwgJ-iRr3A4WLI045Oe4fMikgz5igsIMalns8bYREze4qSQK8mSk0aObs4vMvObNvP1hrpvmF0G");'></div>
+<div class="absolute bottom-0 right-0 size-3.5 bg-cyan-status rounded-full border-2 border-obsidian-elevated status-glow"></div>
+</div>
+<div class="flex flex-col flex-1 min-w-0">
+<div class="flex justify-between items-baseline">
+<p class="text-white/90 text-base font-semibold leading-tight">Sarah Miller</p>
+<p class="text-white/40 text-xs font-normal">1h</p>
+</div>
+<p class="text-white/60 text-sm font-normal leading-snug line-clamp-1 mt-0.5">Check out my new training stats!</p>
+</div>
+</div>
+<!-- Message Row 3 -->
+<div class="flex items-center gap-4 bg-obsidian-elevated/50 px-4 min-h-[84px] py-3 rounded-2xl">
+<div class="relative">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full h-14 w-14 border border-white/10" data-alt="Avatar Mike Tyson" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDQlSjWLSXWKcLIi_Tnh_m88nnpxsD0p7hvhDImEE__YZlLqUyFkaDrwFJVZbtfG4rNzDuDT3kCMQdoLep_tAfgCQS6-SI4lzb1OV_aGu569-u6NI62JXz9ZtF8ixC-8t4jIkwe5eZkDxWsw8G0EpNpEzsDPGilhcXnU3cdw7J0dpxSuXN37khMJHaYBzJRzSEzAWPgi4V_JI2zOZcJTjcXAFhNPnE6NrINwpfiP-Pw6POEMLuipVfootlqkm2NtUfVDHOki3nJmzD4");'></div>
+</div>
+<div class="flex flex-col flex-1 min-w-0">
+<div class="flex justify-between items-baseline">
+<p class="text-white/90 text-base font-semibold leading-tight">Mike Ross</p>
+<p class="text-white/40 text-xs font-normal">3h</p>
+</div>
+<p class="text-white/60 text-sm font-normal leading-snug line-clamp-1 mt-0.5">The hydration plan is working wonders for my recovery.</p>
+</div>
+</div>
+<!-- Message Row 4 -->
+<div class="flex items-center gap-4 bg-obsidian-elevated/50 px-4 min-h-[84px] py-3 rounded-2xl">
+<div class="relative">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full h-14 w-14 border border-white/10" data-alt="Avatar Elena Vance" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDA3brk0LHgo2VmpgtwXkiVS0kyom14DQILVPg7Djl0eBOUsu6FcUwfAJHlRE97418h40eMOdLb5g-QsZTLt2SvvqHgcigFEoUY0w4I2Z14G8kB6C3iw3t25slEVXnP9ll2Fd88mDPWVc5PnL2wQHxbvK54j_iIyKk2PRhqhq_lovkouT9Yr225Zp9cg4DOWHFZHiiWrU9owpMUtqmxTNOCsK69DE7els1Ls6ylyQJ6Y05mt19BC2sGqSU48U-YBEDNoeHvnHO1Ksz_");'></div>
+<div class="absolute bottom-0 right-0 size-3.5 bg-cyan-status rounded-full border-2 border-obsidian-elevated status-glow"></div>
+</div>
+<div class="flex flex-col flex-1 min-w-0">
+<div class="flex justify-between items-baseline">
+<p class="text-white/90 text-base font-semibold leading-tight">Elena Vance</p>
+<p class="text-white/40 text-xs font-normal">Tue</p>
+</div>
+<p class="text-white/60 text-sm font-normal leading-snug line-clamp-1 mt-0.5">See you at the track tomorrow morning?</p>
+</div>
+</div>
+<!-- Message Row 5 -->
+<div class="flex items-center gap-4 bg-obsidian-elevated/50 px-4 min-h-[84px] py-3 rounded-2xl">
+<div class="relative">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full h-14 w-14 border border-white/10" data-alt="Avatar Jordan King" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDThVPaR_C_zE9CPaEeYYP72a6mJw8GLgQLaZhLWXQSJ38SNzgJ2ulY3-uCzMFumBSlLtZ-2u0H5rY9EoHxSo45sAp4i1ktUPkCHHlZv_aJylQZ23nxZsSbpaw3S0YDA1nWMC6sMZ4A-v_8spB3AfPfNl6eGOTw0mGk9eFAet22KN2UXXJnqO6y9kIIxiE9ZAwpnHk5Ke6aMQ1L508ZQrW2dzOwmhDwxp0LgKOm6g6oAX8HaXc14YcApSij_Zs-juld1Ko3OsRqyoQb");'></div>
+</div>
+<div class="flex flex-col flex-1 min-w-0">
+<div class="flex justify-between items-baseline">
+<p class="text-white/90 text-base font-semibold leading-tight">Jordan King</p>
+<p class="text-white/40 text-xs font-normal">Mon</p>
+</div>
+<p class="text-white/60 text-sm font-normal leading-snug line-clamp-1 mt-0.5">Thanks for the feedback on the deadlift form video.</p>
+</div>
+</div>
+</section>
+</main>
+<!-- Floating Action Button -->
+<div class="fixed bottom-24 right-6 z-40">
+<button class="flex items-center justify-center size-14 bg-primary text-obsidian-base rounded-full pistachio-glow active:scale-95 transition-transform shadow-2xl">
+<span class="material-symbols-outlined text-3xl font-bold">edit_square</span>
+</button>
+</div>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 left-0 right-0 bg-obsidian-base/90 backdrop-blur-xl border-t border-white/5 px-6 pb-8 pt-3 flex justify-between items-center z-50">
+<button class="flex flex-col items-center gap-1 text-white/40">
+<span class="material-symbols-outlined">home</span>
+<span class="text-[10px] font-medium">Home</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-white/40">
+<span class="material-symbols-outlined">monitoring</span>
+<span class="text-[10px] font-medium">Stats</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-primary">
+<div class="relative">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">chat_bubble</span>
+<div class="absolute -top-1 -right-1 size-2.5 bg-primary rounded-full border border-obsidian-base"></div>
+</div>
+<span class="text-[10px] font-bold">Messages</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-white/40">
+<span class="material-symbols-outlined">fitness_center</span>
+<span class="text-[10px] font-medium">Workouts</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-white/40">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-medium">Profile</span>
+</button>
+</nav>
+</body></html>

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>iPractus Media Library</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .filled-icon {
+            font-variation-settings: 'FILL' 1;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-white antialiased">
+<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
+<!-- TopAppBar -->
+<header class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md">
+<div class="flex items-center p-4 pb-2 justify-between">
+<div class="text-primary flex size-12 shrink-0 items-center">
+<span class="material-symbols-outlined text-3xl">sports_basketball</span>
+</div>
+<h2 class="text-slate-900 dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] flex-1">Media Library</h2>
+<div class="flex w-12 items-center justify-end">
+<button class="flex cursor-pointer items-center justify-center rounded-full h-10 w-10 hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors">
+<span class="material-symbols-outlined text-slate-900 dark:text-white">search</span>
+</button>
+</div>
+</div>
+<!-- SegmentedButtons -->
+<div class="flex px-4 py-3">
+<div class="flex h-10 flex-1 items-center justify-center rounded-xl bg-slate-200 dark:bg-[#283039] p-1">
+<label class="flex cursor-pointer h-full grow items-center justify-center overflow-hidden rounded-lg px-2 has-[:checked]:bg-white dark:has-[:checked]:bg-background-dark has-[:checked]:shadow-sm has-[:checked]:text-primary text-slate-500 dark:text-[#9dabb9] text-sm font-semibold leading-normal transition-all">
+<span class="truncate">All Media</span>
+<input checked="" class="invisible w-0" name="media-toggle" type="radio" value="All Media"/>
+</label>
+<label class="flex cursor-pointer h-full grow items-center justify-center overflow-hidden rounded-lg px-2 has-[:checked]:bg-white dark:has-[:checked]:bg-background-dark has-[:checked]:shadow-sm has-[:checked]:text-primary text-slate-500 dark:text-[#9dabb9] text-sm font-semibold leading-normal transition-all">
+<span class="truncate">Albums</span>
+<input class="invisible w-0" name="media-toggle" type="radio" value="Albums"/>
+</label>
+</div>
+</div>
+</header>
+<main class="flex-1 pb-24">
+<!-- ImageGrid - 3 Column Layout for Photos/Videos -->
+<div class="grid grid-cols-3 gap-1 p-1">
+<!-- Video Item -->
+<div class="relative aspect-square bg-slate-200 dark:bg-slate-800 overflow-hidden group">
+<div class="w-full h-full bg-center bg-no-repeat bg-cover" data-alt="Athlete performing a slam dunk" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuB10kMEimje61CtlUPm-Ka1sSNyK0lkwdVs3fhCUDI5WO70ZLRuA6d0sxVLTyjTqqHrjVuvnptmTbgbxRYLolWFoIe6UlPpDfuFy1AMr0XN_Q4qMByuwsAtcPskGTT5vSwaUmNU0CJTXkIolT_ltkRn4lqhj5kugJaap-AKvmPJJtHCSezwoqFAbOpmzhq015tEJKzSWt3kaUo57fLQQ_ZfWEoZYTDxREJgaEGZcOASblKJryy4bMwdlR4gim67HsV-EyqgPDWvBkTZ");'></div>
+<div class="absolute inset-0 flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-3xl filled-icon drop-shadow-md">play_circle</span>
+</div>
+<div class="absolute bottom-1 right-1 bg-black/60 px-1.5 py-0.5 rounded text-[10px] text-white font-medium">0:45</div>
+</div>
+<!-- Photo Item -->
+<div class="relative aspect-square bg-slate-200 dark:bg-slate-800 overflow-hidden">
+<div class="w-full h-full bg-center bg-no-repeat bg-cover" data-alt="Soccer player celebrating goal" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDB0nQO_KJ-6k8RXNhBuqi-eU4m4pw5BVLZasdUy_68xy_GdKK-yL9SLN6xW-YCAPS0IBJhAAzg4wD6-XrTOrvmALDRQunRTwa4D2CtYs4YKSviC5QI6dGdG0Ko9J2AqvClfPkJ-JMisItZFWVwvLq3SEtgQtmzmLAixJb54OQW5debxril4LDkyAoGtzek9_mMoeMGfOzFogspc4DWjGnupVHuFnI0A5AxWSU3pH9VoqiKTdrt8QiS5MBryt2LyMXC_w3gj0lsaEmi");'></div>
+</div>
+<!-- Photo Item -->
+<div class="relative aspect-square bg-slate-200 dark:bg-slate-800 overflow-hidden">
+<div class="w-full h-full bg-center bg-no-repeat bg-cover" data-alt="Tennis court from above" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuD9FQj8Q3E4orYQsCLG-bXcg_xovX7J5iC14o2KRHE8nmS2TEIFu8HOjhLzN6bC75pmjhM3W3qZ-eNP4zE0Haq4cVjz4-PC8zJjgflV7KF5b_Tu5OFO6w6FRBw1ouQSkTPUUQuSpBwTeJ52U0ffIWNSbSbKap8vi16ypx-KTwHmoC1sbpILBgfgNufSCs9MmfusIjVcZTxb7evktaVAJdoCzsgz6tKhQubyDsC3cEGQfsfjPMv2_Vo6XOALz9Q7q4tf6Wzl7fCQ4pQv");'></div>
+</div>
+<!-- Video Item -->
+<div class="relative aspect-square bg-slate-200 dark:bg-slate-800 overflow-hidden">
+<div class="w-full h-full bg-center bg-no-repeat bg-cover" data-alt="Basketball team huddle" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDkCxcOGJT_F0p5ZE_b8had7aC6ff5k0wQ_-fMAlOMZYDIE1ql4eAwxwfHLVun8M9G7gILwqjc2pqrYhQ09Mo4KeCUoutrofXE6nCFEZA_UiWCA7_G0wTnD9zAHwX38B-T2w-_UFMCc9kIUis7f0FCl-LSEFVMtXezeOVATrK4iHHfsI0qNaxvuL_Un_0xYplxB2MIbXgS6FTSIEYlshEaH_ZrJKOWJFEHbypKKL5G02H-FJL7QR4vg7DTMAjh_WJ7gSi-4P49_rfpO");'></div>
+<div class="absolute inset-0 flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-3xl filled-icon drop-shadow-md">play_circle</span>
+</div>
+<div class="absolute bottom-1 right-1 bg-black/60 px-1.5 py-0.5 rounded text-[10px] text-white font-medium">1:12</div>
+</div>
+<!-- Photo Item -->
+<div class="relative aspect-square bg-slate-200 dark:bg-slate-800 overflow-hidden">
+<div class="w-full h-full bg-center bg-no-repeat bg-cover" data-alt="Runner on a track" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCPfStN9-D_dXgffi2Iv8XzahQlO68TIpJNKA2plryyHIIw8AStoBMQRe1vhAWjyMuRjo1CHFvn79cQOzFlsoIF9mjLvrbWMQEyCKhPYpk_LspyPeptYpiMFeoh1WMiUP7h16VApCH3eGuM74obUygmiXLlulBiZngu9FkKebkNVaQzEcw6eUEXHTsK78yWmk9bo54owkB03CiBuCLlfubbRXiqjh855VJxQ2LJ6g0dDZvmU2oARkGsd7irgVkkI41qVbm_hsJQ9jty");'></div>
+</div>
+<!-- Photo Item -->
+<div class="relative aspect-square bg-slate-200 dark:bg-slate-800 overflow-hidden">
+<div class="w-full h-full bg-center bg-no-repeat bg-cover" data-alt="Coach explaining tactics" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDxF6fD_AwPTzVNnVkMIb9Cs4FYmgMqpJwI-RO6_zjfFsh-FLahJ7gohF2xnWZRZtE-OoaH6IcJq73YIIDeYGrCwWGL9BSll2851ww3CtxSX7gMzAxiDczBt20C_1N67N5DGm5_Uj4lqZhvX4ySt9NCr3_C6l6doO76OFHshsEdJ2tIIc7krvDNQs53ZbhNcpdHTnAbpV5_9da09Ij8k5EDFfxUqtn6hUEsmxEuW2XQwQAE4gcZ9WqOAJ5lcrh0KvEMJ1_kHkg-Eec9");'></div>
+</div>
+<!-- Video Item -->
+<div class="relative aspect-square bg-slate-200 dark:bg-slate-800 overflow-hidden">
+<div class="w-full h-full bg-center bg-no-repeat bg-cover" data-alt="Weightlifter lifting barbell" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA9-mflBsrOeRovHXHlzUildrJfZXEghd4Vcrr_U38-mNjx_g0SsWHku7gr5YoOfrBbhoVGJpZSuISK0P-pJK4tDVgSj4MZOZnPt0uVMOrEycM2WG05Baa9tKIwQvu3h9kB1-8cwAkZcx_eqsfAMBoEsuFVACRHm-n6h8bXAHX-AtnoHwR0GoFBVyH1rDPRX4L1AUNcR7n143O2Qo1u_8qZbRMfENVpbP27dr0W1Z_-CLFknko2c0YxlZOIC7S9DwtcD-ypS-bxSoi8");'></div>
+<div class="absolute inset-0 flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-3xl filled-icon drop-shadow-md">play_circle</span>
+</div>
+<div class="absolute bottom-1 right-1 bg-black/60 px-1.5 py-0.5 rounded text-[10px] text-white font-medium">0:24</div>
+</div>
+<!-- Photo Item -->
+<div class="relative aspect-square bg-slate-200 dark:bg-slate-800 overflow-hidden">
+<div class="w-full h-full bg-center bg-no-repeat bg-cover" data-alt="Swimming pool lanes" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDtk2b238kgzcj6iSYGrqycm-0q5iQFZHtryaR2H0g9qJylLKPKJrGA5Q8P4amq2GwLA6vjSIyscXUxUmn9ng1PXRoiQJohJoVYwllGKLy5OU12FNxJ1-5Y0J6j-T5zg8N8D7JUQRh8zsPN9gcjSVGd7xh3hjl07mhp6vPW2AWng5MC0rAlpWEN04XIKMiuOAYH8RKg06IK0Fh_jfB14ZwO7Ru_AUvFIKU1fK9W8udENrn2FLYX_v-bWCmjZKYM1AFiYfP_srV4R5fy");'></div>
+</div>
+<!-- Photo Item -->
+<div class="relative aspect-square bg-slate-200 dark:bg-slate-800 overflow-hidden">
+<div class="w-full h-full bg-center bg-no-repeat bg-cover" data-alt="Yoga practitioner outdoors" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAGmeV-nuVNL7i-Eq4-bObDHCuBNzgbjZ6e2RVdc33ZNV6aQ8Pd2FC2Sw3GuLSpf7vpMMoa_BvbGCfEOT6gtf6hHLDm_K50XCQBD1Yqr2MRmbXAars9oI2q3Lp_ZfOCaCwD27p--5vVfMQQ1Ul5QMmzjgr6hkUH2tFzpSd9F06ONXp0GQmqBGRZ6gEsmbmEltFqXWhDT24lMldf28UkxRmkuSV67pcoWl5gkvMH6Ok8SCLFMBgEpNMDj7bXBOZsmRp8o0_demDqEju0");'></div>
+</div>
+<!-- Video Item -->
+<div class="relative aspect-square bg-slate-200 dark:bg-slate-800 overflow-hidden">
+<div class="w-full h-full bg-center bg-no-repeat bg-cover" data-alt="Athlete sprinting" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuALbThz6FnFqn0x1r0z0SHbZF1zkYF-JPLT66Xn9Il9biXkKacyIrjiZshwwOVZOcNlpraJI4XiNEWzqr1Wnfmi1c4VMV-pddaSv4g7Iib2kHx34hVaHA-VAg1erb4vImaL-Aeu-DFjeWeryKoNImexKpnw3IermfxkmpVriNgRsJG8zlcmwE2eF9bjwtr4yKnJ3gNgXbPssSbCotFVoznZQniB9J16Grw5QkJKs3Itx4O-qQTPPRfopABI1MlekiOROoqdlCFz-Wt_");'></div>
+<div class="absolute inset-0 flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-3xl filled-icon drop-shadow-md">play_circle</span>
+</div>
+<div class="absolute bottom-1 right-1 bg-black/60 px-1.5 py-0.5 rounded text-[10px] text-white font-medium">0:15</div>
+</div>
+<!-- Photo Item -->
+<div class="relative aspect-square bg-slate-200 dark:bg-slate-800 overflow-hidden">
+<div class="w-full h-full bg-center bg-no-repeat bg-cover" data-alt="Sports medicine therapy session" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCaxSBdHL79dkzB5_7UlNparb_o5bASnwybS0p5RPP9Nxsc5m8G8B5pcn6X8UKAxKSS73npucEkcZlyy9uLHIIDOS1v9jUglWM6TtOVA2c2aYbvDSr5lgO5feNUf57qu73CZO6QoN2OJ42RJ0HEfI7lNCDpz0V-vN2pmD151VzjPR5PIXc2KwSZqV-NVd3-lEV4Cca2mIkrCiHsHjtdb6xg3HKP1pM_cv13pDxy2EJGWiCB9kIdav9BlNWClqKRHgvAE5HDhap4kL83");'></div>
+</div>
+<!-- Photo Item -->
+<div class="relative aspect-square bg-slate-200 dark:bg-slate-800 overflow-hidden">
+<div class="w-full h-full bg-center bg-no-repeat bg-cover" data-alt="Stadium lights at night" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAhfNVV0HgD_n8Xo9gb63nYvdBUxOem-Swolfh-1KbRCpCfZ838Y3a0THQGLK2sciI6zQuSKsCPWjHhccsMY7kT9ETVIkrIrfmxIGGhOhMdE6AmAP7rkpN_c8GGV9XLEC4JGRJEfZn3S3oim54pYMoTXHeROoHmH2oxSzDrtmA0tUaLMHdpKFA5vhQtmtWtGQSpo2KFUycVVRlrvG_XbaApj_BaJP2EvR22cwa9oA6KZ7rGPeFN9LxntzGM8s5bzyRBZ25yUCQqw0sM");'></div>
+</div>
+</div>
+</main>
+<!-- FAB -->
+<div class="fixed bottom-24 right-6 z-50">
+<button class="flex items-center justify-center rounded-full h-16 w-16 bg-primary text-white shadow-xl hover:bg-blue-600 active:scale-95 transition-all">
+<span class="material-symbols-outlined text-3xl">add</span>
+</button>
+</div>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 right-0 z-50">
+<div class="flex gap-2 border-t border-slate-200 dark:border-[#283039] bg-white dark:bg-[#1c2127] px-4 pb-6 pt-2 shadow-[0_-4px_10px_rgba(0,0,0,0.05)]">
+<a class="flex flex-1 flex-col items-center justify-end gap-1 text-slate-500 dark:text-[#9dabb9]" href="#">
+<div class="flex h-8 items-center justify-center">
+<span class="material-symbols-outlined">home</span>
+</div>
+<p class="text-[10px] font-semibold uppercase tracking-wider">Home</p>
+</a>
+<a class="flex flex-1 flex-col items-center justify-end gap-1 text-primary" href="#">
+<div class="flex h-8 items-center justify-center">
+<span class="material-symbols-outlined filled-icon">photo_library</span>
+</div>
+<p class="text-[10px] font-semibold uppercase tracking-wider">Media</p>
+</a>
+<a class="flex flex-1 flex-col items-center justify-end gap-1 text-slate-500 dark:text-[#9dabb9]" href="#">
+<div class="flex h-8 items-center justify-center">
+<span class="material-symbols-outlined">groups</span>
+</div>
+<p class="text-[10px] font-semibold uppercase tracking-wider">Social</p>
+</a>
+<a class="flex flex-1 flex-col items-center justify-end gap-1 text-slate-500 dark:text-[#9dabb9]" href="#">
+<div class="flex h-8 items-center justify-center">
+<span class="material-symbols-outlined">account_circle</span>
+</div>
+<p class="text-[10px] font-semibold uppercase tracking-wider">Profile</p>
+</a>
+</div>
+</nav>
+</div>
+</body></html>

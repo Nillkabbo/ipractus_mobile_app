@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Pistachio Feed (System v2)</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#B2F162", // Pistachio
+                        "accent-cyan": "#66D9E8",
+                        "obsidian-deep": "#0B132B",
+                        "obsidian-elevated": "#1C2541",
+                        "background-light": "#f7f8f6",
+                        "background-dark": "#0B132B",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .pistachio-glow {
+            box-shadow: 0 0 15px rgba(178, 241, 98, 0.15);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .active-glow {
+            box-shadow: 0 0 12px rgba(178, 241, 98, 0.4);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-white min-h-screen pb-24">
+<!-- Top Navigation Bar -->
+<nav class="sticky top-0 z-50 bg-background-dark/80 backdrop-blur-md border-b border-white/5">
+<div class="flex items-center justify-between p-4 pb-3">
+<div class="flex size-10 shrink-0 items-center">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 border-2 border-primary" data-alt="User profile avatar with performance level indicator" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDApp93g-VqPLfcFZjugkOb4VEB6LVDYVrLUoEZWpsHWRazKXmEftTtICbwPvlS0bP_Mnz8Dg24MBwY-39-0NzyAW8xt6-H07hVGOMYhKJjl39pDk2VhpztKdKUnCk5jL5AFZyk3YW6RnW1WlLFB6xnPGUn07dgKISrTUTar5wjL1iSyHbdq3TCmQuqb5Oe0Trg8yhbQo4gH-VVz0rSUVqdTsdanhhWKoM_6cOfhS4qk_3wTsMREckjnA_bLfSSrsz1CY93xjRTO5Pt");'>
+</div>
+</div>
+<h2 class="text-white text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center uppercase tracking-widest">PISTACHIO</h2>
+<div class="flex size-10 items-center justify-end">
+<button class="flex items-center justify-center p-2 text-primary">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+</div>
+</div>
+</nav>
+<!-- Main Content Area -->
+<main class="max-w-md mx-auto">
+<!-- Story Carousel -->
+<div class="flex w-full overflow-x-auto no-scrollbar px-4 py-6 gap-5 scroll-smooth">
+<div class="flex flex-col items-center gap-2 shrink-0">
+<div class="size-16 rounded-full border-2 border-accent-cyan p-0.5 relative">
+<div class="w-full h-full bg-center bg-no-repeat bg-cover rounded-full" data-alt="Athlete live streaming workout" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAsYzv5ja2RncyQK-092577Bk7BUm9-UyZzEuyfFLT1AWPAVsqAtkZGLXGAqSnVIWpWlp2kXGtPGawm6GRPx23_afMNs-zW3ymjXE9ICjRFEmBwkMw65YMXR91YaAuj9Oae3YzGjy4OcrfuVm-OPj47qavnXKTrG9ZLjgoaN-lePVDMUrC4DcxVQQhaKRG3nJQTh2SXJI-gOjop5z3H-hPJwmystmv_GauGOSmyob5xW1KTtA1PYP0wWG78XE5ffgnrumqQLP04v68q");'></div>
+<div class="absolute -bottom-1 left-1/2 -translate-x-1/2 bg-accent-cyan text-obsidian-deep text-[8px] font-bold px-1.5 py-0.5 rounded uppercase">LIVE</div>
+</div>
+<p class="text-accent-cyan text-xs font-bold uppercase tracking-tighter">Elite</p>
+</div>
+<div class="flex flex-col items-center gap-2 shrink-0">
+<div class="size-16 rounded-full border-2 border-primary p-0.5">
+<div class="w-full h-full bg-center bg-no-repeat bg-cover rounded-full" data-alt="User profile photo Marcus" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDcT4IGMX_SPvMbWxUcXjFCpRAGUkJ9cdbauS99KtjWWFeG20wOprizj6hDrz8RSXCua0_ZIQo6dTlB_PWsuLBsAlqbk7hT0cLSGBdFfz1ZFlTgMnQPoxx_hW0CH9bqH4uR81uX14bHANY8EtcNbZ48hFcsCXmMHv1vViE3RSJP50S6qkh2VThjZQq4kVz0rvCnBY9axwrEL0ijz2VbsYMeR2W3c6YDdQt89oI9lE6Ss4AVx2b9xpSxkVosx3Fjt3n01HJV39rO-lcD");'></div>
+</div>
+<p class="text-[#adb99d] text-xs">Marcus</p>
+</div>
+<div class="flex flex-col items-center gap-2 shrink-0">
+<div class="size-16 rounded-full border-2 border-primary/30 p-0.5">
+<div class="w-full h-full bg-center bg-no-repeat bg-cover rounded-full" data-alt="User profile photo Sarah" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCGePSyurx21nhqgLpWItIKz_WmTZ4Ey5HDabpbOax18Mi9XQk8WbuQ_ZoMR0JiUzNuSgQRizp4Ft8Rtq-2KnUoCV9XSLdim2iXEkcj48OGDQ-bgn3voeBVsywPYhf1LpWf7Gjt1I1HfVmUC1ju3OTspqfYnJhUJj5Zj0rJLkIR5HPMPtFQu5leGwyEH8gBGdDxnfMabSoLDZVhYoiPXoy9ijKG7WwAdm-uiJBiS2dQbxfBRVBLeFBlEdXoNYdk95DUPA9l7xRBp56H");'></div>
+</div>
+<p class="text-[#adb99d] text-xs">Sarah</p>
+</div>
+<div class="flex flex-col items-center gap-2 shrink-0">
+<div class="size-16 rounded-full border-2 border-primary/30 p-0.5">
+<div class="w-full h-full bg-center bg-no-repeat bg-cover rounded-full" data-alt="ProTeam official logo account" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuATIZ8iBsLz62vHIyIKUW2viCdHdL11uQPDoa4a61ul8wdrmfCCQcFXmXj1k9RqbALRcFAlkbdQixNjEY7d1mgkZ90JClJD5GWL7mDy0YvM9YcY3kLcVaItcPvVanqzSih5FYO5VIIc7sIzxObydnlZJbMWc8UMigXEAIlONPGBOMMyOYJwyrwerktwCEOTdqKg1eet6bpNGPOqDfkmrUKZu60b22ZVx9UJo19SVjokRNexSX8PvIE1277bAVUNcYLU6IcIlkq1TBhe");'></div>
+</div>
+<p class="text-[#adb99d] text-xs">ProTeam</p>
+</div>
+<div class="flex flex-col items-center gap-2 shrink-0">
+<div class="size-16 rounded-full border-2 border-primary/30 p-0.5">
+<div class="w-full h-full bg-center bg-no-repeat bg-cover rounded-full" data-alt="Sprint training account avatar" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDQJxtkB6HuUA1DDSBs3K2UG_Xrf6IFUVqZeAchZuqu5McWNdEjvEWqcrDc0ik3XHCfKvF7NxqvuSm6zHO2xCJr_jSNR-1AcswyAQwFwVWP98GxV21J3pfv61hdY8OjquH2w6AUQfJuDUirpFqeH4rntDUzkHxM_s5qit9-7ZNvQWFOM-hNo9a5oiqVyd6RokwNHx4L7u9NTmvuvAvttPnr_gxDhbHcdT5OZD9Z7j2zX5ylaE_YryAKEn7oA_kkAErdi__rvvxbRaMG");'></div>
+</div>
+<p class="text-[#adb99d] text-xs">Sprint</p>
+</div>
+</div>
+<!-- Headline Section -->
+<div class="px-4 pt-4 pb-2">
+<h1 class="text-white tracking-tight text-[32px] font-bold leading-tight uppercase font-display">
+                Featured Activity
+            </h1>
+</div>
+<!-- Post Card 1: Elevated Achievement -->
+<div class="p-4">
+<div class="flex flex-col items-stretch justify-start rounded-xl pistachio-glow bg-obsidian-elevated overflow-hidden border border-primary/10">
+<div class="w-full bg-center bg-no-repeat aspect-video bg-cover relative" data-alt="Athlete performing a high-speed sprint on track" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCEqYaiNRFvOdYcngImOSpe6svlciILbEMc_Ry-JGlCuaLfWtv9DIL9U28Rm_j52etYR0qjbsSLbJx4E36FksCozt_PIBox7Jn-z3nARgJFqd6kithfl6Z2DLpqCsOIbA38gosW6AUVh6OjanzqUDIp-OEqxe-iunrPaqm37ynm1oMwmgElclz5pBoAQKvEW4syxqtZKyOs_mrxmFJBsAmmEecdW-EPeyxiKXniD4xN4CCTbq84K5fAY9GNgP81kRseZaoY5VQtyTQI");'>
+<div class="absolute top-3 right-3 bg-accent-cyan/20 backdrop-blur-md px-3 py-1 rounded-full border border-accent-cyan/30">
+<span class="text-accent-cyan text-[10px] font-bold uppercase tracking-widest">High Performance</span>
+</div>
+</div>
+<div class="flex w-full flex-col gap-1 p-4">
+<div class="flex justify-between items-start">
+<div>
+<p class="text-primary text-[10px] font-bold uppercase tracking-widest mb-1">Just Now • London, UK</p>
+<p class="text-white text-xl font-bold leading-tight tracking-[-0.015em]">New PR: 5km Sprint</p>
+</div>
+<div class="text-right">
+<p class="text-accent-cyan text-xl font-bold">18:42</p>
+<p class="text-white/40 text-[10px] uppercase">Official Time</p>
+</div>
+</div>
+<div class="flex items-center gap-4 mt-3 py-3 border-y border-white/5">
+<div class="flex flex-col">
+<span class="text-white/40 text-[10px] uppercase">Avg BPM</span>
+<span class="text-white text-sm font-bold">165</span>
+</div>
+<div class="flex flex-col">
+<span class="text-white/40 text-[10px] uppercase">Calories</span>
+<span class="text-white text-sm font-bold">412</span>
+</div>
+<div class="flex flex-col">
+<span class="text-white/40 text-[10px] uppercase">Elevation</span>
+<span class="text-white text-sm font-bold">12m</span>
+</div>
+</div>
+<div class="flex items-center justify-between mt-3">
+<div class="flex -space-x-2">
+<div class="size-6 rounded-full border-2 border-obsidian-elevated bg-center bg-cover" data-alt="User profile mini" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDnqEtdOwuKO8NgwGnYZwAZq76YtKSC6aQ4OR4qyn1YpvnvxAmHWmzoHRi6QDcpcEorwtBfGyrsT_rtErDwqHduRET19RtPSScUuXeezzAWEMKZCEAFu7ls-lWNOBSDJDWDfer2JV2ZGP66FKqksdTsG8dytDbO6V1H32oZOfpK_-Bu9VthSq_WEfBR6jAymKWoCuAD2ugyGGaDNKrNSyDisLqP2slcioKYEXl6ieUD8bXH6pA82FB4rgpsuoBbpSq71dseE723pw1h");'></div>
+<div class="size-6 rounded-full border-2 border-obsidian-elevated bg-center bg-cover" data-alt="User profile mini" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAcNCAchh2R_hTslGQ7E9FuZ5pl0JAbo4bk3DyFO0_I-1vfMk95t51cKkKxNG1qL0qmTAl94larRXJvaSIoRAGHjNL3ZsUQ3W_8mMLfq0RvuSGE-SzLtskZSyAiy0sbZfXDbnwX5rvk7oo4WckwM_hMuA_phZz42Z7K-CpK1M7E0tr4xBoD7DC914K-RQ25_v2baHPl8mUbLLJyhQ-4LuduNMCDCvPS35PGm28jGb2Dwf7H8kOUFtoqNh9_qlYtUF_bX7k7Ymw-gEPQ");'></div>
+<div class="size-6 rounded-full border-2 border-obsidian-elevated bg-primary flex items-center justify-center text-[8px] font-black text-obsidian-deep">+12</div>
+</div>
+<button class="flex min-w-[100px] cursor-pointer items-center justify-center rounded-lg h-9 px-4 bg-primary text-obsidian-deep text-xs font-bold uppercase tracking-wider active:scale-95 transition-transform">
+                            View Stats
+                        </button>
+</div>
+</div>
+</div>
+<!-- Reaction Bar for Card 1 -->
+<div class="flex gap-6 px-2 py-3">
+<div class="flex items-center gap-2 group cursor-pointer">
+<span class="material-symbols-outlined text-white/50 group-hover:text-primary transition-colors">favorite</span>
+<p class="text-[#adb99d] text-[13px] font-bold">124</p>
+</div>
+<div class="flex items-center gap-2 group cursor-pointer">
+<span class="material-symbols-outlined text-white/50 group-hover:text-primary transition-colors">chat_bubble</span>
+<p class="text-[#adb99d] text-[13px] font-bold">18</p>
+</div>
+<div class="flex items-center gap-2 group cursor-pointer">
+<span class="material-symbols-outlined text-white/50 group-hover:text-primary transition-colors">share</span>
+<p class="text-[#adb99d] text-[13px] font-bold">5</p>
+</div>
+</div>
+</div>
+<!-- Post Card 2: Training Insight -->
+<div class="p-4 pt-0">
+<div class="flex flex-col items-stretch justify-start rounded-xl bg-obsidian-elevated overflow-hidden border border-white/5">
+<div class="flex w-full flex-col gap-1 p-5">
+<div class="flex items-center gap-3 mb-4">
+<div class="size-10 rounded-full bg-center bg-cover border border-primary/20" data-alt="Marcus profile image" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBx1PkSkOL9UJQBeiBsPSOevY6XFHclOlvfpMICCmAOF5Yktoq-3CeZfMvQcGSC94F9M_VDufguCQlcHUcbEgjBnBWoJtf11ftrUFbbDc52sMF1tRtsVIkTdeaVh9lFHJLZg67yklC_S4nrmtBtn-H_xIRtqLU_IJK-hISRBIKl2kj2XggllNv-G45-qe0BbR3YcxIc4OnD3bJP_fFZ6vjkMbr7yH5x9a5Xu4EnV_dUyWqw_wgryjeeWLGT3rIDUv-Dnd_tu82WXinx");'></div>
+<div>
+<h3 class="font-bold text-sm">Marcus Vance</h3>
+<p class="text-[10px] text-white/40 uppercase tracking-widest">Strength &amp; Conditioning</p>
+</div>
+</div>
+<p class="text-white/90 text-base font-normal leading-relaxed mb-4">
+                        Heavy compound movements today. Focus on the explosive phase. New personal best on Deadlifts at 180kg! ⚡️
+                    </p>
+<div class="grid grid-cols-2 gap-2 mb-4">
+<div class="aspect-square rounded-lg bg-center bg-cover" data-alt="Gym equipment close up" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCbKYiuTTAMvhxvbhyhLCiti3NmgKynMtCR6mKWI7MjAqsQ9TUo7ROFgZ2LzElRBvdG8EWd5SJYG8MIBSphbC2c4vux29DiPYBtnPYzco00szsOvGTJLCFPdD6ud3Yd93zncNYodxnibWTQ43IVx14GUyFi4_b7UMiAUoiUp-F1tpvy2DF43q0DUe3Jv--9M8v-s4LeMWwB842H7S6bV7d9-w7CbCuclUiZN-c6K4y3dCRGDLEkVnzmE9mV9lzkPOpW09gmPMQMWl40");'></div>
+<div class="aspect-square rounded-lg bg-center bg-cover" data-alt="Athlete lifting weights" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBiS11jHd6S97hIBw_hYCLZATSlzhKy8PNCE0Yq9T5IKf_1IpJxoDsGPa6bw1ueFqqcL6loHnmPxZIeiQPTy3ZuWAXqsOLWJtNiLXfzGODs9Ml-mZWEZ_8eU4dc1VIG7tidCdnER1RdztC924muZv6Q7qtscOSWuPQHnoEyR-LXTCbGXIAZgIJcVkloTuwN46ly60sBATck__uM-nzWiEPemWW5DcSCwaExX0cZT5GDkFDcomhfy3Rh0iLRDnrlzQP041ZybOXqq_7o");'></div>
+</div>
+</div>
+</div>
+<!-- Reaction Bar for Card 2 -->
+<div class="flex gap-6 px-2 py-3">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">favorite</span>
+<p class="text-white text-[13px] font-bold">82</p>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-white/50">chat_bubble</span>
+<p class="text-[#adb99d] text-[13px] font-bold">4</p>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-white/50">share</span>
+<p class="text-[#adb99d] text-[13px] font-bold">2</p>
+</div>
+</div>
+</div>
+</main>
+<!-- Floating Action Button -->
+<div class="fixed bottom-24 right-6 z-50">
+<button class="bg-primary text-obsidian-deep size-14 rounded-full flex items-center justify-center active-glow active:scale-90 transition-all shadow-2xl">
+<span class="material-symbols-outlined text-3xl font-bold">add</span>
+</button>
+</div>
+<!-- iOS Bottom Tab Bar -->
+<nav class="fixed bottom-0 left-0 right-0 z-50 bg-background-dark/90 backdrop-blur-xl border-t border-white/10 pb-8 pt-3">
+<div class="max-w-md mx-auto flex items-center justify-around px-4">
+<button class="flex flex-col items-center gap-1 text-primary">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="text-[10px] font-bold uppercase tracking-widest">Feed</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-white/40">
+<span class="material-symbols-outlined text-2xl">explore</span>
+<span class="text-[10px] font-bold uppercase tracking-widest">Discover</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-white/40">
+<span class="material-symbols-outlined text-2xl">monitoring</span>
+<span class="text-[10px] font-bold uppercase tracking-widest">Stats</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-white/40">
+<span class="material-symbols-outlined text-2xl">person</span>
+<span class="text-[10px] font-bold uppercase tracking-widest">Profile</span>
+</button>
+</div>
+</nav>
+</body></html>

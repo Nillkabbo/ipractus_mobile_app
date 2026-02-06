@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Achievements Gallery | iPractus</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1173d4",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Lexend", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Lexend', sans-serif;
+        }
+        .locked-badge {
+            filter: grayscale(100%);
+            opacity: 0.5;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark min-h-screen text-[#111418] dark:text-white">
+<!-- Top App Bar -->
+<div class="sticky top-0 z-20 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md">
+<div class="flex items-center p-4 justify-between">
+<div class="flex size-12 shrink-0 items-center justify-center cursor-pointer">
+<span class="material-symbols-outlined text-[#111418] dark:text-white">arrow_back_ios</span>
+</div>
+<h2 class="text-[#111418] dark:text-white text-lg font-bold leading-tight tracking-tight flex-1 text-center font-display">Achievements</h2>
+<div class="flex w-12 items-center justify-end">
+<button class="flex items-center justify-center rounded-full h-12 w-12 bg-transparent text-[#111418] dark:text-white">
+<span class="material-symbols-outlined">info</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Stats Section -->
+<div class="flex flex-wrap gap-4 p-4">
+<div class="flex min-w-[158px] flex-1 flex-col gap-2 rounded-xl p-6 bg-white dark:bg-[#1c2632] shadow-sm">
+<p class="text-[#617589] dark:text-gray-400 text-sm font-medium leading-normal font-display">Achievement Points</p>
+<div class="flex items-baseline gap-2">
+<p class="text-primary tracking-tight text-3xl font-bold leading-tight font-display">2,450</p>
+<p class="text-[#078838] text-sm font-bold leading-normal">+120</p>
+</div>
+<div class="w-full bg-gray-100 dark:bg-gray-800 h-1.5 rounded-full mt-1">
+<div class="bg-primary h-1.5 rounded-full" style="width: 75%"></div>
+</div>
+</div>
+<div class="flex min-w-[158px] flex-1 flex-col gap-2 rounded-xl p-6 bg-white dark:bg-[#1c2632] shadow-sm">
+<p class="text-[#617589] dark:text-gray-400 text-sm font-medium leading-normal font-display">Global Rank</p>
+<div class="flex items-center gap-2">
+<p class="text-[#111418] dark:text-white tracking-tight text-3xl font-bold leading-tight font-display">Pro</p>
+<span class="material-symbols-outlined text-yellow-500 text-2xl" style="font-variation-settings: 'FILL' 1">stars</span>
+</div>
+<p class="text-primary text-sm font-medium leading-normal">Top 5% worldwide</p>
+</div>
+</div>
+<!-- Section Header: Streaming Milestones -->
+<div class="flex items-center justify-between px-4 pt-6 pb-2">
+<h3 class="text-[#111418] dark:text-white text-lg font-bold font-display">Streaming Milestones</h3>
+<span class="text-primary text-xs font-bold uppercase tracking-wider">3/6 Unlocked</span>
+</div>
+<!-- Image Grid: Badges -->
+<div class="grid grid-cols-3 gap-4 p-4">
+<!-- Badge 1: Unlocked -->
+<div class="flex flex-col items-center gap-2 cursor-pointer">
+<div class="relative w-full aspect-square flex items-center justify-center rounded-full bg-gradient-to-br from-blue-500 to-indigo-600 shadow-lg shadow-blue-500/20" data-alt="First Stream badge icon with camera" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA1dPwie1aHoCwilH20v0fYvo7Ly0HYT8rjUGz_mhHQ3cpbL7xiFzZlILAEX0o0AhUm3qPU6IwRzIYeprSulZeoivjna0qHx4j8-W0rQ_1UqI8cx7GWHQBS0IcrSlLTT7BizRii26hzUH1P7UGzFXjsa10YaNDZJlaEjbWOqfPB6sGf6L3jTIrNs-iOegQoOXUgn-a0pmiZ8OW49qYnK0iQ9-sv9jYRdzEapRxdudiNefqi0t8YyWhjCxFa4m7PCaw1UhlKY6yAkehj'); background-size: 60%; background-position: center; background-repeat: no-repeat;">
+</div>
+<p class="text-[#111418] dark:text-white text-xs font-bold text-center font-display">First Stream</p>
+</div>
+<!-- Badge 2: Unlocked -->
+<div class="flex flex-col items-center gap-2 cursor-pointer">
+<div class="relative w-full aspect-square flex items-center justify-center rounded-full bg-gradient-to-br from-orange-400 to-red-500 shadow-lg shadow-orange-500/20" data-alt="10 Practice Sessions badge icon with running person" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB2dHk26HGciUpg4F1ysLnqTDCRnQ1OgSAfAS5BaGCzjdBuNlysxAAwIMdYz_tNirFhHUyULGMjYxldQ0WWsqIwJm1wfbwTYwPI0RNOdPzmaDE8x6SasODQIQkY8hOOWbVm8GsUMJsuURuv1HlQSRfIUQD-796ab4KzL8O0BrG1BolJaJVzFbTKLm6Zsohs6O1KZeW_FLYihJaAmF_Z9Or1fvRihjYiSvdUqm99OVzQbzG6GOsU7tr9aGtYOtnec_Bqr2iqzSHw4uwB'); background-size: 60%; background-position: center; background-repeat: no-repeat;">
+</div>
+<p class="text-[#111418] dark:text-white text-xs font-bold text-center font-display">10 Sessions</p>
+</div>
+<!-- Badge 3: Unlocked -->
+<div class="flex flex-col items-center gap-2 cursor-pointer">
+<div class="relative w-full aspect-square flex items-center justify-center rounded-full bg-gradient-to-br from-yellow-400 to-amber-600 shadow-lg shadow-amber-500/20" data-alt="Team Leader badge icon with golden star" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAwFwT3P5_vPekKrQq_cBhovYKQUfOLwY-jQOA8unIDUvwY0gYt3G0rDnnBPCMNNreNOaN_P7lMNq2p2d2VhnYqU7SFq6xTopHh_LJD8Nu5Mv_nX6EGV0dqbOvinuXVFA4IUbULHdJv-Cb6pYgyPUTdP-n97M4qdJ6_8cdcQOl0UBiQK8xz4Rk4rYIWos6I9lXjqnd3v4jBvD4uXrx42PUQ6erHoHt4xksdySxk7E-xGpt2HeTqA0R2lj4buQEcdGm8m-EYqE6PA5D8'); background-size: 60%; background-position: center; background-repeat: no-repeat;">
+</div>
+<p class="text-[#111418] dark:text-white text-xs font-bold text-center font-display">Team Leader</p>
+</div>
+<!-- Badge 4: Locked -->
+<div class="flex flex-col items-center gap-2">
+<div class="relative w-full aspect-square flex items-center justify-center rounded-full bg-gray-200 dark:bg-gray-800 locked-badge" data-alt="Night Owl locked badge icon with owl" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAX48CYhvawsmHk3i9ehEEZvQ4w0MKOexWhZ75mr5-6Hx4CQapf_qPb7OalnMwWnaStN4ljrcv9ErHEpl3nFzZvrn8lGnuRmad0Lh9GHU8XA_hvi5hq1xFmQH-7HKvLHE3vJHHMJCD-hJKbbHhYDvr_oCI-I2WiXqcrXl6S0r1uoZgAcFcvVhy5poAlIE4BVupdbGx0kq5RKgpp2kI4ZXSA7JcbJKBNhQYZrTLNvatUF0IjbRPfGdl5Qjq_W5XAUyiplHUAk_2m5FTY'); background-size: 60%; background-position: center; background-repeat: no-repeat;">
+<div class="absolute inset-0 flex items-center justify-center bg-black/10 rounded-full">
+<span class="material-symbols-outlined text-white text-2xl">lock</span>
+</div>
+</div>
+<p class="text-[#617589] dark:text-gray-400 text-xs font-medium text-center font-display">Night Owl</p>
+</div>
+<!-- Badge 5: Locked -->
+<div class="flex flex-col items-center gap-2">
+<div class="relative w-full aspect-square flex items-center justify-center rounded-full bg-gray-200 dark:bg-gray-800 locked-badge" data-alt="Champion locked badge icon with trophy" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCAUVC8p0AB4XQIGLTkStLCk7WPuDupZTf7BQs8kq969KlvHHzxPfXjjxPErjjkQD5aKaTsZH2mf8nM3GJssSNm5BcfnZYDQ3irBuFRzfSBwKLu12MZBnBFkz3X8_15l3eqMFSIsqypjbNLyKror-Sva70KGob1rXoFZuUDgdvJ9Bc_YQhqsjVQB8LeUWgkdn1S6JhVg8fRNH-V753fOvQ0EcGEBJ2cpKZS8LTHfxN9ClgHp4Tloyxq5n0E84E1gHYmu6YIGUq5sBhT'); background-size: 60%; background-position: center; background-repeat: no-repeat;">
+<div class="absolute inset-0 flex items-center justify-center bg-black/10 rounded-full">
+<span class="material-symbols-outlined text-white text-2xl">lock</span>
+</div>
+</div>
+<p class="text-[#617589] dark:text-gray-400 text-xs font-medium text-center font-display">Champion</p>
+</div>
+<!-- Badge 6: Locked -->
+<div class="flex flex-col items-center gap-2">
+<div class="relative w-full aspect-square flex items-center justify-center rounded-full bg-gray-200 dark:bg-gray-800 locked-badge" data-alt="Streak locked badge icon with fire" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBmjX58yF3CTUSsA7kEXhpad1UELp10bF-AQUbIaTORRoI47dDrZfCLJRz5dxxVO5Mp378I3uCDRfpSA2D5iwjsbbsZK9hzlwqcpChfmt2zh4vm_L4OJJEID0L2_RnVaZhea_n3rK5G6Vx6h8VRLOhVgq3xl6sGi8wQc5yeBP_ic4CC7FcWYqPSY0QmTIYU-s9gXhwAyab1g-ablRS1hYFbQz1NZNcqleEEzO2Ln_fUDNWE2UXbW548wD1i32AWJWnEo_r3I2tKcrpx'); background-size: 60%; background-position: center; background-repeat: no-repeat;">
+<div class="absolute inset-0 flex items-center justify-center bg-black/10 rounded-full">
+<span class="material-symbols-outlined text-white text-2xl">lock</span>
+</div>
+</div>
+<p class="text-[#617589] dark:text-gray-400 text-xs font-medium text-center font-display">Streak Pro</p>
+</div>
+</div>
+<!-- Section Header: Training -->
+<div class="flex items-center justify-between px-4 pt-6 pb-2">
+<h3 class="text-[#111418] dark:text-white text-lg font-bold font-display">Training &amp; Discipline</h3>
+<span class="text-primary text-xs font-bold uppercase tracking-wider">1/4 Unlocked</span>
+</div>
+<!-- Row of training badges -->
+<div class="grid grid-cols-3 gap-4 p-4">
+<div class="flex flex-col items-center gap-2">
+<div class="relative w-full aspect-square flex items-center justify-center rounded-full bg-gradient-to-br from-purple-500 to-pink-600 shadow-lg shadow-purple-500/20" data-alt="Gym Rat badge icon with muscle arm" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA5SMcHuvylZPV37bmd5vv2L7c1lZRW0zQ9DjCqG4YsFIUBkOSfNUUbQyIVydCg-MW8D0HdEF0KpdxQGFOxxP4ctFReTbNFR8Awkc8r9acqlcslkx9e7q0cIRo_WYzQ9OkkUccdyC6xfRGIu0uYuYOhzAha0n9qe43hVbn2gxzkz7QkfWJneRqK43tdGP-zBEngh8u83Kq5ptpvYP87FWjNIJ_dz3A7t0w_CvMjTiXQGYmsmj3Uhg7WDqU4UvajrzeUk_oQQkUuPHd1'); background-size: 60%; background-position: center; background-repeat: no-repeat;">
+</div>
+<p class="text-[#111418] dark:text-white text-xs font-bold text-center font-display">Gym Rat</p>
+</div>
+<div class="flex flex-col items-center gap-2">
+<div class="relative w-full aspect-square flex items-center justify-center rounded-full bg-gray-200 dark:bg-gray-800 locked-badge" data-alt="Nutritionist locked badge icon with salad" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAVgbKrbu-W4KrUu8AW8J_KBdTeT1Ii1fBNJZfCCOr1efXc-vEgtlvoicqdvKRRN1QQNP884Gsww8X_T5CYQIPjrPgjVa-qLgTj_tH5wQ0RJSg9u0ot8YpTBPqz1gE3UmWVxIdTzHVr__NHNwYn4O169BrZf8Y8QZ4bnUvSljryc1F5kebdCDzn59MkzHZ5tmxZ_iYeNPrMOf6cNFHJZkdXd7mrZTvgL6gPGq63FaYn9aOzesg4eYc_lpaRQ_Iu9bKANMZ4Ylje_cQ_'); background-size: 60%; background-position: center; background-repeat: no-repeat;">
+<div class="absolute inset-0 flex items-center justify-center bg-black/10 rounded-full">
+<span class="material-symbols-outlined text-white text-2xl">lock</span>
+</div>
+</div>
+<p class="text-[#617589] dark:text-gray-400 text-xs font-medium text-center font-display">Nutrition</p>
+</div>
+<div class="flex flex-col items-center gap-2">
+<div class="relative w-full aspect-square flex items-center justify-center rounded-full bg-gray-200 dark:bg-gray-800 locked-badge" data-alt="Zen locked badge icon with yoga person" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBU_Uvf8xR9aeSyCmdIXzptDoJsfbxTp2UYr3z6QP_WhK5qARLFe4z4f2xVfgintEYR6XfaS5Pdn1A5LCA613qvmYS8Ez-PuW2wGVDLKStIWsi4YCmXvdVs_RPsBQAAKH0sJ18nvillglnhzGgipcVHgSCJag0qBNX03mf0lkMHpiGvTorvDn7jkxoLfqr52njr-zawDo9p2maZWpG2M-Ha38Qh7N8Nhjfh9t3GYgaG0Ss7NkDb2qYZpK5zy80yFRdBBBEe62cPXA9Y'); background-size: 60%; background-position: center; background-repeat: no-repeat;">
+<div class="absolute inset-0 flex items-center justify-center bg-black/10 rounded-full">
+<span class="material-symbols-outlined text-white text-2xl">lock</span>
+</div>
+</div>
+<p class="text-[#617589] dark:text-gray-400 text-xs font-medium text-center font-display">Mental Zen</p>
+</div>
+</div>
+<!-- Bottom Sheet Detail Pop-up -->
+<div class="fixed inset-0 z-50 flex flex-col justify-end items-stretch bg-[#141414]/60 backdrop-blur-sm">
+<div class="flex flex-col items-center bg-white dark:bg-[#101922] rounded-t-lg p-6 pb-12 shadow-2xl">
+<!-- Bottom Sheet Handle -->
+<button class="flex h-1.5 w-12 items-center justify-center rounded-full bg-[#dbe0e6] dark:bg-gray-700 mb-8"></button>
+<!-- Badge Detail Content -->
+<div class="w-24 h-24 rounded-full bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center shadow-2xl mb-6" data-alt="Enlarged First Stream badge icon" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAkvgB8Hwbfg1Dj2RLonCgiHLQo4dgahmYr82qqPMHzfjSeKSsMP_yQNqSJQEVEao-d_oabYtRzra1CGVb1tMaez9WNGib0lXbrwkDLXKuWD4oAGbVuXI-XdKUnob03wmxqq18hGD21v_eqUhXx1MLywwBZ2xXeoS7piXOb0o61Ri3yCP6MsE-alL6w3Qc59dZiXxvzGBB-7Z54gUZ74yHh4feUB5oEfKwbA1YpiH9jzQCyCHaxVy8KPbG8Huq0xL8LPqGsORHr27I4'); background-size: 60%; background-position: center; background-repeat: no-repeat;">
+</div>
+<h4 class="text-2xl font-bold text-[#111418] dark:text-white mb-2 font-display">First Stream</h4>
+<p class="text-[#617589] dark:text-gray-400 text-center text-base leading-relaxed mb-6 max-w-xs font-display">
+                You successfully hosted your first live streaming practice session. Keep it up!
+            </p>
+<div class="flex items-center gap-2 mb-8 bg-primary/10 px-4 py-2 rounded-full">
+<span class="material-symbols-outlined text-primary text-sm">event_available</span>
+<span class="text-primary font-bold text-sm font-display">Earned: Oct 12, 2023</span>
+</div>
+<button class="w-full bg-primary hover:bg-primary/90 text-white font-bold py-4 rounded-full flex items-center justify-center gap-2 shadow-lg shadow-primary/25 font-display transition-all active:scale-95">
+<span class="material-symbols-outlined">share</span>
+                Share Achievement
+            </button>
+</div>
+</div>
+<!-- Spacer for scrolling -->
+<div class="h-20 bg-background-light dark:bg-background-dark"></div>
+</body></html>

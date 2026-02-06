@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Pistachio Live Chat (v2)</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#b2f15f",
+                        "background-light": "#f7f8f6",
+                        "background-dark": "#0B132B", // Deep Obsidian
+                        "obsidian-elevated": "#1C2541",
+                        "stormy-blue": "#4E7D96",
+                        "cyan-live": "#66D9E8",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0B132B;
+        }
+        .video-container {
+            height: 40vh;
+        }
+        .chat-container {
+            height: 60vh;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-white font-display overflow-hidden">
+<div class="flex flex-col h-screen max-w-md mx-auto relative overflow-hidden">
+<!-- Video Player Section (Top 40%) -->
+<div class="video-container relative flex flex-col w-full bg-black group/design-root overflow-hidden">
+<div class="relative flex-1 flex items-center justify-center bg-cover bg-center" data-alt="Athletic high performance training live stream background" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA92QbN7iy92VEEOHX4CSkFChK-6_50Na8DL1OFQ3y7vg4ji6mXH9linouom-I1hi6dmNuTj-w53jeBsohSj2vVf-WEeIAQB8EnTXkDnUHVWWvNywn9GdjTBOpYHekjDqnUZ4Khn4PIjweK9RnFNc5YanuN58jqemFUyABywU_D68190l503a6DDSo4TTJ9BGVELCJ55X4LZGC71ddDlA9eVYz9583aIXadoI2VguzmU5RoCd00wVxLlkvQwcJaMKB737dfHYtYBDfA");'>
+<!-- LIVE Badge -->
+<div class="absolute top-4 left-4 flex items-center gap-2 bg-cyan-live px-3 py-1 rounded-full">
+<div class="size-2 rounded-full bg-white animate-pulse"></div>
+<span class="text-background-dark text-[10px] font-bold tracking-wider uppercase">LIVE</span>
+</div>
+<!-- Viewer Count -->
+<div class="absolute top-4 right-4 bg-black/40 backdrop-blur-md px-3 py-1 rounded-full flex items-center gap-1.5">
+<span class="material-symbols-outlined text-white text-[16px]">visibility</span>
+<span class="text-white text-[11px] font-medium leading-none">1.2k</span>
+</div>
+<!-- Play Overlay -->
+<button class="flex shrink-0 items-center justify-center rounded-full size-14 bg-black/30 backdrop-blur-sm text-white hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-[32px] fill-current">play_arrow</span>
+</button>
+<!-- Media Player Controls -->
+<div class="absolute inset-x-0 bottom-0 px-4 py-4 bg-gradient-to-t from-black/80 to-transparent">
+<div class="flex h-1 items-center justify-center mb-2">
+<div class="h-0.5 flex-1 rounded-full bg-primary"></div>
+<div class="relative"><div class="absolute -left-1.5 -top-1.5 size-3 rounded-full bg-primary shadow-lg shadow-primary/40"></div></div>
+<div class="h-0.5 w-1/3 rounded-full bg-white opacity-20"></div>
+</div>
+<div class="flex items-center justify-between">
+<p class="text-white text-[10px] font-medium tracking-wide">12:45</p>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-white text-[18px]">volume_up</span>
+<span class="material-symbols-outlined text-white text-[18px]">fullscreen</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Chat Area (Bottom 60%) -->
+<div class="chat-container flex flex-col bg-background-dark relative">
+<!-- Top AppBar for Chat -->
+<div class="flex items-center bg-background-dark px-4 py-3 justify-between border-b border-white/5">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-white">keyboard_arrow_down</span>
+<h2 class="text-white text-base font-bold tracking-tight">Live Chat</h2>
+</div>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-white">settings</span>
+<span class="material-symbols-outlined text-white">close</span>
+</div>
+</div>
+<!-- Pinned Message -->
+<div class="flex items-center gap-3 bg-stormy-blue mx-4 mt-3 rounded-lg border-l-4 border-primary p-3 shadow-lg">
+<div class="flex items-center justify-center rounded-full bg-primary/20 shrink-0 size-8">
+<span class="material-symbols-outlined text-primary text-[18px]">push_pin</span>
+</div>
+<div class="flex flex-col flex-1">
+<p class="text-white/70 text-[10px] font-bold uppercase tracking-widest">Pinned by iPrActUS</p>
+<p class="text-white text-xs font-medium leading-snug line-clamp-1">New merch drop at 3:00 PM EST. Stay focused!</p>
+</div>
+<span class="material-symbols-outlined text-white/50 text-[18px]">close</span>
+</div>
+<!-- Scrollable Chat Stream -->
+<div class="flex-1 overflow-y-auto px-4 py-2 space-y-4">
+<!-- Chat Message 1 -->
+<div class="flex flex-row items-start gap-3">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full w-8 shrink-0 border border-white/10" data-alt="User avatar male athlete" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBuxJjx0oicWDp0PCYOE4bfvrMfC8zuZerbwZUG8lMGX3kTFLiIQvGuy1GVWNJtgNnn9QVM4-ankqX3QSPh7fJ3Xzhvc3MMCPROfmthj0Bza6ARmcV2GnfNM5rAoDLPndnEQ9zXRnGBfZffC3qoWZM4l6bgNFxvTi_wWWvV5cMeNI79LWA6vU-zDFJpqfk9-i92uRJ2E7NStDa3w-ePI_eN5C6DqvsUmD6qbH8ay06CF09EcSZn-FqOr7KiNFqqxOM3RtXHe3cL06RT");'></div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<p class="text-primary text-sm font-bold tracking-tight">Alex_ProTrainer</p>
+<span class="text-white/30 text-[10px]">2m</span>
+</div>
+<p class="text-white text-sm leading-relaxed">The form on that last set was absolutely perfect! #iPrActUS</p>
+<div class="flex items-center gap-3 mt-1">
+<div class="flex items-center gap-1 opacity-60">
+<span class="material-symbols-outlined text-[14px]">thumb_up</span>
+<span class="text-[11px]">42</span>
+</div>
+</div>
+</div>
+</div>
+<!-- System Message -->
+<div class="flex justify-center">
+<p class="text-white/30 text-[11px] font-medium bg-white/5 px-3 py-1 rounded-full uppercase tracking-tighter">Sarah_K joined the stream</p>
+</div>
+<!-- Chat Message 2 -->
+<div class="flex flex-row items-start gap-3">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full w-8 shrink-0 border border-white/10" data-alt="User avatar female athlete" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAzcOlQaZ9p__fGPhXlTzv6Mos2DbUTtEGtCHmeL_YwBrRl5LSKcHQxl-vNmGQHZ7D2fFZNLFqbrGHQWOKbukhfwwUqYVew7AlbiIfRenRlY3F6aUZFabmM7K1MoEJyq7fLGe3XsrYPyQwYOduuEOmSfR-89KZF4n25TvD4ty1drxCHxEUm0pIK1936h3Uyhl1u0JT27oWp9NeQ3VVQ7RonBGOBkArflqMW0fJW9BHKGS4DF97enCbddW6fRbne7tPSEFUFKXwKg9zu");'></div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<p class="text-primary text-sm font-bold tracking-tight">Coach_Jordan</p>
+<span class="material-symbols-outlined text-primary text-[14px] fill-current">verified</span>
+<span class="text-white/30 text-[10px]">1m</span>
+</div>
+<p class="text-white text-sm leading-relaxed">Keep that core tight for the next transition. Let's go!</p>
+</div>
+</div>
+<!-- Chat Message 3 -->
+<div class="flex flex-row items-start gap-3">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full w-8 shrink-0 border border-white/10" data-alt="User avatar energetic person" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC7th4WVgEoHBz5cowzUtw36pwX2rme-8fr1FTOfcQ8CGiY8LA6VRjcBORj9b6_CiyqGERScyfZoOUUnZ01zgw9NhthYD0--ln2Nx2MNS5gRFFGayS95z2Bg1l9pBNRyb9eedrv3RdLt8BxtIjtZvkVpMs-yK1ldbJQZbs6iRpVHl5WQuBvupMjFd6b3sVu5Wv24ipeY_B3OrmsCTqmZHWA-moTHg3sOY0VkBQKwAoVuFrpEw0MJHeUfGHMnljCM72V5mFuvXG47Tf7");'></div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<p class="text-primary text-sm font-bold tracking-tight">FitnessFreak_99</p>
+<span class="text-white/30 text-[10px]">Just now</span>
+</div>
+<p class="text-white text-sm leading-relaxed">Loving the energy today! 🔥🔥🔥</p>
+</div>
+</div>
+<!-- Chat Message 4 -->
+<div class="flex flex-row items-start gap-3">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full w-8 shrink-0 border border-white/10" data-alt="User avatar placeholder" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC-W1pMeCTORrRGkkkd8qNAjH4k-zuZxcK352l4E1jDT9P_iUBCMa6wc8a8U1QCK2Zujs4VqHfuqgQurTgJdhDvayuTm5Z9bSae_6tbN2rR52PCJyABZcJUQ6kLDbtqHMnMapcTIOiaLPNj_WoirFgJ_WsyVz387eof9W-tBRjxsLs_ekq7CQVrS2_AEnWi5DLPdiWYeMCFZ13MzWZPdWlEkONf6vh0vJRIhyt2PlDBBzigcRTxGMc-vzMVx__aj6h5mfo9lS9NzbCJ");'></div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<p class="text-primary text-sm font-bold tracking-tight">Marcus_Run</p>
+<span class="text-white/30 text-[10px]">Now</span>
+</div>
+<p class="text-white text-sm leading-relaxed">What shoes are those? They look fast.</p>
+</div>
+</div>
+</div>
+<!-- Bottom Input Bar -->
+<div class="bg-obsidian-elevated p-4 pb-8 border-t border-white/10">
+<div class="flex items-center gap-3 bg-background-dark rounded-full px-4 py-3 shadow-inner">
+<span class="material-symbols-outlined text-white/40">mood</span>
+<input class="flex-1 bg-transparent border-none text-white text-sm focus:ring-0 placeholder:text-white/20" placeholder="Say something..." type="text"/>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-white/40">redeem</span>
+<button class="bg-primary size-9 rounded-full flex items-center justify-center text-background-dark">
+<span class="material-symbols-outlined fill-current">send</span>
+</button>
+</div>
+</div>
+</div>
+<!-- iOS Home Indicator -->
+<div class="absolute bottom-1 left-1/2 -translate-x-1/2 w-32 h-1.5 bg-white/10 rounded-full"></div>
+</div>
+</div>
+</body></html>

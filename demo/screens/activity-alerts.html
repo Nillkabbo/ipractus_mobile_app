@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>iPractus Activity Alerts</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Lexend", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Lexend', sans-serif;
+        }
+        .ios-blur {
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-white font-display">
+<!-- Top Navigation Bar -->
+<div class="flex items-center bg-background-light dark:bg-background-dark p-4 pb-2 justify-between sticky top-0 z-50 border-b border-gray-200 dark:border-gray-800">
+<div class="text-primary flex size-12 shrink-0 items-center justify-start cursor-pointer">
+<span class="material-symbols-outlined" style="font-size: 24px;">arrow_back_ios</span>
+</div>
+<h2 class="text-gray-900 dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center pr-12">Activity Alerts</h2>
+</div>
+<div class="max-w-md mx-auto min-h-screen pb-20">
+<!-- SECTION 1: SYSTEM PUSH NOTIFICATION -->
+<div class="pt-6">
+<h3 class="text-gray-900 dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] px-4 pb-4">System Push Notification</h3>
+<!-- Simulated iOS Lock Screen Context -->
+<div class="mx-4 relative h-[320px] rounded-3xl overflow-hidden border border-gray-700 bg-cover bg-center shadow-2xl" data-alt="Abstract dark blue and black textured background" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBqbCigTkrZU7GFoEQjSfVy-9X0VopbgIRhNdK5SlI_TRVOIyoX7kKLEw0mC3jS2QPIyT7HWX8dPIFS7s9XwTO3FXbRa_K_s5pYp50cWdGHmH_V5JjsbEfNdFFtyySkXXYmeKi7JEcZwc8toVWdetSjic-Ppng1z-xdrJ6YXv4b0Yaa9iPMYHfuSXV0IDHiFcjHglJPpke3nfNSfFz4u3uKl4pKBXv2Gh6b_BueLuNaEwD5rCFY034moKI1F70vEuAwq5byIRMIUGLw');">
+<div class="absolute inset-0 bg-black/30"></div>
+<!-- Lock Screen Time -->
+<div class="relative z-10 text-center pt-8 text-white">
+<p class="text-sm font-medium opacity-90">Tuesday, October 24</p>
+<h1 class="text-6xl font-semibold tracking-tight">10:42</h1>
+</div>
+<!-- Notification Card -->
+<div class="absolute bottom-10 left-4 right-4 z-20">
+<div class="ios-blur bg-white/10 dark:bg-black/40 rounded-2xl p-4 border border-white/20 shadow-lg">
+<div class="flex items-center justify-between mb-2">
+<div class="flex items-center gap-2">
+<div class="bg-primary p-1 rounded-md flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-[14px]">sports_kabaddi</span>
+</div>
+<span class="text-white text-[12px] font-semibold tracking-widest uppercase">IPRACTUS</span>
+</div>
+<span class="text-white/60 text-[12px]">now</span>
+</div>
+<div class="flex gap-4">
+<div class="flex-1">
+<p class="text-white text-sm font-bold">Coach Sarah Jenkins</p>
+<p class="text-white/80 text-xs leading-normal mt-1">New strategy video uploaded for the Varsity Finals. Check it out!</p>
+</div>
+<div class="size-12 bg-center bg-cover rounded-lg flex-none" data-alt="Basketball player dunking a ball in high contrast" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAc_9e7niPmbW08QTh11UrgI1bU8Idj111uwgMFMsi-6NGoiBwRtyarpwUODnQaiP1exw3KdSeZEDo1IFs1Fts18LRQmTgytufDNEUL0PvWBmB1CEDrokZVtgl6saRSPrqKtkEur6Pp2ifcsXBeiVHd8MiHl_BL6tb-zXCk7XeKdUa3iRbpEIJUXY8r3lAyKNXrMMCamAe3C90z8hHo_kQkphbi415xx5rXLNnkZXKoBkfxyotrmWX4o1EikUKVdFWHVEpz68vAcsF9');"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="h-8"></div>
+<!-- SECTION 2: IN-APP TOAST BANNER -->
+<div>
+<h3 class="text-gray-900 dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] px-4 pb-4">In-App Toast Banner</h3>
+<div class="mx-4 relative h-[400px] rounded-3xl overflow-hidden border border-gray-700 bg-background-dark shadow-2xl">
+<!-- Toast Alert Sliding Down -->
+<div class="absolute top-4 left-4 right-4 z-40">
+<div class="bg-[#1c2127] border border-gray-700/50 rounded-xl p-3 shadow-[0_10px_30px_rgba(0,0,0,0.5)] flex items-center justify-between gap-3">
+<div class="flex items-center gap-3">
+<div class="relative">
+<div class="size-12 bg-center bg-no-repeat aspect-square bg-cover rounded-full" data-alt="Team logo with a fierce wolf graphic" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDPZdSk4wTVozzWYgr759TDFc--k8MWwJ4jhDCpnEXmfD5LhFntbKyoi1nuMzlm1DlpuO4UjfUp6vblYAovrkpubEY7x_SNH0yz4R2Yv7Sb19BxY6pdH8x_SMaYasfo9xNrXeBm4owR3VFciQm9rKniYLBEX4D8juOvrEMa1arKwLJZq70fQiTx3pDtr9Y4g3AuDrt-h110nxKWz_lCUfBBctVq1fj6mypIfblQWwK_n3JbFCSd7XxOG3le2FGEs8yPAm3EkdYvGuhc');"></div>
+<div class="absolute -bottom-1 -right-1 bg-red-600 size-3 rounded-full border-2 border-[#1c2127]"></div>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-1.5">
+<span class="bg-red-600 text-[9px] font-bold text-white px-1.5 py-0.5 rounded uppercase tracking-wider">Live</span>
+<p class="text-white text-[13px] font-bold leading-tight">Varsity Practice</p>
+</div>
+<p class="text-[#9dabb9] text-[12px] font-normal leading-tight">Wildcats just started streaming</p>
+</div>
+</div>
+<button class="flex min-w-[70px] cursor-pointer items-center justify-center rounded-lg h-8 px-3 bg-primary text-white text-[12px] font-bold uppercase tracking-wide hover:bg-primary/90">
+                            Watch
+                        </button>
+</div>
+</div>
+<!-- Background App Content (Simulated Feed) -->
+<div class="p-4 pt-24 opacity-40 select-none">
+<div class="flex items-center gap-3 mb-6">
+<div class="size-10 rounded-full bg-gray-700"></div>
+<div class="flex-1 space-y-2">
+<div class="h-2 w-24 bg-gray-700 rounded"></div>
+<div class="h-2 w-32 bg-gray-800 rounded"></div>
+</div>
+</div>
+<div class="w-full h-40 bg-gray-800 rounded-xl mb-4"></div>
+<div class="space-y-3">
+<div class="h-3 w-full bg-gray-700 rounded"></div>
+<div class="h-3 w-5/6 bg-gray-800 rounded"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="h-8"></div>
+<!-- SECTION 3: RECENT ACTIVITY LIST -->
+<div>
+<h3 class="text-gray-900 dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] px-4 pb-2">Recent Notifications</h3>
+<div class="bg-white dark:bg-background-dark">
+<!-- Activity Item 1 -->
+<div class="flex items-center gap-4 px-4 min-h-[80px] py-3 justify-between border-b border-gray-100 dark:border-gray-800/50">
+<div class="flex items-center gap-4">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full h-12 w-12 border-2 border-primary/20" data-alt="Profile photo of Coach Sarah Jenkins" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC0Rlf-kS10E20iyAOTia3bbUxy8Gk7-Ak5IY2QOrXSBapqpN2NC6JkqfgoTtfr1d4BpJpgA-hNbpQX4LnPUy21WZVtepTwp0bD_pDEHeKaKeCAHZ0XgDVBYch_uXgtGQ2QTe0Pyo91W2MG3VG5hCGN8Ir-ZCks8r9wGOsvQVMiad9Cf937yaYOjGLHwkjbzz10yqdAKd1BT81o4Yhmf92qg211pc0VJ0qCvYYAK7RmMwtYCA-r8wdoZXirUB1PTHnfc6dKg70eCXLW');"></div>
+<div class="flex flex-col justify-center">
+<p class="text-gray-900 dark:text-white text-sm font-bold leading-tight">Sarah Jenkins uploaded a video</p>
+<p class="text-gray-500 dark:text-[#9dabb9] text-xs font-normal leading-normal mt-0.5">Defensive Drills for State Finals</p>
+<p class="text-primary text-[10px] font-bold uppercase mt-1">2 hours ago</p>
+</div>
+</div>
+<div class="shrink-0">
+<span class="material-symbols-outlined text-gray-400 dark:text-gray-600">chevron_right</span>
+</div>
+</div>
+<!-- Activity Item 2 -->
+<div class="flex items-center gap-4 px-4 min-h-[80px] py-3 justify-between border-b border-gray-100 dark:border-gray-800/50">
+<div class="flex items-center gap-4">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full h-12 w-12 flex items-center justify-center bg-primary/10 text-primary">
+<span class="material-symbols-outlined">analytics</span>
+</div>
+<div class="flex flex-col justify-center">
+<p class="text-gray-900 dark:text-white text-sm font-bold leading-tight">Weekly Performance Ready</p>
+<p class="text-gray-500 dark:text-[#9dabb9] text-xs font-normal leading-normal mt-0.5">Your shooting accuracy increased by 4%</p>
+<p class="text-gray-400 dark:text-gray-600 text-[10px] font-medium uppercase mt-1">Yesterday</p>
+</div>
+</div>
+<div class="shrink-0">
+<button class="bg-[#283039] text-white text-xs font-bold px-3 py-1.5 rounded-lg">View</button>
+</div>
+</div>
+<!-- Activity Item 3 -->
+<div class="flex items-center gap-4 px-4 min-h-[80px] py-3 justify-between">
+<div class="flex items-center gap-4">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full h-12 w-12 border-2 border-primary/20" data-alt="Athletic trainer working with equipment" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC1G9uh6dMLVaMjFoUosVXzl5zpfI0CYvwYq3Xdp7vXTF_REhYZVnDxqro4hgBlz2wuo5GPmzGaTIS8WyPTA505ceo-qsWdm1udGEE0ILCW3xxUCIR62i3gng2xRSX7RucN9rjkv1G2-1ABKO7qBxopLAXAb36y44vVEHblXyVk1O_cjF47cKNIaZSsJWrI1gvDmfRclxa1H9g4N8prhDete9IjMou_mxR3GVtd3R1H90AzQRQv-66CqXTWCWuVaq6ilOzZWXloWSzX');"></div>
+<div class="flex flex-col justify-center">
+<p class="text-gray-900 dark:text-white text-sm font-bold leading-tight">New Message: Team Training</p>
+<p class="text-gray-500 dark:text-[#9dabb9] text-xs font-normal leading-normal mt-0.5">Marcus: "Don't forget the practice at 6!"</p>
+<p class="text-gray-400 dark:text-gray-600 text-[10px] font-medium uppercase mt-1">Oct 22</p>
+</div>
+</div>
+<div class="shrink-0">
+<span class="material-symbols-outlined text-gray-400 dark:text-gray-600">chevron_right</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom Navigation Bar (Floating Style) -->
+<div class="fixed bottom-0 left-0 right-0 h-16 bg-white/80 dark:bg-background-dark/80 ios-blur border-t border-gray-200 dark:border-gray-800 px-6 flex items-center justify-between z-50">
+<div class="flex flex-col items-center gap-1 opacity-50">
+<span class="material-symbols-outlined">home</span>
+<span class="text-[10px] font-medium">Home</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-primary">
+<div class="relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-0 right-0 size-2 bg-red-600 rounded-full"></span>
+</div>
+<span class="text-[10px] font-medium">Alerts</span>
+</div>
+<div class="flex flex-col items-center gap-1 opacity-50">
+<span class="material-symbols-outlined">play_circle</span>
+<span class="text-[10px] font-medium">Feed</span>
+</div>
+<div class="flex flex-col items-center gap-1 opacity-50">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-medium">Profile</span>
+</div>
+</div>
+</body></html>

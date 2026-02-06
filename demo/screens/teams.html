@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>iPractus - Find Teams</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Lexend"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Lexend', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white min-h-screen">
+<!-- Top Navigation Bar -->
+<header class="sticky top-0 z-50 bg-background-light dark:bg-background-dark/95 backdrop-blur-md border-b border-gray-200 dark:border-gray-800">
+<div class="flex items-center p-4 pb-2 justify-between max-w-md mx-auto">
+<div class="flex size-10 shrink-0 items-center justify-center">
+<span class="material-symbols-outlined text-2xl">arrow_back_ios</span>
+</div>
+<h2 class="text-lg font-bold leading-tight tracking-tight flex-1 text-center">Find Teams</h2>
+<div class="flex w-10 items-center justify-end">
+<button class="flex items-center justify-center rounded-lg h-10 w-10 bg-transparent text-primary">
+<span class="material-symbols-outlined text-2xl">notifications</span>
+</button>
+</div>
+</div>
+</header>
+<main class="max-w-md mx-auto pb-24">
+<!-- Search Bar -->
+<div class="px-4 py-4">
+<label class="flex flex-col min-w-40 h-12 w-full">
+<div class="flex w-full flex-1 items-stretch rounded-xl h-full shadow-sm">
+<div class="text-[#9dabb9] flex border-none bg-white dark:bg-[#1c2127] items-center justify-center pl-4 rounded-l-xl border-r-0">
+<span class="material-symbols-outlined">search</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-slate-900 dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary border-none bg-white dark:bg-[#1c2127] focus:border-none h-full placeholder:text-[#9dabb9] px-4 rounded-l-none border-l-0 pl-2 text-base font-normal leading-normal" placeholder="Search teams, clubs, or cities..." value=""/>
+<div class="text-primary flex border-none bg-white dark:bg-[#1c2127] items-center justify-center pr-4 rounded-r-xl border-l-0">
+<span class="material-symbols-outlined">tune</span>
+</div>
+</div>
+</label>
+</div>
+<!-- Sport Categories Chips -->
+<div class="flex gap-3 px-4 py-2 overflow-x-auto hide-scrollbar">
+<div class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-primary px-4 shadow-md shadow-primary/20">
+<span class="material-symbols-outlined text-white text-[20px]">sports_basketball</span>
+<p class="text-white text-sm font-semibold leading-normal">Basketball</p>
+</div>
+<div class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-white dark:bg-[#1c2127] px-4 border border-gray-100 dark:border-gray-800">
+<span class="material-symbols-outlined text-slate-500 dark:text-gray-400 text-[20px]">sports_soccer</span>
+<p class="text-slate-700 dark:text-gray-300 text-sm font-medium leading-normal">Soccer</p>
+</div>
+<div class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-white dark:bg-[#1c2127] px-4 border border-gray-100 dark:border-gray-800">
+<span class="material-symbols-outlined text-slate-500 dark:text-gray-400 text-[20px]">sports_volleyball</span>
+<p class="text-slate-700 dark:text-gray-300 text-sm font-medium leading-normal">Volleyball</p>
+</div>
+<div class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-white dark:bg-[#1c2127] px-4 border border-gray-100 dark:border-gray-800">
+<span class="material-symbols-outlined text-slate-500 dark:text-gray-400 text-[20px]">sports_tennis</span>
+<p class="text-slate-700 dark:text-gray-300 text-sm font-medium leading-normal">Tennis</p>
+</div>
+<div class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-white dark:bg-[#1c2127] px-4 border border-gray-100 dark:border-gray-800">
+<span class="material-symbols-outlined text-slate-500 dark:text-gray-400 text-[20px]">sports_baseball</span>
+<p class="text-slate-700 dark:text-gray-300 text-sm font-medium leading-normal">Baseball</p>
+</div>
+</div>
+<!-- Section Header -->
+<div class="flex items-center justify-between px-4 pt-6 pb-2">
+<h2 class="text-slate-900 dark:text-white text-xl font-bold leading-tight tracking-tight">Recommended Teams</h2>
+<button class="text-primary text-sm font-semibold">See All</button>
+</div>
+<!-- Team List Container -->
+<div class="space-y-4 px-4 pt-2">
+<!-- Card 1 -->
+<div class="group @container">
+<div class="flex flex-col items-stretch justify-start rounded-xl shadow-lg bg-white dark:bg-[#1c2127] overflow-hidden border border-gray-100 dark:border-gray-800">
+<div class="relative w-full aspect-[16/9] overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10"></div>
+<div class="w-full h-full bg-center bg-no-repeat bg-cover transition-transform duration-500 group-hover:scale-105" data-alt="professional soccer team practicing on a green field at sunset" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuByXA1dyVqLvava4Gxm11tud4zxHVSN0LsET8DBgvhjSiN-ds8dEUHW-5KkcmWH7fUw65Q4VR0rt85AskEMbK0it9zKpK-t1CBU-G0A8k1FNOurNomsnssrOa05Fb4Ukw6PXBC1EYonwPgN1134DaPFKZRF9OL_HFmhHyHlmTZLlVtWvV-KD0AO6_2dP0g1M18OPfvtwZg2yuAeAgLuQSemFp8QZJ07xFJNkKu3fMpMiYNy9EOeT_GHqPRRh8Hs66GE9T_jkF60xvBu");'></div>
+<div class="absolute top-3 left-3 z-20 px-2 py-1 bg-primary/90 rounded text-[10px] font-bold text-white uppercase tracking-wider">Open Team</div>
+</div>
+<div class="flex w-full grow flex-col items-stretch justify-center gap-1 p-4">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="text-slate-900 dark:text-white text-lg font-bold leading-tight tracking-tight">Titan Strikers</h3>
+<p class="text-[#9dabb9] text-sm font-normal leading-normal">Soccer • 24 Members</p>
+</div>
+<div class="size-10 rounded-lg bg-gray-100 dark:bg-gray-800 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">groups</span>
+</div>
+</div>
+<div class="flex items-center gap-3 justify-between mt-3">
+<div class="flex -space-x-2">
+<div class="w-8 h-8 rounded-full border-2 border-white dark:border-[#1c2127] bg-gray-300" data-alt="team member profile icon"></div>
+<div class="w-8 h-8 rounded-full border-2 border-white dark:border-[#1c2127] bg-gray-400" data-alt="team member profile icon"></div>
+<div class="w-8 h-8 rounded-full border-2 border-white dark:border-[#1c2127] bg-gray-500" data-alt="team member profile icon"></div>
+<div class="w-8 h-8 rounded-full border-2 border-white dark:border-[#1c2127] bg-primary flex items-center justify-center text-[10px] text-white font-bold">+21</div>
+</div>
+<button class="flex min-w-[100px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-9 px-4 bg-primary text-white text-sm font-semibold leading-normal shadow-md shadow-primary/25 active:scale-95 transition-all">
+<span class="truncate">Join Team</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="group @container">
+<div class="flex flex-col items-stretch justify-start rounded-xl shadow-lg bg-white dark:bg-[#1c2127] overflow-hidden border border-gray-100 dark:border-gray-800">
+<div class="relative w-full aspect-[16/9] overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10"></div>
+<div class="w-full h-full bg-center bg-no-repeat bg-cover transition-transform duration-500 group-hover:scale-105" data-alt="indoor basketball court with bright professional lighting" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuACD4YtpmHoP9rd_aU2Tm-oEH-ku4cBwPnMbszPCrEcXU95bzDPO-umJQcq_eZl9bde-jZ2yeYqeWD9nRTq5YLSDd06uQMpGM1ciJQjt4HNEQtu7jWNZqmew__T-1JkX2BeusyXBoZDNofxzhOslA88L1iieV-g2fIA7U_B8J-ZaDG2IXonWfrCqPWxFKxkHnT35m7xd9tY18c4dlUL3uwd8T1KMmUEZ1DEM_YmbLNjmbgwijZzQt2GqzBSJw5I0qIrRFyYW8J_oLiv");'></div>
+<div class="absolute top-3 left-3 z-20 px-2 py-1 bg-amber-500/90 rounded text-[10px] font-bold text-white uppercase tracking-wider">Invite Only</div>
+</div>
+<div class="flex w-full grow flex-col items-stretch justify-center gap-1 p-4">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="text-slate-900 dark:text-white text-lg font-bold leading-tight tracking-tight">Elite Hoops Academy</h3>
+<p class="text-[#9dabb9] text-sm font-normal leading-normal">Basketball • 12 Members</p>
+</div>
+<div class="size-10 rounded-lg bg-gray-100 dark:bg-gray-800 flex items-center justify-center">
+<span class="material-symbols-outlined text-amber-500">military_tech</span>
+</div>
+</div>
+<div class="flex items-center gap-3 justify-between mt-3">
+<div class="flex -space-x-2">
+<div class="w-8 h-8 rounded-full border-2 border-white dark:border-[#1c2127] bg-gray-300" data-alt="team member profile icon"></div>
+<div class="w-8 h-8 rounded-full border-2 border-white dark:border-[#1c2127] bg-gray-400" data-alt="team member profile icon"></div>
+<div class="w-8 h-8 rounded-full border-2 border-white dark:border-[#1c2127] bg-primary flex items-center justify-center text-[10px] text-white font-bold">+9</div>
+</div>
+<button class="flex min-w-[100px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-9 px-4 bg-primary/20 text-primary text-sm font-semibold leading-normal active:scale-95 transition-all">
+<span class="truncate">Request</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Card 3 (Smaller/Compact Variant) -->
+<div class="group @container">
+<div class="flex items-center gap-4 rounded-xl shadow-sm bg-white dark:bg-[#1c2127] p-3 border border-gray-100 dark:border-gray-800">
+<div class="size-16 rounded-lg bg-cover bg-center shrink-0" data-alt="volleyball being spiked over a net" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCcq3WElesXWK_L3VWxMXpwzaH5Zd-6ToxTwuwmUVR2p5hzchbaTMPr0_SvcltnGJjKDJJ15xDRZCgUDC-_8ZXw4pbCSd4wopdDyl4MPCwB0wH_hTRJw3Vmf1WZnJ7ZXMXcq3ngGIjoT_AcQsrMJVI4ttuE4V4-W8SPuc7UT4X1mk9d1zwl2zZf56SqOLiQ2PiVWV_nL7GTgSdwnYj4jHHCyAKmdOAgoerW9EoQvm7yV-WrBvGrfxPgwQZ7UDKWDvbYcTU5X-VWGctI");'></div>
+<div class="flex-1 min-w-0">
+<h3 class="text-slate-900 dark:text-white text-base font-bold truncate">Ocean Spike Club</h3>
+<p class="text-[#9dabb9] text-xs font-normal">Volleyball • 8 Members</p>
+<div class="flex items-center gap-1 mt-1">
+<span class="material-symbols-outlined text-amber-400 text-sm fill-1">star</span>
+<span class="text-xs text-slate-500">4.9 (42 reviews)</span>
+</div>
+</div>
+<button class="size-10 rounded-full bg-primary/10 text-primary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Tab Bar -->
+<nav class="fixed bottom-0 left-0 right-0 z-50 bg-white/80 dark:bg-background-dark/80 backdrop-blur-lg border-t border-gray-200 dark:border-gray-800 pb-safe">
+<div class="max-w-md mx-auto flex justify-around items-center h-16">
+<button class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined">home</span>
+<span class="text-[10px] font-medium">Home</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-primary">
+<span class="material-symbols-outlined fill-1">explore</span>
+<span class="text-[10px] font-medium">Discover</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined">groups</span>
+<span class="text-[10px] font-medium">My Teams</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-medium">Profile</span>
+</button>
+</div>
+</nav>
+</body></html>

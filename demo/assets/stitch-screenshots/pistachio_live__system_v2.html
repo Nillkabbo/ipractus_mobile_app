@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Pistachio Live (System v2)</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              colors: {
+                "primary": "#b2f15f",
+                "obsidian": "#0B132B",
+                "cyan-live": "#66D9E8",
+                "background-light": "#f7f8f6",
+                "background-dark": "#0B132B",
+              },
+              fontFamily: {
+                "display": ["Inter"]
+              },
+              borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+              boxShadow: {
+                'pistachio-glow': '0 0 20px -5px rgba(178, 241, 95, 0.4)',
+              }
+            },
+          },
+        }
+      </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+        /* Custom scrollbar hide for horizontal scrollers */
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-white font-display">
+<!-- iOS Status Bar Spacer -->
+<div class="h-12 w-full bg-background-light dark:bg-background-dark"></div>
+<!-- Top App Bar -->
+<div class="sticky top-0 z-50 flex items-center bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md px-6 py-4 justify-between border-b border-white/5">
+<div class="flex items-center gap-3">
+<div class="bg-primary/20 p-1 rounded-full border border-primary/30">
+<div class="size-10 bg-center bg-no-repeat aspect-square bg-cover rounded-full" data-alt="Athlete profile avatar portrait" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDA3GqI0j9pss0tuwmgF3pfmy_2nyyrLxc_AzMPE7h08FmA3gYya4T_-GgPbLLuvIugHq-Thwz77Z3TRBWviRGMdO6WflBwRo_5hUzysxuMedSoShVMm-aWbWmKs7VujnJlr173GKtXv-JwsKuxjUndXzsvkzV3Ps0EMtV2WsWf70ygGwXJG3catfoxJalHXatWeo8QaoMIEEr4IaE7RLzStpwVRCvXrL2nOPM6UQ-guuFSTGSFwg1NPE71MNp_gl1bjOAVTdwZrpvk");'>
+</div>
+</div>
+<div>
+<h1 class="text-white text-lg font-bold leading-tight tracking-tight">Pistachio Live</h1>
+<p class="text-white/50 text-xs font-medium uppercase tracking-widest">iPrActUS v2</p>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<button class="flex size-11 items-center justify-center rounded-full bg-white/5 text-white transition-colors hover:bg-white/10">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="flex size-11 items-center justify-center rounded-full bg-white/5 text-white transition-colors hover:bg-white/10">
+<span class="material-symbols-outlined">search</span>
+</button>
+</div>
+</div>
+<!-- Go Live Primary Action -->
+<div class="px-6 pt-6">
+<button class="w-full flex items-center justify-center gap-3 bg-primary text-obsidian h-16 rounded-full font-bold text-lg shadow-lg shadow-primary/20 active:scale-[0.98] transition-all">
+<span class="material-symbols-outlined font-bold">videocam</span>
+            Go Live
+        </button>
+</div>
+<!-- Featured Section Header -->
+<div class="px-6 pt-8 pb-4">
+<h2 class="text-white text-[20px] font-semibold leading-tight tracking-tight">Featured Performance</h2>
+</div>
+<!-- Featured Carousel -->
+<div class="flex overflow-x-auto no-scrollbar snap-x snap-mandatory">
+<div class="flex items-stretch px-6 gap-5">
+<!-- Featured Card 1 -->
+<div class="snap-start flex h-full flex-col gap-4 min-w-[300px] group">
+<div class="relative w-full aspect-video rounded-xl overflow-hidden shadow-pistachio-glow border border-primary/20 transition-transform duration-300 group-hover:scale-[1.02]">
+<div class="absolute inset-0 bg-center bg-no-repeat bg-cover" data-alt="Elite athlete training in modern gym" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC95UeZ_EcjRkabutNOr_qYvbYZvnmf7lvrRsC-cr2z3PNUi8ar0NiuGNwzHOjTY-MCM57OKXfioBiu35ZNAC2B-Cezxno7tj6j_mUDDsH1kjrSV-lmnaI1kQ-wjn15eLPr9L5jN-bdPon3wBg6jkq_I91VLUlzSYgytJy0UuRZu3Fz1o5EGIT5d8G2Vp0NKAa76S570T2b8FdR7ctwwje7h-xBZHk_fBqTIH2NXeyo0spKSFiW221rEGh42PFKogRVo3kA2t0zBaMF");'>
+</div>
+<!-- Live Badge -->
+<div class="absolute top-4 left-4 flex items-center gap-1.5 px-3 py-1.5 bg-cyan-live/90 backdrop-blur-sm rounded-full shadow-lg">
+<div class="size-2 bg-white rounded-full animate-pulse"></div>
+<span class="text-obsidian text-[11px] font-bold uppercase tracking-wider">Live</span>
+</div>
+<!-- Overlay Info -->
+<div class="absolute bottom-0 inset-x-0 p-4 bg-gradient-to-t from-obsidian/90 to-transparent">
+<p class="text-white text-lg font-bold">Elite Performance Lab</p>
+<div class="flex items-center gap-2 mt-1">
+<span class="material-symbols-outlined text-cyan-live text-sm">visibility</span>
+<p class="text-cyan-live text-xs font-semibold uppercase tracking-wide">2.4k viewers</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Featured Card 2 -->
+<div class="snap-start flex h-full flex-col gap-4 min-w-[300px] group">
+<div class="relative w-full aspect-video rounded-xl overflow-hidden border border-white/10 transition-transform duration-300 group-hover:scale-[1.02]">
+<div class="absolute inset-0 bg-center bg-no-repeat bg-cover" data-alt="Late night outdoor training track" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDN06K9AB79AjpDay_GbCY7hepALUoaolQwRCh0eEy4otaOh3IuldUHFd4ucevBj0LLK3cNvFW-zflLgBcdal-HQxIKrnm6DPQm1PjWMPT_Q44nGSxHT4wWxaBDxLpNRzl47vOf64YPCMk2INrKwjVW7yhX5zyMvSIqSHbQ2F3kfBt0jBHRozd9iLUkWYD-G3ef-ik1OK7wpcvLMJAhUIv0ykGYozpiTKboT7rxL1SVXPP1ILswdFjvGyqhp6pgDZ9YnBpfp9uw0bD2");'>
+</div>
+<div class="absolute top-4 left-4 flex items-center gap-1.5 px-3 py-1.5 bg-cyan-live/90 backdrop-blur-sm rounded-full">
+<div class="size-2 bg-white rounded-full"></div>
+<span class="text-obsidian text-[11px] font-bold uppercase tracking-wider">Live</span>
+</div>
+<div class="absolute bottom-0 inset-x-0 p-4 bg-gradient-to-t from-obsidian/90 to-transparent">
+<p class="text-white text-lg font-bold">Midnight Sprint Drills</p>
+<div class="flex items-center gap-2 mt-1">
+<span class="material-symbols-outlined text-cyan-live text-sm">visibility</span>
+<p class="text-cyan-live text-xs font-semibold uppercase tracking-wide">1.1k viewers</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Categories Section -->
+<div class="px-6 pt-10 pb-4">
+<h2 class="text-white text-[20px] font-semibold leading-tight tracking-tight">Explore Categories</h2>
+</div>
+<div class="flex gap-3 px-6 overflow-x-auto no-scrollbar">
+<div class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-primary text-obsidian px-6 font-bold text-sm">
+<span>Performance</span>
+</div>
+<div class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-white/5 border border-white/10 px-6 font-medium text-sm hover:bg-white/10 transition-colors">
+<span>Training</span>
+</div>
+<div class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-white/5 border border-white/10 px-6 font-medium text-sm hover:bg-white/10 transition-colors">
+<span>Recovery</span>
+</div>
+<div class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-white/5 border border-white/10 px-6 font-medium text-sm hover:bg-white/10 transition-colors">
+<span>Nutrition</span>
+</div>
+</div>
+<!-- Recommended Grid -->
+<div class="px-6 pt-10 pb-4 flex justify-between items-center">
+<h2 class="text-white text-[20px] font-semibold leading-tight tracking-tight">Active Hub</h2>
+<button class="text-primary text-sm font-bold uppercase tracking-wider">See All</button>
+</div>
+<div class="grid grid-cols-2 gap-4 px-6 pb-32">
+<!-- Grid Item 1 -->
+<div class="flex flex-col gap-3">
+<div class="relative aspect-square rounded-xl overflow-hidden border border-white/5">
+<div class="absolute inset-0 bg-center bg-no-repeat bg-cover" data-alt="Yoga practitioner in dark studio" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDmRsy9bEBeiYKh9JhVUIxEGAtBfe7NSw4UaJQhoSxD18qHU9f7MziWf4z5T3HUZHyZyBFp9GMhf5ksW-9q8hzu9HmRkwRNhITyRyAHmJV1ekIUzHjhCZBg31qyHRCtHt1HDjmPy_KxEgNQPM6pz-GcJ8QvSGtDLcDaRJu-FBGxjs_V-1W4AzCoij_m_IQMFDyquVHoRJR78vsboVUqrW8dnnPI7Fj_Sk7O7LkN_pRpi2WjiqRAw3lYrkMvJMCT3fcPitXBUioA6tYr");'>
+</div>
+<div class="absolute top-2 right-2 px-2 py-1 bg-black/60 backdrop-blur-md rounded-lg">
+<p class="text-cyan-live text-[10px] font-bold">850 view</p>
+</div>
+</div>
+<div>
+<p class="text-white text-sm font-bold truncate">Active Recovery Flow</p>
+<p class="text-white/50 text-[11px] font-medium uppercase mt-0.5">Zen Mastery</p>
+</div>
+</div>
+<!-- Grid Item 2 -->
+<div class="flex flex-col gap-3">
+<div class="relative aspect-square rounded-xl overflow-hidden border border-white/5">
+<div class="absolute inset-0 bg-center bg-no-repeat bg-cover" data-alt="Weights and gym equipment macro" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCclIle5xnB3tm5WuSNb5HfrPczlyCN9Lwk7s-aVhMKQ9VxOJhv3epio175LANyuqiMFWIRX1UIOIxENVrJ-2Ok6gzj0_vFMw_2JzCW3yBXz-PdTtzbnvezDgKuBb9xfxNOt8HkvOfXTj5TR7kRFBYOa_OLYRJ7pGLApc7Eg04bojjVDjj7P1ILrHluIpZRPpb5Oox_PDtKP7jAXfHjXf1tAZj9Vf6IH1CH4O6zvkDYoZcBVNBdYeiARxmTzv9oBSyLW5ycm2ZBQq6O");'>
+</div>
+<div class="absolute top-2 right-2 px-2 py-1 bg-black/60 backdrop-blur-md rounded-lg">
+<p class="text-cyan-live text-[10px] font-bold">2.1k view</p>
+</div>
+</div>
+<div>
+<p class="text-white text-sm font-bold truncate">Heavy Lift Protocol</p>
+<p class="text-white/50 text-[11px] font-medium uppercase mt-0.5">Titan Labs</p>
+</div>
+</div>
+<!-- Grid Item 3 -->
+<div class="flex flex-col gap-3">
+<div class="relative aspect-square rounded-xl overflow-hidden border border-white/5">
+<div class="absolute inset-0 bg-center bg-no-repeat bg-cover" data-alt="Bicycle wheel close up fast" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAss41xmNxL3IXc6gFn3OaKr6YrsYQQqItdE-Zh3KgSMjo0-xbnuPvY8k0oQk3sbtcX0oczKQeYIEumbfx9G9kAOD_MoiGswii7zOQ015pI0g57t4HIXNZ_46J9sloLdQ7bp8tf9yJOOc-SUDOrL-SU9SSNQj3dFu_c4tDbw5qJ3VnUaIZ5JndsSYUf9UT7cffyz7vThFIyJWwGsYI95O1ZPbLfCjabkbVrZ6biqNvlUPElqB0hVuYO7INNgFGPV7b6BfWp7UP_20yQ");'>
+</div>
+<div class="absolute top-2 right-2 px-2 py-1 bg-black/60 backdrop-blur-md rounded-lg">
+<p class="text-cyan-live text-[10px] font-bold">412 view</p>
+</div>
+</div>
+<div>
+<p class="text-white text-sm font-bold truncate">High Cadence Spin</p>
+<p class="text-white/50 text-[11px] font-medium uppercase mt-0.5">Velo Pros</p>
+</div>
+</div>
+<!-- Grid Item 4 -->
+<div class="flex flex-col gap-3">
+<div class="relative aspect-square rounded-xl overflow-hidden border border-white/5">
+<div class="absolute inset-0 bg-center bg-no-repeat bg-cover" data-alt="Boxing gloves and gym background" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDxc6pzZVtBPev23CsCvaBLCMjAL96x1CIV1LBcE49FaIg5mDaspDAWhHYD3mKe1kLPEgUfZegfTwwC1pNUCyOEPbx9Bx8fvgF4M3Yo6omGGvs6FB81CE_2rnWl2nQcQDAOqI-MsDM4d-SkgBGFd0eeI3mHa-SJaWBC0RzoJDUBoo7Zq24sJEZ64E9Gw2U36FXaSoiQIxG9eQfjUB3YhN3zDcqf3rLI5EdcNL1W01sYFxv6Ag9Z8x5d1D0xieaNPhZgmCLt_R5CC16N");'>
+</div>
+<div class="absolute top-2 right-2 px-2 py-1 bg-black/60 backdrop-blur-md rounded-lg">
+<p class="text-cyan-live text-[10px] font-bold">1.5k view</p>
+</div>
+</div>
+<div>
+<p class="text-white text-sm font-bold truncate">Strike Technique 101</p>
+<p class="text-white/50 text-[11px] font-medium uppercase mt-0.5">Fight Hub</p>
+</div>
+</div>
+</div>
+<!-- Navigation Bar -->
+<div class="fixed bottom-0 inset-x-0 bg-obsidian/95 backdrop-blur-xl border-t border-white/5 px-8 pt-4 pb-10 flex justify-between items-center z-50">
+<div class="flex flex-col items-center gap-1 group">
+<span class="material-symbols-outlined text-primary text-[28px]">home</span>
+<div class="h-1.5 w-1.5 bg-primary rounded-full mt-1"></div>
+</div>
+<div class="flex flex-col items-center gap-1 opacity-40">
+<span class="material-symbols-outlined text-white text-[28px]">explore</span>
+</div>
+<div class="flex flex-col items-center gap-1 opacity-40">
+<span class="material-symbols-outlined text-white text-[28px]">stream</span>
+</div>
+<div class="flex flex-col items-center gap-1 opacity-40">
+<span class="material-symbols-outlined text-white text-[28px]">groups</span>
+</div>
+<div class="flex flex-col items-center gap-1 opacity-40">
+<span class="material-symbols-outlined text-white text-[28px]">account_circle</span>
+</div>
+</div>
+<!-- Bottom Indicator -->
+<div class="fixed bottom-1 inset-x-0 flex justify-center pointer-events-none z-[60]">
+<div class="w-32 h-1 bg-white/20 rounded-full"></div>
+</div>
+</body></html>

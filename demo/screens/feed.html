@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>iPractus Social Feed - Dark Mode</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "background-dark": "#0a0f14", // Deep navy/charcoal background
+                        "surface-dark": "#161e27",    // Lighter shade for cards
+                        "surface-light": "#1f2937",   // Even lighter for hover/inputs
+                        "text-main": "#ffffff",
+                        "text-muted": "#94a3b8",
+                    },
+                    fontFamily: {
+                        "display": ["Lexend", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "2xl": "1rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        body {
+            font-family: 'Lexend', sans-serif;
+            background-color: theme('colors.background-dark');
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .fill-icon {
+            font-variation-settings: 'FILL' 1;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="dark:bg-background-dark font-display text-text-main antialiased">
+<header class="sticky top-0 z-50 bg-background-dark/90 backdrop-blur-xl border-b border-white/5">
+<div class="flex items-center p-4 justify-between max-w-xl mx-auto">
+<div class="flex items-center gap-2">
+<div class="text-primary">
+<span class="material-symbols-outlined !text-3xl">sports_score</span>
+</div>
+<h1 class="text-primary text-xl font-bold leading-tight tracking-tight">iPractus</h1>
+</div>
+<div class="flex items-center gap-4">
+<button class="relative flex size-10 items-center justify-center rounded-full hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined text-white">notifications</span>
+<span class="absolute top-2.5 right-2.5 flex h-2 w-2 rounded-full bg-red-500"></span>
+</button>
+</div>
+</div>
+</header>
+<main class="max-w-xl mx-auto pb-32">
+<div class="bg-surface-dark p-4 mb-2 shadow-lg">
+<div class="flex items-center gap-3">
+<div class="size-10 shrink-0 rounded-full bg-center bg-cover border border-white/10" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCQUqBZNMgKDKvROPIJmo9HAgp8OFt-kJtwFgZJ5TYco_9dqKc82DHejj_dSFyH_k6C0qAJtaTIEIqr-1JcC7lSH8kyib59fr6pkf3enHnyUM4QMUfr3wRmJCqN3ViAKtJRLwDNAN3wEFI_3TAVoYn8tMD9WeTSk2pISi_9iJxVZSC_m9BBzJFn1QKIdooTn4XAhai8bm6JxVUG2mLL3-rHxH49qWcoPPqqiEfILMiXncSXDLjgGiRoVs5a3_0lPnk-WkVf4AOm0DpX");'></div>
+<div class="flex-1 bg-surface-light/50 rounded-full px-4 py-2.5 cursor-pointer border border-white/5 hover:border-primary/50 transition-all">
+<p class="text-text-muted text-sm">What's on your mind?</p>
+</div>
+<button class="text-primary flex items-center justify-center p-2 rounded-full hover:bg-primary/10 transition-colors">
+<span class="material-symbols-outlined">image</span>
+</button>
+</div>
+</div>
+<div class="bg-surface-dark mb-2 shadow-lg border-y border-white/5">
+<div class="p-4">
+<div class="flex items-center justify-between mb-4">
+<div class="flex items-center gap-3">
+<div class="size-11 rounded-full bg-center bg-cover ring-2 ring-white/5" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAQW7DdRQCJr8y3p-NmQYMgroRfhRwCoxoubrJI-PzVFMohEkKraE6Y6G9ngvi-I6-0UBFjhsc8Ca0Pa5eu5FVRGluWqvyLs1HSmIP4hO5TBkGUQta7Id1JmflG0L3M1eNuYZE3e5tJua1yTeU7eL59QtzCCK-aEwTj_P8oewGLErfRLQAemswA6MitwtqLynMm57SmWq9UDBQQDDGmD-mWUHsaZeirIhF5XMlP0MLwXifFxC-noexm0a7b9P07fJbnFpf2i7WmWWgO");'></div>
+<div>
+<div class="flex items-center gap-2">
+<h3 class="font-bold text-white leading-none">Alex Rivera</h3>
+<span class="bg-primary/20 text-primary text-[10px] font-bold px-1.5 py-0.5 rounded uppercase tracking-wider">Athlete</span>
+</div>
+<p class="text-text-muted text-xs mt-1">2h ago • Pro League</p>
+</div>
+</div>
+<button class="text-text-muted">
+<span class="material-symbols-outlined">more_horiz</span>
+</button>
+</div>
+<p class="text-gray-200 text-sm mb-4 leading-relaxed">
+                    Just finished a great morning session! Working on my explosive power today. Feels good to be back on the grind. #iPractus #TrainingDay
+                </p>
+<div class="w-full aspect-video rounded-xl bg-center bg-cover mb-4 overflow-hidden shadow-inner" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCfZYLIZ8FQnPnHGdBtWwowLS0h8TIA1pDFZ_rlwYZH4s0X2f5ZJU6I5HXxLl_SQPwOGpIu-cGhcxMYnOuJJE1WSlj41S9tEdT9EvaK_kWMsHMWkyFYGiRzEzADVCCTTe_X0kFW2pvHxmGPBeT77hTiooP2pZxMu1KdIDaS3LmQJ8wx_Q2bNr-6Ua7bfCB5YtI9mAwmpekFYQtqcNr953N9itBVCh1LMof_LbYdHBxfBddrfKSRydENwmAYF3RYA6j-urmcPgpZhuuO");'>
+</div>
+<div class="flex items-center justify-between mb-4 px-1">
+<div class="flex -space-x-1.5 overflow-hidden">
+<div class="inline-block size-5 rounded-full ring-2 ring-surface-dark bg-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[10px] text-white fill-icon">favorite</span>
+</div>
+<div class="inline-block size-5 rounded-full ring-2 ring-surface-dark bg-blue-400 flex items-center justify-center">
+<span class="material-symbols-outlined text-[10px] text-white fill-icon">thumb_up</span>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<p class="text-text-muted text-[12px]">24 likes</p>
+<p class="text-text-muted text-[12px]">5 comments</p>
+</div>
+</div>
+<div class="flex items-center border-t border-white/5 pt-2">
+<button class="flex-1 flex items-center justify-center gap-2 py-2.5 hover:bg-white/5 rounded-lg transition-colors">
+<span class="material-symbols-outlined text-lg text-text-muted">favorite</span>
+<span class="text-xs font-semibold text-text-muted">Like</span>
+</button>
+<button class="flex-1 flex items-center justify-center gap-2 py-2.5 hover:bg-white/5 rounded-lg transition-colors">
+<span class="material-symbols-outlined text-lg text-text-muted">chat_bubble</span>
+<span class="text-xs font-semibold text-text-muted">Comment</span>
+</button>
+<button class="flex-1 flex items-center justify-center gap-2 py-2.5 hover:bg-white/5 rounded-lg transition-colors">
+<span class="material-symbols-outlined text-lg text-text-muted">share</span>
+<span class="text-xs font-semibold text-text-muted">Share</span>
+</button>
+</div>
+</div>
+</div>
+<div class="bg-surface-dark mb-2 shadow-lg border-y border-white/5">
+<div class="p-4">
+<div class="flex items-center justify-between mb-4">
+<div class="flex items-center gap-3">
+<div class="size-11 rounded-full bg-center bg-cover ring-2 ring-white/5" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuChVMRRR7B1quJUa-Zvdya8PCTDkEoq0S_rxNbKb57CUDxqQVEkLShKXPFMJwamokXSBMFK5XY5Ic6DN3AE421Pae6S2RYbVsKElQzLuTdmjP4UR-5mm8w5yMjHDCvrvhA9k8p-DyKnAo2LI3DChLrCLdSQ1pYgq-R9_0lQKvk0tXadQ4LLi8mODt3oPl3JAXUZBMuEODCDboggLZxNxFx7fliQwgr4f0WRKJg8v5M7aBQd4qGmpG4OSIt94KKnyfhdwUOJgeUtfjRm");'></div>
+<div>
+<div class="flex items-center gap-2">
+<h3 class="font-bold text-white leading-none">Coach Sarah Jenkins</h3>
+<span class="bg-emerald-500/20 text-emerald-400 text-[10px] font-bold px-1.5 py-0.5 rounded uppercase tracking-wider">Coach</span>
+</div>
+<p class="text-text-muted text-xs mt-1">4h ago • High Performance</p>
+</div>
+</div>
+<button class="text-text-muted">
+<span class="material-symbols-outlined">more_horiz</span>
+</button>
+</div>
+<p class="text-gray-200 text-sm mb-4 leading-relaxed">
+                    Quick tip for all my athletes: Consistency is key. Even on the days you don't feel like it, show up for your future self. Discipline over motivation, always. 🏀
+                </p>
+<div class="w-full aspect-[4/3] rounded-xl bg-center bg-cover mb-4 relative overflow-hidden group cursor-pointer shadow-inner" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBx43sWg63Bn5z4r1xe4RLgGYETSkDPHXgf-wa12q1QV1oF8Hlzi1NURnTuFmc5mUXgN5onCD5l-FOhm9wcxIsaJSQqlk7ex47JFvNA78iXitGaO0E67p5F5NEqbfNru3Fs9bifhAVXfFjp2VhhDaFSzQAJlSUEzpMtq0L3R1Pbw4i46z1pGlzqAvzfZLPObk3Cuf4OtzA4X9EpDIRQaRmB22YutXdi-yX-6RA6H975hQqM_84fy_JKHam_MjwuvLk4ydUHmVn9hovQ");'>
+<div class="absolute inset-0 bg-black/40 flex items-center justify-center group-hover:bg-black/30 transition-all">
+<div class="size-16 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center border border-white/20">
+<span class="material-symbols-outlined text-white text-4xl leading-none fill-icon">play_arrow</span>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between mb-4 px-1">
+<div class="flex items-center gap-1.5">
+<div class="flex h-5 w-5 items-center justify-center rounded-full bg-primary">
+<span class="material-symbols-outlined text-[12px] text-white fill-icon">thumb_up</span>
+</div>
+<p class="text-text-muted text-[12px] font-medium">56 helpful reactions</p>
+</div>
+<div class="flex items-center gap-3">
+<p class="text-text-muted text-[12px]">12 comments</p>
+<p class="text-text-muted text-[12px]">3 shares</p>
+</div>
+</div>
+<div class="flex items-center border-t border-white/5 pt-2">
+<button class="flex-1 flex items-center justify-center gap-2 py-2.5 hover:bg-white/5 rounded-lg transition-colors">
+<span class="material-symbols-outlined text-lg text-text-muted">thumb_up</span>
+<span class="text-xs font-semibold text-text-muted">Helpful</span>
+</button>
+<button class="flex-1 flex items-center justify-center gap-2 py-2.5 hover:bg-white/5 rounded-lg transition-colors">
+<span class="material-symbols-outlined text-lg text-text-muted">chat_bubble</span>
+<span class="text-xs font-semibold text-text-muted">Comment</span>
+</button>
+<button class="flex-1 flex items-center justify-center gap-2 py-2.5 hover:bg-white/5 rounded-lg transition-colors">
+<span class="material-symbols-outlined text-lg text-text-muted">share</span>
+<span class="text-xs font-semibold text-text-muted">Share</span>
+</button>
+</div>
+</div>
+</div>
+<div class="bg-surface-dark mb-2 shadow-lg border-y border-white/5">
+<div class="p-4">
+<div class="flex items-center justify-between mb-4">
+<div class="flex items-center gap-3">
+<div class="size-11 rounded-full bg-center bg-cover ring-2 ring-white/5" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAkQp6sU7L-CyWZ2m5Lsxz6jQgu4hryx3MvS59pEI1W9ah51sljgppOWK3wZBKOhWRjh0degwJeD_IrLKcu53_DYEDhDhoZxLThwIg3MT05vgCOHSDkIcYihhb9OZwZUrh7Z9rQT2lpVkOueks65vgFrPLW-7fsDfea4zANu4VCy90B-hG6LB5yFuRaeXxdLPWVDP0Y_euVw42QLhfSiCp13Lr8M8-iBH3Xc8XjBWTi-S1zVdxzJRLrV_TUzwKLlq6L2Rq45bCbtF_X");'></div>
+<div>
+<div class="flex items-center gap-2">
+<h3 class="font-bold text-white leading-none">James Wilson</h3>
+<span class="bg-orange-500/20 text-orange-400 text-[10px] font-bold px-1.5 py-0.5 rounded uppercase tracking-wider">Fan</span>
+</div>
+<p class="text-text-muted text-xs mt-1">6h ago • Stadium Vibes</p>
+</div>
+</div>
+<button class="text-text-muted">
+<span class="material-symbols-outlined">more_horiz</span>
+</button>
+</div>
+<p class="text-gray-200 text-sm mb-4 leading-relaxed">
+                    Unbelievable game tonight! The atmosphere was electric. Who else was there to witness that buzzer beater? 🏟️🔥
+                </p>
+<div class="w-full aspect-video rounded-xl bg-center bg-cover mb-4 shadow-inner" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBkPhIemepRA3xOiQWumjgUKlVa5jPzSQh9NBm7YsnCbY007iakZDof9joyyWtlq-vOB7t2awGCbbslHGsXYFFeRgzMCZTmFv62SVkw9M-lanpKPuXwUA4Tonnr0O6bo91EP47S3BiO8KywN_FbM_3tE__Zklg_2VICq_B7Ctl4AYty77mcmieGZQZ-m_elTZs60ZY8UhMuXhayUAVSkbJUqlqRXPd3rqdTiihrUQVVl9dTfV4Ui06efbZj7utYNPLFDoRMG1pYwbAk");'>
+</div>
+<div class="flex items-center justify-between mb-4 px-1">
+<div class="flex items-center gap-1.5">
+<div class="flex h-5 w-5 items-center justify-center rounded-full bg-primary">
+<span class="material-symbols-outlined text-[12px] text-white fill-icon">favorite</span>
+</div>
+<p class="text-text-muted text-[12px] font-medium">102 cheers</p>
+</div>
+<div class="flex items-center gap-3">
+<p class="text-text-muted text-[12px]">42 comments</p>
+</div>
+</div>
+<div class="flex items-center border-t border-white/5 pt-2">
+<button class="flex-1 flex items-center justify-center gap-2 py-2.5 hover:bg-white/5 rounded-lg transition-colors">
+<span class="material-symbols-outlined text-lg text-text-muted">favorite</span>
+<span class="text-xs font-semibold text-text-muted">Cheer</span>
+</button>
+<button class="flex-1 flex items-center justify-center gap-2 py-2.5 hover:bg-white/5 rounded-lg transition-colors">
+<span class="material-symbols-outlined text-lg text-text-muted">chat_bubble</span>
+<span class="text-xs font-semibold text-text-muted">Comment</span>
+</button>
+<button class="flex-1 flex items-center justify-center gap-2 py-2.5 hover:bg-white/5 rounded-lg transition-colors">
+<span class="material-symbols-outlined text-lg text-text-muted">share</span>
+<span class="text-xs font-semibold text-text-muted">Share</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+<nav class="fixed bottom-0 inset-x-0 bg-background-dark/95 backdrop-blur-xl border-t border-white/5 px-6 pb-8 pt-2 z-50">
+<div class="max-w-xl mx-auto flex items-center justify-between">
+<button class="flex flex-col items-center gap-1 text-primary">
+<span class="material-symbols-outlined fill-icon">home</span>
+<span class="text-[10px] font-bold">Home</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-text-muted">
+<span class="material-symbols-outlined">explore</span>
+<span class="text-[10px] font-medium">Discover</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-text-muted relative">
+<div class="bg-primary size-12 rounded-full flex items-center justify-center -mt-10 shadow-lg shadow-primary/30 border-4 border-background-dark">
+<span class="material-symbols-outlined text-white text-3xl">add</span>
+</div>
+<span class="text-[10px] font-medium">Post</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-text-muted">
+<span class="material-symbols-outlined">groups</span>
+<span class="text-[10px] font-medium">Teams</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-text-muted">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-medium">Profile</span>
+</button>
+</div>
+</nav>
+
+</body></html>

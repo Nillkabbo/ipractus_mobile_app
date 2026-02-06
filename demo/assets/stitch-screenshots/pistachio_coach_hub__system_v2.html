@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Pistachio Coach Hub (System v2)</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#b2f15f",
+                        "background-light": "#f7f8f6",
+                        "background-dark": "#0B132B", // Obsidian
+                        "elevated": "#1C2541", // Elevated Obsidian
+                        "cyan-accent": "#66D9E8",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen font-display">
+<!-- Top Navigation Bar -->
+<div class="fixed top-0 z-50 w-full max-w-md mx-auto left-0 right-0 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md px-4 py-3 flex items-center justify-between border-b border-slate-200 dark:border-elevated">
+<div class="flex items-center gap-3">
+<div class="size-10 rounded-full border-2 border-primary overflow-hidden bg-elevated" data-alt="Coach profile avatar with green border" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDolM29JT194A6HIR8pBObMBJtwotCv0QVE2lUdQB5bis5g5D_eRKh6CrhUSrk-tbHXMiAZ2qjYtoFOiv7mowkUIudawRFgFIZ1XGQgeB3H0zy_r3w407jGLUyaI836XOssi4YhZ9POTA8sKekJElHUklcy09UYX_LaTi_Y8kfKsa6rHw-XVGdC_PylSS-q3NFU-XQFHMDeotETA4p_ZXGJWIFBJ7qyn1RH_icnjDP4l9uanPdeJb_dhx7bqLKObDC34JhdGF8751pY"); background-size: cover;'></div>
+<div>
+<h1 class="text-sm font-bold leading-tight">Coach Anderson</h1>
+<p class="text-[10px] text-slate-500 dark:text-primary/70 uppercase tracking-widest font-semibold">iPrActUS System v2</p>
+</div>
+</div>
+<div class="flex gap-2">
+<button class="relative p-2 rounded-full bg-slate-100 dark:bg-elevated text-slate-600 dark:text-white">
+<span class="material-symbols-outlined text-[22px]">notifications</span>
+<span class="absolute top-2 right-2 size-2 bg-primary rounded-full border-2 border-background-dark"></span>
+</button>
+</div>
+</div>
+<main class="pt-20 pb-24 px-4 max-w-md mx-auto space-y-6">
+<!-- Stats Overview -->
+<div class="grid grid-cols-2 gap-4">
+<div class="bg-white dark:bg-elevated p-5 rounded-lg shadow-sm flex flex-col gap-1">
+<div class="flex items-center gap-2 mb-1">
+<span class="material-symbols-outlined text-primary text-xl">groups</span>
+<p class="text-xs font-medium text-slate-500 dark:text-slate-400">Active Athletes</p>
+</div>
+<p class="text-2xl font-bold tracking-tight">24</p>
+<p class="text-[10px] text-emerald-500 font-bold uppercase tracking-wide">+2 This Week</p>
+</div>
+<div class="bg-white dark:bg-elevated p-5 rounded-lg shadow-sm flex flex-col gap-1">
+<div class="flex items-center gap-2 mb-1">
+<span class="material-symbols-outlined text-primary text-xl">bolt</span>
+<p class="text-xs font-medium text-slate-500 dark:text-slate-400">Team Intensity</p>
+</div>
+<p class="text-2xl font-bold tracking-tight">High</p>
+<p class="text-[10px] text-primary font-bold uppercase tracking-wide">Optimal Range</p>
+</div>
+</div>
+<!-- Performance Analytics Trends -->
+<div class="bg-white dark:bg-elevated p-5 rounded-lg shadow-sm space-y-4">
+<div class="flex items-center justify-between">
+<h2 class="text-lg font-bold">Analytics Trends</h2>
+<span class="text-[10px] font-bold text-cyan-accent uppercase tracking-widest bg-cyan-accent/10 px-2 py-1 rounded-full">Live Feed</span>
+</div>
+<div class="space-y-1">
+<p class="text-sm text-slate-500 dark:text-slate-400">Workload vs. Recovery</p>
+<div class="flex items-baseline gap-2">
+<p class="text-3xl font-bold">82% <span class="text-sm font-medium text-emerald-500">+12%</span></p>
+</div>
+</div>
+<div class="h-32 w-full mt-4 flex items-end justify-between gap-1">
+<!-- Simple SVG Graph -->
+<svg class="w-full h-full" viewbox="0 0 400 120">
+<defs>
+<lineargradient id="cyanGrad" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#66D9E8" stop-opacity="0.3"></stop>
+<stop offset="100%" stop-color="#66D9E8" stop-opacity="0"></stop>
+</lineargradient>
+</defs>
+<path d="M0,80 C50,90 80,20 120,40 C160,60 200,10 240,50 C280,90 320,30 360,10 L400,20" fill="none" stroke="#66D9E8" stroke-linecap="round" stroke-width="3"></path>
+<path d="M0,80 C50,90 80,20 120,40 C160,60 200,10 240,50 C280,90 320,30 360,10 L400,20 V120 H0 Z" fill="url(#cyanGrad)"></path>
+</svg>
+</div>
+<div class="flex justify-between px-1">
+<span class="text-[10px] text-slate-500 font-bold">MON</span>
+<span class="text-[10px] text-slate-500 font-bold">WED</span>
+<span class="text-[10px] text-slate-500 font-bold">FRI</span>
+<span class="text-[10px] text-slate-500 font-bold">SUN</span>
+</div>
+</div>
+<!-- Roster Management -->
+<div class="space-y-3">
+<div class="flex items-center justify-between px-1">
+<h2 class="text-lg font-bold">Active Roster</h2>
+<button class="text-primary text-sm font-bold flex items-center gap-1">
+                    See All <span class="material-symbols-outlined text-sm">chevron_right</span>
+</button>
+</div>
+<div class="flex overflow-x-auto gap-4 pb-2 scrollbar-hide">
+<div class="flex-shrink-0 w-32 bg-white dark:bg-elevated p-3 rounded-lg flex flex-col items-center gap-2 border border-slate-200 dark:border-slate-800">
+<div class="size-14 rounded-full bg-slate-200 dark:bg-background-dark border-2 border-primary" data-alt="Athlete portrait 1" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDv0MtMoJZZP7R0xGbGkm_5XhdDYNKAgLPQsNlcRsI302ZlJdfP39Bn6-ANm-UhesCMqyAVmGkQ_qcoeLsbfg1LY3_4BKc8xhoRzkb4FEWzn8Hog7Ywm5ADIad-ttlDIJjxPECuUPqnarn5ELRPFsARa7OHA4cNca7w1cKVjRwJzK4gykQ3_DffRPvqOraQVbfDC_3LBBkx_lNu-SJV36_0tWGJ7hVUsjd0AMdl4UPVWX8tn1dpOpGCaia-4wXYtbjcXqAMdbeyxGuW"); background-size: cover;'></div>
+<div class="text-center">
+<p class="text-sm font-bold truncate w-full">J. Miller</p>
+<p class="text-[10px] text-primary font-medium">94% Fit</p>
+</div>
+</div>
+<div class="flex-shrink-0 w-32 bg-white dark:bg-elevated p-3 rounded-lg flex flex-col items-center gap-2 border border-slate-200 dark:border-slate-800">
+<div class="size-14 rounded-full bg-slate-200 dark:bg-background-dark border-2 border-primary/40" data-alt="Athlete portrait 2" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAq5EabeGDwdXp4avlVft6ueGLogUTMN9GbLB5C6fHQ2q2JI1m5vb_b0GmW0gnVEF3ObVvsD5IFKLIdAZ0Z5djKumRbZR7MYwKaGHK6RZJQgwWokY6_6tbW4EZkRdmS4Ha_EfYtvh8axOfwAOnmKg76h6J_-ANu1C5IEwiSui9nbyR2jDPnFZr4AdDnc_s78iU84wLljp_tJ83gttMBfSkTkQC2YV-bmFmUppDux2SodBu-z_PXe5c8EkQnhWcrIx4-zGHx7ZMchW2a"); background-size: cover;'></div>
+<div class="text-center">
+<p class="text-sm font-bold truncate w-full">K. Tanaka</p>
+<p class="text-[10px] text-slate-400 font-medium">82% Fit</p>
+</div>
+</div>
+<div class="flex-shrink-0 w-32 bg-white dark:bg-elevated p-3 rounded-lg flex flex-col items-center justify-center gap-2 border-2 border-dashed border-slate-300 dark:border-slate-700">
+<div class="size-14 rounded-full flex items-center justify-center bg-slate-100 dark:bg-background-dark">
+<span class="material-symbols-outlined text-slate-400">person_add</span>
+</div>
+<p class="text-[10px] font-bold text-slate-500 uppercase">Add New</p>
+</div>
+</div>
+</div>
+<!-- Schedule Section -->
+<div class="space-y-4">
+<h2 class="text-lg font-bold px-1">Training Schedule</h2>
+<div class="space-y-3">
+<!-- Session 1 -->
+<div class="bg-white dark:bg-elevated p-4 rounded-lg flex items-center justify-between shadow-sm">
+<div class="flex gap-4 items-center">
+<div class="flex flex-col items-center justify-center bg-primary/20 dark:bg-primary/10 rounded-lg size-14 border border-primary/20">
+<p class="text-[10px] font-bold text-primary uppercase">Oct</p>
+<p class="text-xl font-black text-primary leading-tight">12</p>
+</div>
+<div>
+<p class="font-bold text-sm">Endurance Block A</p>
+<p class="text-xs text-slate-500">08:00 AM • Main Track</p>
+</div>
+</div>
+<button class="bg-primary text-background-dark font-bold text-xs py-2 px-4 rounded-full">
+                        Edit
+                    </button>
+</div>
+<!-- Session 2 -->
+<div class="bg-white dark:bg-elevated p-4 rounded-lg flex items-center justify-between shadow-sm">
+<div class="flex gap-4 items-center">
+<div class="flex flex-col items-center justify-center bg-slate-100 dark:bg-background-dark rounded-lg size-14 border border-slate-200 dark:border-slate-800">
+<p class="text-[10px] font-bold text-slate-400 uppercase">Oct</p>
+<p class="text-xl font-black text-slate-400 leading-tight">14</p>
+</div>
+<div>
+<p class="font-bold text-sm">Recovery Session</p>
+<p class="text-xs text-slate-500">10:30 AM • Pool Lab</p>
+</div>
+</div>
+<button class="bg-slate-100 dark:bg-background-dark text-slate-600 dark:text-white font-bold text-xs py-2 px-4 rounded-full">
+                        Edit
+                    </button>
+</div>
+</div>
+</div>
+</main>
+<!-- Navigation Tab Bar -->
+<div class="fixed bottom-0 z-50 w-full max-w-md mx-auto left-0 right-0 bg-white/90 dark:bg-background-dark/90 backdrop-blur-lg border-t border-slate-200 dark:border-elevated flex items-center justify-around py-3 px-6 rounded-t-xl">
+<button class="flex flex-col items-center gap-1 text-primary">
+<span class="material-symbols-outlined text-[26px]">dashboard</span>
+<span class="text-[10px] font-bold uppercase tracking-tighter">Hub</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined text-[26px]">analytics</span>
+<span class="text-[10px] font-bold uppercase tracking-tighter">Stats</span>
+</button>
+<div class="-mt-12 bg-primary rounded-full p-4 shadow-lg shadow-primary/20 ring-4 ring-background-light dark:ring-background-dark">
+<span class="material-symbols-outlined text-background-dark text-3xl font-bold">add</span>
+</div>
+<button class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined text-[26px]">calendar_month</span>
+<span class="text-[10px] font-bold uppercase tracking-tighter">Plan</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined text-[26px]">settings</span>
+<span class="text-[10px] font-bold uppercase tracking-tighter">Tools</span>
+</button>
+</div>
+</body></html>

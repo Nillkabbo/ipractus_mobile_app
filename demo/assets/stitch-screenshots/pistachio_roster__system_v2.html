@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Pistachio Roster (System v2)</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#b2f15f",
+                        "obsidian": "#0b132b",
+                        "background-light": "#f7f8f6",
+                        "background-dark": "#0b132b",
+                        "cyan-accent": "#66d9e8",
+                        "dark-accent": "#1c2541",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white font-display">
+<!-- Main Container -->
+<div class="relative mx-auto min-h-screen max-w-[430px] flex flex-col overflow-x-hidden shadow-2xl bg-background-light dark:bg-background-dark">
+<!-- TopAppBar -->
+<header class="sticky top-0 z-50 flex items-center bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md px-4 py-4 justify-between border-b border-slate-200 dark:border-white/5">
+<div class="flex items-center gap-3">
+<div class="size-10 rounded-full bg-primary flex items-center justify-center text-obsidian">
+<span class="material-symbols-outlined font-bold">person</span>
+</div>
+<h1 class="text-xl font-bold tracking-tight text-slate-900 dark:text-white">Pistachio Roster</h1>
+</div>
+<button class="flex size-10 items-center justify-center rounded-xl bg-slate-100 dark:bg-dark-accent text-slate-900 dark:text-white transition-colors">
+<span class="material-symbols-outlined">settings</span>
+</button>
+</header>
+<!-- Search Bar -->
+<div class="px-4 py-4">
+<label class="relative flex items-center w-full">
+<div class="absolute left-4 text-slate-400 dark:text-[#adb99d]">
+<span class="material-symbols-outlined">search</span>
+</div>
+<input class="w-full h-12 rounded-xl bg-slate-100 dark:bg-dark-accent/50 border-none focus:ring-2 focus:ring-primary text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-[#adb99d] pl-12 pr-4 text-base transition-all" placeholder="Search athletes..." type="text"/>
+</label>
+</div>
+<!-- Segmented Control -->
+<div class="px-4 mb-2">
+<div class="flex h-12 items-center justify-center rounded-xl bg-slate-100 dark:bg-dark-accent p-1">
+<label class="flex cursor-pointer h-full grow items-center justify-center overflow-hidden rounded-lg px-2 transition-all has-[:checked]:bg-white dark:has-[:checked]:bg-primary has-[:checked]:shadow-sm text-slate-500 dark:text-[#adb99d] has-[:checked]:text-slate-900 dark:has-[:checked]:text-obsidian text-sm font-semibold">
+<span>Active Roster</span>
+<input checked="" class="hidden" name="roster-toggle" type="radio" value="active"/>
+</label>
+<label class="flex cursor-pointer h-full grow items-center justify-center overflow-hidden rounded-lg px-2 transition-all has-[:checked]:bg-white dark:has-[:checked]:bg-primary has-[:checked]:shadow-sm text-slate-500 dark:text-[#adb99d] has-[:checked]:text-slate-900 dark:has-[:checked]:text-obsidian text-sm font-semibold">
+<span class="flex items-center gap-2">Pending <span class="size-2 rounded-full bg-primary dark:bg-obsidian"></span></span>
+<input class="hidden" name="roster-toggle" type="radio" value="pending"/>
+</label>
+</div>
+</div>
+<!-- Roster List Section -->
+<main class="flex-1 px-4 py-2 space-y-2">
+<!-- List Header -->
+<div class="flex items-center justify-between px-1 py-2">
+<h3 class="text-xs font-bold uppercase tracking-widest text-slate-400 dark:text-primary/60">Squad (24)</h3>
+<span class="material-symbols-outlined text-slate-400 dark:text-primary/60 text-lg">filter_list</span>
+</div>
+<!-- Athlete Item 1 -->
+<div class="flex items-center gap-4 bg-white dark:bg-dark-accent/30 rounded-xl p-3 border border-slate-100 dark:border-white/5">
+<div class="relative shrink-0">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full h-14 w-14 border-2 border-primary" data-alt="Athletic male point guard profile portrait" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuACDQ1vqDL6x2E1lZqYJ5xl-3cPVDR8Wv66QDUMKXvcZLyYR6OTK6tYofO2HKli1BvTqVD4tny-S_H7iMM6ivleyECXjqn9Mh2rxfR8gW0SwwcT02XSNqfy0tu4ujRRrocZX70l0uE6aPnuCFIN89iT2AG0pSdqd9AbvJGqD2DnReWnlVukeuQL6V43EqDIc-JW0LDGBVuA6YK4XoDkYRJ1jkgQ7auzE8pGIluQWDxZKr8eCBZv62ReVuvBi71cbKSjiTnFXWTaT5HU");'></div>
+<div class="absolute -bottom-1 -right-1 size-5 bg-green-500 border-2 border-white dark:border-obsidian rounded-full"></div>
+</div>
+<div class="flex flex-col flex-1">
+<p class="text-slate-900 dark:text-white text-base font-semibold leading-tight">Marcus Thompson</p>
+<p class="text-slate-500 dark:text-[#adb99d] text-xs font-medium uppercase tracking-tight">Point Guard • ID: #4421</p>
+</div>
+<button class="shrink-0 flex size-10 items-center justify-center rounded-full bg-cyan-accent/10 text-cyan-accent active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-[24px]">chat_bubble</span>
+</button>
+</div>
+<!-- Athlete Item 2 -->
+<div class="flex items-center gap-4 bg-white dark:bg-dark-accent/30 rounded-xl p-3 border border-slate-100 dark:border-white/5">
+<div class="relative shrink-0">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full h-14 w-14 border-2 border-primary" data-alt="Athletic female lead sprinter profile portrait" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBWi-g_AqklFEj-DOeACx6nZb438XvSRyAWsDUaECEIKK350TdkZtcSUeugr4koY9ptDi2w1_4k7bDpW-rqcy2En9me3g8o-nueILgPByG-Rtmja7qfMzYKCQjib8_VNh6mcVHjd1Pdi7GQ3cLvD-h6XBiRO-fmjlVt5GSJkFcV4pCdhsfIP3Rd9OgXN8kAZ61EkQWvLMabtdDnST0W7V4jVY7FvX6gomhO7E6W1TkiCktD4hnotufxaTBa7cgPImcc0fZvdBn3WYSw");'></div>
+<div class="absolute -bottom-1 -right-1 size-5 bg-green-500 border-2 border-white dark:border-obsidian rounded-full"></div>
+</div>
+<div class="flex flex-col flex-1">
+<p class="text-slate-900 dark:text-white text-base font-semibold leading-tight">Elena Rodriguez</p>
+<p class="text-slate-500 dark:text-[#adb99d] text-xs font-medium uppercase tracking-tight">Lead Sprinter • ID: #4425</p>
+</div>
+<button class="shrink-0 flex size-10 items-center justify-center rounded-full bg-cyan-accent/10 text-cyan-accent active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-[24px]">chat_bubble</span>
+</button>
+</div>
+<!-- Athlete Item 3 -->
+<div class="flex items-center gap-4 bg-white dark:bg-dark-accent/30 rounded-xl p-3 border border-slate-100 dark:border-white/5">
+<div class="relative shrink-0">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full h-14 w-14 border-2 border-primary" data-alt="Young athlete portrait" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBD_uciAtTblHT5utA3gMOJwknoWClvC1ZfbOWLfb5PbHIubM7Rwiviecv9pUIWQkiHSZZHJViKqi8U0KBjJCAlMq20ten2pcedl1CSjK6EvH6U-ce2d4C-5DsXO-AsKzG13vvumIQNs9PaYtBUwWI2varRvKwLxs39Fml0oN-aRaYzs_puQKaEBoHYkIAeUG8wEi68B6LyQ7ezE003gHqYTwn9RJpB96TtKUyjxFz2lCBSgBDJ7TNe5kv79HOgSbf_4moAIcTYSglE");'></div>
+<div class="absolute -bottom-1 -right-1 size-5 bg-orange-400 border-2 border-white dark:border-obsidian rounded-full"></div>
+</div>
+<div class="flex flex-col flex-1">
+<p class="text-slate-900 dark:text-white text-base font-semibold leading-tight">Jordan K. Smith</p>
+<p class="text-slate-500 dark:text-[#adb99d] text-xs font-medium uppercase tracking-tight">Small Forward • ID: #4489</p>
+</div>
+<button class="shrink-0 flex size-10 items-center justify-center rounded-full bg-cyan-accent/10 text-cyan-accent active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-[24px]">chat_bubble</span>
+</button>
+</div>
+<!-- Pending Section Placeholder Title -->
+<div class="pt-6 pb-2">
+<h3 class="text-xs font-bold uppercase tracking-widest text-slate-400 dark:text-primary/60">New Requests (2)</h3>
+</div>
+<!-- Pending Request Card -->
+<div class="bg-white dark:bg-dark-accent/60 rounded-xl p-4 border border-slate-100 dark:border-white/5 space-y-4">
+<div class="flex items-start gap-4">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-xl h-12 w-12" data-alt="Applicant profile photo" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBRRjyiq4T07_LGTBfyfcG8p0Gcnc_1dL1wWroIEtGQSE-mQ2LAop9oDz_vfbuxXDlqpHc3HrNE9zz0LIGULcf8VPK1bSp4-ya2MbB-6R5PZFLVib0szyECTF4XaiCKv-6Nq2_sYZ9sUXUmxY3DHEAu_fVdVoRaYuoLSWuTUEqAFMHwNFXffKkQ1vjkV3jNgmVwD60J2xuOewsmYkyxJA151KmrgKyY1BiTd7Jc3fmPTcLJM0woErp21S-ESakQSYWKFAQJ8tjkG4aG");'></div>
+<div class="flex flex-col">
+<p class="text-slate-900 dark:text-white text-base font-semibold leading-none mb-1">Lucas Miller</p>
+<p class="text-slate-500 dark:text-[#adb99d] text-xs">Applied 2h ago • Marathoner</p>
+</div>
+</div>
+<div class="flex gap-2">
+<button class="flex-1 h-10 rounded-lg bg-primary text-obsidian text-sm font-bold active:scale-95 transition-all">
+                        Approve
+                    </button>
+<button class="flex-1 h-10 rounded-lg border border-red-500/50 text-red-500 text-sm font-bold active:scale-95 transition-all">
+                        Remove
+                    </button>
+</div>
+</div>
+<div class="bg-white dark:bg-dark-accent/60 rounded-xl p-4 border border-slate-100 dark:border-white/5 space-y-4 mb-20">
+<div class="flex items-start gap-4">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-xl h-12 w-12" data-alt="Applicant profile photo" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCpUmHMPBWHSvwxYqxiKkPFGikIIn-OiTLb5Ax2z7pq43AVBvBC5KkBwaZB1Pp-OR0HT85FmzrKdMc4SzEU3m8ltCJ1kBrwJhG1baaGAvLMUx9LqNHl61sLOlSFtO1XDZuZnckuYjKaHMzOZ7MR7Cpi-SAs0gFykO938T74wtcQ1x4k6M6MCJa-Mr5l6S2w2jDWcj019dNGdiWh3gLWIiOT9AUPwcBKf-CS24e7r8JHUtAebtz952vWPk_5JVbmEpMRMPcZqP9kgmkz");'></div>
+<div class="flex flex-col">
+<p class="text-slate-900 dark:text-white text-base font-semibold leading-none mb-1">Sarah Chen</p>
+<p class="text-slate-500 dark:text-[#adb99d] text-xs">Applied 5h ago • Volleyball</p>
+</div>
+</div>
+<div class="flex gap-2">
+<button class="flex-1 h-10 rounded-lg bg-primary text-obsidian text-sm font-bold active:scale-95 transition-all">
+                        Approve
+                    </button>
+<button class="flex-1 h-10 rounded-lg border border-red-500/50 text-red-500 text-sm font-bold active:scale-95 transition-all">
+                        Remove
+                    </button>
+</div>
+</div>
+</main>
+<!-- Floating Action Button -->
+<button class="fixed bottom-8 right-8 z-[100] flex size-14 items-center justify-center rounded-full bg-primary text-obsidian shadow-[0_8px_30px_rgb(178,241,95,0.4)] active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-[32px] font-bold">add</span>
+</button>
+<!-- iOS Home Indicator -->
+<div class="fixed bottom-1 left-1/2 -translate-x-1/2 w-32 h-1.5 bg-slate-300 dark:bg-white/20 rounded-full"></div>
+</div>
+</body></html>

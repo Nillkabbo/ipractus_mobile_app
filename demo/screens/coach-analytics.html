@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Coach Performance Analytics</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Lexend", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Lexend', sans-serif;
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-[#111418] dark:text-white min-h-screen">
+<div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden max-w-[480px] mx-auto bg-white dark:bg-background-dark shadow-xl">
+<!-- Top App Bar -->
+<div class="flex items-center bg-white dark:bg-background-dark p-4 pb-2 justify-between sticky top-0 z-10 border-b border-gray-100 dark:border-gray-800">
+<div class="text-[#111418] dark:text-white flex size-12 shrink-0 items-center justify-start cursor-pointer">
+<span class="material-symbols-outlined">arrow_back_ios</span>
+</div>
+<h2 class="text-[#111418] dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center font-display">Performance Analytics</h2>
+<div class="flex w-12 items-center justify-end">
+<button class="flex cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 bg-transparent text-[#111418] dark:text-white p-0">
+<span class="material-symbols-outlined">more_horiz</span>
+</button>
+</div>
+</div>
+<!-- Team Selector -->
+<div class="flex flex-wrap items-end gap-4 px-4 py-3">
+<label class="flex flex-col min-w-40 flex-1">
+<p class="text-[#111418] dark:text-gray-300 text-sm font-medium leading-normal pb-2 uppercase tracking-wider">Active Team</p>
+<div class="relative">
+<select class="form-input flex w-full min-w-0 flex-1 appearance-none rounded-xl text-[#111418] dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-[#dbe0e6] dark:border-gray-700 bg-white dark:bg-gray-800 h-14 pl-4 pr-10 text-base font-semibold leading-normal cursor-pointer">
+<option value="varsity">Varsity Basketball</option>
+<option value="junior">JV Basketball</option>
+<option value="freshman">Freshman Team</option>
+</select>
+<div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-gray-500">
+<span class="material-symbols-outlined">expand_more</span>
+</div>
+</div>
+</label>
+</div>
+<!-- Key Metrics Cards -->
+<div class="px-4 py-2">
+<p class="text-[#111418] dark:text-gray-300 text-sm font-medium leading-normal pb-3 uppercase tracking-wider">Key Metrics</p>
+<div class="flex gap-3 overflow-x-auto no-scrollbar pb-2">
+<div class="flex min-w-[140px] flex-1 flex-col gap-1 rounded-xl p-4 border border-[#dbe0e6] dark:border-gray-700 bg-white dark:bg-gray-800/50">
+<p class="text-[#617589] dark:text-gray-400 text-xs font-medium">Win Rate</p>
+<p class="text-[#111418] dark:text-white text-2xl font-bold">78%</p>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-[#078838]">trending_up</span>
+<p class="text-[#078838] text-xs font-bold">+5.2%</p>
+</div>
+</div>
+<div class="flex min-w-[140px] flex-1 flex-col gap-1 rounded-xl p-4 border border-[#dbe0e6] dark:border-gray-700 bg-white dark:bg-gray-800/50">
+<p class="text-[#617589] dark:text-gray-400 text-xs font-medium">Attendance</p>
+<p class="text-[#111418] dark:text-white text-2xl font-bold">94%</p>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-[#e73908]">trending_down</span>
+<p class="text-[#e73908] text-xs font-bold">-2.1%</p>
+</div>
+</div>
+<div class="flex min-w-[140px] flex-1 flex-col gap-1 rounded-xl p-4 border border-[#dbe0e6] dark:border-gray-700 bg-white dark:bg-gray-800/50">
+<p class="text-[#617589] dark:text-gray-400 text-xs font-medium">Skill Growth</p>
+<p class="text-[#111418] dark:text-white text-2xl font-bold">+12%</p>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-primary">analytics</span>
+<p class="text-primary text-xs font-bold">Target met</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Chart Section -->
+<div class="px-4 py-4">
+<div class="flex items-center justify-between mb-2">
+<h2 class="text-[#111418] dark:text-white text-lg font-bold">Performance Trend</h2>
+<div class="flex bg-gray-100 dark:bg-gray-800 rounded-lg p-1">
+<button class="px-3 py-1 text-xs font-bold rounded-md bg-white dark:bg-gray-700 shadow-sm text-primary">Monthly</button>
+<button class="px-3 py-1 text-xs font-bold text-gray-500">Weekly</button>
+</div>
+</div>
+<div class="bg-white dark:bg-gray-800/30 rounded-2xl border border-gray-100 dark:border-gray-800 p-4 mt-2">
+<div class="flex flex-col gap-1 mb-4">
+<p class="text-[#617589] dark:text-gray-400 text-xs font-medium uppercase">Overall Progress</p>
+<p class="text-[#111418] dark:text-white text-2xl font-bold">High Performance</p>
+</div>
+<div class="relative h-[180px] w-full mt-4">
+<svg class="w-full h-full" fill="none" preserveaspectratio="none" viewbox="0 0 400 150">
+<!-- Primary Blue Line (Main Performance) -->
+<path d="M0 120 C 50 110, 80 40, 120 60 S 180 140, 240 80 S 320 20, 400 30" fill="none" stroke="#137fec" stroke-linecap="round" stroke-width="3"></path>
+<!-- Area gradient for the line -->
+<path d="M0 120 C 50 110, 80 40, 120 60 S 180 140, 240 80 S 320 20, 400 30 L 400 150 L 0 150 Z" fill="url(#blueGradient)" opacity="0.1"></path>
+<!-- Secondary Teal Line (Secondary Stat) -->
+<path d="M0 140 C 60 130, 100 90, 150 100 S 250 50, 400 60" fill="none" stroke="#14b8a6" stroke-dasharray="4 4" stroke-width="2"></path>
+<defs>
+<lineargradient id="blueGradient" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#137fec"></stop>
+<stop offset="100%" stop-color="#137fec" stop-opacity="0"></stop>
+</lineargradient>
+</defs>
+</svg>
+<!-- X-Axis Labels -->
+<div class="flex justify-between mt-4">
+<p class="text-[#617589] dark:text-gray-400 text-[11px] font-bold">Week 1</p>
+<p class="text-[#617589] dark:text-gray-400 text-[11px] font-bold">Week 2</p>
+<p class="text-[#617589] dark:text-gray-400 text-[11px] font-bold">Week 3</p>
+<p class="text-[#617589] dark:text-gray-400 text-[11px] font-bold">Week 4</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Leaderboard Section -->
+<div class="px-4 py-4">
+<div class="flex items-center justify-between mb-4">
+<h2 class="text-[#111418] dark:text-white text-lg font-bold">Athlete Leaderboard</h2>
+<button class="text-primary text-sm font-bold">See All</button>
+</div>
+<!-- Category Tabs -->
+<div class="flex gap-2 overflow-x-auto no-scrollbar mb-4">
+<button class="px-4 py-2 rounded-full bg-primary text-white text-xs font-bold whitespace-nowrap">Points</button>
+<button class="px-4 py-2 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 text-xs font-bold whitespace-nowrap">Assists</button>
+<button class="px-4 py-2 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 text-xs font-bold whitespace-nowrap">Rebounds</button>
+<button class="px-4 py-2 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 text-xs font-bold whitespace-nowrap">Drills</button>
+</div>
+<!-- Leaderboard List -->
+<div class="flex flex-col gap-3">
+<!-- Rank 1 -->
+<div class="flex items-center justify-between p-3 rounded-xl bg-primary/5 border border-primary/20">
+<div class="flex items-center gap-3">
+<div class="relative">
+<img class="size-12 rounded-full object-cover" data-alt="Athlete profile headshot young male" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDwjPGVz6lUCyChK4dMtoeTrB3o6vJDRkXCL4BFTsdA-_Q8hy_86WWDUKrKMrvqOlAJetwk9DcrGWCLpxqmvrCrKPt_IoPS27i6k5jt0go7fg2ka80H7K90K8EJo8sGMxk_7RddXuNvNoIqFfdW3oCLNhpKhr9ct0inS75BopOHGww633GNPDeicjrwFKKGX7m3bYOLW-R3P3ZJwZrMvD54jZZbI6dGfFf3h7fQvvWIb1vHpFAaGOD0zUumURSCRnGRNSLC6j43dBgB"/>
+<div class="absolute -top-1 -left-1 bg-yellow-400 text-[#111418] rounded-full size-5 flex items-center justify-center text-[10px] font-bold border-2 border-white">1</div>
+</div>
+<div>
+<p class="text-[#111418] dark:text-white font-bold text-sm">Marcus Thompson</p>
+<p class="text-[#617589] dark:text-gray-400 text-xs">Shooting Guard</p>
+</div>
+</div>
+<div class="text-right">
+<p class="text-[#111418] dark:text-white font-bold text-base">24.5</p>
+<p class="text-[#617589] dark:text-gray-400 text-[10px] font-medium uppercase">Avg PPG</p>
+</div>
+</div>
+<!-- Rank 2 -->
+<div class="flex items-center justify-between p-3 rounded-xl bg-white dark:bg-gray-800/30 border border-gray-100 dark:border-gray-800">
+<div class="flex items-center gap-3">
+<div class="relative">
+<img class="size-12 rounded-full object-cover" data-alt="Athlete profile headshot athletic male" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBVbn09A5Sam-cn6PnuSDmHS8ymyHDTjm7y3spwRJXmxd4UGIADgVXl8fUJzGEXLNvFmV5JI7Nf4tINRMFkc4sqqam6mSqK27iVBBErlLXdB51HokG2rSgmTPvd4Z4yml7_IkfNHG_pZJTxYu7ohhwc9AkIBaKFEDmreOPXDEhHdchmXw388OlJ-9-gco8O3HM80GEW_gLDJLL7wUO4Jpd5JWx1NBBPtUp-BFXiU6IDJZaw78ignzOsTyY7RXosWvTaDYdrqRdSZSHe"/>
+<div class="absolute -top-1 -left-1 bg-gray-300 text-[#111418] rounded-full size-5 flex items-center justify-center text-[10px] font-bold border-2 border-white">2</div>
+</div>
+<div>
+<p class="text-[#111418] dark:text-white font-bold text-sm">Jalen Wright</p>
+<p class="text-[#617589] dark:text-gray-400 text-xs">Point Guard</p>
+</div>
+</div>
+<div class="text-right">
+<p class="text-[#111418] dark:text-white font-bold text-base">21.2</p>
+<p class="text-[#617589] dark:text-gray-400 text-[10px] font-medium uppercase">Avg PPG</p>
+</div>
+</div>
+<!-- Rank 3 -->
+<div class="flex items-center justify-between p-3 rounded-xl bg-white dark:bg-gray-800/30 border border-gray-100 dark:border-gray-800">
+<div class="flex items-center gap-3">
+<div class="relative">
+<img class="size-12 rounded-full object-cover" data-alt="Athlete profile headshot confident female" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAzt0i6nxbIzGisab1-PNxE9NLwwYoOmTxkp5FBfxDiCaSFE-2CXh8UyJ8doPUEXBTilp7zTi3UrFyEj09rALGnbwj2VRT22gRMi9biu9HmjFOqWnWzOOYU2ohq6XY7GyEBjvaodhJHW7AojN98o7zmhcFIM4MsgbCao5kG-N-gNLCDPT68lp0wFfiycMjO1zu9mgNTOC0lHE0o7V6nK2p-tNQKHPtRi5vtvigvYT5-xcQIfnEHxHRpmW2_AP_2a5RdJeP5H0-yaYBG"/>
+<div class="absolute -top-1 -left-1 bg-orange-400 text-white rounded-full size-5 flex items-center justify-center text-[10px] font-bold border-2 border-white">3</div>
+</div>
+<div>
+<p class="text-[#111418] dark:text-white font-bold text-sm">Sarah Jenkins</p>
+<p class="text-[#617589] dark:text-gray-400 text-xs">Small Forward</p>
+</div>
+</div>
+<div class="text-right">
+<p class="text-[#111418] dark:text-white font-bold text-base">18.8</p>
+<p class="text-[#617589] dark:text-gray-400 text-[10px] font-medium uppercase">Avg PPG</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer Padding for iOS -->
+<div class="h-10 bg-white dark:bg-background-dark"></div>
+<!-- Bottom Tab Bar (Simplified for context) -->
+<div class="flex items-center justify-around bg-white dark:bg-gray-900 border-t border-gray-100 dark:border-gray-800 py-3 sticky bottom-0">
+<div class="flex flex-col items-center gap-1 text-gray-400">
+<span class="material-symbols-outlined">home</span>
+<span class="text-[10px] font-bold">Home</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-primary">
+<span class="material-symbols-outlined">analytics</span>
+<span class="text-[10px] font-bold">Analytics</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-gray-400">
+<span class="material-symbols-outlined">groups</span>
+<span class="text-[10px] font-bold">Roster</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-gray-400">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-bold">Profile</span>
+</div>
+</div>
+</div>
+</body></html>

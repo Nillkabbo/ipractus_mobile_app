@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Go Live Setup - iPractus</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Lexend"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .camera-overlay {
+            background: linear-gradient(180deg, rgba(16,25,34,0.6) 0%, rgba(16,25,34,0) 25%, rgba(16,25,34,0) 75%, rgba(16,25,34,0.8) 100%);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-white selection:bg-primary/30">
+<div class="relative flex min-h-screen w-full flex-col max-w-[430px] mx-auto overflow-x-hidden border-x border-white/5 shadow-2xl">
+<!-- Top App Bar (Overlaid on Camera) -->
+<div class="absolute top-0 left-0 right-0 z-20 flex items-center justify-between p-4 bg-gradient-to-b from-black/80 to-transparent">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-white cursor-pointer p-2 hover:bg-white/10 rounded-full transition-colors">arrow_back_ios_new</span>
+<h2 class="text-white text-lg font-bold tracking-tight">Go Live Setup</h2>
+</div>
+<button class="p-2 bg-white/10 hover:bg-white/20 rounded-full text-white transition-colors">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<!-- Camera Preview Section -->
+<div class="relative w-full aspect-[9/10] bg-slate-800 overflow-hidden">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="POV of someone holding a basketball on a court" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCV4z03f5iuo7YEIIHWO-uVm6X8sXJY_l2F6DPcc7oAB6gdSEeIHsWifPhHHf6z2jJH5vQVrckj_8LRP7mOwIsBZDl1tVGFfAu-Ake8bmcgts-qBs0Y3TC3u4FtbWyPDy5OYuSV3enZ4bK1Y0o_FtxFE8kX6OKIlX_rkzYpjdDcqLhT57NbLYxBTsR0gWXkcYlYjD-Aqt5KUlIOpgi78GIj6CHMXXDJD0Oo1K0jlSdzW2Ag6iRhv_lCjp0T5RG3_vq_fL-iJ1kDar3j')"></div>
+<div class="camera-overlay absolute inset-0"></div>
+<!-- Live Badge -->
+<div class="absolute top-20 left-4 bg-red-600 px-2 py-1 rounded flex items-center gap-1.5 shadow-lg">
+<div class="size-2 bg-white rounded-full animate-pulse"></div>
+<span class="text-[10px] font-bold uppercase tracking-widest text-white">Preview</span>
+</div>
+<!-- Camera Controls Overlay -->
+<div class="absolute bottom-6 left-0 right-0 flex items-center justify-center gap-8">
+<button class="flex items-center justify-center rounded-full size-12 bg-black/40 backdrop-blur-md text-white border border-white/10 hover:bg-black/60 transition-all">
+<span class="material-symbols-outlined">image</span>
+</button>
+<button class="flex items-center justify-center rounded-full size-20 bg-primary/20 backdrop-blur-md text-white border-2 border-primary shadow-[0_0_20px_rgba(19,127,236,0.3)] transition-transform active:scale-90">
+<span class="material-symbols-outlined !text-4xl fill-1">videocam</span>
+</button>
+<button class="flex items-center justify-center rounded-full size-12 bg-black/40 backdrop-blur-md text-white border border-white/10 hover:bg-black/60 transition-all">
+<span class="material-symbols-outlined">flip_camera_ios</span>
+</button>
+</div>
+</div>
+<!-- Setup Form Content -->
+<div class="flex-1 bg-background-light dark:bg-background-dark -mt-4 relative z-10 rounded-t-2xl p-4 shadow-[0_-10px_20px_rgba(0,0,0,0.2)]">
+<!-- Handle for visual cue -->
+<div class="w-10 h-1 bg-white/20 rounded-full mx-auto mb-6"></div>
+<div class="space-y-6">
+<!-- Stream Title -->
+<div class="flex flex-col gap-2">
+<p class="text-white text-sm font-semibold tracking-wide uppercase opacity-70">Stream Title</p>
+<input class="form-input w-full rounded-xl text-white focus:outline-0 focus:ring-2 focus:ring-primary border border-white/10 bg-white/5 focus:border-primary h-14 placeholder:text-white/30 px-4 text-base font-normal leading-normal transition-all" placeholder="e.g., Morning Basketball Drills" type="text"/>
+</div>
+<!-- Category Selection -->
+<div class="flex flex-col gap-2" style="--select-button-svg: url('data:image/svg+xml,%3csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2724px%27 height=%2724px%27 fill=%27rgba(255,255,255,0.5)%27 viewBox=%270 0 256 256%27%3e%3cpath d=%27M181.66,170.34a8,8,0,0,1,0,11.32l-48,48a8,8,0,0,1-11.32,0l-48-48a8,8,0,0,1,11.32-11.32L128,212.69l42.34-42.35A8,8,0,0,1,181.66,170.34Zm-96-84.68L128,43.31l42.34,42.35a8,8,0,0,0,11.32-11.32l-48-48a8,8,0,0,0-11.32,0l-48,48A8,8,0,0,0,85.66,85.66Z%27%3e%3c/path%3e%3c/svg%3e');">
+<p class="text-white text-sm font-semibold tracking-wide uppercase opacity-70">Select Category</p>
+<select class="form-select w-full rounded-xl text-white focus:outline-0 focus:ring-2 focus:ring-primary border border-white/10 bg-white/5 focus:border-primary h-14 bg-[image:--select-button-svg] px-4 text-base font-normal transition-all appearance-none">
+<option class="bg-background-dark" value="training">Training Session</option>
+<option class="bg-background-dark" value="game">Live Game</option>
+<option class="bg-background-dark" value="qa">Q&amp;A / Discussion</option>
+<option class="bg-background-dark" value="scouting">Scouting</option>
+</select>
+</div>
+<!-- Settings Toggles -->
+<div class="space-y-1 bg-white/5 rounded-xl border border-white/5 overflow-hidden">
+<!-- Record Stream -->
+<div class="flex items-center gap-4 px-4 h-16 justify-between hover:bg-white/5 transition-colors">
+<div class="flex items-center gap-3">
+<div class="text-white flex items-center justify-center rounded-lg bg-white/10 shrink-0 size-10">
+<span class="material-symbols-outlined text-xl">history</span>
+</div>
+<p class="text-white text-base font-medium">Record Stream</p>
+</div>
+<label class="relative flex h-[28px] w-[48px] cursor-pointer items-center rounded-full bg-white/10 p-0.5 transition-colors has-[:checked]:bg-primary">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="h-full w-[24px] rounded-full bg-white shadow-md transform transition-transform peer-checked:translate-x-5"></div>
+</label>
+</div>
+<div class="h-[1px] bg-white/5 mx-4"></div>
+<!-- Notify Followers -->
+<div class="flex items-center gap-4 px-4 h-16 justify-between hover:bg-white/5 transition-colors">
+<div class="flex items-center gap-3">
+<div class="text-white flex items-center justify-center rounded-lg bg-white/10 shrink-0 size-10">
+<span class="material-symbols-outlined text-xl">notifications_active</span>
+</div>
+<p class="text-white text-base font-medium">Notify Followers</p>
+</div>
+<label class="relative flex h-[28px] w-[48px] cursor-pointer items-center rounded-full bg-white/10 p-0.5 transition-colors has-[:checked]:bg-primary">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="h-full w-[24px] rounded-full bg-white shadow-md transform transition-transform peer-checked:translate-x-5"></div>
+</label>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom Action Area -->
+<div class="sticky bottom-0 left-0 right-0 p-4 bg-background-light dark:bg-background-dark pb-8">
+<button class="w-full bg-primary hover:bg-primary/90 text-white h-16 rounded-xl flex items-center justify-center gap-3 text-lg font-bold shadow-[0_10px_20px_rgba(19,127,236,0.25)] active:scale-[0.98] transition-all">
+<span class="material-symbols-outlined fill-1">sensors</span>
+                Start Live Stream
+            </button>
+</div>
+</div>
+</body></html>

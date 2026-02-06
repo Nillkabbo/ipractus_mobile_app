@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Pistachio Onboarding (System v2)</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#b2f15f", // Pistachio
+                        "obsidian": "#0B132B",
+                        "elevated-obsidian": "#1C2541",
+                        "cyan-accent": "#66D9E8",
+                        "background-light": "#f7f8f6",
+                        "background-dark": "#0B132B",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .custom-radio-dot {
+            --radio-dot-svg: url('data:image/svg+xml,%3csvg viewBox=%270 0 16 16%27 fill=%27%2366D9E8%27 xmlns=%27http://www.w3.org/2000/svg%27%3e%3ccircle cx=%278%27 cy=%278%27 r=%274%27/%3e%3c/svg%3e');
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-white min-h-screen flex flex-col font-display">
+<!-- TopAppBar -->
+<header class="flex items-center bg-transparent p-4 pb-2 justify-between sticky top-0 z-10">
+<div class="text-white flex size-12 shrink-0 items-center cursor-pointer">
+<span class="material-symbols-outlined">arrow_back_ios_new</span>
+</div>
+<h2 class="text-white text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center pr-12">Onboarding</h2>
+</header>
+<main class="flex-1 flex flex-col px-6">
+<!-- PageIndicators -->
+<div class="flex w-full flex-row items-center justify-center gap-3 py-5">
+<div class="h-2 w-8 rounded-full bg-primary"></div>
+<div class="h-2 w-2 rounded-full bg-primary/20"></div>
+<div class="h-2 w-2 rounded-full bg-primary/20"></div>
+</div>
+<!-- HeadlineText -->
+<div class="pt-4">
+<h1 class="text-white tracking-tight text-[32px] font-bold leading-tight text-center">
+                Step 1: Define Your Identity
+            </h1>
+</div>
+<!-- BodyText -->
+<div class="pt-3 pb-8">
+<p class="text-white/70 text-base font-normal leading-relaxed text-center max-w-[280px] mx-auto">
+                Tailor your iPrActUS experience based on how you use the platform.
+            </p>
+</div>
+<!-- Role Selection Cards (RadioList Variant) -->
+<div class="flex flex-col gap-4 custom-radio-dot">
+<!-- Athlete (Selected State) -->
+<label class="flex items-center gap-4 rounded-xl border-[3px] border-primary bg-elevated-obsidian p-5 cursor-pointer relative transition-all duration-200">
+<input checked="" class="absolute right-5 h-6 w-6 border-2 border-primary bg-transparent text-transparent checked:border-cyan-accent checked:bg-[image:--radio-dot-svg] focus:outline-none focus:ring-0 focus:ring-offset-0 checked:focus:border-cyan-accent" name="role" type="radio"/>
+<div class="flex-shrink-0 size-12 bg-primary/10 rounded-lg flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-3xl">fitness_center</span>
+</div>
+<div class="flex grow flex-col pr-8">
+<p class="text-white text-lg font-bold leading-none mb-1">Athlete</p>
+<p class="text-white/60 text-sm font-normal leading-tight">Track performance and hit your goals.</p>
+</div>
+</label>
+<!-- Coach -->
+<label class="flex items-center gap-4 rounded-xl border border-solid border-white/10 bg-elevated-obsidian p-5 cursor-pointer relative transition-all duration-200 hover:border-white/30">
+<input class="absolute right-5 h-6 w-6 border-2 border-white/20 bg-transparent text-transparent checked:border-primary checked:bg-[image:--radio-dot-svg] focus:outline-none focus:ring-0 focus:ring-offset-0 checked:focus:border-primary" name="role" type="radio"/>
+<div class="flex-shrink-0 size-12 bg-white/5 rounded-lg flex items-center justify-center text-white/40">
+<span class="material-symbols-outlined text-3xl">strategy</span>
+</div>
+<div class="flex grow flex-col pr-8">
+<p class="text-white text-lg font-bold leading-none mb-1">Coach</p>
+<p class="text-white/60 text-sm font-normal leading-tight">Manage teams and analyze athlete data.</p>
+</div>
+</label>
+<!-- Fan -->
+<label class="flex items-center gap-4 rounded-xl border border-solid border-white/10 bg-elevated-obsidian p-5 cursor-pointer relative transition-all duration-200 hover:border-white/30">
+<input class="absolute right-5 h-6 w-6 border-2 border-white/20 bg-transparent text-transparent checked:border-primary checked:bg-[image:--radio-dot-svg] focus:outline-none focus:ring-0 focus:ring-offset-0 checked:focus:border-primary" name="role" type="radio"/>
+<div class="flex-shrink-0 size-12 bg-white/5 rounded-lg flex items-center justify-center text-white/40">
+<span class="material-symbols-outlined text-3xl">groups</span>
+</div>
+<div class="flex grow flex-col pr-8">
+<p class="text-white text-lg font-bold leading-none mb-1">Fan</p>
+<p class="text-white/60 text-sm font-normal leading-tight">Follow your favorite stars and teams.</p>
+</div>
+</label>
+</div>
+</main>
+<!-- Footer Action -->
+<footer class="p-6 pb-12 bg-background-dark">
+<button class="w-full bg-primary hover:bg-primary/90 text-background-dark font-bold text-lg py-5 rounded-full transition-transform active:scale-[0.98] shadow-[0_8px_30px_rgb(178,241,95,0.2)]">
+            Continue
+        </button>
+<p class="text-center text-white/40 text-xs mt-6 uppercase tracking-widest font-medium">System v2.0</p>
+</footer>
+</body></html>

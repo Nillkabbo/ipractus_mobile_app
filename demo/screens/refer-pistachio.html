@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Pistachio Refer (System v2)</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#b2f15f",
+                        "background-light": "#f7f8f6",
+                        "background-dark": "#0B132B",
+                        "obsidian-elevated": "#1C2541",
+                        "stormy-blue": "#4E7D96",
+                        "cyan-accent": "#66D9E8"
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, #b2f15f 0%, #66D9E8 100%);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark min-h-screen text-white font-display">
+<!-- Top Navigation -->
+<div class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md px-4 py-4 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-white">arrow_back_ios</span>
+<span class="text-sm font-semibold tracking-wider">BACK</span>
+</div>
+<h2 class="text-sm font-bold tracking-[0.2em] uppercase">System v2</h2>
+<div class="w-10 flex justify-end">
+<span class="material-symbols-outlined text-white">help_outline</span>
+</div>
+</div>
+<!-- Hero Illustration Section -->
+<div class="px-4 pt-2">
+<div class="relative w-full h-56 rounded-xl overflow-hidden hero-gradient flex items-center justify-center group">
+<div class="absolute inset-0 bg-black/10"></div>
+<!-- Abstract high-energy pattern -->
+<div class="relative z-10 flex flex-col items-center">
+<div class="bg-white/20 p-4 rounded-full backdrop-blur-sm mb-3">
+<span class="material-symbols-outlined text-white !text-5xl">rocket_launch</span>
+</div>
+<div class="flex gap-2">
+<div class="h-1 w-8 bg-white/40 rounded-full"></div>
+<div class="h-1 w-12 bg-white rounded-full"></div>
+<div class="h-1 w-8 bg-white/40 rounded-full"></div>
+</div>
+</div>
+<!-- Abstract shapes for athletic feel -->
+<div class="absolute -bottom-4 -right-4 w-32 h-32 bg-cyan-accent/30 rounded-full blur-2xl"></div>
+<div class="absolute -top-4 -left-4 w-32 h-32 bg-primary/30 rounded-full blur-2xl"></div>
+</div>
+</div>
+<!-- Headline -->
+<div class="px-4 py-8">
+<h1 class="text-white tracking-tight text-[32px] font-bold leading-tight text-center uppercase">
+            Refer a Friend
+        </h1>
+<p class="text-slate-400 text-base font-normal leading-relaxed pt-3 px-6 text-center">
+            Give 20% to your friends and get 20% athletic credits for your next performance gear.
+        </p>
+</div>
+<!-- Referral Link Card -->
+<div class="px-4 pb-8">
+<div class="bg-obsidian-elevated rounded-xl p-6 shadow-2xl border border-white/5">
+<p class="text-slate-300 text-sm font-medium leading-normal pb-3 uppercase tracking-widest">Your Referral Link</p>
+<div class="flex w-full items-center bg-background-dark rounded-lg overflow-hidden border border-white/10">
+<input class="bg-transparent flex-1 border-none focus:ring-0 text-white px-4 py-4 text-sm font-medium" readonly="" value="pistachio.app/ref/v2_alex"/>
+<button class="bg-primary hover:bg-primary/90 transition-colors h-14 px-6 flex items-center justify-center text-background-dark">
+<span class="material-symbols-outlined font-bold">content_copy</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Social Share Section -->
+<div class="px-4 pb-8">
+<p class="text-center text-xs font-bold text-slate-500 uppercase tracking-[0.2em] mb-4">Share directly via</p>
+<div class="flex justify-center gap-6">
+<div class="flex flex-col items-center gap-2">
+<div class="w-14 h-14 rounded-full bg-stormy-blue flex items-center justify-center text-white cursor-pointer hover:opacity-80 transition-opacity">
+<span class="material-symbols-outlined !text-2xl">chat</span>
+</div>
+<span class="text-[10px] font-bold text-slate-400 uppercase">iMessage</span>
+</div>
+<div class="flex flex-col items-center gap-2">
+<div class="w-14 h-14 rounded-full bg-stormy-blue flex items-center justify-center text-white cursor-pointer hover:opacity-80 transition-opacity">
+<span class="material-symbols-outlined !text-2xl">add_comment</span>
+</div>
+<span class="text-[10px] font-bold text-slate-400 uppercase">WhatsApp</span>
+</div>
+<div class="flex flex-col items-center gap-2">
+<div class="w-14 h-14 rounded-full bg-stormy-blue flex items-center justify-center text-white cursor-pointer hover:opacity-80 transition-opacity">
+<span class="material-symbols-outlined !text-2xl">share</span>
+</div>
+<span class="text-[10px] font-bold text-slate-400 uppercase">Twitter</span>
+</div>
+<div class="flex flex-col items-center gap-2">
+<div class="w-14 h-14 rounded-full bg-stormy-blue flex items-center justify-center text-white cursor-pointer hover:opacity-80 transition-opacity">
+<span class="material-symbols-outlined !text-2xl">more_horiz</span>
+</div>
+<span class="text-[10px] font-bold text-slate-400 uppercase">More</span>
+</div>
+</div>
+</div>
+<!-- Statistics Section -->
+<div class="px-4 pb-12">
+<div class="flex items-center justify-between mb-4 px-2">
+<h3 class="text-sm font-bold uppercase tracking-widest text-white">Referral History</h3>
+<span class="text-[10px] text-primary font-bold uppercase tracking-wider">View All</span>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="bg-obsidian-elevated p-5 rounded-xl border border-white/5">
+<p class="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-1">Friends Invited</p>
+<div class="flex items-baseline gap-1">
+<span class="text-3xl font-bold text-primary">12</span>
+<span class="text-xs text-slate-400">Total</span>
+</div>
+</div>
+<div class="bg-obsidian-elevated p-5 rounded-xl border border-white/5">
+<p class="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-1">Rewards Earned</p>
+<div class="flex items-baseline gap-1">
+<span class="text-3xl font-bold text-primary">$240</span>
+<span class="text-xs text-slate-400">USD</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom Action Area (iOS style) -->
+<div class="fixed bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-background-dark to-transparent pt-12">
+<button class="w-full bg-primary py-4 rounded-full text-background-dark font-bold text-lg shadow-[0_10px_30px_-10px_rgba(178,241,95,0.5)] active:scale-95 transition-transform">
+            Invite Contacts
+        </button>
+<div class="h-4"></div>
+</div>
+<!-- Spacer for fixed footer -->
+<div class="h-24"></div>
+</body></html>

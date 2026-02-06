@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Athlete Performance Stats</title>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Google Fonts: Lexend -->
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#137fec",
+              "background-light": "#f6f7f8",
+              "background-dark": "#101922",
+            },
+            fontFamily: {
+              "display": ["Lexend"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+      body {
+        font-family: 'Lexend', sans-serif;
+      }
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark min-h-screen text-[#111418] dark:text-white">
+<div class="relative flex h-auto min-h-screen w-full flex-col max-w-[480px] mx-auto bg-white dark:bg-background-dark shadow-xl overflow-x-hidden">
+<!-- TopAppBar -->
+<div class="flex items-center bg-white dark:bg-background-dark p-4 pb-2 justify-between sticky top-0 z-10 border-b border-[#dbe0e6] dark:border-gray-800">
+<div class="text-[#111418] dark:text-white flex size-12 shrink-0 items-center">
+<span class="material-symbols-outlined cursor-pointer">arrow_back_ios</span>
+</div>
+<h2 class="text-[#111418] dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center">Athlete Performance</h2>
+<div class="flex w-12 items-center justify-end">
+<button class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 bg-transparent text-[#111418] dark:text-white gap-2 text-base font-bold leading-normal tracking-[0.015em] min-w-0 p-0">
+<span class="material-symbols-outlined">share</span>
+</button>
+</div>
+</div>
+<!-- ProfileHeader -->
+<div class="flex p-6 @container">
+<div class="flex w-full flex-col gap-4 items-center">
+<div class="flex gap-4 flex-col items-center">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full min-h-32 w-32 border-4 border-primary/20" data-alt="Professional portrait of a male basketball athlete" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAdZAS9t3GATQl_7XyiJdC5lhEQTvqsdhZuG0a57BSNRmzhgjPcCtwajXU5T6nCC4nbS9rvh7xFlLo8hb4OWQFdnmsSAN7Zs0nLlYJbRHqg3nSscgHRPyODNJ_PKgw3vtfSH1SuuDj_jiwtUUnUlfF7J-wyRumTaMCd43sCNoL0nBeJ7w4fYG8mFerIa6DVQJe19QUucv1LEUfC5jjShmlQG3YB8Snj5OUmvixmqlMZxHzZo3hPOS_9WvC4vw9xnn5sgY7rcnocaKz9");'>
+</div>
+<div class="flex flex-col items-center justify-center">
+<p class="text-[#111418] dark:text-white text-2xl font-bold leading-tight tracking-[-0.015em] text-center">Marcus Thompson</p>
+<p class="text-primary text-base font-semibold leading-normal text-center">Point Guard</p>
+<p class="text-[#617589] dark:text-gray-400 text-sm font-normal leading-normal text-center">Varsity Team | iPractus SC</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Season Highlights (Stats) -->
+<div class="px-4">
+<h3 class="text-[#111418] dark:text-white text-base font-bold leading-tight tracking-[-0.015em] mb-3 px-1 uppercase text-xs opacity-60">Season Highlights</h3>
+<div class="flex flex-wrap gap-3">
+<div class="flex min-w-[100px] flex-1 flex-col gap-1 rounded-xl p-4 bg-background-light dark:bg-gray-800 border border-[#dbe0e6] dark:border-gray-700">
+<p class="text-[#617589] dark:text-gray-400 text-xs font-medium leading-normal">PPG</p>
+<p class="text-[#111418] dark:text-white tracking-light text-2xl font-bold leading-tight">24.5</p>
+</div>
+<div class="flex min-w-[100px] flex-1 flex-col gap-1 rounded-xl p-4 bg-background-light dark:bg-gray-800 border border-[#dbe0e6] dark:border-gray-700">
+<p class="text-[#617589] dark:text-gray-400 text-xs font-medium leading-normal">RPG</p>
+<p class="text-[#111418] dark:text-white tracking-light text-2xl font-bold leading-tight">8.2</p>
+</div>
+<div class="flex min-w-[100px] flex-1 flex-col gap-1 rounded-xl p-4 bg-background-light dark:bg-gray-800 border border-[#dbe0e6] dark:border-gray-700">
+<p class="text-[#617589] dark:text-gray-400 text-xs font-medium leading-normal">APG</p>
+<p class="text-[#111418] dark:text-white tracking-light text-2xl font-bold leading-tight">10.4</p>
+</div>
+</div>
+</div>
+<!-- Skill Analysis (Charts) -->
+<div class="mt-6">
+<div class="flex items-center justify-between px-4 pb-2">
+<h3 class="text-[#111418] dark:text-white text-lg font-bold leading-tight tracking-[-0.015em]">Skill Analysis</h3>
+<span class="text-xs font-bold text-primary bg-primary/10 px-2 py-1 rounded">PRO LEVEL</span>
+</div>
+<div class="px-4 py-2">
+<div class="flex flex-col gap-2 bg-background-light dark:bg-gray-800 rounded-xl p-6 border border-[#dbe0e6] dark:border-gray-700">
+<div class="flex justify-between items-end mb-4">
+<div>
+<p class="text-[#111418] dark:text-white text-base font-medium leading-normal">Overall Performance</p>
+<p class="text-[#617589] dark:text-gray-400 text-sm font-normal">Based on last 10 games</p>
+</div>
+<p class="text-primary tracking-light text-4xl font-black leading-tight">88<span class="text-sm font-bold text-[#617589]">/100</span></p>
+</div>
+<div class="flex min-h-[200px] flex-1 flex-col gap-8 py-4 relative">
+<!-- Simplified Radar Visualization using SVG -->
+<svg class="w-full h-[200px]" viewbox="0 0 200 200">
+<!-- Web Rings -->
+<circle class="dark:stroke-gray-700" cx="100" cy="100" fill="none" r="80" stroke="#dbe0e6" stroke-width="1"></circle>
+<circle class="dark:stroke-gray-700" cx="100" cy="100" fill="none" r="60" stroke="#dbe0e6" stroke-width="1"></circle>
+<circle class="dark:stroke-gray-700" cx="100" cy="100" fill="none" r="40" stroke="#dbe0e6" stroke-width="1"></circle>
+<circle class="dark:stroke-gray-700" cx="100" cy="100" fill="none" r="20" stroke="#dbe0e6" stroke-width="1"></circle>
+<!-- Axes -->
+<line class="dark:stroke-gray-700" stroke="#dbe0e6" stroke-width="1" x1="100" x2="100" y1="20" y2="180"></line>
+<line class="dark:stroke-gray-700" stroke="#dbe0e6" stroke-width="1" x1="20" x2="180" y1="100" y2="100"></line>
+<!-- Skill Polygon (The "Spider") -->
+<polygon fill="rgba(19, 127, 236, 0.3)" points="100,30 160,80 140,150 60,150 40,80" stroke="#137fec" stroke-width="3"></polygon>
+</svg>
+<div class="flex justify-between flex-wrap gap-2">
+<div class="flex flex-col items-center">
+<p class="text-[#111418] dark:text-white text-xs font-bold leading-normal">SPEED</p>
+<p class="text-primary text-[11px] font-bold">92%</p>
+</div>
+<div class="flex flex-col items-center">
+<p class="text-[#111418] dark:text-white text-xs font-bold leading-normal">STRENGTH</p>
+<p class="text-primary text-[11px] font-bold">78%</p>
+</div>
+<div class="flex flex-col items-center">
+<p class="text-[#111418] dark:text-white text-xs font-bold leading-normal">ACCURACY</p>
+<p class="text-primary text-[11px] font-bold">85%</p>
+</div>
+<div class="flex flex-col items-center">
+<p class="text-[#111418] dark:text-white text-xs font-bold leading-normal">STAMINA</p>
+<p class="text-primary text-[11px] font-bold">80%</p>
+</div>
+<div class="flex flex-col items-center">
+<p class="text-[#111418] dark:text-white text-xs font-bold leading-normal">AGILITY</p>
+<p class="text-primary text-[11px] font-bold">95%</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Recent Performance -->
+<div class="mt-4 pb-12">
+<h3 class="text-[#111418] dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] px-4 py-4">Recent Performance</h3>
+<div class="flex flex-col px-4 gap-3">
+<!-- Performance Item 1 -->
+<div class="flex items-center justify-between p-4 rounded-xl bg-white dark:bg-gray-800 border border-[#dbe0e6] dark:border-gray-700">
+<div class="flex items-center gap-4">
+<div class="bg-green-100 dark:bg-green-900/30 text-green-600 size-10 flex items-center justify-center rounded-lg">
+<span class="material-symbols-outlined">trending_up</span>
+</div>
+<div>
+<p class="text-[#111418] dark:text-white text-base font-bold">Shooting Drill</p>
+<p class="text-[#617589] dark:text-gray-400 text-xs font-normal">Oct 24, 2023</p>
+</div>
+</div>
+<div class="text-right">
+<p class="text-[#111418] dark:text-white text-lg font-bold">85%</p>
+<p class="text-green-600 text-[10px] font-bold">+4% vs avg</p>
+</div>
+</div>
+<!-- Performance Item 2 -->
+<div class="flex items-center justify-between p-4 rounded-xl bg-white dark:bg-gray-800 border border-[#dbe0e6] dark:border-gray-700">
+<div class="flex items-center gap-4">
+<div class="bg-red-100 dark:bg-red-900/30 text-red-600 size-10 flex items-center justify-center rounded-lg">
+<span class="material-symbols-outlined">trending_down</span>
+</div>
+<div>
+<p class="text-[#111418] dark:text-white text-base font-bold">Sprint Intervals</p>
+<p class="text-[#617589] dark:text-gray-400 text-xs font-normal">Oct 22, 2023</p>
+</div>
+</div>
+<div class="text-right">
+<p class="text-[#111418] dark:text-white text-lg font-bold">12.4s</p>
+<p class="text-red-600 text-[10px] font-bold">-0.2s vs avg</p>
+</div>
+</div>
+<!-- Performance Item 3 -->
+<div class="flex items-center justify-between p-4 rounded-xl bg-white dark:bg-gray-800 border border-[#dbe0e6] dark:border-gray-700">
+<div class="flex items-center gap-4">
+<div class="bg-green-100 dark:bg-green-900/30 text-green-600 size-10 flex items-center justify-center rounded-lg">
+<span class="material-symbols-outlined">trending_up</span>
+</div>
+<div>
+<p class="text-[#111418] dark:text-white text-base font-bold">Scrimmage vs. Lions</p>
+<p class="text-[#617589] dark:text-gray-400 text-xs font-normal">Oct 20, 2023</p>
+</div>
+</div>
+<div class="text-right">
+<p class="text-[#111418] dark:text-white text-lg font-bold">22 pts</p>
+<p class="text-green-600 text-[10px] font-bold">Match MVP</p>
+</div>
+</div>
+<button class="w-full py-4 text-primary text-sm font-bold flex items-center justify-center gap-2">
+                    View Full History <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Sticky Bottom Navigation Mock -->
+<div class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[480px] bg-white dark:bg-background-dark border-t border-[#dbe0e6] dark:border-gray-800 flex justify-around p-3 z-20">
+<div class="flex flex-col items-center text-[#617589]">
+<span class="material-symbols-outlined">home</span>
+<span class="text-[10px] font-medium">Home</span>
+</div>
+<div class="flex flex-col items-center text-primary">
+<span class="material-symbols-outlined">analytics</span>
+<span class="text-[10px] font-medium">Stats</span>
+</div>
+<div class="flex flex-col items-center text-[#617589]">
+<span class="material-symbols-outlined">groups</span>
+<span class="text-[10px] font-medium">Community</span>
+</div>
+<div class="flex flex-col items-center text-[#617589]">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-medium">Profile</span>
+</div>
+</div>
+</div>
+</body></html>

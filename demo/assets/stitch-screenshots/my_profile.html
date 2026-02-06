@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>iPractus - My Profile</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Lexend", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Lexend', sans-serif;
+        }
+        .media-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2px;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white min-h-screen">
+<!-- Top Navigation Bar -->
+<nav class="sticky top-0 z-50 bg-background-light/90 dark:bg-background-dark/90 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
+<div class="flex items-center p-4 justify-between max-w-md mx-auto">
+<div class="flex size-10 shrink-0 items-center justify-center">
+<span class="material-symbols-outlined text-2xl">arrow_back_ios</span>
+</div>
+<h2 class="text-lg font-bold leading-tight tracking-tight flex-1 text-center">My Profile</h2>
+<div class="flex w-10 items-center justify-end">
+<button class="flex cursor-pointer items-center justify-center rounded-lg h-10 w-10 bg-transparent text-slate-900 dark:text-white">
+<span class="material-symbols-outlined text-2xl">settings</span>
+</button>
+</div>
+</div>
+</nav>
+<main class="max-w-md mx-auto pb-20">
+<!-- Header Image & Profile Overlay -->
+<div class="relative w-full">
+<div class="w-full bg-center bg-no-repeat bg-cover min-h-48 h-56" data-alt="Sports stadium background with dramatic lighting" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAPs6vuMfkJTfRG9g1OsTOql5ofR4ZwhXrH6omY04-5GpZI3mVwoNpMJXIEIScQNq9uuX92ZxuAsVPFWeLOOAUA4kJBOfgb4x0v1l5Q_uKF5knu3hUwX0pXD8P6UEX-k1iFqbf44cSncto937T7XuioiBKPoU76lDSnCyctp429h7iX_DSfD_x8Cta7imIPDhKrFAgIIHDQHmKEOJ7z0RR3T7yhR0bDskbSK9bhv_AgsBVVErCI08qH9EEP4joRaqHwtffx6gEDEVPH");'>
+<div class="absolute inset-0 bg-gradient-to-t from-background-dark/80 to-transparent"></div>
+</div>
+<!-- Profile Avatar Overlay -->
+<div class="absolute -bottom-16 left-1/2 -translate-x-1/2">
+<div class="relative">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full h-32 w-32 border-4 border-background-light dark:border-background-dark shadow-xl" data-alt="Close up portrait of a professional sports coach" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDCYiTQ9RlWdw8fkUrj3k_BlIdFXGYV6WhUDdC69y3VAc2jsHaoJufPgsynISmaPgdmPKU-k21_P_CYj7eoPSVE4KBp7OicfLLZA2epla8tOHcthcrGopVJlRRs9APxaP60U9xQ660XLPAB7CmGXvUNh6lQ1VZoTzEf5WUKXvgPTpVeRGMB1jjpcxCg_c_uDcXeorl8M4BJLI23loAXIbkE7DKcApoqxtrSntmqz3Ubh3nlwJUu_KDQ1rlLnn7q_tLX7xzXrm8Fyn6i");'>
+</div>
+<div class="absolute bottom-1 right-1 bg-primary text-white p-1 rounded-full border-2 border-background-dark flex items-center justify-center">
+<span class="material-symbols-outlined text-[16px] font-bold">verified</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Profile Identity & Actions -->
+<div class="mt-20 px-4 text-center">
+<h1 class="text-2xl font-bold tracking-tight">Alex Johnson</h1>
+<p class="text-slate-500 dark:text-[#9dabb9] text-sm font-medium mt-1">Professional Soccer Coach • SF Academy</p>
+<div class="flex gap-3 mt-6 justify-center">
+<button class="flex-1 max-w-[160px] cursor-pointer items-center justify-center rounded-lg h-11 px-4 bg-primary text-white text-sm font-bold shadow-lg shadow-primary/20">
+                    Edit Profile
+                </button>
+<button class="flex size-11 items-center justify-center rounded-lg bg-slate-200 dark:bg-[#283039] text-slate-900 dark:text-white">
+<span class="material-symbols-outlined text-xl">share</span>
+</button>
+</div>
+</div>
+<!-- Navigation Tabs -->
+<div class="mt-8">
+<div class="flex border-b border-slate-200 dark:border-[#3b4754] px-4">
+<a class="flex flex-col items-center justify-center border-b-[3px] border-transparent text-slate-500 dark:text-[#9dabb9] pb-3 pt-4 flex-1 transition-colors" href="#">
+<p class="text-sm font-bold">Posts</p>
+</a>
+<a class="flex flex-col items-center justify-center border-b-[3px] border-primary text-primary pb-3 pt-4 flex-1" href="#">
+<p class="text-sm font-bold">Media</p>
+</a>
+<a class="flex flex-col items-center justify-center border-b-[3px] border-transparent text-slate-500 dark:text-[#9dabb9] pb-3 pt-4 flex-1 transition-colors" href="#">
+<p class="text-sm font-bold">Teams</p>
+</a>
+</div>
+</div>
+<!-- Section Header -->
+<div class="flex items-center justify-between px-4 pt-6 pb-4">
+<h3 class="text-lg font-bold tracking-tight">Media Library</h3>
+<button class="text-primary text-xs font-bold uppercase tracking-wider">View All</button>
+</div>
+<!-- Media Grid -->
+<div class="media-grid">
+<div class="relative aspect-square bg-slate-200 dark:bg-slate-800 bg-cover bg-center" data-alt="Soccer training session on a sunny field" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBMdu_Br2UgtXirv6U2Z0XlLkLfzcQF8GLG-PWTRXfQYObFJa4wRR_ECa9O-qnYfEwnTqnUayTveNZhgb0b2VgEo-8Lb9ksPcthln7HMrnN9nL19rWcUwoBxDi34CG7AdtWqycsFncsztUbfz3w_vbuZqp9fQeRqOdSmVgfJjx_Hzrq6s8HE4137DxdNbzKfXQta3G_vQmLlyghesI3lEt-V9yBfsDslanLtXZg1RIJH5FtXRZNUBhZlhyc28nV7Wys0VLCHgQsRYJY");'>
+<div class="absolute top-2 right-2 text-white">
+<span class="material-symbols-outlined text-lg drop-shadow-md">play_circle</span>
+</div>
+</div>
+<div class="aspect-square bg-slate-200 dark:bg-slate-800 bg-cover bg-center" data-alt="Tactical board with soccer formations" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAiCxUcfNP_KzP7OZVFWRuyfPGEz5UE2KLiuEIxAEJWgQDyorSiXiyWJp878GQlLP77XoG1Ost1ZvO-FNTAGcWiFTrJy3iJ0qtCi1tv9o9nDytXojjfWOaz83VfK7RatVLxA6-tEc_vnp2W9v2nGh6-UeFnqCsToYvTOslXS6LLXvXk5PW5SYOK6YdNGDFIrRK47kcTsNZMfF_Egq3lX5UiOdX8AhjIjsknx095nbTd4jbnfCF2vhPJQKCwWR0q0wgfQ1XkP6o4WI0F");'>
+</div>
+<div class="aspect-square bg-slate-200 dark:bg-slate-800 bg-cover bg-center" data-alt="A group of young athletes in huddle" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDbiiVtOskp7D9WWOMot6QNiOfwEBlsNQk3Uz1Jpl2I9gQ4p9JjSes9YT96hc5Izwur9fhIqkO_V3Br4ttd590Kq3nHvk357JAloJLrrpjZu1uo3TywwVIp8nAoHA-hKnRzDBPdXpcE1EIJZsK3MRHh9g95dCLZ45Covo9Isi_w123cqJPoNFIpyVVF5bb7mnLJkemZNEIJRxeh8OxcDQST0ZhG1cnmZwb6YlAHZN811ZaN0wCMuFOKZ1kHVXlMAOfcusS7Zy_vjlxL");'>
+</div>
+<div class="aspect-square bg-slate-200 dark:bg-slate-800 bg-cover bg-center" data-alt="Close up of a soccer ball on grass" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBGrmke-Kq2kYykyUbu_JVPRSKsuwLwe1AmrsCufVW3e668IMKSivr7OEnMs_jwuZpsu76KOAA0kAmRmaHcTIR-eV8-zvlwLAFA0nA5L6JyOOpSYASn-1F5k1pdxwPuwpYyIqu03cNUpmdmOPDfs7MFPfVSlaHPZv2QFZNmsRa7UWh9ZIQZLXkKHyjnurBiWVh_XJi2L_mHMd9aOxrwJRVrvcaYQiptVvHSIvWA6Yzn2dYV-xHLuq912X0vW_eVVknaF945BRo7GX-c");'>
+</div>
+<div class="relative aspect-square bg-slate-200 dark:bg-slate-800 bg-cover bg-center" data-alt="Coach explaining tactics to players" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBwwDj2UA0yH3Lo-irdE-mrgAD5t19wgJKRz55S3wnp56V6vMR4zha7VqHXUUXZCq2wNNK34Cm_56iC7BJrbccB1wwKHd-gwn6zgVlJzVY1CPySOFvnu3K4BKLAzwMi1a5XFOZfGkSldOO6A3ihYk6IQfXv9pLmgJYX3x63vv20bQwnxGbwFpEecXIo4QTMrwXLtW8J8hO-PB2EfpOBXSjVj4qtypXy_LTCoozhALCNAdbZwup1ZpNc7y7LkxPdZ9HMTAYFcHF9Dh3G");'>
+<div class="absolute top-2 right-2 text-white">
+<span class="material-symbols-outlined text-lg drop-shadow-md">play_circle</span>
+</div>
+</div>
+<div class="aspect-square bg-slate-200 dark:bg-slate-800 bg-cover bg-center" data-alt="Professional sports jersey on hanger" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuB36zuU5giC14APDW28tiZnOrWFA_dbB_Z991YvG8VcVuA3EhFuKngKWM7JLqKFs_leGZKh7VvnAOBhYnvFMFf_nIhjcPR6nU9uwbMGyR_XGhTPEbcU-3Npdh-kmOB9Lpuj4U5gnmtL_ib0PUt2ISuiMi7acPTi9nImVaE32R-RHNlHBrhps-Uz2Pd0x6Njb3n3yDLlxeLT0B28PF2FMbf7Ucje61ep2Q2R24vF3JaNoiMNwAnAxLgjPWbPHOEGu7yD4kCRou8injVr");'>
+</div>
+<div class="aspect-square bg-slate-200 dark:bg-slate-800 bg-cover bg-center" data-alt="Crowded sports arena at night" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuB4s77yKYtxbeL3BNTSuXSrwxJcAhzsgezmEK3BVC3kzym0QLS5DuH3j-abmDJvW_wnrl4Pi4Vo--9sActDjpjd0jDXQwjxphYrBnCbFTOg4vUxV50ay2H_tEGPqT0zNUKSu2wmbKUfN1Pck2CsAEnT0_1OxQ3syzrddB_QFOEnEAKhdp-Cg_990wcWdXRoM-F3fNHXu-Z4rD8xKCNio3us6Rvd4ONmjuy2T_2u4KAqiwAxRIepFl0IalGemitnAZvIhJX8bU5UqsXZ");'>
+</div>
+<div class="aspect-square bg-slate-200 dark:bg-slate-800 bg-cover bg-center" data-alt="Athletic shoes on a track" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDRGuj2JfJFO2AydxWLaIqL7AfMjb_1Zn9i8PU-_GXq-2si2a-A7AJxOd9hdJJSuvLClDdQM7mOScOj541cjBzz8qNpF7LoGglnt1khGNSUM53z3R9HrByc2yXXFbJfkzmBOgl-7Ios6FSCcrhU1xEExDhDAOY7QGfCsDXKymMhqcCyIFdEKi9nfH7ijKaRA4OKPWq8vXskQ6FPc5zVYNdv1nnxDgrOoqNTTAO8yYOzpVvWRhjxo-EPpgxY0qkVPl8we_Vkq1JQuHK4");'>
+</div>
+<div class="relative aspect-square bg-slate-200 dark:bg-slate-800 bg-cover bg-center" data-alt="Winning team celebration on field" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBwOonNZQIRPa-aquTJ4XZ8oZuhrKBI4tCSAeolMtZPzrufeuiRiJdratv2SSws5POPbTDQd31QVWy_QAowV7JJAkl99o4HN4MHzcUYTkrWcOA1_5rsPEpW0Dv54Jkl7MuGVJmt-fnEVzvDsz2H2tKgBq3fb5lmIIp5dOfgTNkVOJoMnl_Xq2DR3cvwcuEXeYIj6HjMdIBeUGTKLXQErqKaoX82UHEkTtMUALCWPq34VpXlatXdkfbddobxO0vkb5OO1wc09ti51Y0_");'>
+<div class="absolute top-2 right-2 text-white">
+<span class="material-symbols-outlined text-lg drop-shadow-md">play_circle</span>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation (Mobile Aesthetic) -->
+<div class="fixed bottom-0 left-0 right-0 bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-lg border-t border-slate-200 dark:border-slate-800 px-6 py-3 flex justify-between items-center max-w-md mx-auto">
+<button class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined">home</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined">search</span>
+</button>
+<button class="flex size-12 items-center justify-center rounded-full bg-primary text-white -mt-8 shadow-lg shadow-primary/40 border-4 border-background-light dark:border-background-dark">
+<span class="material-symbols-outlined">add</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined">chat_bubble</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-primary">
+<span class="material-symbols-outlined font-bold">person</span>
+</button>
+</div>
+</body></html>

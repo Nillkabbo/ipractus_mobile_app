@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Coach Management Dashboard - iPractus</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Lexend"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Lexend', sans-serif;
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-[#111418] dark:text-white min-h-screen">
+<div class="relative flex h-auto w-full max-w-[430px] mx-auto flex-col bg-white dark:bg-[#111418] shadow-2xl min-h-screen overflow-x-hidden">
+<!-- TopAppBar -->
+<div class="flex items-center bg-white dark:bg-[#111418] p-4 pb-2 justify-between sticky top-0 z-50 border-b border-gray-100 dark:border-gray-800">
+<div class="flex size-10 shrink-0 items-center overflow-hidden rounded-full ring-2 ring-primary/20">
+<div class="bg-center bg-no-repeat aspect-square bg-cover size-full" data-alt="Professional portrait of Coach Smith" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuB3f9tp3nPI2ezu49iZIcKTIz70Pz711LaFQZT8IGa-zQIb_VPYf3zJd3Rii_gDk1A_M75j9qWkssYAaCJnDzbbDQPi0QhixJLKqKB6lk2at23vZPpKiSf1_H63iV_-hAZVFHkYwvhhpE-qV_5onfy3MuCYHTpB8R_f1T-f88unqivLT3Lcguj3V2t8wrzgNI3a7VyCHMmrikFHQPZVoAN9SGcB6VOrApLqD67kjXJIQaD_etNi_y_kSPZIyZmqpTu7LQ5he1B1h7qi");'></div>
+</div>
+<h2 class="text-[#111418] dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] flex-1 px-3">Coach Smith's Dashboard</h2>
+<div class="flex items-center justify-end gap-1">
+<button class="flex size-10 cursor-pointer items-center justify-center rounded-lg bg-transparent text-[#111418] dark:text-white">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+</div>
+</div>
+<!-- Section: Active Teams -->
+<h2 class="text-[#111418] dark:text-white text-[20px] font-bold leading-tight tracking-[-0.015em] px-4 pt-6">Your Teams</h2>
+<div class="flex overflow-x-auto no-scrollbar">
+<div class="flex items-stretch p-4 gap-4">
+<!-- Team Card 1 -->
+<div class="flex h-full flex-1 flex-col gap-3 rounded-xl min-w-[140px] bg-background-light dark:bg-gray-800 p-3 ring-2 ring-primary">
+<div class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-lg flex flex-col relative" data-alt="Blue Tigers FC soccer team logo" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC_jghvkCNeNh-f0SzXFIFp91Rap9JKHLn_Ws8-ZJSyy5wVxpIT5iSkgmFv55sDS3kOBUWXXkomxMrAHBZNPY_uIlrpevAqzI5XQ3YIVZMV2HYxOyx7QnLVBgBKfN286hEWDBNwi8PLUJz52ko11JqwY1qWtXMlZjtowRaG4icO463CmyLvdSHZi4U-iWppZ1ZE6QVCOL-FfqgceZPJyq284Wz3II634zDKmfEfJUWvqkuaHmBcCsqhqh3c0cNvRRggSZQ71rufIarK");'>
+<div class="absolute top-2 right-2 bg-primary text-white text-[10px] font-bold px-2 py-0.5 rounded-full">ACTIVE</div>
+</div>
+<div>
+<p class="text-[#111418] dark:text-white text-sm font-semibold leading-tight">Tigers FC</p>
+<p class="text-[#617589] dark:text-gray-400 text-xs font-normal leading-normal">Soccer • Elite League</p>
+</div>
+</div>
+<!-- Team Card 2 -->
+<div class="flex h-full flex-1 flex-col gap-3 rounded-xl min-w-[140px] bg-background-light dark:bg-gray-800 p-3">
+<div class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-lg flex flex-col" data-alt="Blue Sharks basketball team logo" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuB3nbvDqNOgwjYkTdBAZGzL_jEYGbQlRoPCEwzD7-Pm2f6U2BtJ8n6KIUoKuE0EPhwRFhKTPPib8pHWiAxD72wrlDvT4tfkgYQj6na9Va1gHMzL_zQPlqjMZsh4G5iE3bN4tr4D4JwfZfMycrrXmAHtplWfy5M-Yqexf2xUt3RTKpB79ORcM1GEUYQMNH1VKejTMRNWc2DFgKnx-d0iGM9IUy_uDoywJ4gWMFWgOU3rtcW4NJyATGqNdAoOyW1XsGm_CSpuqSeUXOFK");'></div>
+<div>
+<p class="text-[#111418] dark:text-white text-sm font-semibold leading-tight">Blue Sharks</p>
+<p class="text-[#617589] dark:text-gray-400 text-xs font-normal leading-normal">Basketball • U18</p>
+</div>
+</div>
+<!-- Team Card 3 -->
+<div class="flex h-full flex-1 flex-col gap-3 rounded-xl min-w-[140px] bg-background-light dark:bg-gray-800 p-3">
+<div class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-lg flex flex-col" data-alt="Green Giants tennis team" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA8LU_P0APhGI0w-FY_DmL_3ZH7WrYa0cG9uoIZbYJAsT5XOcQia6h02hIVN3nHoRBLt85p3JH24E5IuxizpY1kiwng1Nr3WZ4VpnlNDOvLq3TMQmEphfRrUGUavHlDtLkdwgrPTMbCDikAixtAUhTk2jG1ej97sSlGK3DM5EzcVh1AT4OmwS0xUc7bSG0rvgcyvsQCmCjt5bJ01UlQ8TufRUE-lcmJS5qaDGs-F08fxLXFR0GaN6x1pLJle8CrSU34lHv1DdC4cFPS");'></div>
+<div>
+<p class="text-[#111418] dark:text-white text-sm font-semibold leading-tight">Green Giants</p>
+<p class="text-[#617589] dark:text-gray-400 text-xs font-normal leading-normal">Tennis • Pro</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Section: Team Management -->
+<h2 class="text-[#111418] dark:text-white text-[20px] font-bold leading-tight tracking-[-0.015em] px-4 pt-4">Team Management</h2>
+<div class="grid grid-cols-2 gap-4 p-4">
+<!-- Manage Roster -->
+<div class="flex flex-col gap-3 p-4 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-xl shadow-sm cursor-pointer active:scale-95 transition-transform">
+<div class="w-12 h-12 flex items-center justify-center bg-primary/10 rounded-lg">
+<span class="material-symbols-outlined text-primary text-3xl">groups</span>
+</div>
+<div>
+<p class="text-[#111418] dark:text-white text-base font-bold leading-tight">Manage Roster</p>
+<p class="text-[#617589] dark:text-gray-400 text-xs font-normal leading-normal mt-1">12 Players / <span class="text-primary font-bold">2 Pending</span></p>
+</div>
+</div>
+<!-- Schedule -->
+<div class="flex flex-col gap-3 p-4 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-xl shadow-sm cursor-pointer active:scale-95 transition-transform">
+<div class="w-12 h-12 flex items-center justify-center bg-primary/10 rounded-lg">
+<span class="material-symbols-outlined text-primary text-3xl">calendar_month</span>
+</div>
+<div>
+<p class="text-[#111418] dark:text-white text-base font-bold leading-tight">Schedule</p>
+<p class="text-[#617589] dark:text-gray-400 text-xs font-normal leading-normal mt-1">Next: Tomorrow, 4 PM</p>
+</div>
+</div>
+</div>
+<!-- Section: Quick Actions -->
+<h2 class="text-[#111418] dark:text-white text-[20px] font-bold leading-tight tracking-[-0.015em] px-4 pt-4 pb-2">Quick Actions</h2>
+<div class="flex flex-col px-4 pb-10 gap-2">
+<!-- Action Item 1 -->
+<button class="flex items-center justify-between w-full p-4 bg-background-light dark:bg-gray-800/50 rounded-xl group active:bg-primary/5">
+<div class="flex items-center gap-3">
+<div class="size-10 bg-white dark:bg-gray-800 rounded-full flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-gray-600 dark:text-gray-300">campaign</span>
+</div>
+<span class="text-[#111418] dark:text-white font-medium">Announce to Team</span>
+</div>
+<span class="material-symbols-outlined text-gray-400 group-hover:text-primary">chevron_right</span>
+</button>
+<!-- Action Item 2 -->
+<button class="flex items-center justify-between w-full p-4 bg-background-light dark:bg-gray-800/50 rounded-xl group active:bg-primary/5">
+<div class="flex items-center gap-3">
+<div class="size-10 bg-white dark:bg-gray-800 rounded-full flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-gray-600 dark:text-gray-300">video_call</span>
+</div>
+<span class="text-[#111418] dark:text-white font-medium">Upload Training Video</span>
+</div>
+<span class="material-symbols-outlined text-gray-400 group-hover:text-primary">chevron_right</span>
+</button>
+<!-- Action Item 3 -->
+<button class="flex items-center justify-between w-full p-4 bg-background-light dark:bg-gray-800/50 rounded-xl group active:bg-primary/5">
+<div class="flex items-center gap-3">
+<div class="size-10 bg-white dark:bg-gray-800 rounded-full flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-gray-600 dark:text-gray-300">insights</span>
+</div>
+<span class="text-[#111418] dark:text-white font-medium">View Analytics</span>
+</div>
+<span class="material-symbols-outlined text-gray-400 group-hover:text-primary">chevron_right</span>
+</button>
+</div>
+<!-- Bottom Navigation Bar (iOS Style) -->
+<div class="mt-auto border-t border-gray-100 dark:border-gray-800 bg-white/80 dark:bg-[#111418]/80 backdrop-blur-lg flex justify-around p-3 pb-8">
+<div class="flex flex-col items-center gap-1 text-primary">
+<span class="material-symbols-outlined font-variation-fill">home</span>
+<span class="text-[10px] font-bold">Home</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-gray-400">
+<span class="material-symbols-outlined">event</span>
+<span class="text-[10px] font-medium">Calendar</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-gray-400">
+<span class="material-symbols-outlined">chat_bubble</span>
+<span class="text-[10px] font-medium">Messages</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-gray-400">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-medium">Profile</span>
+</div>
+</div>
+</div>
+</body></html>

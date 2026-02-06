@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Pistachio Terms (System v2)</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#b2f15f",
+              "background-light": "#f7f8f6",
+              "background-dark": "#0B132B", // Updated to Obsidian
+              "subtext": "#E5F1AF", // Pale Yellow subtext
+              "obsidian": "#0B132B",
+            },
+            fontFamily: {
+              "display": ["Inter", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+      ::-webkit-scrollbar {
+        width: 4px;
+      }
+      ::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #b2f15f;
+        border-radius: 9999px;
+      }
+      body {
+        -webkit-tap-highlight-color: transparent;
+      }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display">
+<!-- Main Container (iOS Mobile Form Factor) -->
+<div class="relative flex h-screen w-full flex-col overflow-hidden max-w-[430px] mx-auto bg-background-light dark:bg-background-dark border-x border-primary/10">
+<!-- TopAppBar -->
+<header class="sticky top-0 z-20 bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-md pt-6 pb-2 px-4">
+<div class="flex items-center justify-between mb-4">
+<div class="text-obsidian dark:text-white flex size-12 shrink-0 items-center justify-start cursor-pointer">
+<span class="material-symbols-outlined text-[24px]">arrow_back_ios</span>
+</div>
+<div class="flex-1"></div>
+<div class="size-12"></div> <!-- Spacer for centering -->
+</div>
+<div class="px-2">
+<h2 class="text-obsidian dark:text-white text-[32px] font-bold leading-tight tracking-tight uppercase">TERMS OF SERVICE</h2>
+<div class="h-1 w-16 bg-primary mt-2 rounded-full"></div>
+</div>
+</header>
+<!-- Scrollable Content -->
+<main class="flex-1 overflow-y-auto px-6 pb-32">
+<div class="py-4">
+<p class="text-obsidian/60 dark:text-subtext/60 text-xs font-semibold tracking-widest uppercase mb-8">Last Updated: October 2023</p>
+<!-- Section 01 -->
+<div class="mb-10">
+<h1 class="text-obsidian dark:text-white tracking-light text-[24px] font-bold leading-tight pb-3">01. User Eligibility</h1>
+<p class="text-obsidian/80 dark:text-subtext text-base font-normal leading-relaxed">
+            By accessing the iPrActUS Pistachio platform, you represent that you are at least 18 years of age or the age of majority in your jurisdiction. Users must possess the legal authority to enter into this binding performance agreement. Any use by individuals under the specified age is strictly prohibited without verified parental consent.
+          </p>
+</div>
+<!-- Section 02 -->
+<div class="mb-10">
+<h1 class="text-obsidian dark:text-white tracking-light text-[24px] font-bold leading-tight pb-3">02. Performance Data</h1>
+<p class="text-obsidian/80 dark:text-subtext text-base font-normal leading-relaxed">
+            High-performance athletic data is collected to optimize your training regimen. All biometric data, including heart rate variability, peak power output, and metabolic recovery cycles, is encrypted and handled according to our <span class="text-primary font-bold underline cursor-pointer">Privacy Policy</span>. We utilize this data to generate your v2 performance profile.
+          </p>
+</div>
+<!-- Section 03 -->
+<div class="mb-10">
+<h1 class="text-obsidian dark:text-white tracking-light text-[24px] font-bold leading-tight pb-3">03. Privacy &amp; Compliance</h1>
+<p class="text-obsidian/80 dark:text-subtext text-base font-normal leading-relaxed">
+            Our systems are fully compliant with GDPR, CCPA, and international athletic data standards. You retain ownership of your primary performance metrics. We reserve the right to use anonymized aggregate data to improve our proprietary training algorithms and the Obsidian system architecture.
+          </p>
+</div>
+<!-- Section 04 -->
+<div class="mb-10">
+<h1 class="text-obsidian dark:text-white tracking-light text-[24px] font-bold leading-tight pb-3">04. Liability &amp; Waiver</h1>
+<p class="text-obsidian/80 dark:text-subtext text-base font-normal leading-relaxed">
+            Athletic training involves inherent risks. By using Pistachio v2, you acknowledge these risks and agree to waive liability against iPrActUS for any injuries sustained during use. Always consult with a medical professional before beginning any high-intensity performance protocol.
+          </p>
+</div>
+<!-- Section 05 -->
+<div class="mb-10">
+<h1 class="text-obsidian dark:text-white tracking-light text-[24px] font-bold leading-tight pb-3">05. Subscription Billing</h1>
+<p class="text-obsidian/80 dark:text-subtext text-base font-normal leading-relaxed">
+            Access to the high-performance tier is billed monthly or annually. Cancellations must be made 24 hours prior to the next billing cycle. For billing inquiries, contact our <span class="text-primary font-bold underline cursor-pointer">Support Team</span>.
+          </p>
+</div>
+</div>
+</main>
+<!-- Fixed Footer Action -->
+<div class="absolute bottom-0 left-0 w-full p-6 bg-gradient-to-t from-background-light dark:from-background-dark via-background-light/90 dark:via-background-dark/90 to-transparent pt-12">
+<button class="w-full bg-primary hover:bg-primary/90 text-obsidian font-bold py-4 px-6 rounded-full transition-all active:scale-[0.98] shadow-lg shadow-primary/20 flex items-center justify-center gap-2">
+<span class="tracking-[0.1em]">ACCEPT</span>
+<span class="material-symbols-outlined text-[20px]">check_circle</span>
+</button>
+<!-- iOS Home Indicator Space -->
+<div class="h-4"></div>
+</div>
+</div>
+</body></html>

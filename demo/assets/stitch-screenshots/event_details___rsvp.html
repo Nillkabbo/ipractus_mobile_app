@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>iPractus - Event Details &amp; RSVP</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#137fec",
+            "background-light": "#f6f7f8",
+            "background-dark": "#101922",
+          },
+          fontFamily: {
+            "display": ["Lexend", "sans-serif"]
+          },
+          borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+        },
+      },
+    }
+  </script>
+<style>
+    body {
+      font-family: 'Lexend', sans-serif;
+    }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    .scrollbar-hide::-webkit-scrollbar {
+      display: none;
+    }
+    .scrollbar-hide {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-[#111418] dark:text-white antialiased min-h-screen">
+<div class="max-w-md mx-auto bg-white dark:bg-background-dark min-h-screen shadow-xl relative pb-24">
+<!-- TopAppBar -->
+<header class="sticky top-0 z-50 bg-white/80 dark:bg-background-dark/80 backdrop-blur-md px-4 py-3 flex items-center justify-between border-b border-gray-100 dark:border-gray-800">
+<div class="flex items-center gap-3">
+<button class="flex size-10 items-center justify-center rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+<span class="material-symbols-outlined text-[#111418] dark:text-white">arrow_back_ios_new</span>
+</button>
+<h2 class="text-lg font-bold leading-tight tracking-tight">Event Details</h2>
+</div>
+<button class="flex size-10 items-center justify-center rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+<span class="material-symbols-outlined text-[#111418] dark:text-white">share</span>
+</button>
+</header>
+<!-- ProfileHeader Variant: Event Hero -->
+<div class="p-4 bg-primary text-white">
+<div class="flex flex-col gap-4">
+<div class="bg-center bg-no-repeat aspect-video bg-cover rounded-xl shadow-lg" data-alt="Athletic stadium at sunset for championship game" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAOVpXDGKzRLtW1L_UOmjoCB83W44Vg6SPx01RWrI5MGXLlDK8_zGNNG4YF3osirPhbLqSxyOMdtu8yTIltYZSuIGMQ1YT1FkUoEjNQDsRAR8VMbdlYBfZhrFnmskROeF0CJ1mOMmKOb_oP9HxpRg4o_SQxdJKBJM6_cazY35jLWV90gds9S6AW6YvJgMSG06p_AbNlWCISxlhfba_ue18QEViYhjHUG3QIfklrM59kF6eIwuZoD6SdEQCHuXRsjhScVLpL-3BQftP8");'>
+</div>
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-2">
+<span class="bg-white/20 text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full">Finals</span>
+<span class="bg-red-500 text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full">Critical</span>
+</div>
+<p class="text-[28px] font-bold leading-tight tracking-tight">Championship Finals</p>
+<div class="flex items-center gap-2 mt-1 opacity-90">
+<span class="material-symbols-outlined text-sm">calendar_today</span>
+<p class="text-sm font-medium">Saturday, Oct 24 • 10:00 AM - 12:00 PM</p>
+</div>
+<div class="flex items-center gap-2 opacity-90">
+<span class="material-symbols-outlined text-sm">location_on</span>
+<p class="text-sm font-medium">Varsity Stadium, Main Court</p>
+</div>
+</div>
+</div>
+</div>
+<!-- SectionHeader: RSVP -->
+<div class="bg-white dark:bg-background-dark">
+<h3 class="text-[#111418] dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] px-4 pb-2 pt-6">Will you attend?</h3>
+</div>
+<!-- ButtonGroup: RSVP Actions -->
+<div class="px-4 py-2">
+<div class="grid grid-cols-2 gap-3">
+<button class="flex flex-col items-center justify-center gap-1 cursor-pointer overflow-hidden rounded-xl h-16 bg-primary text-white transition-all hover:scale-[1.02] active:scale-95">
+<span class="text-sm font-bold">Going</span>
+<span class="text-xs opacity-80">12 teammates</span>
+</button>
+<button class="flex flex-col items-center justify-center gap-1 cursor-pointer overflow-hidden rounded-xl h-16 bg-[#f0f2f4] dark:bg-gray-800 text-[#111418] dark:text-white transition-all hover:scale-[1.02] active:scale-95">
+<span class="text-sm font-bold">Maybe</span>
+<span class="text-xs text-gray-500 dark:text-gray-400">3 teammates</span>
+</button>
+</div>
+<!-- SingleButton: Not Going -->
+<div class="mt-3">
+<button class="w-full flex items-center justify-center rounded-xl h-12 bg-transparent border border-gray-200 dark:border-gray-700 text-[#111418] dark:text-white text-sm font-bold transition-colors hover:bg-gray-50 dark:hover:bg-gray-800">
+<span class="truncate">Not Going (2)</span>
+</button>
+</div>
+</div>
+<!-- Location Section with Map -->
+<div class="px-4 py-6">
+<h3 class="text-[#111418] dark:text-white text-lg font-bold leading-tight tracking-tight mb-4">Location</h3>
+<div class="relative w-full h-48 rounded-xl overflow-hidden shadow-sm border border-gray-100 dark:border-gray-800">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="Map view of Varsity Stadium" data-location="Toronto, Canada" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCzlc3FC_1rZb18OJ2UKaG8qYJ8D0yb4tZkQSUrh4WQlIGUqINw3rRGXEnAs42NsYUmiR2_vdmeUev9Tr374idmyEDN46MQgqi0SEDVjkRSaemkEFDKOvSOpdzZMzlVM72GV35ZRBrrWo5a-zKI26V50bEVpUs2U3NJt3zNK2leZgp9u_fpwJE9oAs4ddiG_EnbWZSiKauRFdL2xtrd2_gLIraFe2SX1PvJE8icSNUA0vl5vi0olteL2kMG-qJAVH6WY3mPRLUdrxO8");'>
+</div>
+<!-- Simulated Pin -->
+<div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+<span class="material-symbols-outlined text-primary text-5xl drop-shadow-lg" style="font-variation-settings: 'FILL' 1;">location_on</span>
+</div>
+<!-- Open in Maps Button -->
+<div class="absolute bottom-3 right-3">
+<button class="bg-white dark:bg-gray-800 text-[#111418] dark:text-white px-3 py-2 rounded-lg text-xs font-bold shadow-md flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">directions</span>
+            Open in Maps
+          </button>
+</div>
+</div>
+<p class="mt-3 text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+        299 Bloor St W, Toronto, ON M5S 1W2. Meet at the north entrance near the ticket booth 15 minutes before warm-up.
+      </p>
+</div>
+<!-- Attendees List -->
+<div class="px-4 py-2">
+<div class="flex items-center justify-between mb-4">
+<h3 class="text-[#111418] dark:text-white text-lg font-bold leading-tight tracking-tight">Confirmed (12)</h3>
+<button class="text-primary text-sm font-bold">See All</button>
+</div>
+<div class="flex -space-x-3 overflow-hidden p-1">
+<img alt="Team member" class="inline-block h-12 w-12 rounded-full ring-2 ring-white dark:ring-background-dark object-cover" data-alt="Close up portrait of a male teammate" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDVO-pJkvljy3600WJ5JJHP6I5T-D9Y33qvswV_dziMUaKJRw2xPiydCh8tIFTD7iUZhtfzhGBykAgD90DwziAPBDcKSb_SJon0x-aOyvPbd9et84sB1cBRBboeHbc8JwcdmsGxZ4Qg0gPO8X-xT2czeUqXmylgV0E-QS0qwa0zSrc8pl8dVCJDkvzFltOi22FhL_RwTlfh5Wxzoj-_6YlH4ER4ENoO2Ch_I_OLcryT_I-CqwKxBOB-9d6EG9TfS43L28Y4z6igGx6l"/>
+<img alt="Team member" class="inline-block h-12 w-12 rounded-full ring-2 ring-white dark:ring-background-dark object-cover" data-alt="Close up portrait of a female teammate" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBPymVzfP0gtLtLKlHfSzNuAbMD5n1x9Oy-dNL40ampKD_1ibnlZYDJH8fF65TtWKSQ3tRIwPUc17sbMkNFvNBLy9H1lF5oGBZ1yUDcAO9Ahyx0qCzwBoKgN3p4iSdmRtQWpHgOKx8iu9ZYH50mtiHVYtN2Qq0hEI3aK4IMGWDSnkN_b1G1v3zexJQGCycgQrmGUSegb_Z2XKLnLG6vHFNDAaxGGXMUzcIM5ydd9u_qZmXy1BwbSwsHPwD7ozy27pUTws8zbGHTmgAO"/>
+<img alt="Team member" class="inline-block h-12 w-12 rounded-full ring-2 ring-white dark:ring-background-dark object-cover" data-alt="Close up portrait of a teammate" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA3I3yeeMvWmYJodbebsSCvRXRw66ycoolNjaBVbeZxyHxzQAnrM0f9oIIBjTh8N_ykh0pBnx5tAU8fZUaI0Fd9kp1SpFwQitjAodBNcKPfPIhTe79mj7NIhBK9TKVdGKRmkN9ZRHUxlJaE_aLJe903UyK2bpMCsIHZ8cHRSK5Ffa2oqkBUUyaE0S3IQR_6TzXJQXeGlv9VAlKaI4_7hYpBEKfOV008l5XxOXx2rLTLv-5qaUvvHDLkIDoztlD-wL4QMCd8lqTmY-vg"/>
+<img alt="Team member" class="inline-block h-12 w-12 rounded-full ring-2 ring-white dark:ring-background-dark object-cover" data-alt="Close up portrait of a teammate" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAovJsvH3B1NYHYHmqD6VIyQksDZrYhjraZzNaBpelj9mwmb-vQpf6QCp9Hgzj2JYN21QFB-0wEkux_Ri4QUN3TOaaCmsNN34gWip_-fpbwoYGr_FKGKJrhTFr2HKbxqLZ3b3vqF2LDQz0CqO3JqHKoLCC7ZHnJ_np_pROhSZbjVb5XX_vMXhAaZodpWvg7ozDbZwew3JrF2DmNuT4D6fTnK0RcBgHqIAIe3gyf-T75FgQs0YWXwR2ajOemDYbB85RKmoYxZmCHEGB-"/>
+<img alt="Team member" class="inline-block h-12 w-12 rounded-full ring-2 ring-white dark:ring-background-dark object-cover" data-alt="Close up portrait of a teammate" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBAXHszlDb3texaSoEyBjeKDNQgoKakPK139Sw4UsDEsi1g4fLH_9iLgqC7h0y09yozqBAyYTqB9_nat4B7Rqh3tu6u4kJXLRaWjaRNjvrrnuwXhWB-5v3kUjCogakK6ZDpHVek5M52TMQJ2HqE4EHrBCE7QVR8GSDClp7WjXT_SLQhUTjDGzwbdYNIJsM58i_ZQGhqgtgAIbM2uY2kdPlWcx6Q5pyRkOxW45LzMgmXFchQvN5pZqCb08IRjlv6NPHdRrb73wQnqryX"/>
+<div class="flex h-12 w-12 items-center justify-center rounded-full bg-gray-200 dark:bg-gray-700 ring-2 ring-white dark:ring-background-dark">
+<span class="text-xs font-bold text-gray-600 dark:text-gray-300">+7</span>
+</div>
+</div>
+</div>
+<!-- Sticky Bottom Action Button -->
+<div class="fixed bottom-0 left-0 right-0 max-w-md mx-auto p-4 bg-white/90 dark:bg-background-dark/90 backdrop-blur-md border-t border-gray-100 dark:border-gray-800">
+<button class="w-full bg-primary hover:bg-primary/90 text-white font-bold h-14 rounded-xl shadow-lg shadow-primary/25 flex items-center justify-center gap-3 transition-transform active:scale-95">
+<span class="material-symbols-outlined">forum</span>
+        Team Chat
+      </button>
+</div>
+</div>
+</body></html>

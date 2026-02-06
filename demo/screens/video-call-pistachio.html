@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Pistachio Video Call (System v2)</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#b2f15f",
+                        "obsidian": "#0B132B",
+                        "background-light": "#f7f8f6",
+                        "background-dark": "#1a2210",
+                        "call-red": "#FF3B30",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .fill-icon {
+            font-variation-settings: 'FILL' 1;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-obsidian font-display antialiased overflow-hidden">
+<!-- Main Video Container -->
+<div class="relative h-screen w-full bg-black">
+<!-- Remote Participant Video (Full Screen) -->
+<div class="absolute inset-0 w-full h-full bg-cover bg-center" data-alt="Close up portrait of a male athlete in gym environment" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDvAQle5ZZiXhKYW2YM9RrUZ6bnVO5aiS6rgcuyrCA0JImUTX37D28hxirEMgcoHTRCx9ZbeOnlOZThQ-EpuYu5Y5AeN3OOWebPO8V1NlZA3zXQB2OfUGbbVVxKt3SiFBg3Y0sV_hXTHVHJ0Ww7Axgr3yfJelVHSvlpagKag-i9xCWAq42Eoj3rMZ0r50u_q2n9o6oGjRHfp-11Gv-vDIPpazi9OBsGYIoyow0z7lhXSUdA4z1sT8IsLxePH4sMzNwitHM2rg6Aiz9Y');">
+<!-- Dark Overlay Scrim for Top/Bottom Info -->
+<div class="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/60"></div>
+</div>
+<!-- Top Navigation Bar -->
+<div class="absolute top-0 left-0 right-0 z-20 px-6 pt-14 pb-10">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<button class="flex items-center justify-center size-10 rounded-full bg-obsidian/40 backdrop-blur-md text-white">
+<span class="material-symbols-outlined">expand_more</span>
+</button>
+<div class="flex flex-col">
+<h2 class="text-white text-base font-bold leading-tight tracking-tight">John Doe</h2>
+<p class="text-primary text-xs font-semibold tracking-widest uppercase">12:45</p>
+</div>
+</div>
+<div class="flex gap-2">
+<button class="flex items-center justify-center size-10 rounded-full bg-obsidian/40 backdrop-blur-md text-white">
+<span class="material-symbols-outlined">grid_view</span>
+</button>
+</div>
+</div>
+</div>
+<!-- PiP Local Preview -->
+<div class="absolute top-28 right-6 z-20 w-32 aspect-[3/4] rounded-2xl overflow-hidden border-2 border-white/20 shadow-2xl bg-zinc-800" data-alt="Selfie view of user in a home office" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAAVpn-ZfyW42BKzau3EsMnjHrVrIYuwYCHo9shLRBax1vOS2OEOgcKDKDQZCHbwyZQiJ3pAmKiCO9Q5D9_AjS8uUL1Qvg8fyrfb-Nfc1ZFWSoIVdNTWfPsGj1etyx7cTegLg9pslJhvVH3ursZO_gGMuO2IYutt5R67VVTyTecXWMZizMo80QBjXPxx6FQyyOnLZ4YBPKR37rPMuRAKJ7LI0wErGxh3fiHuiDy9yvIHL4RRWjP2XNjq4rvZk3LMVmyxA-i8Eq2JpWx'); background-size: cover; background-position: center;">
+<div class="absolute bottom-2 right-2">
+<span class="material-symbols-outlined text-primary text-sm fill-icon">check_circle</span>
+</div>
+</div>
+<!-- Floating Control Bar -->
+<div class="absolute bottom-12 left-1/2 -translate-x-1/2 z-20 w-[90%] max-w-md">
+<div class="bg-obsidian/80 backdrop-blur-xl rounded-full p-3 flex items-center justify-between shadow-2xl border border-white/5">
+<!-- Toggle Mic -->
+<button class="flex items-center justify-center size-12 rounded-full bg-primary text-obsidian shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined font-bold fill-icon">mic</span>
+</button>
+<!-- Toggle Camera -->
+<button class="flex items-center justify-center size-12 rounded-full bg-primary text-obsidian shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined font-bold fill-icon">videocam</span>
+</button>
+<!-- Flip Camera -->
+<button class="flex items-center justify-center size-12 rounded-full bg-white/10 text-white hover:bg-white/20 transition-colors">
+<span class="material-symbols-outlined">flip_camera_ios</span>
+</button>
+<!-- Speaker/Output -->
+<button class="flex items-center justify-center size-12 rounded-full bg-white/10 text-white hover:bg-white/20 transition-colors">
+<span class="material-symbols-outlined">volume_up</span>
+</button>
+<!-- End Call Button (High Visibility) -->
+<button class="flex items-center justify-center size-14 rounded-full bg-call-red text-white shadow-lg shadow-call-red/30">
+<span class="material-symbols-outlined font-bold fill-icon">call_end</span>
+</button>
+</div>
+</div>
+<!-- Call Status Indicators (Subtle Center) -->
+<div class="absolute bottom-32 left-0 right-0 flex justify-center pointer-events-none">
+<div class="flex items-center gap-2 bg-black/30 backdrop-blur-sm px-4 py-1.5 rounded-full border border-white/10">
+<div class="size-2 bg-primary rounded-full animate-pulse"></div>
+<span class="text-white/80 text-[10px] font-bold tracking-[0.2em] uppercase">High Performance Link Active</span>
+</div>
+</div>
+<!-- iOS Home Indicator Space -->
+<div class="absolute bottom-2 left-1/2 -translate-x-1/2 w-32 h-1.5 bg-white/20 rounded-full"></div>
+</div>
+</body></html>

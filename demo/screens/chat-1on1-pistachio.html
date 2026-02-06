@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Pistachio 1-on-1 Chat (v2)</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#B2F162", // Pistachio
+                        "obsidian": "#0B132B", // Deep background
+                        "obsidian-elevated": "#1C2541", // Bubble background
+                        "cyan-call": "#66D9E8", // Header call icon
+                        "background-light": "#f7f8f6",
+                        "background-dark": "#0B132B",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .message-gradient-user {
+            background-color: #B2F162;
+        }
+        .message-gradient-recipient {
+            background-color: #1C2541;
+        }
+        /* Custom scrollbar for a cleaner look */
+        ::-webkit-scrollbar {
+            width: 4px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1C2541;
+            border-radius: 10px;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-white font-display">
+<div class="flex flex-col h-screen max-w-md mx-auto relative overflow-hidden bg-obsidian border-x border-white/5">
+<!-- Header (TopAppBar variant) -->
+<header class="sticky top-0 z-20 flex items-center bg-obsidian/90 backdrop-blur-md px-4 py-3 border-b border-white/5 justify-between">
+<div class="flex items-center gap-3">
+<button class="flex items-center justify-center text-white/70 hover:text-white transition-colors">
+<span class="material-symbols-outlined">arrow_back_ios_new</span>
+</button>
+<div class="relative">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 border border-white/10" data-alt="Close up portrait of a professional athlete" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAUnhBduwKNpwNCkDfL6QhkFvLCto6nHWSRt6EQGD0EEk-9nJ0l4VG9RWm8rnme9b1hjbBm2Lm74GaOYa542Uk-X37HAyefloB3dNKcuNt3fy2lx8nY858d5E603q9fpy21JDjmgfKwl9Qr8J18d_i26ZvD_mlVonWL7gKrWNxXRzI2vn5CpNUUXllZLFJGZq5Vuzp5Ji8SzUshDlZcNeooBwQX_EqjWUovC5P01mDr214Zdd-1gGrXXME9uY_bAd3dUTiXAY8KKW8r");'>
+</div>
+<div class="absolute bottom-0 right-0 size-3 bg-[#B2F162] rounded-full border-2 border-obsidian"></div>
+</div>
+<div class="flex flex-col">
+<h2 class="text-white text-base font-bold leading-tight tracking-tight">Marcus Vane</h2>
+<span class="text-[11px] text-[#B2F162] font-medium uppercase tracking-widest">Active Now</span>
+</div>
+</div>
+<div class="flex items-center gap-1">
+<button class="flex size-10 items-center justify-center rounded-full text-cyan-call hover:bg-white/5 transition-colors">
+<span class="material-symbols-outlined" style="font-size: 26px;">videocam</span>
+</button>
+<button class="flex size-10 items-center justify-center rounded-full text-white/70 hover:bg-white/5 transition-colors">
+<span class="material-symbols-outlined">info</span>
+</button>
+</div>
+</header>
+<!-- Message Feed -->
+<main class="flex-1 overflow-y-auto p-4 space-y-6 flex flex-col pt-6 pb-24">
+<!-- Date Indicator -->
+<div class="flex justify-center">
+<span class="text-[10px] font-bold text-white/30 uppercase tracking-[0.2em]">Today • 09:41 AM</span>
+</div>
+<!-- Recipient Message (Left) -->
+<div class="flex items-end gap-3 max-w-[85%] group">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-8 shrink-0 border border-white/10" data-alt="Small avatar of athlete profile" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuChq39yIY3QSN7YMo851CY-LE0ds6rP2Lv2wHbS_ydCvGavXZPZWmyGA8dAuCrRD8PAQ6_diP9eGnMHvMXs0pGtppJEXjCK4Z7coP3scfueb-y5kV_3M8K-upFbUk2SuOzIai5l7P8I7Ej9lZ4eLQiziijzqcO0vXhfv7ZBQADk71Z8xvw4KkrYU5ojiIQqU_vCylYt3vAx87USrcQFR854czKRq9OX9JEk5GiT5LfWD3b7350-1k7ZHwY7VLAN0Vc1wUZlWEuRT8Ha");'></div>
+<div class="flex flex-col gap-1 items-start">
+<div class="text-base font-normal leading-relaxed rounded-2xl rounded-bl-sm px-4 py-3 bg-obsidian-elevated text-white shadow-lg border border-white/5">
+                        Are we still on for the high-intensity interval training session today?
+                    </div>
+</div>
+</div>
+<!-- User Message (Right) -->
+<div class="flex items-end gap-3 justify-end max-w-[85%] ml-auto group">
+<div class="flex flex-col gap-1 items-end">
+<div class="text-base font-semibold leading-relaxed rounded-2xl rounded-br-sm px-4 py-3 bg-primary text-obsidian shadow-xl shadow-primary/10">
+                        Absolutely! Just finished checking the biometrics. Heading to the facility now. See you in 15.
+                    </div>
+<div class="flex items-center gap-1 mt-1">
+<span class="text-[10px] text-white/40">09:42 AM</span>
+<span class="material-symbols-outlined text-[12px] text-primary">done_all</span>
+</div>
+</div>
+</div>
+<!-- Recipient Message (Left) -->
+<div class="flex items-end gap-3 max-w-[85%]">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-8 shrink-0 border border-white/10" data-alt="Small avatar of athlete profile" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCZF6i4wmeDFeiJ4nuo0aYe9O-Ta_bze-OinK8w3VhbRcJOLiWuNZARUSFdnus_yXZkQQOYa5H7VxwJuNpl3OdEoJlIHDb9qN4ELbEPcWE_eQazjNsIpoqNsqTM2kasuxr_6_laKTaYPquth1vcVe72VzICh5vPYPONx1omGRKpFFI4JmdgNuG7DCK7Y4isXC1Te4_JhGsrVL11mKAR_hjJDbmT46RC-Uw5t9TjAg5LAH4zB-jforqWUR8YTbGSTs010YzMr7YPgA07");'></div>
+<div class="flex flex-col gap-1 items-start">
+<div class="text-base font-normal leading-relaxed rounded-2xl rounded-bl-sm px-4 py-3 bg-obsidian-elevated text-white shadow-lg border border-white/5">
+                        Perfect. I've got the workout plan loaded on the performance tablet. I've included those plyometric drills we talked about.
+                    </div>
+</div>
+</div>
+<!-- User Message (Right) -->
+<div class="flex items-end gap-3 justify-end max-w-[85%] ml-auto">
+<div class="flex flex-col gap-1 items-end">
+<div class="text-base font-semibold leading-relaxed rounded-2xl rounded-br-sm px-4 py-3 bg-primary text-obsidian shadow-xl shadow-primary/10">
+                        Great. Let's push for the PR today. ⚡️
+                    </div>
+</div>
+</div>
+<!-- Recipient Typying Indicator (Mock) -->
+<div class="flex items-center gap-2 opacity-60">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-6 border border-white/10" data-alt="Small avatar of athlete profile" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAO43Kz95x8yIxBqMSVJFNWfyafEIwdsAAmCynTXIlDd8l5z1Co2H835_6TFRXaoQ87qmnp7SrJXkgr4pcc9Cu53oNau7aNw6wp4dTJN5PdyVT5MfuVTU4YFkB_L8xbrhckW0vUwvvz8ehKPoYxGtIJaTCKlx5BDwE2iUXL5eS3ku9fRNfWfPJ46k-iAQnrcrHber5spvdKLeLg-CDdJN5qpKQg-I3MyyLGacxQJh8OG_AJpJ3i6O1-pKCgphx3LOKZwBA4hIXTg11P");'></div>
+<div class="flex gap-1">
+<div class="size-1.5 bg-white/40 rounded-full animate-bounce"></div>
+<div class="size-1.5 bg-white/40 rounded-full animate-bounce [animation-delay:-0.15s]"></div>
+<div class="size-1.5 bg-white/40 rounded-full animate-bounce [animation-delay:-0.3s]"></div>
+</div>
+</div>
+</main>
+<!-- Composer (Sticky Bottom) -->
+<footer class="absolute bottom-0 w-full bg-obsidian/95 backdrop-blur-xl border-t border-white/5 pb-8 pt-3 px-4">
+<div class="flex items-center gap-3">
+<!-- Media Plus Action -->
+<button class="flex size-10 shrink-0 items-center justify-center rounded-full bg-obsidian-elevated text-primary border border-white/5 active:scale-95 transition-transform">
+<span class="material-symbols-outlined">add</span>
+</button>
+<!-- Input Field -->
+<div class="relative flex-1">
+<input class="w-full bg-obsidian-elevated border border-white/10 rounded-full h-11 px-5 py-2 text-white placeholder:text-white/30 focus:outline-none focus:ring-1 focus:ring-primary/50 text-base font-medium transition-all" placeholder="Message..." type="text"/>
+<div class="absolute right-3 top-1/2 -translate-y-1/2 flex items-center gap-2">
+<button class="text-white/40 hover:text-white transition-colors">
+<span class="material-symbols-outlined text-[20px]">sticky_note_2</span>
+</button>
+</div>
+</div>
+<!-- Send Button -->
+<button class="flex size-11 shrink-0 items-center justify-center rounded-full bg-primary text-obsidian active:scale-90 transition-transform">
+<span class="material-symbols-outlined font-bold" style="font-variation-settings: 'FILL' 1;">send</span>
+</button>
+</div>
+<!-- iOS Safe Area Indicator Mock -->
+<div class="w-32 h-1 bg-white/20 rounded-full mx-auto mt-6 mb-1"></div>
+</footer>
+</div>
+</body></html>
