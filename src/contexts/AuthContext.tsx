@@ -1,10 +1,10 @@
 import React, { createContext, useContext, useState, useEffect, useCallback } from 'react';
-import { User, AuthTokens } from '../types/auth';
-import { mockAuth } from '../services/auth/mockAuth';
+import { User } from '../types/auth';
+import { authApi, RegisterPayload } from '../services/api/authApi';
 import { secureStorage, AUTH_KEYS } from '../services/storage/secureStorage';
 import { asyncStorage, PREF_KEYS } from '../services/storage/asyncStorage';
 
-interface AuthContextType {
+export interface AuthContextType {
   // State
   isAuthenticated: boolean;
   isLoading: boolean;
@@ -12,8 +12,9 @@ interface AuthContextType {
 
   // Methods
   signIn: (email: string, password: string) => Promise<void>;
-  signUp: (email: string, password: string, displayName: string, role: 'athlete' | 'coach' | 'fan') => Promise<void>;
+  signUp: (payload: RegisterPayload) => Promise<void>;
   signOut: () => Promise<void>;
+  forgotPassword: (emailOrUsername: string) => Promise<void>;
   updateUser: (user: User) => void;
 }
 
@@ -52,10 +53,10 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   };
 
   /**
-   * Sign in with email and password
+   * Sign in with email/username and password
    */
   const signIn = async (email: string, password: string) => {
-    const response = await mockAuth.login({ email, password });
+    const response = await authApi.login({ email, password });
 
     // Store tokens securely
     await secureStorage.setItem(AUTH_KEYS.USER_TOKEN, response.tokens.accessToken);
@@ -69,20 +70,18 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   };
 
   /**
-   * Sign up with email, password, display name, and role
+   * Register a new user. Does not auto-login; user must verify email then login.
    */
-  const signUp = async (email: string, password: string, displayName: string, role: 'athlete' | 'coach' | 'fan') => {
-    const response = await mockAuth.register({ email, password, displayName, role });
+  const signUp = async (payload: RegisterPayload) => {
+    await authApi.register(payload);
+    // Registration success - user must verify email and then login
+  };
 
-    // Store tokens securely
-    await secureStorage.setItem(AUTH_KEYS.USER_TOKEN, response.tokens.accessToken);
-    await secureStorage.setItem(AUTH_KEYS.REFRESH_TOKEN, response.tokens.refreshToken);
-
-    // Store user data in AsyncStorage (non-sensitive)
-    await asyncStorage.setItem(PREF_KEYS.USER_DATA, JSON.stringify(response.user));
-
-    setUser(response.user);
-    setIsAuthenticated(true);
+  /**
+   * Request password reset email
+   */
+  const forgotPassword = async (emailOrUsername: string) => {
+    await authApi.forgotPassword({ username: emailOrUsername });
   };
 
   /**
@@ -90,8 +89,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
    */
   const signOut = async () => {
     try {
-      // Call logout API
-      await mockAuth.logout();
+      await authApi.logout();
 
       // Clear secure storage
       await secureStorage.deleteItem(AUTH_KEYS.USER_TOKEN);
@@ -124,6 +122,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     signIn,
     signUp,
     signOut,
+    forgotPassword,
     updateUser,
   };
 

@@ -95,6 +95,7 @@ export interface ThemeColors {
 export interface ThemeTypography {
   fontFamily: {
     primary: string;
+    heading?: string;
     secondary?: string;
     mono?: string;
   };
@@ -276,7 +277,8 @@ export const ipractusLightTheme: Theme = {
 
   typography: {
     fontFamily: {
-      primary: 'Lexend',
+      primary: 'Inter',
+      heading: 'Neue Haas Unica',
     },
     fontSize: {
       xs: 12,
@@ -517,7 +519,8 @@ export const ipractusDarkTheme: Theme = {
 
   typography: {
     fontFamily: {
-      primary: 'Lexend',
+      primary: 'Inter',
+      heading: 'Neue Haas Unica',
     },
     fontSize: {
       xs: 12,
@@ -771,6 +774,7 @@ export const pistachioTheme: Theme = {
   typography: {
     fontFamily: {
       primary: 'Inter',
+      heading: 'Neue Haas Unica',
       secondary: 'Inter',
     },
     fontSize: {

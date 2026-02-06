@@ -1,5 +1,6 @@
 export const typography = {
-  fontFamily: 'Lexend',
+  fontFamily: 'Inter',
+  fontFamilyHeading: 'Neue Haas Unica',
 
   fontSize: {
     xs: 12,

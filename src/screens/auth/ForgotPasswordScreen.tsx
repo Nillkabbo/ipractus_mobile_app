@@ -1,106 +1,173 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, ScrollView, Alert, TouchableOpacity } from 'react-native';
-import { useTheme } from '../../hooks/useTheme';
+import {
+  View,
+  Text,
+  Image,
+  StyleSheet,
+  ScrollView,
+  TouchableOpacity,
+  TextInput as RNTextInput,
+  Alert,
+  KeyboardAvoidingView,
+  Platform,
+  Dimensions,
+} from 'react-native';
+import Svg, { Path, G } from 'react-native-svg';
+import { LinearGradient } from 'expo-linear-gradient';
+import { LoginAvatarIcon } from '../../components/LoginAvatarIcon';
+import { useAuth } from '../../hooks/useAuth';
 import { useNavigation } from '@react-navigation/native';
-import { TextInput } from '../../components/TextInput';
-import { Button } from '../../components/Button';
+import { AUTH_ROUTES } from '../../constants/routes';
+import { colors } from '../../constants/colors';
+
+const { width: SCREEN_WIDTH } = Dimensions.get('window');
+
+const { auth: authColors } = colors;
 
 export const ForgotPasswordScreen: React.FC = () => {
-  const { theme } = useTheme();
+  const { forgotPassword } = useAuth();
   const navigation = useNavigation<any>();
 
   const [email, setEmail] = useState('');
   const [loading, setLoading] = useState(false);
-  const [sent, setSent] = useState(false);
+  const [emailFocused, setEmailFocused] = useState(false);
 
-  const handleReset = async () => {
-    if (!email) {
-      Alert.alert('Error', 'Please enter your email');
+  const handleSubmit = async () => {
+    const value = email.trim();
+    if (!value) {
+      Alert.alert('Error', 'Please enter your email or username');
       return;
     }
 
     setLoading(true);
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    setLoading(false);
-    setSent(true);
-    Alert.alert('Email Sent', 'Password reset instructions have been sent to your email');
-  };
-
-  const handleBackToLogin = () => {
-    navigation.goBack();
+    try {
+      await forgotPassword(value);
+      Alert.alert('Success', 'If an account exists, password reset instructions have been sent.');
+      navigation.goBack();
+    } catch (e) {
+      Alert.alert('Error', (e as Error)?.message || 'Failed to send reset instructions');
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
-    <ScrollView style={[styles.container, { backgroundColor: theme.colors.background }]}>
-      <View style={styles.content}>
-        <Text style={[styles.title, { color: theme.colors.text }]}>Reset Password</Text>
-        <Text style={[styles.subtitle, { color: theme.colors.textSecondary }]}>
-          {sent
-            ? 'Check your email for reset instructions'
-            : 'Enter your email to receive password reset instructions'}
-        </Text>
-
-        {!sent ? (
-          <>
-            <TextInput
-              label="Email"
-              value={email}
-              onChangeText={setEmail}
-              placeholder="Enter your email"
-              keyboardType="email-address"
-              autoCapitalize="none"
-              style={styles.input}
-            />
-
-            <Button
-              title="Send Reset Link"
-              onPress={handleReset}
-              loading={loading}
-              style={styles.button}
-            />
-          </>
-        ) : (
-          <Button
-            title="Back to Login"
-            onPress={handleBackToLogin}
-            style={styles.button}
+    <KeyboardAvoidingView
+      style={styles.wrapper}
+      behavior={Platform.OS === 'ios' ? 'padding' : undefined}
+      keyboardVerticalOffset={0}
+    >
+      <ScrollView
+        style={styles.container}
+        contentContainerStyle={styles.scrollContent}
+        keyboardShouldPersistTaps="handled"
+        showsVerticalScrollIndicator={false}
+      >
+        <View style={styles.content}>
+          <Image
+            source={require('../../../assets/logo-full.png')}
+            style={styles.logoImage}
+            resizeMode="contain"
           />
-        )}
 
-        <TouchableOpacity onPress={handleBackToLogin}>
-          <Text style={[styles.backText, { color: theme.colors.textSecondary }]}>
-            Back to Login
-          </Text>
-        </TouchableOpacity>
+          <View style={styles.titleRow}>
+            <LoginAvatarIcon size={35} color={authColors.primary} style={styles.titleIcon} />
+            <Text style={styles.title}>Forgot password</Text>
+          </View>
+
+          <View style={styles.form}>
+            <View style={styles.fieldGroup}>
+              <Text style={styles.label}>Email or username *</Text>
+              <RNTextInput
+                style={[styles.input, emailFocused && styles.inputFocused]}
+                value={email}
+                onChangeText={setEmail}
+                onFocus={() => setEmailFocused(true)}
+                onBlur={() => setEmailFocused(false)}
+                placeholder="Enter email or username"
+                placeholderTextColor={authColors.placeholderGray}
+                keyboardType="email-address"
+                autoCapitalize="none"
+                autoCorrect={false}
+              />
+            </View>
+
+            <View style={styles.bottomRow}>
+              <View style={styles.signupRow}>
+                <Text style={styles.signupLabel}>Return to </Text>
+                <TouchableOpacity
+                  onPress={() => navigation.navigate(AUTH_ROUTES.LOGIN as any)}
+                  activeOpacity={0.8}
+                >
+                  <Text style={styles.signupLink}>Login</Text>
+                </TouchableOpacity>
+              </View>
+              <TouchableOpacity
+                style={[styles.primaryButton, loading && styles.primaryButtonDisabled]}
+                onPress={handleSubmit}
+                disabled={loading}
+                activeOpacity={0.98}
+              >
+                <LinearGradient
+                  colors={['#38E5F1', '#B4FB50']}
+                  start={{ x: 0, y: 1 }}
+                  end={{ x: 1, y: 0 }}
+                  style={styles.primaryButtonGradient}
+                >
+                  <Text style={styles.primaryButtonText}>
+                    {loading ? 'Sending...' : 'Submit'}
+                  </Text>
+                </LinearGradient>
+              </TouchableOpacity>
+            </View>
+          </View>
+        </View>
+      </ScrollView>
+
+      <View style={styles.bottomWave} pointerEvents="none">
+        <Svg
+          width={SCREEN_WIDTH}
+          height={220}
+          viewBox="0 0 916 465"
+          preserveAspectRatio="none"
+          style={styles.waveSvg}
+        >
+          <G opacity={0.5}>
+            <Path d="M-102.135 352.114C-102.135 315.782 -102.135 279.449 -102.135 243.117C-82.5617 249.995 -63.6695 248.2 -44.9474 240.276C-35.4162 236.239 -26.5658 231.305 -17.8855 225.922C10.3677 208.728 41.0038 196.767 75.0439 191.235C97.8507 187.497 120.828 185.703 143.805 183.609C174.101 180.769 200.482 187.646 223.629 205.738C235.883 215.307 248.989 224.128 262.945 232.053C305.836 256.274 350.939 260.162 398.765 245.21C426.848 236.389 453.059 224.128 480.291 213.812C508.034 203.346 536.287 195.122 566.753 193.926C603.006 192.58 638.407 197.963 673.639 204.99C724.699 215.157 774.397 231.006 827.16 234.893C863.583 237.435 899.154 235.192 932.684 221.587C960.597 210.373 987.488 196.617 1017.95 191.085C1017.95 231.903 1017.95 272.721 1017.95 313.539C1016.59 313.09 1015.06 312.791 1014.04 312.193C988.85 297.541 961.958 297.84 934.556 306.213C903.92 315.483 876.348 330.135 846.903 341.798C821.543 351.815 795.502 358.992 767.249 353.609C752.442 350.768 739.677 344.04 727.252 337.013C696.956 319.968 664.788 312.343 628.706 319.221C602.495 324.155 577.986 332.827 553.818 342.396C529.139 352.264 504.8 362.431 478.759 369.757C442.336 379.924 406.424 379.625 370.682 367.215C344.641 358.095 320.133 346.133 295.113 335.368C255.627 318.323 213.927 314.137 170.867 320.118C134.274 325.201 99.3826 335.368 64.3213 345.386C31.9832 354.656 -0.354904 363.178 -34.5652 366.019C-57.8827 367.963 -80.3491 368.262 -98.901 353.161C-99.5818 352.563 -100.943 352.413 -102.135 352.114Z" fill={authColors.primary} fillOpacity={0.6} />
+            <Path d="M1018.12 446.908C1018.12 450.945 1016.59 454.833 1013.87 457.823C1013.36 457.674 1013.02 457.524 1012.51 457.375C1012.34 457.375 1012.17 457.225 1011.83 457.225C1011.66 457.076 1011.32 457.076 1011.15 457.076C977.276 450.945 943.747 443.918 909.366 440.629C877.879 437.638 846.222 437.339 814.565 441.376C787.333 444.815 762.483 454.085 737.124 462.458C734.741 463.206 732.188 464.103 729.805 464.85H613.728C607.771 463.355 601.644 461.86 595.687 460.215C560.115 450.198 525.735 437.489 489.993 427.471C444.379 414.762 398.425 412.669 351.62 420.145C307.197 427.322 263.966 438.835 219.884 447.058C176.824 455.132 133.593 458.571 90.1917 449.151C61.0874 442.872 33.0044 433.751 4.24052 426.126C-22.1406 419.098 -48.6918 413.716 -76.6047 414.762C-85.1147 415.062 -93.6247 416.706 -102.135 416.407V352.265C-101.114 352.564 -99.752 352.713 -98.901 353.311C-80.1789 368.412 -57.8827 368.113 -34.5652 366.17C-0.354904 363.329 31.9832 354.657 64.3213 345.537C99.3826 335.519 134.274 325.352 170.867 320.268C214.098 314.288 255.627 318.474 295.113 335.519C320.133 346.284 344.641 358.245 370.682 367.366C406.424 379.776 442.336 380.075 478.759 369.908C504.63 362.731 529.139 352.414 553.818 342.546C577.986 332.977 602.495 324.305 628.706 319.371C664.788 312.493 696.956 320.119 727.252 337.164C739.677 344.191 752.442 351.069 767.249 353.76C795.502 359.142 821.543 351.966 846.903 341.948C876.177 330.286 903.92 315.633 934.556 306.363C962.129 297.99 988.85 297.691 1014.04 312.344C1015.23 312.942 1016.76 313.241 1017.95 313.69C1018.12 357.946 1018.12 402.353 1018.12 446.908Z" fill={authColors.primary} fillOpacity={0.8} />
+            <Path d="M1017.95 156.697C1007.4 157.296 997.36 160.884 986.978 162.529C965.192 166.117 943.576 164.024 922.301 160.734C881.113 154.455 840.435 156.996 799.757 163.276C749.888 171.051 700.53 170.752 651.172 159.837C617.643 152.511 584.113 145.334 549.562 142.344C516.543 139.503 484.716 143.839 454.08 155.053C435.188 161.931 416.295 169.257 396.042 172.995C370.512 177.779 346.683 172.696 323.706 163.426C304.984 155.95 286.603 148.026 267.881 140.699C252.563 134.719 236.223 132.326 219.544 131.429C180.057 129.037 142.443 137.41 104.829 146.381C75.384 153.408 46.1095 161.332 15.6436 165.07C-22.8217 169.855 -60.7763 169.107 -96.3482 152.661C-98.0502 151.913 -100.093 151.464 -101.965 150.866V44.8593C-90.9018 52.3352 -84.6044 63.2498 -76.605 72.8189C-66.2228 85.2287 -56.5213 98.2366 -43.2457 108.703C-29.6297 119.318 -14.4818 126.047 4.24022 123.953C21.0901 122.01 32.1531 111.843 41.1737 100.479C53.4281 85.2287 63.6402 68.7819 76.0648 53.5313C91.0424 34.9913 111.977 23.628 138.188 21.3853C163.548 19.2921 188.227 22.8805 211.885 31.4029C238.436 40.8224 262.434 54.5779 287.964 65.6421C304.133 72.6694 320.132 79.6966 337.663 83.4345C355.704 87.3219 368.639 83.285 379.022 69.5295C389.574 55.6245 400.807 42.1681 414.593 30.5058C431.613 16.3018 451.867 7.03175 474.164 2.39675C487.099 -0.294538 501.566 -0.444055 515.182 0.602559C537.989 2.39675 555.69 7.62982 573.901 16.7503C603.005 31.4029 627.514 51.4381 654.236 68.7819C683.68 87.92 714.827 103.918 752.952 104.367C773.886 104.666 791.758 97.6386 807.586 85.9763C824.096 73.8655 838.563 59.5119 856.774 49.0458C901.026 23.4785 958.724 23.03 1003.32 48.2982C1008.08 50.9895 1012.17 54.7274 1018.12 55.475C1018.12 80.2947 1018.12 105.264 1018.12 130.084C1017.95 138.755 1017.95 147.726 1017.95 156.697Z" fill={authColors.primary} fillOpacity={0.3} />
+            <Path d="M1017.95 156.697C1017.95 168.21 1017.95 179.573 1017.95 191.086C987.318 196.768 960.597 210.374 932.684 221.587C898.984 235.193 863.583 237.436 827.16 234.894C774.397 231.156 724.699 215.158 673.639 204.991C638.407 197.964 603.176 192.581 566.753 193.927C536.287 195.123 508.034 203.197 480.291 213.813C453.059 224.129 426.848 236.39 398.765 245.211C350.939 260.163 305.665 256.425 262.945 232.054C248.989 224.129 235.713 215.308 223.629 205.739C200.652 187.647 174.101 180.769 143.805 183.61C120.828 185.853 97.8507 187.498 75.0439 191.236C41.0038 196.768 10.3677 208.729 -17.8855 226.073C-26.5658 231.306 -35.4162 236.39 -44.9474 240.426C-63.6695 248.351 -82.5617 250.145 -102.135 243.267C-102.135 212.467 -102.135 181.517 -102.135 150.717C-100.263 151.315 -98.2202 151.614 -96.5182 152.511C-60.9463 168.958 -22.9916 169.855 15.4737 164.921C45.7694 161.183 75.0439 153.259 104.659 146.231C142.273 137.26 179.887 129.037 219.374 131.28C236.053 132.326 252.393 134.719 267.711 140.55C286.433 147.876 304.985 155.8 323.707 163.276C346.684 172.546 370.512 177.63 396.042 172.845C416.296 169.107 435.188 161.781 454.08 154.903C484.887 143.689 516.714 139.354 549.563 142.194C583.943 145.185 617.643 152.361 651.172 159.688C700.531 170.602 749.889 170.901 799.757 163.127C840.435 156.847 881.113 154.305 922.302 160.585C943.577 163.874 965.192 165.967 986.978 162.379C997.36 160.884 1007.4 157.295 1017.95 156.697Z" fill={authColors.primary} fillOpacity={0.5} />
+            <Path d="M613.898 464.852H-81.7107C-85.2849 464.852 -88.6889 464.104 -91.5823 462.609C-97.8798 459.619 -102.135 453.638 -102.135 446.91V416.409C-93.6247 416.558 -85.1147 415.063 -76.6047 414.764C-48.6918 413.867 -22.1406 419.249 4.24049 426.127C32.8342 433.753 61.0874 442.873 90.1917 449.153C133.593 458.572 176.824 455.283 219.884 447.059C263.966 438.836 307.197 427.323 351.62 420.147C398.595 412.521 444.549 414.614 489.992 427.473C525.564 437.49 559.945 450.199 595.687 460.217C601.814 461.862 607.771 463.506 613.898 464.852Z" fill={authColors.primary} />
+            <Path d="M1013.87 457.823C1012.51 459.467 1010.81 460.813 1008.93 462.009C1005.7 463.953 1001.79 464.999 997.702 464.999H729.806C732.359 464.252 734.742 463.504 737.125 462.607C762.485 454.085 787.504 444.964 814.566 441.525C846.223 437.488 877.71 437.787 909.368 440.778C943.748 444.067 977.448 450.945 1011.15 457.225C1011.32 457.225 1011.66 457.374 1011.83 457.374C1012 457.374 1012.17 457.524 1012.51 457.524C1013.02 457.524 1013.53 457.673 1013.87 457.823Z" fill={authColors.primary} />
+          </G>
+        </Svg>
       </View>
-    </ScrollView>
+    </KeyboardAvoidingView>
   );
 };
 
 const styles = StyleSheet.create({
-  container: { flex: 1 },
-  content: {
-    padding: 32,
-    minHeight: 700,
-  },
-  title: {
-    fontSize: 28,
-    fontWeight: '700',
-    marginBottom: 8,
-  },
-  subtitle: {
-    fontSize: 16,
-    marginBottom: 32,
-  },
-  input: {
-    marginBottom: 24,
-  },
-  button: {
-    marginBottom: 16,
-  },
-  backText: {
-    fontSize: 16,
-    textAlign: 'center',
-  },
+  wrapper: { flex: 1, backgroundColor: authColors.backgroundNavy },
+  container: { flex: 1, backgroundColor: authColors.backgroundNavy },
+  scrollContent: { flexGrow: 1, paddingHorizontal: 32, paddingBottom: 128, minHeight: '100%', justifyContent: 'center' },
+  content: { alignItems: 'center' },
+  logoImage: { width: 220, height: 90, marginBottom: 48 },
+  titleRow: { flexDirection: 'row', alignItems: 'center', marginBottom: 32 },
+  titleIcon: { marginRight: 10 },
+  title: { fontFamily: 'Neue Haas Unica', fontWeight: '900', fontSize: 25, lineHeight: 31, letterSpacing: 0, color: authColors.textWhite },
+  form: { width: '100%', maxWidth: 384, gap: 18 },
+  fieldGroup: { gap: 10 },
+  label: { fontSize: 16, fontWeight: '700', color: authColors.textWhite, marginBottom: 0 },
+  input: { width: '100%', height: 45, backgroundColor: authColors.cardDark, borderRadius: 5, borderWidth: 1, borderColor: authColors.inputBorder, paddingVertical: 12, paddingHorizontal: 16, fontSize: 14, color: authColors.textWhite },
+  inputFocused: { borderColor: authColors.primary },
+  bottomRow: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginTop: 28, gap: 16, flexWrap: 'wrap' },
+  primaryButton: { height: 39, borderRadius: 5, overflow: 'hidden', minWidth: 110 },
+  primaryButtonGradient: { flex: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'center', paddingVertical: 10, paddingHorizontal: 38, gap: 10 },
+  primaryButtonDisabled: { opacity: 0.7 },
+  primaryButtonText: { fontSize: 14, fontWeight: '700', color: authColors.backgroundNavy },
+  signupRow: { flexDirection: 'row', alignItems: 'center', flexWrap: 'wrap', flex: 1 },
+  signupLabel: { fontSize: 14, color: authColors.textWhite },
+  signupLink: { fontSize: 14, fontWeight: '700', color: authColors.primary },
+  bottomWave: { position: 'absolute', bottom: 0, left: 0, right: 0, height: 280 },
+  waveSvg: { position: 'absolute', bottom: 0, left: 0 },
 });

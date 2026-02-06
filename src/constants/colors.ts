@@ -3,6 +3,19 @@ export const colors = {
   // Primary brand color
   primary: '#137fec',
 
+  // Auth / Sign-in colors (from Sports Frontend sign-in-from)
+  auth: {
+    primary: '#b4fb50',
+    backgroundNavy: '#071a36',
+    cardDark: '#000c1e',
+    placeholderGray: '#a3a2a3',
+    textWhite: '#ffffff',
+    textMuted: '#9ca3af',
+    inputBorder: '#428389',
+    gradientTeal: 'rgb(66, 131, 137)',
+    gradientNavy: 'rgb(0, 12, 30)',
+  } as const,
+
   // Dark theme colors (default)
   background: '#000000',
   surface: '#1a1a1a',
