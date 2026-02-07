@@ -1,4 +1,4 @@
-import axios from 'axios/dist/browser/axios.cjs';
+import axios from 'axios';
 import { API_BASE_URL } from '../../config/api';
 import { User, AuthResponse, LoginCredentials, AuthTokens } from '../../types/auth';
 
@@ -122,6 +122,81 @@ export const authApi = {
    * Login with email/username and password
    * Uses axios - same as sports-frontend - often works where fetch fails (CORS, SSL, etc.)
    */
+  /**
+   * Login using fetch API as fallback for axios network issues
+   */
+  async loginWithFetch(credentials: LoginCredentials): Promise<AuthResponse> {
+    const body = {
+      email: credentials.email.trim(),
+      password: credentials.password,
+    };
+    const url = `${API_BASE_URL}/user/authenticate`;
+
+    if (__DEV__) {
+      console.log('[authApi.loginWithFetch] Starting request to:', url);
+    }
+
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 30000);
+
+    try {
+      const res = await fetch(url, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify(body),
+        signal: controller.signal,
+      });
+
+      clearTimeout(timeoutId);
+
+      const data = await res.json().catch(() => ({}));
+      const status = res.status;
+
+      if (__DEV__) {
+        console.log('[authApi.loginWithFetch] Response received:', status);
+      }
+
+      if (status !== 200 && status !== 201) {
+        const err: ApiError = {
+          status,
+          message: data?.message || data?.detail || data?.error || res.statusText,
+          results: data?.results,
+        };
+        throw new Error(getLoginErrorMessage(err));
+      }
+
+      const results = data?.results || data;
+
+      if (results?.two_factor?.status) {
+        throw new Error('Two-factor authentication is required. Please use the web app to complete login.');
+      }
+
+      const token = results?.token || results;
+      const profile = results?.profile || results;
+      const tokens = mapTokens(token);
+
+      if (!tokens.accessToken) {
+        throw new Error('Invalid response from server. Please try again.');
+      }
+
+      const user = mapProfileToUser(profile, token);
+      return { user, tokens };
+    } catch (err: any) {
+      if (err.name === 'AbortError') {
+        throw new Error('Request timed out. Please check your internet connection.');
+      }
+      throw err;
+    }
+  },
+
+  /**
+   * Login with email/username and password
+   * Uses axios - same as sports-frontend - often works where fetch fails (CORS, SSL, etc.)
+   * Falls back to fetch API if axios fails with network error
+   */
   async login(credentials: LoginCredentials): Promise<AuthResponse> {
     const body = {
       email: credentials.email.trim(),
@@ -130,15 +205,24 @@ export const authApi = {
     const url = `${API_BASE_URL}/user/authenticate`;
 
     try {
+      if (__DEV__) {
+        console.log('[authApi.login] Starting request to:', url);
+        console.log('[authApi.login] Platform:', (global as any).Platform?.OS);
+        console.log('[authApi.login] Axios version:', axios.VERSION);
+      }
+
       const res = await axios.post(url, body, {
         timeout: 30000,
         headers: {
           'Content-Type': 'application/json',
           Accept: 'application/json',
-          'User-Agent': 'iPractus-Mobile/1.0',
         },
         validateStatus: () => true,
       });
+
+      if (__DEV__) {
+        console.log('[authApi.login] Response received:', res.status);
+      }
 
       const data = res.data;
       const status = res.status;
@@ -198,8 +282,19 @@ export const authApi = {
       if (code === 'ECONNABORTED') {
         throw new Error('Request timed out. Please check your internet connection.');
       }
+      // Fall back to fetch API for network errors
       if (/network|failed|ECONNREFUSED|ENOTFOUND|ETIMEDOUT|EAI_AGAIN/i.test(msg) || code === 'ERR_NETWORK') {
-        throw new Error('Network error. Please check your internet connection.');
+        if (__DEV__) {
+          console.log('[authApi.login] Axios failed with network error, trying fetch API...');
+        }
+        try {
+          return await this.loginWithFetch(credentials);
+        } catch (fetchErr: any) {
+          if (__DEV__) {
+            console.warn('[authApi.login] Fetch fallback also failed:', fetchErr);
+          }
+          throw new Error('Network error. Please check your internet connection.');
+        }
       }
       throw new Error(msg || 'Connection failed. Please try again.');
     }

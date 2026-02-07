@@ -26,8 +26,11 @@
     },
     "android": {
       "package": "com.ipractus.app",
+      "usesCleartextTraffic": true,
       "permissions": [
-        "INTERNET","USE_BIOMETRIC",
+        "INTERNET",
+        "ACCESS_NETWORK_STATE",
+        "USE_BIOMETRIC",
         "USE_FINGERPRINT",
         "CAMERA",
         "READ_EXTERNAL_STORAGE",
