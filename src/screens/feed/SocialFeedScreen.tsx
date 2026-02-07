@@ -7,80 +7,72 @@ import {
   TouchableOpacity,
   Image,
   TextInput,
+  Platform,
 } from 'react-native';
-import { useTheme } from '../../hooks/useTheme';
+import { LinearGradient } from 'expo-linear-gradient';
 import Ionicons from '@expo/vector-icons/Ionicons';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
+const FEED_COLORS = {
+  primary: '#b4fb50',
+  backgroundNavy: '#071a36',
+  cardDark: '#000c1e',
+  accentTeal: '#428389',
+  border: 'rgba(255,255,255,0.1)',
+  textMuted: '#9ca3af',
+};
 
 const POSTS = [
   {
     id: '1',
     author: 'Alex Rivera',
-    avatar: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAQW7DdRQCJr8y3p-NmQYMgroRfhRwCoxoubrJI-PzVFMohEkKraE6Y6G9ngvi-I6-0UBFjhsc8Ca0Pa5eu5FVRGluWqvyLs1HSmIP4hO5TBkGUQta7Id1JmflG0L3M1eNuYZE3e5tJua1yTeU7eL59QtzCCK-aEwTj_P8oewGLErfRLQAemswA6MitwtqLynMm57SmWq9UDBQQDDGmD-mWUHsaZeirIhF5XMlP0MLwXifFxC-noexm0a7b9P07fJbnFpf2i7WmWWgO',
+    avatar: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAfoAFpf2-Cob8RsKf5FX1QxLiNH9p26Wgtsuayce7R5un-HsCskV7fI2TpYWpY0s5gjTiIwXOD0spUBBv1GT3aZeadXuyxUTwTFS7SEE3KRmKQR3bX-l12YoC_I_AXDqGk7P2RG_rAarp2HS136O62ppr0oyH8NpKFU_72A03llKkXghp3zDeIU99mq5t-O9eDlz2vjr8gu6zI0Wkuco8DWcOYqM_tvgePFwbicGTn944ra9CzYEPfzuseogOmYc4AtW6en20Caqmw',
     badge: 'Athlete',
-    badgeColor: '#137fec',
-    badgeBg: 'rgba(19, 127, 236, 0.1)',
+    badgeColor: '#60a5fa',
+    badgeBg: 'rgba(59, 130, 246, 0.2)',
     time: '2h ago',
     location: 'Pro League',
-    content: 'Just finished a great morning session! Working on my explosive power today. Feels good to be back on the grind. #iPractus #TrainingDay',
-    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCfZYLIZ8FQnPnHGdBtWwowLS0h8TIA1pDFZ_rlwYZH4s0X2f5ZJU6I5HXxLl_SQPwOGpIu-cGhcxMYnOuJJE1WSlj41S9tEdT9EvaK_kWMsHMWkyFYGiRzEzADVCCTTe_X0kFW2pvHxmGPBeT77hTiooP2pZxMu1KdIDaS3LmQJ8wx_Q2bNr-6Ua7bfCB5YtJ9mAwmpekFYQtqcNr953N9itBVCh1LMof_LbYdHBxfBddrfKSRydENwmAYF3RYA6j-urmcPgpZhuuO',
+    content: "Just finished a great morning session! Working on my explosive power today. Feels good to be back on the grind. #iPrActUS #TrainingDay",
+    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuC4kCowaqWO_4m7nKa3VV5MF-1xsiULYJ9GchPVx8bCfDcWb1S3NTYPRae67ivS5RyJLuifn0lIMjbGbQKFfrAfd-pgZfXiOD_szCsO2jxi4k5UaphqNFQ-mN7hQFUIp5ILMxY2BlLI_jWznyVkTqegZTufLbHm-K6Uge8foMfZxg2-9SjRNErYmrdapGRRnVtg8p-cbkXCfSG1xPtXTvqgMsjz01-j0t5aY_uJbHR5kmh-Pxvauh85683I9wPGsiMpknkV9iBTiLvE',
+    aspectRatio: 4 / 3,
     likes: 24,
     comments: 5,
-    likeIcon: 'favorite',
-    likeType: 'like',
+    isVideo: false,
+    likeLabel: 'Like',
+    statsIcon: 'thumbs-up',
   },
   {
     id: '2',
     author: 'Coach Sarah Jenkins',
-    avatar: 'https://lh3.googleusercontent.com/aida-public/AB6AXuChVMRRR7B1quJUa-Zvdya8PCTDkEoq0S_rxNbKb57CUDxqQVEkLShKXPFMJwamokXSBMFK5XY5Ic6DN3AE421Pae6S2RYbVsKElQzLuTdmjP4UR-5mm8w5yMjHDCvrvhA9k8p-DyKnAo2LI3DChLrCLdSQ1pYgq-R9_0lQKvk0tXadQ4LLi8mODt3oPl3JAXUZBMuEODCDboggLZxNxFx7fliQwgr4f0WRKJg8v5M7aBQd4qGmpG4OSIt94KKnyfhdwUOJgeUtfjRm',
+    avatar: null,
     badge: 'Coach',
-    badgeColor: '#10b981',
-    badgeBg: 'rgba(16, 185, 129, 0.1)',
+    badgeColor: '#34d399',
+    badgeBg: 'rgba(16, 185, 129, 0.2)',
     time: '4h ago',
     location: 'High Performance',
-    content: 'Quick tip for all my athletes: Consistency is key. Even on the days you don\'t feel like it, show up for your future self. Discipline over motivation, always. 🏀',
-    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBx43sWg63Bn5z4r1xe4RLgGYETSkDPHXgf-wa12q1QV1oF8Hlzi1NURnTuFmc5mUXgN5onCD5l-FOhm9wcxIsaJSQqlk7ex47JFvNA78iXitGaO0E67p5F5NEqbfNru3Fs9bifhAVXfFjp2VhhDaFSzQAJlSUEzpMtq0L3R1Pbw4i46z1pGlzqAvzfZLPObk3Cuf4OtzA4X9EpDIRQaRmB22YutXdi-yX-6RA6H975hQqM_84fy_JKHam_MjwuvLk4ydUHmVn9hovQ',
-    isVideo: true,
+    content: "Quick tip for all my athletes: Consistency is key. Even on the days you don't feel like it, show up for your future self. 🏀",
+    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuALaDh-6DWXPmGruY0Li2lxzHkyVmvUV545Ln2721ZPPEB1jM6QfPvUmN4Pdf3H3J7iX_G_NIGOONQ3i3Vfe6LyLqOwarLLva2vHw-97LolS-n9GJrxmFwK4mEAKHfhJnEhESpUgKWOBawBA4dSfGWU1kLDoscGFEtDRPx8mptZ3fXjKKyTxG87paHPDk4W2l6bM7ivea0foIDeH0vGpO9VSbv8DixOsajerCL-ZZhSwa_J6zwyw-RCBdlz9-S9uqBKbAJCMKPABGGp',
+    aspectRatio: 16 / 9,
     likes: 56,
     comments: 12,
     shares: 3,
-    likeIcon: 'thumb_up',
-    likeType: 'helpful',
-  },
-  {
-    id: '3',
-    author: 'James Wilson',
-    avatar: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAkQp6sU7L-CyWZ2m5Lsxz6jQgu4hryx3MvS59pEI1W9ah51sljgppOWK3wZBKOhWRjh0degwJeD_IrLKcu53_DYEDhDhoZxLThwIg3MT05vgCOHSDkIcYihhb9OZwZUrh7Z9rQT2lpVkOueks65vgFrPLW-7fsDfea4zANu4VCy90B-hG6LB5yFuRaeXxdLPWVDP0Y_euVw42QLhfSiCp13Lr8M8-iBH3Xc8XjBWTi-S1zVdxzJRLrV_TUzwKLlq6L2Rq45bCbtF_X',
-    badge: 'Fan',
-    badgeColor: '#f97316',
-    badgeBg: 'rgba(249, 115, 22, 0.1)',
-    time: '6h ago',
-    location: 'Stadium Vibes',
-    content: 'Unbelievable game tonight! The atmosphere was electric. Who else was there to witness that buzzer beater? 🏟️🔥',
-    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBkPhIemepRA3xOiQWumjgUKlVa5jPzSQh9NBm7YsnCbY007iakZDof9joyyWtlq-vOB7t2awGCbbslHGsXYFFeRgzMCZTmFv62SVkw9M-lanpKPuXwUA4Tonnr0O6bo91EP47S3BiO8KywN_FbM_3tE__Zklg_2VICq_B7Ctl4AYty77mcmieGZQZ-m_elTZs60ZY8UhMuXhayUAVSkbJUqlqRXPd3rqdTiihrUQVVl9dTfV4Ui06efbZj7utYNPLFDoRMG1pYwbAk',
-    likes: 102,
-    comments: 42,
-    likeIcon: 'favorite',
-    likeType: 'cheer',
+    isVideo: true,
+    likeLabel: 'Helpful',
+    statsIcon: 'thumbs-up',
   },
 ];
 
-type TabType = 'home' | 'discover' | 'teams' | 'profile';
+type TabType = 'home' | 'teams' | 'feed' | 'profile';
 
 export const SocialFeedScreen: React.FC = () => {
-  const { theme } = useTheme();
-  const [activeTab, setActiveTab] = useState<TabType>('home');
+  const insets = useSafeAreaInsets();
+  const [activeTab, setActiveTab] = useState<TabType>('feed');
   const [likedPosts, setLikedPosts] = useState<Set<string>>(new Set());
 
   const toggleLike = (postId: string) => {
     setLikedPosts((prev) => {
-      const newSet = new Set(prev);
-      if (newSet.has(postId)) {
-        newSet.delete(postId);
-      } else {
-        newSet.add(postId);
-      }
-      return newSet;
+      const next = new Set(prev);
+      next.has(postId) ? next.delete(postId) : next.add(postId);
+      return next;
     });
   };
 
@@ -88,286 +80,293 @@ export const SocialFeedScreen: React.FC = () => {
     const isLiked = likedPosts.has(post.id);
 
     return (
-      <View key={post.id} style={[styles.postCard, { backgroundColor: theme.mode === 'dark' ? '#1a242d' : '#fff' }]}>
-        {/* Post Header */}
-        <View style={styles.postHeader}>
-          <View style={styles.authorInfo}>
-            <Image source={{ uri: post.avatar }} style={styles.avatar} />
-            <View style={styles.authorDetails}>
-              <View style={styles.authorNameRow}>
-                <Text style={[styles.authorName, { color: theme.mode === 'dark' ? '#fff' : '#111418' }]}>
-                  {post.author}
-                </Text>
-                <View style={[styles.badge, { backgroundColor: post.badgeBg }]}>
-                  <Text style={[styles.badgeText, { color: post.badgeColor }]}>
-                    {post.badge}
-                  </Text>
+      <View key={post.id} style={styles.card}>
+        <LinearGradient
+          colors={[FEED_COLORS.accentTeal, FEED_COLORS.cardDark] as any}
+          locations={[0, 0.65]}
+          start={{ x: 0, y: 0 }}
+          end={{ x: 0.9, y: 1 }}
+          style={StyleSheet.absoluteFill}
+        />
+        <View style={styles.cardInner}>
+          {/* Header */}
+          <View style={styles.postHeader}>
+            <View style={styles.authorRow}>
+              {post.avatar ? (
+                <Image source={{ uri: post.avatar }} style={styles.avatar} />
+              ) : (
+                <View style={[styles.avatarPlaceholder, { backgroundColor: FEED_COLORS.accentTeal }]}>
+                  <Ionicons name="person" size={24} color="#fff" />
+                </View>
+              )}
+              <View>
+                <View style={styles.nameBadgeRow}>
+                  <Text style={styles.authorName}>{post.author}</Text>
+                  <View style={[styles.badge, { backgroundColor: post.badgeBg }]}>
+                    <Text style={[styles.badgeText, { color: post.badgeColor }]}>{post.badge}</Text>
+                  </View>
+                </View>
+                <Text style={styles.postMeta}>{post.time} • {post.location}</Text>
+              </View>
+            </View>
+            <TouchableOpacity>
+              <Ionicons name="ellipsis-horizontal" size={22} color={FEED_COLORS.textMuted} />
+            </TouchableOpacity>
+          </View>
+
+          {/* Content */}
+          <View style={styles.contentWrap}>
+            <Text style={styles.contentText}>{post.content}</Text>
+          </View>
+
+          {/* Media */}
+          <View style={[styles.mediaWrap, { aspectRatio: post.aspectRatio }]}>
+            <Image source={{ uri: post.image }} style={[styles.mediaImage, post.isVideo && { opacity: 0.6 }]} resizeMode="cover" />
+            {post.isVideo && (
+              <View style={styles.videoOverlay}>
+                <View style={styles.playBtn}>
+                  <Ionicons name="play" size={36} color="#fff" />
                 </View>
               </View>
-              <Text style={[styles.postMeta, { color: '#617589' }]}>
-                {post.time} • {post.location}
-              </Text>
-            </View>
-          </View>
-          <TouchableOpacity>
-            <Ionicons name="ellipsis-horizontal" size={24} color="#617589" />
-          </TouchableOpacity>
-        </View>
-
-        {/* Post Content */}
-        <Text style={[styles.postContent, { color: theme.mode === 'dark' ? '#d1d5db' : '#111418' }]}>
-          {post.content}
-        </Text>
-
-        {/* Media */}
-        <View style={[styles.mediaContainer, { aspectRatio: post.isVideo ? 4/3 : 16/9 }]}>
-          <Image source={{ uri: post.image }} style={styles.mediaImage} resizeMode="cover" />
-          {post.isVideo && (
-            <View style={styles.videoOverlay}>
-              <View style={styles.playButton}>
-                <Ionicons name="play" size={32} color="#fff" />
-              </View>
-            </View>
-          )}
-        </View>
-
-        {/* Interaction Stats */}
-        <View style={styles.statsRow}>
-          <View style={styles.likeAvatars}>
-            <View style={[styles.likeAvatar, { backgroundColor: '#137fec' }]}>
-              <Ionicons name={post.likeIcon as any} size={10} color="#fff" />
-            </View>
-            {post.id === '1' && (
-              <View style={[styles.likeAvatar, { backgroundColor: '#60a5fa' }]}>
-                <Ionicons name="thumb_up" size={10} color="#fff" />
-              </View>
             )}
           </View>
-          <View style={styles.statsNumbers}>
-            <Text style={[styles.statText, { color: '#617589' }]}>
-              {post.likes} likes
-            </Text>
-            <Text style={[styles.statText, { color: '#617589' }]}>
+
+          {/* Stats */}
+          <View style={styles.statsRow}>
+            <View style={styles.likesRow}>
+              <Ionicons name={post.statsIcon as any} size={18} color={FEED_COLORS.primary} />
+              <Text style={styles.statsText}>
+                {post.likes} {post.likes === 1 ? 'like' : post.id === '2' ? 'people liked this' : 'likes'}
+              </Text>
+            </View>
+            <Text style={styles.statsText}>
               {post.comments} comments
+              {post.shares ? ` • ${post.shares} shares` : ''}
             </Text>
-            {post.shares && (
-              <Text style={[styles.statText, { color: '#617589' }]}>
-                {post.shares} shares
-              </Text>
-            )}
           </View>
-        </View>
 
-        {/* Action Buttons */}
-        <View style={[styles.actionsRow, { borderTopColor: theme.mode === 'dark' ? '#374151' : '#f3f4f6' }]}>
-          <TouchableOpacity
-            style={styles.actionButton}
-            onPress={() => toggleLike(post.id)}
-          >
-            <Ionicons
-              name={isLiked ? (post.likeIcon === 'favorite' ? 'heart' : 'thumb_up') as any : post.likeIcon as any}
-              size={20}
-              color={isLiked ? '#137fec' : '#617589'}
-            />
-            <Text style={[styles.actionText, { color: '#617589' }]}>
-              {post.likeType.charAt(0).toUpperCase() + post.likeType.slice(1)}
-            </Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.actionButton}>
-            <Ionicons name="chatbubble-outline" size={20} color="#617589" />
-            <Text style={[styles.actionText, { color: '#617589' }]}>Comment</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.actionButton}>
-            <Ionicons name="share-outline" size={20} color="#617589" />
-            <Text style={[styles.actionText, { color: '#617589' }]}>Share</Text>
-          </TouchableOpacity>
+          {/* Actions */}
+          <View style={styles.actionsRow}>
+            <TouchableOpacity style={styles.actionBtn} onPress={() => toggleLike(post.id)}>
+              <Ionicons
+                name={isLiked ? 'thumbs-up' : 'thumbs-up-outline'}
+                size={22}
+                color={isLiked ? FEED_COLORS.primary : FEED_COLORS.textMuted}
+              />
+              <Text style={[styles.actionLabel, { color: isLiked ? FEED_COLORS.primary : FEED_COLORS.textMuted }]}>
+                {post.likeLabel}
+              </Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.actionBtn}>
+              <Ionicons name="chatbubble-outline" size={22} color={FEED_COLORS.textMuted} />
+              <Text style={[styles.actionLabel, { color: FEED_COLORS.textMuted }]}>Comment</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.actionBtn}>
+              <Ionicons name="share-outline" size={22} color={FEED_COLORS.textMuted} />
+              <Text style={[styles.actionLabel, { color: FEED_COLORS.textMuted }]}>Share</Text>
+            </TouchableOpacity>
+          </View>
         </View>
       </View>
     );
   };
 
+  const Header = () => (
+    <View style={styles.header}>
+      <View style={styles.headerLeft}>
+        <View style={styles.headerAvatarWrap}>
+          <Image
+            source={{ uri: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAfoAFpf2-Cob8RsKf5FX1QxLiNH9p26Wgtsuayce7R5un-HsCskV7fI2TpYWpY0s5gjTiIwXOD0spUBBv1GT3aZeadXuyxUTwTFS7SEE3KRmKQR3bX-l12YoC_I_AXDqGk7P2RG_rAarp2HS136O62ppr0oyH8NpKFU_72A03llKkXghp3zDeIU99mq5t-O9eDlz2vjr8gu6zI0Wkuco8DWcOYqM_tvgePFwbicGTn944ra9CzYEPfzuseogOmYc4AtW6en20Caqmw' }}
+            style={styles.headerAvatar}
+          />
+        </View>
+        <Text style={styles.brandLogo}>
+          <Text style={styles.brandPart}>iPR</Text><Text style={styles.brandSlash}>/</Text><Text style={styles.brandPart}>ACT</Text><Text style={styles.brandSlash}>:</Text><Text style={styles.brandPart}>US</Text>
+        </Text>
+      </View>
+      <View style={styles.headerRight}>
+        <TouchableOpacity>
+          <Ionicons name="search" size={28} color="#fff" />
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.notifBtn}>
+          <Ionicons name="notifications-outline" size={28} color="#fff" />
+          <View style={styles.notifBadge} />
+        </TouchableOpacity>
+      </View>
+    </View>
+  );
+
+  const Composer = () => (
+    <View style={styles.composer}>
+      <Image
+        source={{ uri: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAfoAFpf2-Cob8RsKf5FX1QxLiNH9p26Wgtsuayce7R5un-HsCskV7fI2TpYWpY0s5gjTiIwXOD0spUBBv1GT3aZeadXuyxUTwTFS7SEE3KRmKQR3bX-l12YoC_I_AXDqGk7P2RG_rAarp2HS136O62ppr0oyH8NpKFU_72A03llKkXghp3zDeIU99mq5t-O9eDlz2vjr8gu6zI0Wkuco8DWcOYqM_tvgePFwbicGTn944ra9CzYEPfzuseogOmYc4AtW6en20Caqmw' }}
+        style={styles.composerAvatar}
+      />
+      <TextInput
+        style={styles.composerInput}
+        placeholder="What's on your mind?"
+        placeholderTextColor="#9ca3af"
+        editable={false}
+      />
+      <TouchableOpacity>
+        <Ionicons name="image-outline" size={28} color={FEED_COLORS.primary} />
+      </TouchableOpacity>
+    </View>
+  );
+
+  const BottomNav = () => (
+    <View style={[styles.bottomNav, { paddingBottom: Math.max(32, insets.bottom) }]}>
+      {([
+        { key: 'home', icon: activeTab === 'home' ? 'home' : 'home-outline', label: 'Home' },
+        { key: 'teams', icon: activeTab === 'teams' ? 'people' : 'people-outline', label: 'Teams' },
+      ] as const).map(({ key, icon, label }) => (
+        <TouchableOpacity key={key} style={styles.navItem} onPress={() => setActiveTab(key)}>
+          <Ionicons name={icon as any} size={28} color={activeTab === key ? FEED_COLORS.primary : FEED_COLORS.textMuted} />
+          <Text style={[styles.navLabel, { color: activeTab === key ? FEED_COLORS.primary : FEED_COLORS.textMuted }]}>{label}</Text>
+        </TouchableOpacity>
+      ))}
+      <TouchableOpacity style={styles.addBtnWrap}>
+        <View style={styles.addBtn}>
+          <Ionicons name="add" size={32} color={FEED_COLORS.backgroundNavy} />
+        </View>
+      </TouchableOpacity>
+      {([
+        { key: 'feed', icon: activeTab === 'feed' ? 'newspaper' : 'newspaper-outline', label: 'Feed' },
+        { key: 'profile', icon: activeTab === 'profile' ? 'person-circle' : 'person-circle-outline', label: 'Profile' },
+      ] as const).map(({ key, icon, label }) => (
+        <TouchableOpacity key={key} style={styles.navItem} onPress={() => setActiveTab(key)}>
+          <Ionicons name={icon as any} size={28} color={activeTab === key ? FEED_COLORS.primary : FEED_COLORS.textMuted} />
+          <Text style={[styles.navLabel, { color: activeTab === key ? FEED_COLORS.primary : FEED_COLORS.textMuted }]}>{label}</Text>
+        </TouchableOpacity>
+      ))}
+    </View>
+  );
+
   return (
-    <SafeAreaView style={[styles.container, { backgroundColor: theme.mode === 'dark' ? '#101922' : '#f6f7f8' }]}>
-      {/* Header */}
-      <View style={[styles.header, { backgroundColor: theme.mode === 'dark' ? 'rgba(16, 25, 34, 0.8)' : 'rgba(255, 255, 255, 0.8)', borderBottomColor: theme.mode === 'dark' ? '#374151' : '#dbe0e6' }]}>
-        <View style={styles.headerLeft}>
-          <Ionicons name="trophy" size={28} color="#137fec" />
-          <Text style={[styles.headerTitle, { color: '#137fec' }]}>iPractus</Text>
+    <View style={styles.container}>
+      <SafeAreaView edges={['top']} style={styles.safeTop} />
+      <Header />
+      <ScrollView style={styles.scroll} contentContainerStyle={styles.scrollContent} showsVerticalScrollIndicator={false}>
+        <Composer />
+        <View style={styles.feedList}>
+          {POSTS.map((p) => (
+            <View key={p.id} style={styles.cardSpacer}>
+              {renderPost(p)}
+            </View>
+          ))}
         </View>
-        <TouchableOpacity style={styles.notificationButton}>
-          <Ionicons name="notifications-outline" size={24} color={theme.mode === 'dark' ? '#fff' : '#111418'} />
-          <View style={styles.notificationBadge} />
-        </TouchableOpacity>
-      </View>
-
-      {/* Composer */}
-      <View style={[styles.composer, { backgroundColor: theme.mode === 'dark' ? '#1a242d' : '#fff' }]}>
-        <View style={styles.composerAvatar} />
-        <View style={[styles.composerInput, { backgroundColor: theme.mode === 'dark' ? 'rgba(55, 65, 81, 0.5)' : '#f6f7f8' }]}>
-          <Text style={[styles.composerPlaceholder, { color: '#617589' }]}>What's on your mind?</Text>
-        </View>
-        <TouchableOpacity style={[styles.composerImageButton, { backgroundColor: 'rgba(19, 127, 236, 0.1)' }]}>
-          <Ionicons name="image-outline" size={20} color="#137fec" />
-        </TouchableOpacity>
-      </View>
-
-      {/* Posts Feed */}
-      <ScrollView showsVerticalScrollIndicator={false}>
-        {POSTS.map((post) => renderPost(post))}
-        <View style={{ height: 80 }} />
+        <View style={{ height: 110 }} />
       </ScrollView>
-
-      {/* Bottom Navigation */}
-      <View style={[styles.bottomNav, { backgroundColor: theme.mode === 'dark' ? 'rgba(26, 36, 45, 0.95)' : 'rgba(255, 255, 255, 0.95)', borderTopColor: theme.mode === 'dark' ? '#374151' : '#dbe0e6' }]}>
-        <TouchableOpacity
-          style={styles.navItem}
-          onPress={() => setActiveTab('home')}
-        >
-          <Ionicons
-            name={activeTab === 'home' ? 'home' : 'home-outline'}
-            size={24}
-            color={activeTab === 'home' ? '#137fec' : '#617589'}
-          />
-          <Text style={[styles.navLabel, { color: activeTab === 'home' ? '#137fec' : '#617589', fontWeight: activeTab === 'home' ? '700' : '500' }]}>
-            Home
-          </Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity
-          style={styles.navItem}
-          onPress={() => setActiveTab('discover')}
-        >
-          <Ionicons
-            name={activeTab === 'discover' ? 'compass' : 'compass-outline'}
-            size={24}
-            color={activeTab === 'discover' ? '#137fec' : '#617589'}
-          />
-          <Text style={[styles.navLabel, { color: activeTab === 'discover' ? '#137fec' : '#617589', fontWeight: '500' }]}>
-            Discover
-          </Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity style={styles.navItem}>
-          <View style={[styles.addBtn, { backgroundColor: '#137fec', shadowColor: '#137fec' }]}>
-            <Ionicons name="add" size={24} color="#fff" />
-          </View>
-          <Text style={[styles.navLabel, { color: '#617589', fontWeight: '500' }]}>
-            Post
-          </Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity
-          style={styles.navItem}
-          onPress={() => setActiveTab('teams')}
-        >
-          <Ionicons
-            name={activeTab === 'teams' ? 'people' : 'people-outline'}
-            size={24}
-            color={activeTab === 'teams' ? '#137fec' : '#617589'}
-          />
-          <Text style={[styles.navLabel, { color: activeTab === 'teams' ? '#137fec' : '#617589', fontWeight: '500' }]}>
-            Teams
-          </Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity
-          style={styles.navItem}
-          onPress={() => setActiveTab('profile')}
-        >
-          <Ionicons
-            name={activeTab === 'profile' ? 'person' : 'person-outline'}
-            size={24}
-            color={activeTab === 'profile' ? '#137fec' : '#617589'}
-          />
-          <Text style={[styles.navLabel, { color: activeTab === 'profile' ? '#137fec' : '#617589', fontWeight: '500' }]}>
-            Profile
-          </Text>
-        </TouchableOpacity>
-      </View>
-    </SafeAreaView>
+      <BottomNav />
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: FEED_COLORS.backgroundNavy,
   },
+  safeTop: { backgroundColor: 'transparent' },
   header: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
     paddingHorizontal: 16,
-    paddingVertical: 12,
+    height: 64,
+    borderBottomWidth: 1,
+    borderBottomColor: FEED_COLORS.border,
+    backgroundColor: 'rgba(7, 26, 54, 0.9)',
   },
   headerLeft: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 8,
+    gap: 12,
   },
-  headerTitle: {
-    fontSize: 20,
-    fontWeight: '700',
-    letterSpacing: -0.5,
-  },
-  notificationButton: {
-    position: 'relative',
+  headerAvatarWrap: {
     width: 40,
     height: 40,
-    alignItems: 'center',
-    justifyContent: 'center',
     borderRadius: 20,
+    borderWidth: 2,
+    borderColor: FEED_COLORS.primary,
+    overflow: 'hidden',
   },
-  notificationBadge: {
+  headerAvatar: {
+    width: '100%',
+    height: '100%',
+  },
+  brandLogo: {
+    fontSize: 20,
+    fontWeight: '900',
+    letterSpacing: -0.5,
+    fontStyle: 'italic',
+  },
+  brandPart: { color: FEED_COLORS.primary },
+  brandSlash: { color: 'rgba(255,255,255,0.8)', marginHorizontal: 2 },
+  headerRight: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 20,
+  },
+  notifBtn: {
+    position: 'relative',
+  },
+  notifBadge: {
     position: 'absolute',
-    top: 8,
-    right: 8,
+    top: 4,
+    right: 2,
     width: 8,
     height: 8,
     borderRadius: 4,
-    backgroundColor: '#ef4444',
+    backgroundColor: FEED_COLORS.primary,
+    borderWidth: 1,
+    borderColor: FEED_COLORS.backgroundNavy,
   },
   composer: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 12,
+    gap: 16,
     padding: 16,
-    marginBottom: 8,
+    borderBottomWidth: 1,
+    borderBottomColor: 'rgba(255,255,255,0.05)',
   },
   composerAvatar: {
     width: 40,
     height: 40,
     borderRadius: 20,
-    backgroundColor: '#e5e7eb',
   },
   composerInput: {
     flex: 1,
+    backgroundColor: 'rgba(255,255,255,0.05)',
+    borderRadius: 999,
     paddingVertical: 10,
-    paddingHorizontal: 16,
-    borderRadius: 20,
-  },
-  composerPlaceholder: {
+    paddingHorizontal: 20,
     fontSize: 14,
+    color: '#fff',
   },
-  composerImageButton: {
-    width: 40,
-    height: 40,
-    borderRadius: 20,
-    alignItems: 'center',
-    justifyContent: 'center',
+  scroll: { flex: 1 },
+  scrollContent: { paddingBottom: 16 },
+  feedList: {
+    paddingHorizontal: 16,
+    paddingTop: 16,
   },
-  postCard: {
-    marginBottom: 8,
-    padding: 16,
-    borderTopWidth: 1,
-    borderBottomWidth: 1,
+  cardSpacer: {
+    marginBottom: 16,
   },
+  card: {
+    borderRadius: 16,
+    borderWidth: 1,
+    borderColor: FEED_COLORS.border,
+    overflow: 'hidden',
+  },
+  cardInner: {},
   postHeader: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    marginBottom: 12,
+    padding: 16,
   },
-  authorInfo: {
+  authorRow: {
     flexDirection: 'row',
     alignItems: 'center',
     gap: 12,
@@ -376,22 +375,31 @@ const styles = StyleSheet.create({
     width: 44,
     height: 44,
     borderRadius: 22,
+    borderWidth: 1,
+    borderColor: 'rgba(255,255,255,0.2)',
   },
-  authorDetails: {
-    flex: 1,
+  avatarPlaceholder: {
+    width: 44,
+    height: 44,
+    borderRadius: 22,
+    borderWidth: 1,
+    borderColor: 'rgba(255,255,255,0.2)',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
-  authorNameRow: {
+  nameBadgeRow: {
     flexDirection: 'row',
     alignItems: 'center',
     gap: 8,
-    marginBottom: 4,
+    marginBottom: 2,
   },
   authorName: {
-    fontSize: 15,
+    fontSize: 14,
     fontWeight: '700',
+    color: '#fff',
   },
   badge: {
-    paddingHorizontal: 6,
+    paddingHorizontal: 8,
     paddingVertical: 2,
     borderRadius: 4,
   },
@@ -399,21 +407,24 @@ const styles = StyleSheet.create({
     fontSize: 10,
     fontWeight: '700',
     textTransform: 'uppercase',
-    letterSpacing: 0.5,
+    letterSpacing: 1,
   },
   postMeta: {
     fontSize: 12,
+    color: FEED_COLORS.textMuted,
   },
-  postContent: {
+  contentWrap: {
+    paddingHorizontal: 16,
+    paddingBottom: 12,
+  },
+  contentText: {
     fontSize: 14,
-    lineHeight: 20,
-    marginBottom: 12,
+    lineHeight: 22,
+    color: 'rgba(229, 231, 235, 1)',
   },
-  mediaContainer: {
+  mediaWrap: {
     width: '100%',
-    borderRadius: 12,
-    overflow: 'hidden',
-    marginBottom: 16,
+    backgroundColor: '#000',
   },
   mediaImage: {
     width: '100%',
@@ -421,17 +432,16 @@ const styles = StyleSheet.create({
   },
   videoOverlay: {
     ...StyleSheet.absoluteFillObject,
-    backgroundColor: 'rgba(0, 0, 0, 0.2)',
     alignItems: 'center',
     justifyContent: 'center',
   },
-  playButton: {
-    width: 64,
-    height: 64,
-    borderRadius: 32,
-    backgroundColor: 'rgba(255, 255, 255, 0.2)',
+  playBtn: {
+    width: 56,
+    height: 56,
+    borderRadius: 28,
+    backgroundColor: 'rgba(255,255,255,0.2)',
     borderWidth: 1,
-    borderColor: 'rgba(255, 255, 255, 0.4)',
+    borderColor: 'rgba(255,255,255,0.3)',
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -439,72 +449,81 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    marginBottom: 16,
+    paddingHorizontal: 16,
+    paddingTop: 16,
+    paddingBottom: 16,
   },
-  likeAvatars: {
+  likesRow: {
     flexDirection: 'row',
-  },
-  likeAvatar: {
-    width: 20,
-    height: 20,
-    borderRadius: 10,
     alignItems: 'center',
-    justifyContent: 'center',
-    marginLeft: -6,
-    borderWidth: 2,
-    borderColor: '#fff',
+    gap: 4,
   },
-  statsNumbers: {
-    flexDirection: 'row',
-    gap: 12,
-  },
-  statText: {
+  statsText: {
     fontSize: 12,
+    color: FEED_COLORS.textMuted,
   },
   actionsRow: {
     flexDirection: 'row',
-    paddingTop: 8,
+    alignItems: 'center',
+    justifyContent: 'space-around',
     borderTopWidth: 1,
+    borderTopColor: 'rgba(255,255,255,0.05)',
+    paddingTop: 12,
+    paddingBottom: 16,
   },
-  actionButton: {
-    flex: 1,
+  actionBtn: {
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'center',
     gap: 8,
-    paddingVertical: 8,
   },
-  actionText: {
-    fontSize: 12,
+  actionLabel: {
+    fontSize: 14,
     fontWeight: '600',
   },
   bottomNav: {
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    right: 0,
     flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
+    alignItems: 'flex-end',
+    justifyContent: 'space-around',
+    height: 90,
+    paddingBottom: 32,
     paddingHorizontal: 24,
-    paddingBottom: 24,
-    paddingTop: 8,
+    backgroundColor: 'rgba(7, 26, 54, 0.95)',
+    borderTopWidth: 1,
+    borderTopColor: FEED_COLORS.border,
   },
   navItem: {
     alignItems: 'center',
     gap: 4,
   },
   navLabel: {
-    fontSize: 10,
+    fontSize: 9,
+    fontWeight: '700',
+    textTransform: 'uppercase',
+    letterSpacing: 0.5,
+  },
+  addBtnWrap: {
+    alignItems: 'center',
+    marginTop: -16,
   },
   addBtn: {
-    width: 40,
-    height: 40,
-    borderRadius: 20,
+    width: 56,
+    height: 56,
+    borderRadius: 28,
+    backgroundColor: FEED_COLORS.primary,
     alignItems: 'center',
     justifyContent: 'center',
-    marginTop: -8,
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.3,
-    shadowRadius: 8,
-    elevation: 5,
-    borderWidth: 4,
-    borderColor: '#fff',
+    ...Platform.select({
+      ios: {
+        shadowColor: FEED_COLORS.primary,
+        shadowOffset: { width: 0, height: 0 },
+        shadowOpacity: 0.4,
+        shadowRadius: 20,
+      },
+      android: { elevation: 12 },
+    }),
   },
 });

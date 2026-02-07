@@ -5,6 +5,8 @@ import { AUTH_ROUTES } from '../constants/routes';
 import { LoginScreen } from '../screens/auth/LoginScreen';
 import { SignupScreen } from '../screens/auth/SignupScreen';
 import { ForgotPasswordScreen } from '../screens/auth/ForgotPasswordScreen';
+import { ForgotEmailSentScreen } from '../screens/auth/ForgotEmailSentScreen';
+import { SignupEmailSentScreen } from '../screens/auth/SignupEmailSentScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -27,6 +29,14 @@ export const AuthNavigator: React.FC = () => {
       <Stack.Screen
         name={AUTH_ROUTES.FORGOT_PASSWORD}
         component={ForgotPasswordScreen}
+      />
+      <Stack.Screen
+        name={AUTH_ROUTES.FORGOT_EMAIL_SENT}
+        component={ForgotEmailSentScreen}
+      />
+      <Stack.Screen
+        name={AUTH_ROUTES.SIGNUP_EMAIL_SENT}
+        component={SignupEmailSentScreen}
       />
     </Stack.Navigator>
   );

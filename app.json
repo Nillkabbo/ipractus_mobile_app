@@ -18,13 +18,16 @@
       "infoPlist": {
         "NSFaceIDUsageDescription": "Use Face ID to quickly sign in to your iPractus account.",
         "NSCameraUsageDescription": "Allow iPractus to access your camera to take profile photos.",
-        "NSPhotoLibraryUsageDescription": "Allow iPractus to access your photo library to upload profile photos."
+        "NSPhotoLibraryUsageDescription": "Allow iPractus to access your photo library to upload profile photos.",
+        "NSAppTransportSecurity": {
+          "NSAllowsArbitraryLoads": true
+        }
       }
     },
     "android": {
       "package": "com.ipractus.app",
       "permissions": [
-        "USE_BIOMETRIC",
+        "INTERNET","USE_BIOMETRIC",
         "USE_FINGERPRINT",
         "CAMERA",
         "READ_EXTERNAL_STORAGE",

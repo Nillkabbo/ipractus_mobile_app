@@ -15,6 +15,7 @@ import {
 import Svg, { Path, G } from 'react-native-svg';
 import { LinearGradient } from 'expo-linear-gradient';
 import { LoginAvatarIcon } from '../../components/LoginAvatarIcon';
+import { AuthSpinner } from '../../components/AuthSpinner';
 import { useAuth } from '../../hooks/useAuth';
 import { useNavigation } from '@react-navigation/native';
 import { AUTH_ROUTES } from '../../constants/routes';
@@ -42,8 +43,7 @@ export const ForgotPasswordScreen: React.FC = () => {
     setLoading(true);
     try {
       await forgotPassword(value);
-      Alert.alert('Success', 'If an account exists, password reset instructions have been sent.');
-      navigation.goBack();
+      navigation.navigate(AUTH_ROUTES.FORGOT_EMAIL_SENT, { email: value });
     } catch (e) {
       Alert.alert('Error', (e as Error)?.message || 'Failed to send reset instructions');
     } finally {
@@ -114,6 +114,7 @@ export const ForgotPasswordScreen: React.FC = () => {
                   end={{ x: 1, y: 0 }}
                   style={styles.primaryButtonGradient}
                 >
+                  {loading && <AuthSpinner color={authColors.backgroundNavy} />}
                   <Text style={styles.primaryButtonText}>
                     {loading ? 'Sending...' : 'Submit'}
                   </Text>

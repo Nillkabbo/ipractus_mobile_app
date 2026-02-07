@@ -16,6 +16,7 @@ import Svg, { Path, G } from 'react-native-svg';
 import { LinearGradient } from 'expo-linear-gradient';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { LoginAvatarIcon } from '../../components/LoginAvatarIcon';
+import { AuthSpinner } from '../../components/AuthSpinner';
 import { useAuth } from '../../hooks/useAuth';
 import { useNavigation } from '@react-navigation/native';
 import { AUTH_ROUTES } from '../../constants/routes';
@@ -85,8 +86,11 @@ export const SignupScreen: React.FC = () => {
         city: city || undefined,
         state: state || undefined,
       });
-      Alert.alert('Success', 'Please check your email to verify your account, then log in.');
-      navigation.navigate(AUTH_ROUTES.LOGIN as any);
+      navigation.navigate(AUTH_ROUTES.SIGNUP_EMAIL_SENT as any, {
+        firstName,
+        lastName,
+        email,
+      });
     } catch (e) {
       Alert.alert('Sign Up Failed', (e as Error)?.message || 'Please try again');
     } finally {
@@ -235,6 +239,7 @@ export const SignupScreen: React.FC = () => {
                 activeOpacity={0.98}
               >
                 <LinearGradient colors={['#38E5F1', '#B4FB50']} start={{ x: 0, y: 1 }} end={{ x: 1, y: 0 }} style={styles.primaryButtonGradient}>
+                  {loading && <AuthSpinner color={authColors.backgroundNavy} />}
                   <Text style={styles.primaryButtonText}>{loading ? 'Submitting...' : 'Submit'}</Text>
                 </LinearGradient>
               </TouchableOpacity>

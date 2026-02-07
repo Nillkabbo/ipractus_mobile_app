@@ -16,6 +16,16 @@ export const colors = {
     gradientNavy: 'rgb(0, 12, 30)',
   } as const,
 
+  // Feed / Social
+  feed: {
+    primary: '#b4fb50',
+    backgroundNavy: '#071a36',
+    cardDark: '#000c1e',
+    accentTeal: '#428389',
+    textMuted: '#9ca3af',
+    border: 'rgba(255,255,255,0.1)',
+  } as const,
+
   // Dark theme colors (default)
   background: '#000000',
   surface: '#1a1a1a',

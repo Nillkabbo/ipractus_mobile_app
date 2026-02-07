@@ -1,0 +1,79 @@
+import React, { useEffect, useRef } from 'react';
+import { Animated, View, StyleSheet } from 'react-native';
+import Svg, { Path } from 'react-native-svg';
+import { colors } from '../constants/colors';
+
+const AnimatedPath = Animated.createAnimatedComponent(Path);
+const { auth: authColors } = colors;
+
+// loader.svg paths - CSS float/fadeIn replicated in JS (RN doesn't run SVG CSS)
+const PATH_DARK = 'M943.98 236.33C943.98 372.96 919.06 426.51 845.21 453.27C803.67 467.11 762.13 470.79 629.21 470.79H467.7L384.54 621.27H220.33L390.57 313.26L627.38 316.62C714.14 315.68 717.85 315.68 733.54 306.45C738.35 303.39 742.26 299.95 745.39 295.65C753.68 284.3 756.61 267.09 756.61 236.27C756.61 191.99 748.32 173.48 724.30 165.19C713.03 161.16 710.18 160.66 654.67 159.99C646.18 160.03 637.30 160.03 627.95 160.03H474.96L390.70 313.10H337.27L167.58 621.22H3.35999L173 313.11H8.85999L93.23 160.08H257.48L173.08 313.10H227.23L398.36 2.50977L599.89 5.47977H657.12C746.89 5.67977 763.44 6.80977 794.46 10.9998C857.67 20.5398 896.36 39.6298 918.50 80.4298L918.46 80.5298C937.05 114.75 943.97 164.28 943.97 236.33H943.98Z';
+const PATH_GREEN = 'M921.53 79.33L917.13 81.72C934.56 113.82 942.34 161.5 942.34 236.33C942.34 306.66 935.72 352.5 920.87 384.96C906.26 416.91 882.93 437.25 845.28 450.9C803.33 464.88 761.09 468.29 630.06 468.29H467.08L383.91 618.77H225.41L392.88 315.79L628.25 319.13H629.4C716.08 318.18 719.46 318.15 735.73 308.57C741 305.23 745.1 301.49 748.26 297.14C756.68 285.62 759.96 268.55 759.96 236.29C759.96 190.73 751.07 171.51 726 162.86C714.25 158.66 711.1 158.17 655.52 157.51C647.08 157.55 638.25 157.55 628.95 157.55H474.35L390.09 310.61H232.33L400.7 5.05L600.77 8H657.99C746.25 8.19 763.79 9.28 794.96 13.49C860.9 23.44 896.31 43.19 917.17 81.64L921.57 79.25C910.41 58.69 894.83 43.17 873.95 31.81C854.06 20.99 829.2 13.6 795.67 8.54C764.2 4.29 746.56 3.19 657.99 3H600.8L397.77 0L226.62 310.61H179.04L263.47 157.55H93.51L6.38 315.57H169.67L0 623.73H169.92L339.61 315.61H387.26L216.94 623.77H386.86L470.02 473.29H630.06C761.75 473.29 804.29 469.83 846.92 455.62C885.99 441.46 910.21 420.31 925.42 387.04C940.58 353.89 947.34 307.41 947.34 236.33C947.34 160.63 939.38 112.21 921.53 79.33ZM477.3 162.55H628.81C638.16 162.55 647.05 162.55 655.5 162.51C710.23 163.16 713.28 163.62 724.34 167.57C747.24 175.48 754.96 192.82 754.96 236.29C754.96 267.38 751.95 283.61 744.22 294.19C741.39 298.08 737.84 301.31 733.12 304.31C718.08 313.16 714.74 313.2 629.34 314.12H628.26L395.68 310.83L477.3 162.55ZM14.84 310.57L96.46 162.55H255L173.35 310.57H14.84ZM166.97 618.73H8.46L175.36 315.61H333.9L166.97 618.73Z';
+
+interface AuthSpinnerProps {
+  size?: number;
+  color?: string;
+  style?: object;
+}
+
+/**
+ * CSpinner equivalent - loader.svg animation (float + fadeIn) in JS
+ * since React Native doesn't run SVG CSS.
+ */
+export const AuthSpinner: React.FC<AuthSpinnerProps> = ({
+  size = 24,
+  color = authColors.backgroundNavy,
+  style,
+}) => {
+  const floatAnim = useRef(new Animated.Value(0)).current;
+  const fadeAnim = useRef(new Animated.Value(0.6)).current;
+
+  useEffect(() => {
+    const floatLoop = Animated.loop(
+      Animated.sequence([
+        Animated.timing(floatAnim, { toValue: 1, duration: 500, useNativeDriver: true }),
+        Animated.timing(floatAnim, { toValue: 0, duration: 500, useNativeDriver: true }),
+      ])
+    );
+    const fadeLoop = Animated.loop(
+      Animated.sequence([
+        Animated.timing(fadeAnim, { toValue: 1, duration: 500, useNativeDriver: true }),
+        Animated.timing(fadeAnim, { toValue: 0.5, duration: 500, useNativeDriver: true }),
+      ])
+    );
+    floatLoop.start();
+    fadeLoop.start();
+    return () => {
+      floatLoop.stop();
+      fadeLoop.stop();
+    };
+  }, [floatAnim, fadeAnim]);
+
+  const translateY = floatAnim.interpolate({ inputRange: [0, 1], outputRange: [0, -6] });
+  const fillColor = color || authColors.primary;
+
+  return (
+    <View style={[styles.wrapper, style]}>
+      <Animated.View
+        style={[
+          { width: size, height: size * (624 / 948) },
+          { transform: [{ translateY }] },
+        ]}
+      >
+        <Svg viewBox="0 0 948 624" width={size} height={size * (624 / 948)} preserveAspectRatio="xMidYMid meet">
+          <Path d={PATH_DARK} fill={fillColor} />
+          <AnimatedPath d={PATH_DARK} fill={fillColor} opacity={fadeAnim} />
+          <Path d={PATH_GREEN} fill={fillColor} />
+        </Svg>
+      </Animated.View>
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  wrapper: {
+    marginRight: 8,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+});

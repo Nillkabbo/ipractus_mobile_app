@@ -9,6 +9,8 @@ export const AUTH_ROUTES = {
   LOGIN: 'Login',
   SIGNUP: 'Signup',
   FORGOT_PASSWORD: 'ForgotPassword',
+  FORGOT_EMAIL_SENT: 'ForgotEmailSent',
+  SIGNUP_EMAIL_SENT: 'SignupEmailSent',
 } as const;
 
 // Main app tabs
@@ -68,6 +70,8 @@ export type AuthStackParamList = {
   [AUTH_ROUTES.LOGIN]: undefined;
   [AUTH_ROUTES.SIGNUP]: undefined;
   [AUTH_ROUTES.FORGOT_PASSWORD]: undefined;
+  [AUTH_ROUTES.FORGOT_EMAIL_SENT]: { email?: string };
+  [AUTH_ROUTES.SIGNUP_EMAIL_SENT]: { firstName?: string; lastName?: string; email?: string };
 };
 
 export type TabParamList = {

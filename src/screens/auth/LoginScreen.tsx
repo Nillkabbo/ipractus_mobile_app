@@ -16,10 +16,12 @@ import Svg, { Path, G } from 'react-native-svg';
 import { LinearGradient } from 'expo-linear-gradient';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { LoginAvatarIcon } from '../../components/LoginAvatarIcon';
+import { AuthSpinner } from '../../components/AuthSpinner';
 import { useAuth } from '../../hooks/useAuth';
 import { useNavigation } from '@react-navigation/native';
 import { AUTH_ROUTES } from '../../constants/routes';
 import { colors } from '../../constants/colors';
+import { checkApiConnectivity } from '../../services/api/connectivity';
 
 const { width: SCREEN_WIDTH } = Dimensions.get('window');
 
@@ -46,7 +48,19 @@ export const LoginScreen: React.FC = () => {
     try {
       await signIn(email, password);
     } catch (error) {
-      Alert.alert('Login Failed', 'Please check your credentials and try again');
+      let message = 'Account name and password does not match.';
+      if (error instanceof Error) {
+        message = error.message;
+      } else if (typeof error === 'object' && error !== null && 'message' in error) {
+        message = String((error as { message?: unknown }).message);
+      }
+      if (message.toLowerCase().includes('network') || message.toLowerCase().includes('connection')) {
+        const conn = await checkApiConnectivity();
+        const detail = conn.details ? `\n\n[Debug: ${conn.details}]` : '';
+        Alert.alert('Login Failed', message + detail);
+      } else {
+        Alert.alert('Login Failed', message);
+      }
     } finally {
       setLoading(false);
     }
@@ -155,8 +169,9 @@ export const LoginScreen: React.FC = () => {
                   end={{ x: 1, y: 0 }}
                   style={styles.primaryButtonGradient}
                 >
+                  {loading && <AuthSpinner color={authColors.backgroundNavy} />}
                   <Text style={styles.primaryButtonText}>
-                    {loading ? 'Signing in...' : 'Log In'}
+                    {'Log In'}
                   </Text>
                 </LinearGradient>
               </TouchableOpacity>

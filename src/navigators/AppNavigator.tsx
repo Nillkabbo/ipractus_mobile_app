@@ -82,6 +82,7 @@ export const AppNavigator: React.FC = () => {
 
   return (
     <Tab.Navigator
+      initialRouteName={TAB_ROUTES.FEED}
       screenOptions={({ route }) => ({
         tabBarIcon: ({ focused, color, size }) => {
           let iconName: keyof typeof Ionicons.glyphMap = 'home';

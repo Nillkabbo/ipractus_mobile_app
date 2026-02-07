@@ -1,3 +1,4 @@
+import axios from 'axios/dist/browser/axios.cjs';
 import { API_BASE_URL } from '../../config/api';
 import { User, AuthResponse, LoginCredentials, AuthTokens } from '../../types/auth';
 
@@ -26,7 +27,7 @@ interface ApiError {
 }
 
 /**
- * Parse API error from response
+ * Parse API error from response - matches sports-frontend authFetch + common backend formats
  */
 async function parseError(res: Response): Promise<ApiError> {
   let data: any = {};
@@ -35,11 +36,47 @@ async function parseError(res: Response): Promise<ApiError> {
   } catch {
     data = { message: res.statusText || 'Request failed' };
   }
+  // Extract message from various backend formats (Django REST, custom, etc.)
+  const results = data?.results;
+  const msg =
+    data?.message ||
+    data?.detail ||
+    data?.error ||
+    (Array.isArray(data?.non_field_errors) && data.non_field_errors[0]) ||
+    (results && Array.isArray(results?.non_field_errors) && results.non_field_errors[0]) ||
+    (results && typeof results === 'object' && results?.email?.[0]) ||
+    (results && typeof results === 'object' && results?.username?.[0]) ||
+    (results && typeof results === 'object' && results?.password?.[0]) ||
+    res.statusText ||
+    'An error occurred';
   return {
     status: res.status,
-    message: data?.message || data?.detail || 'An error occurred',
-    results: data?.results,
+    message: typeof msg === 'string' ? msg : 'An error occurred',
+    results: typeof results === 'object' ? results : undefined,
   };
+}
+
+/**
+ * Get user-facing login error message from API error
+ */
+function getLoginErrorMessage(err: ApiError): string {
+  const hasMsg = err.message && err.message !== 'An error occurred';
+  if (err.status === 401) {
+    if (err.message?.toLowerCase().includes('verif') || err.message?.toLowerCase().includes('verify')) {
+      return 'Your account is not verified. Please check your email.';
+    }
+    return hasMsg ? (err.message ?? '') : 'Account name and password does not match.';
+  }
+  if (err.status === 400 || err.status === 403) {
+    return hasMsg ? (err.message ?? '') : 'Account name and password does not match.';
+  }
+  if (err.status === 404) {
+    return 'Service unavailable. Please try again later.';
+  }
+  if (err.status === 0 || err.message?.toLowerCase().includes('network')) {
+    return 'Network error. Please check your internet connection.';
+  }
+  return hasMsg ? (err.message ?? '') : `Login failed (${err.status}). Please try again.`;
 }
 
 /**
@@ -83,40 +120,89 @@ function mapTokens(tokenData: any): AuthTokens {
 export const authApi = {
   /**
    * Login with email/username and password
+   * Uses axios - same as sports-frontend - often works where fetch fails (CORS, SSL, etc.)
    */
   async login(credentials: LoginCredentials): Promise<AuthResponse> {
-    const res = await fetch(`${API_BASE_URL}/user/authenticate`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Accept: 'application/json',
-      },
-      body: JSON.stringify({
-        email: credentials.email,
-        password: credentials.password,
-      }),
-    });
+    const body = {
+      email: credentials.email.trim(),
+      password: credentials.password,
+    };
+    const url = `${API_BASE_URL}/user/authenticate`;
 
-    if (!res.ok) {
-      const err = await parseError(res);
-      throw new Error(err.message || err.results?.email?.[0] || 'Login failed');
+    try {
+      const res = await axios.post(url, body, {
+        timeout: 30000,
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+          'User-Agent': 'iPractus-Mobile/1.0',
+        },
+        validateStatus: () => true,
+      });
+
+      const data = res.data;
+      const status = res.status;
+
+      if (status !== 200 && status !== 201) {
+        const err: ApiError = {
+          status: res.status,
+          message: data?.message || data?.detail || data?.error || res.statusText,
+          results: data?.results,
+        };
+        if (__DEV__) console.warn('[authApi.login] API error:', status, err);
+        throw new Error(getLoginErrorMessage(err));
+      }
+
+      const results = data?.results || data;
+
+      if (data?.status && data.status >= 400) {
+        const errMsg = data?.message || data?.detail || 'Login failed.';
+        if (__DEV__) console.warn('[authApi.login] 200 with error body:', data);
+        throw new Error(errMsg);
+      }
+
+      if (results?.two_factor?.status) {
+        throw new Error('Two-factor authentication is required. Please use the web app to complete login.');
+      }
+
+      const token = results?.token || results;
+      const profile = results?.profile || results;
+      const tokens = mapTokens(token);
+
+      if (!tokens.accessToken) {
+        if (__DEV__) console.warn('[authApi.login] No token in response:', data);
+        throw new Error('Invalid response from server. Please try again.');
+      }
+
+      const user = mapProfileToUser(profile, token);
+      return { user, tokens };
+    } catch (err: any) {
+      if (err instanceof Error && !axios.isAxiosError(err)) {
+        throw err;
+      }
+      const axiosErr = err as { response?: { status: number; data?: any }; message?: string; code?: string };
+      if (axiosErr.response) {
+        const data = axiosErr.response.data || {};
+        const apiErr: ApiError = {
+          status: axiosErr.response.status,
+          message: data?.message || data?.detail || data?.error || 'Request failed',
+          results: data?.results,
+        };
+        throw new Error(getLoginErrorMessage(apiErr));
+      }
+      const msg = axiosErr?.message || String(axiosErr);
+      const code = axiosErr?.code;
+      if (__DEV__) {
+        console.warn('[authApi.login] Request failed:', { message: msg, code, url });
+      }
+      if (code === 'ECONNABORTED') {
+        throw new Error('Request timed out. Please check your internet connection.');
+      }
+      if (/network|failed|ECONNREFUSED|ENOTFOUND|ETIMEDOUT|EAI_AGAIN/i.test(msg) || code === 'ERR_NETWORK') {
+        throw new Error('Network error. Please check your internet connection.');
+      }
+      throw new Error(msg || 'Connection failed. Please try again.');
     }
-
-    const data = await res.json();
-    const results = data?.results || data;
-
-    // Handle 2FA - if two_factor.status is true, user needs OTP (not implemented in mobile yet)
-    if (results?.two_factor?.status) {
-      throw new Error('Two-factor authentication is required. Please use the web app to complete login.');
-    }
-
-    const token = results?.token || results;
-    const profile = results?.profile || results;
-
-    const user = mapProfileToUser(profile, token);
-    const tokens = mapTokens(token);
-
-    return { user, tokens };
   },
 
   /**
