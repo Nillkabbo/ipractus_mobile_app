@@ -19,8 +19,17 @@
         "NSFaceIDUsageDescription": "Use Face ID to quickly sign in to your iPractus account.",
         "NSCameraUsageDescription": "Allow iPractus to access your camera to take profile photos.",
         "NSPhotoLibraryUsageDescription": "Allow iPractus to access your photo library to upload profile photos.",
+        "NSLocalNetworkUsageDescription": "Allow iPractus to access your local network for API communication.",
         "NSAppTransportSecurity": {
-          "NSAllowsArbitraryLoads": true
+          "NSAllowsArbitraryLoads": true,
+          "NSExceptionDomains": {
+            "be.ipractus.com": {
+              "NSExceptionAllowsInsecureHTTPLoads": true,
+              "NSIncludesSubdomains": true,
+              "NSExceptionMinimumTLSVersion": "TLSv1.0",
+              "NSExceptionRequiresForwardSecrecy": false
+            }
+          }
         }
       }
     },
