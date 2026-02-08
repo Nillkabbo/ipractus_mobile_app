@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { Platform } from 'react-native';
 import { API_BASE_URL } from '../../config/api';
 import { User, AuthResponse, LoginCredentials, AuthTokens } from '../../types/auth';
 
@@ -207,7 +208,7 @@ export const authApi = {
     try {
       if (__DEV__) {
         console.log('[authApi.login] Starting request to:', url);
-        console.log('[authApi.login] Platform:', (global as any).Platform?.OS);
+        console.log('[authApi.login] Platform:', Platform.OS);
         console.log('[authApi.login] Axios version:', axios.VERSION);
       }
 
@@ -293,7 +294,9 @@ export const authApi = {
           if (__DEV__) {
             console.warn('[authApi.login] Fetch fallback also failed:', fetchErr);
           }
-          throw new Error('Network error. Please check your internet connection.');
+          throw new Error(
+          'Cannot reach the server. Check that you are on the same network as the API, or try again. In Expo Go, some networks may block certain hosts.'
+        );
         }
       }
       throw new Error(msg || 'Connection failed. Please try again.');
