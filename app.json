@@ -22,8 +22,16 @@
         "NSLocalNetworkUsageDescription": "Allow iPractus to access your local network for API communication.",
         "NSAppTransportSecurity": {
           "NSAllowsArbitraryLoads": true,
+          "NSAllowsArbitraryLoadsInWebContent": true,
+          "NSAllowsLocalNetworking": true,
           "NSExceptionDomains": {
             "be.ipractus.com": {
+              "NSExceptionAllowsInsecureHTTPLoads": true,
+              "NSIncludesSubdomains": true,
+              "NSExceptionMinimumTLSVersion": "TLSv1.0",
+              "NSExceptionRequiresForwardSecrecy": false
+            },
+            "ipractus.com": {
               "NSExceptionAllowsInsecureHTTPLoads": true,
               "NSIncludesSubdomains": true,
               "NSExceptionMinimumTLSVersion": "TLSv1.0",
