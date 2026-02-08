@@ -14,6 +14,7 @@ import { ProfilePlaceholderScreen } from '../screens/dashboard/ProfilePlaceholde
 
 // Dashboard stack screens
 import { SettingsScreen } from '../screens/dashboard/SettingsScreen';
+import { EditProfileScreen } from '../screens/profile/EditProfileScreen';
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -59,6 +60,7 @@ const MessagesStack: React.FC = () => {
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }}>
       <Stack.Screen name="MessagesMain" component={MessagesPlaceholderScreen} />
+      <Stack.Screen name="Settings" component={SettingsScreen} />
     </Stack.Navigator>
   );
 };
@@ -70,6 +72,8 @@ const ProfileStack: React.FC = () => {
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }}>
       <Stack.Screen name="ProfileMain" component={ProfilePlaceholderScreen} />
+      <Stack.Screen name="Settings" component={SettingsScreen} />
+      <Stack.Screen name="EditProfile" component={EditProfileScreen} />
     </Stack.Navigator>
   );
 };
@@ -95,7 +99,7 @@ export const AppNavigator: React.FC = () => {
               iconName = focused ? 'list' : 'list-outline';
               break;
             case TAB_ROUTES.LIVE:
-              iconName = focused ? 'radio' : 'radio-outline';
+              iconName = focused ? 'compass' : 'compass-outline';
               break;
             case TAB_ROUTES.MESSAGES:
               iconName = focused ? 'chatbubbles' : 'chatbubbles-outline';
@@ -136,7 +140,7 @@ export const AppNavigator: React.FC = () => {
       <Tab.Screen
         name={TAB_ROUTES.LIVE}
         component={LiveStack}
-        options={{ tabBarLabel: 'Live' }}
+        options={{ tabBarLabel: 'Discover' }}
       />
       <Tab.Screen
         name={TAB_ROUTES.MESSAGES}

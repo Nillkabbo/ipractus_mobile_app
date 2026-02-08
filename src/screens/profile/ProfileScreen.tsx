@@ -7,177 +7,260 @@ import {
   TouchableOpacity,
   Image,
 } from 'react-native';
-import { useTheme } from '../../hooks/useTheme';
+import { LinearGradient } from 'expo-linear-gradient';
+import Ionicons from '@expo/vector-icons/Ionicons';
 import { useAuth } from '../../hooks/useAuth';
 import { useNavigation } from '@react-navigation/native';
-import Ionicons from '@expo/vector-icons/Ionicons';
-import { Avatar } from '../../components/Avatar';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
-type TabType = 'posts' | 'media' | 'teams';
+const PROFILE_COLORS = {
+  primary: '#b4fb50',
+  backgroundNavy: '#071a36',
+  cardDark: '#13233c',
+  accentTeal: '#428389',
+  border: 'rgba(255,255,255,0.05)',
+  textMuted: '#94a3b8',
+};
+
+const COVER_URL =
+  'https://lh3.googleusercontent.com/aida-public/AB6AXuDVc55r8cmQnsITXUpsM5UFPlXqKfwAid8l_OuPDsDIpir7-QcQlgO1EQKn9pJ6OiYVeFARyMYRwsyhTIc8rkqfQg6m2si-8lsRLUociU-JL8BCkpojX0yLaxcTsQwedc4LgjiH8NolDcceK3nneYmgCNviyX_x7RN_X68BrJ9fAJlkLr5ioK1K_AXqeBzK87476GuOjgRJAOFlj5XKH0nq8OxRI5vuIkWmRfDITxmweDXsx_roHYySMzXzz4w-S-PokIfK-IgYcKPN';
+const AVATAR_URL =
+  'https://lh3.googleusercontent.com/aida-public/AB6AXuAf4F_VZZkVIYjyimadMThaVW7S3cNkHFzzRsoObqwo6HpxOizGpy0c6GdwklUe5mIu-VYE0Yi8-VOMcBaQOInJZBq1SYfwtxUyjfYsVOvl5ErfzGmlMTIgegpzioLW4rE9Ro_nTbDScQQsHtgkHCWoiSwblRZoPcNxgD2gDp1lMcuQDQhse62hV8bvVJl7jhrUlDxgiV2pE';
+
+const ANNOUNCEMENTS = [
+  {
+    id: '1',
+    author: 'Coach Marcus Rivera',
+    avatar:
+      'https://lh3.googleusercontent.com/aida-public/AB6AXuD6CsGOiXc3Nkt5dwyKbwlP3XYjack4HX7GE5Uma95YATJKKlq8ZdRVvb-KSYk-_iTZ3HAmM2Md8BMJhggXddb3YEAHt4izIFDvKHbJ3CJrG_VX0KG3bEB0g05L9V14Pz2zcpOkJCq-j_Mc9C7Re5GIZwIc0ocvHXfi8uqjrLxVX77k1xSbLE_IwKnYlFiVT3oV0zI2lpHf9bTp9svK53K4KYlmifGQzIItiYnQxqNfSR8pyYhJ0a-NKpKgvGsjYe8Md_gs8ktruq7',
+    time: '2 hours ago',
+    content:
+      "Great practice session today, team! The focus on defensive rotations was exactly what we needed before Friday's qualifier. Keep that energy up! 🔥",
+    image:
+      'https://lh3.googleusercontent.com/aida-public/AB6AXuDuLEeQvL7Sf3ZLfbmqRGMMU1XJ9_46p9AwFrRwCzRG1CoHzxHkCRport14cyQaD647_1F3-RTWKXlgp1-hjpfQoZrRmZaqj-8T_ip4SETY7OPSYuC9MbMM6n__SnCrjY7J0gmLDjMephHgf4PM_aQXYdlPqVTFF_0Zvkt5fClotWzjWTdpF9QLMwld_l-AL1GNAbmytoYGGXzfbjsOdVypQ65rc-fzFEwMz12HuOH3SjarslLyR2WHc1oztmoz7sJ8JkQfDWEkpVTFF_0Zvkt5fClotWzjWTdpF9QLMwld_l-AL1GNAbmytoYGGXzfbjsOdVypQ65rc-fzFEwMz12HuOH3SjarslLyR2WHc1oztmoz7sJ8JkQfDWEkpVTFF_0Zvkt5fClotWzjWTdpF9QLMwld_l-AL1GNAbmytoYGGXzfbjsOdVypQ65rc-fzFEwMz12HuOH3SjarslLyR2WHc1oztmoz7sJ8JkQfDWEkpVTFF_0Zvkt5fClotWzjWTdpF9QLMwld_l-AL1GNAbmytoYGGXzfbjsOdVypQ65rc-fzFEwMz12HuOH3SjarslLyR2WHc1oztmoz7sJ8JkQfDWEkpVTFF',
+    likes: 124,
+    comments: 18,
+  },
+  {
+    id: '2',
+    author: 'Warriors Athletic Club',
+    time: 'Yesterday at 4:15 PM',
+    content:
+      "Next home game: Friday, 7:00 PM at the City Center. Tickets are now available in the shop section. Let's pack the house!",
+    eventLabel: 'Event Qualifier',
+    eventTitle: 'Warriors vs. Titans',
+    iconBg: 'blue',
+  },
+];
+
+type TabType = 'feed' | 'roster' | 'media';
 
 export const ProfileScreen: React.FC = () => {
-  const { theme } = useTheme();
   const { user } = useAuth();
   const navigation = useNavigation<any>();
-  const [activeTab, setActiveTab] = useState<TabType>('posts');
+  const [activeTab, setActiveTab] = useState<TabType>('feed');
 
-  if (!user) {
-    return null;
-  }
+  const displayName = user?.displayName || 'Warriors Athletic Club';
+  const subtitle = user?.role
+    ? `${user.role === 'coach' ? 'Coach' : user.role === 'athlete' ? 'Athlete' : 'Fan'} • iPrActUS`
+    : 'Professional Sports Team • New York, USA';
+  const bio =
+    "Official iPrActUS profile. Pursuing excellence through discipline and community. #GoWarriors";
 
-  const tabs = [
-    { key: 'posts' as TabType, label: 'Posts' },
-    { key: 'media' as TabType, label: 'Media' },
-    { key: 'teams' as TabType, label: 'Teams' },
-  ];
-
-  const mediaItems = [
-    { id: '1', thumbnail: 'https://via.placeholder.com/150' },
-    { id: '2', thumbnail: 'https://via.placeholder.com/150' },
-    { id: '3', thumbnail: 'https://via.placeholder.com/150' },
+  const tabs: { key: TabType; label: string }[] = [
+    { key: 'feed', label: 'Feed' },
+    { key: 'roster', label: 'Roster' },
+    { key: 'media', label: 'Media' },
   ];
 
   return (
-    <View style={[styles.container, { backgroundColor: theme.colors.background }]}>
-      {/* Header */}
-      <View style={[styles.header, { backgroundColor: theme.colors.card, borderBottomColor: theme.colors.border }]}>
-        <TouchableOpacity onPress={() => navigation.goBack()}>
-          <Ionicons name="arrow-back" size={24} color={theme.colors.text} />
-        </TouchableOpacity>
-        <Text style={[styles.headerTitle, { color: theme.colors.text }]}>My Profile</Text>
-        <View style={styles.headerActions}>
-          <TouchableOpacity onPress={() => navigation.navigate('Settings' as any)} style={{ marginRight: 16 }}>
-            <Ionicons name="settings-outline" size={24} color={theme.colors.text} />
+    <View style={[styles.container, { backgroundColor: PROFILE_COLORS.backgroundNavy }]}>
+      <SafeAreaView edges={['top']} style={styles.safeArea}>
+        {/* Header */}
+        <View style={[styles.header, { backgroundColor: PROFILE_COLORS.backgroundNavy }]}>
+          <TouchableOpacity
+            onPress={() => navigation.navigate('Settings')}
+            style={[styles.headerBtn, { backgroundColor: 'rgba(255,255,255,0.1)' }]}
+          >
+            <Ionicons name="settings-outline" size={22} color="#fff" />
           </TouchableOpacity>
-          <View style={styles.verifiedBadge}>
-            <Ionicons name="checkmark-circle" size={20} color={theme.colors.primary} />
-          </View>
+          <Text style={styles.headerTitle}>Team Profile</Text>
+          <TouchableOpacity
+            style={[styles.headerBtn, { backgroundColor: 'rgba(255,255,255,0.1)' }]}
+          >
+            <Ionicons name="share-outline" size={22} color="#fff" />
+          </TouchableOpacity>
         </View>
-      </View>
 
-      <ScrollView showsVerticalScrollIndicator={false}>
-        {/* Profile Section */}
-        <View style={[styles.profileSection, { backgroundColor: theme.colors.card }]}>
-          <View style={styles.avatarContainer}>
-            <Avatar uri={user.avatarUri} size={100} />
-            <View style={styles.verifiedBadgeLarge}>
-              <Ionicons name="checkmark-circle" size={24} color={theme.colors.primary} />
+        <ScrollView showsVerticalScrollIndicator={false} style={styles.scroll}>
+          {/* Cover + Avatar */}
+          <View style={styles.coverSection}>
+            <Image source={{ uri: COVER_URL }} style={styles.cover} resizeMode="cover" />
+            <View style={styles.avatarWrapper}>
+              <View style={[styles.avatarContainer, { borderColor: PROFILE_COLORS.backgroundNavy }]}>
+                <Image source={{ uri: user?.avatarUri || AVATAR_URL }} style={styles.avatar} resizeMode="contain" />
+              </View>
             </View>
           </View>
 
-          <Text style={[styles.userName, { color: theme.colors.text }]}>
-            {user.displayName}
-          </Text>
-
-          <View style={styles.roleContainer}>
-            <Text style={[styles.roleText, { color: theme.colors.textSecondary }]}>
-              {user.role === 'coach' ? 'Professional Soccer Coach' : 'Athlete'}
-            </Text>
-            <Text style={[styles.roleText, { color: theme.colors.textSecondary }]}>
-              {' '}• SF Academy
-            </Text>
+          {/* Name, verified, subtitle, bio */}
+          <View style={styles.infoSection}>
+            <View style={styles.nameRow}>
+              <Text style={styles.name}>{displayName}</Text>
+              <Ionicons name="checkmark-circle" size={22} color="#60a5fa" style={styles.verified} />
+            </View>
+            <Text style={styles.subtitle}>{subtitle}</Text>
+            <Text style={styles.bio}>{bio}</Text>
           </View>
 
-          {/* Action Buttons */}
-          <View style={styles.actionButtons}>
-            <TouchableOpacity
-              style={[styles.actionButton, { backgroundColor: theme.colors.primary }]}
-              onPress={() => navigation.navigate('EditProfile' as any)}
-            >
-              <Ionicons name="create-outline" size={20} color="#fff" />
-              <Text style={[styles.actionButtonText, { color: '#fff' }]}>Edit Profile</Text>
+          {/* Follow + Message */}
+          <View style={styles.actionsRow}>
+            <TouchableOpacity style={[styles.followBtn, { backgroundColor: PROFILE_COLORS.primary }]} activeOpacity={0.8}>
+              <Text style={styles.followBtnText}>Follow</Text>
             </TouchableOpacity>
             <TouchableOpacity
-              style={[styles.actionButton, { backgroundColor: theme.colors.surfaceVariant }]}
+              style={[styles.messageBtn, { borderColor: PROFILE_COLORS.border }]}
+              activeOpacity={0.8}
             >
-              <Ionicons name="share-outline" size={20} color={theme.colors.text} />
-              <Text style={[styles.actionButtonText, { color: theme.colors.text }]}>Share</Text>
+              <Text style={styles.messageBtnText}>Message</Text>
             </TouchableOpacity>
           </View>
-        </View>
 
-        {/* Tabs */}
-        <View style={[styles.tabsContainer, { backgroundColor: theme.colors.card, borderBottomColor: theme.colors.border }]}>
-          {tabs.map((tab) => (
-            <TouchableOpacity
-              key={tab.key}
-              style={[
-                styles.tab,
-                activeTab === tab.key && { borderBottomColor: theme.colors.primary },
-              ]}
-              onPress={() => setActiveTab(tab.key)}
+          {/* Stats grid */}
+          <View style={styles.statsRow}>
+            <LinearGradient
+              colors={[PROFILE_COLORS.accentTeal, '#000c1e'] as any}
+              locations={[0, 0.65]}
+              start={{ x: 0, y: 0 }}
+              end={{ x: 0.9, y: 1 }}
+              style={[styles.statCard, { borderColor: PROFILE_COLORS.border }]}
             >
-              <Text
-                style={[
-                  styles.tabText,
-                  { color: activeTab === tab.key ? theme.colors.primary : theme.colors.textSecondary },
-                ]}
+              <Text style={styles.statLabel}>Members</Text>
+              <Text style={styles.statValue}>1.2k</Text>
+            </LinearGradient>
+            <LinearGradient
+              colors={[PROFILE_COLORS.accentTeal, '#000c1e'] as any}
+              locations={[0, 0.65]}
+              start={{ x: 0, y: 0 }}
+              end={{ x: 0.9, y: 1 }}
+              style={[styles.statCard, { borderColor: PROFILE_COLORS.border }]}
+            >
+              <Text style={styles.statLabel}>Posts</Text>
+              <Text style={styles.statValue}>450</Text>
+            </LinearGradient>
+            <LinearGradient
+              colors={[PROFILE_COLORS.accentTeal, '#000c1e'] as any}
+              locations={[0, 0.65]}
+              start={{ x: 0, y: 0 }}
+              end={{ x: 0.9, y: 1 }}
+              style={[styles.statCard, { borderColor: PROFILE_COLORS.border }]}
+            >
+              <Text style={styles.statLabel}>Trophies</Text>
+              <Text style={styles.statValue}>12</Text>
+            </LinearGradient>
+          </View>
+
+          {/* Tabs */}
+          <View style={[styles.tabBar, { borderColor: PROFILE_COLORS.border }]}>
+            {tabs.map((tab) => (
+              <TouchableOpacity
+                key={tab.key}
+                style={[styles.tab, activeTab === tab.key && styles.tabActive]}
+                onPress={() => setActiveTab(tab.key)}
               >
-                {tab.label}
-              </Text>
-            </TouchableOpacity>
-          ))}
-        </View>
-
-        {/* Tab Content */}
-        {activeTab === 'posts' && (
-          <View style={[styles.tabContent, { backgroundColor: theme.colors.card }]}>
-            <Text style={[styles.emptyText, { color: theme.colors.textSecondary }]}>
-              No posts yet
-            </Text>
+                <Text
+                  style={[
+                    styles.tabText,
+                    { color: activeTab === tab.key ? '#fff' : PROFILE_COLORS.textMuted },
+                    activeTab === tab.key && styles.tabTextActive,
+                  ]}
+                >
+                  {tab.label}
+                </Text>
+              </TouchableOpacity>
+            ))}
           </View>
-        )}
 
-        {activeTab === 'media' && (
-          <View style={[styles.tabContent, { backgroundColor: theme.colors.card }]}>
-            <View style={styles.mediaHeader}>
-              <Text style={[styles.mediaTitle, { color: theme.colors.text }]}>Media Library</Text>
+          {/* Recent Announcements */}
+          <View style={styles.announcementsSection}>
+            <View style={styles.announcementsHeader}>
+              <Text style={styles.announcementsTitle}>Recent Announcements</Text>
               <TouchableOpacity>
-                <Text style={[styles.viewAllText, { color: theme.colors.primary }]}>View All</Text>
+                <Text style={styles.seeAllText}>See All</Text>
               </TouchableOpacity>
             </View>
 
-            <View style={styles.mediaGrid}>
-              {mediaItems.map((item) => (
-                <TouchableOpacity key={item.id} style={styles.mediaItem}>
-                  <View style={[styles.mediaThumbnail, { backgroundColor: theme.colors.surfaceVariant }]}>
-                    <Ionicons name="play-circle" size={32} color={theme.colors.text} />
+            {ANNOUNCEMENTS.map((item) => (
+              <View key={item.id} style={styles.announcementCard}>
+                <LinearGradient
+                  colors={[PROFILE_COLORS.accentTeal, '#000c1e'] as any}
+                  locations={[0, 0.65]}
+                  start={{ x: 0, y: 0 }}
+                  end={{ x: 0.9, y: 1 }}
+                  style={[styles.announcementInner, { borderColor: PROFILE_COLORS.border }]}
+                >
+                  <View style={styles.announcementTop}>
+                    <View style={styles.announcementAuthor}>
+                      {'avatar' in item ? (
+                        <Image source={{ uri: item.avatar }} style={styles.announcementAvatar} />
+                      ) : (
+                        <View
+                          style={[
+                            styles.announcementIcon,
+                            { backgroundColor: 'rgba(59, 130, 246, 0.2)' },
+                          ]}
+                        >
+                          <Ionicons name="megaphone-outline" size={20} color="#60a5fa" />
+                        </View>
+                      )}
+                      <View>
+                        <Text style={styles.announcementAuthorName}>{item.author}</Text>
+                        <Text style={styles.announcementTime}>{item.time}</Text>
+                      </View>
+                    </View>
+                    <TouchableOpacity>
+                      <Ionicons name="ellipsis-horizontal" size={20} color={PROFILE_COLORS.textMuted} />
+                    </TouchableOpacity>
                   </View>
-                </TouchableOpacity>
-              ))}
-            </View>
+                  <Text style={styles.announcementContent}>{item.content}</Text>
+                  {'image' in item && item.image ? (
+                    <Image source={{ uri: item.image }} style={styles.announcementImage} resizeMode="cover" />
+                  ) : null}
+                  {'eventLabel' in item && item.eventLabel ? (
+                    <View style={[styles.eventCta, { borderColor: PROFILE_COLORS.border }]}>
+                      <View>
+                        <Text style={styles.eventLabel}>{item.eventLabel}</Text>
+                        <Text style={styles.eventTitle}>{item.eventTitle}</Text>
+                      </View>
+                      <TouchableOpacity style={[styles.rsvpBtn, { backgroundColor: PROFILE_COLORS.primary }]}>
+                        <Text style={styles.rsvpBtnText}>RSVP</Text>
+                      </TouchableOpacity>
+                    </View>
+                  ) : null}
+                  {'likes' in item ? (
+                    <View style={styles.announcementFooter}>
+                      <View style={styles.footerActions}>
+                        <TouchableOpacity style={styles.footerBtn}>
+                          <Ionicons name="heart" size={18} color="#ef4444" />
+                          <Text style={styles.footerBtnText}>{item.likes}</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity style={styles.footerBtn}>
+                          <Ionicons name="chatbubble-outline" size={18} color={PROFILE_COLORS.textMuted} />
+                          <Text style={styles.footerBtnText}>{item.comments}</Text>
+                        </TouchableOpacity>
+                      </View>
+                      <TouchableOpacity>
+                        <Ionicons name="bookmark-outline" size={20} color={PROFILE_COLORS.textMuted} />
+                      </TouchableOpacity>
+                    </View>
+                  ) : null}
+                </LinearGradient>
+              </View>
+            ))}
           </View>
-        )}
-
-        {activeTab === 'teams' && (
-          <View style={[styles.tabContent, { backgroundColor: theme.colors.card }]}>
-            <Text style={[styles.emptyText, { color: theme.colors.textSecondary }]}>
-              No teams yet
-            </Text>
-          </View>
-        )}
-      </ScrollView>
-
-      {/* Bottom Navigation */}
-      <View style={[styles.bottomNav, { backgroundColor: theme.colors.card, borderTopColor: theme.colors.border }]}>
-        <TouchableOpacity style={styles.navItem}>
-          <Ionicons name="home-outline" size={24} color={theme.colors.textSecondary} />
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.navItem}>
-          <Ionicons name="search-outline" size={24} color={theme.colors.textSecondary} />
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.navItem}>
-          <View style={[styles.addBtn, { backgroundColor: theme.colors.primary }]}>
-            <Ionicons name="add" size={24} color="#fff" />
-          </View>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.navItem}>
-          <Ionicons name="chatbubbles-outline" size={24} color={theme.colors.textSecondary} />
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.navItem}>
-          <Ionicons name="person" size={24} color={theme.colors.primary} />
-        </TouchableOpacity>
-      </View>
+          <View style={{ height: 24 }} />
+        </ScrollView>
+      </SafeAreaView>
     </View>
   );
 };
@@ -186,143 +269,299 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
+  safeArea: {
+    flex: 1,
+  },
   header: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
     paddingHorizontal: 16,
     paddingVertical: 12,
-    borderBottomWidth: 1,
+  },
+  headerBtn: {
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   headerTitle: {
     fontSize: 18,
-    fontWeight: '600',
+    fontWeight: '700',
+    color: '#fff',
   },
-  headerActions: {
-    flexDirection: 'row',
+  scroll: {
+    flex: 1,
+  },
+  coverSection: {
+    position: 'relative',
+    width: '100%',
+    height: 224,
+  },
+  cover: {
+    width: '100%',
+    height: '100%',
+  },
+  avatarWrapper: {
+    position: 'absolute',
+    bottom: -48,
+    left: 0,
+    right: 0,
     alignItems: 'center',
-  },
-  verifiedBadge: {
-    marginLeft: 8,
-  },
-  profileSection: {
-    alignItems: 'center',
-    paddingVertical: 32,
-    paddingHorizontal: 16,
-    marginBottom: 8,
   },
   avatarContainer: {
-    position: 'relative',
-    marginBottom: 16,
+    width: 96,
+    height: 96,
+    borderRadius: 16,
+    borderWidth: 4,
+    overflow: 'hidden',
+    backgroundColor: PROFILE_COLORS.cardDark,
   },
-  verifiedBadgeLarge: {
-    position: 'absolute',
-    bottom: 0,
-    right: -5,
-    backgroundColor: '#fff',
-    borderRadius: 12,
+  avatar: {
+    width: '100%',
+    height: '100%',
   },
-  userName: {
+  infoSection: {
+    marginTop: 64,
+    paddingHorizontal: 24,
+    alignItems: 'center',
+  },
+  nameRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 4,
+  },
+  name: {
     fontSize: 24,
     fontWeight: '700',
-    marginBottom: 8,
+    color: '#fff',
   },
-  roleContainer: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    alignItems: 'center',
-    marginBottom: 24,
+  verified: {
+    marginLeft: 2,
   },
-  roleText: {
+  subtitle: {
     fontSize: 14,
+    color: PROFILE_COLORS.textMuted,
+    marginTop: 4,
   },
-  actionButtons: {
+  bio: {
+    fontSize: 14,
+    color: 'rgba(203, 213, 225, 1)',
+    marginTop: 12,
+    textAlign: 'center',
+    lineHeight: 22,
+    maxWidth: 360,
+  },
+  actionsRow: {
     flexDirection: 'row',
     gap: 12,
-    width: '100%',
+    paddingHorizontal: 24,
+    marginTop: 24,
   },
-  actionButton: {
+  followBtn: {
     flex: 1,
-    flexDirection: 'row',
+    paddingVertical: 14,
+    borderRadius: 12,
     alignItems: 'center',
     justifyContent: 'center',
-    paddingVertical: 12,
-    borderRadius: 8,
-    gap: 8,
   },
-  actionButtonText: {
-    fontSize: 14,
-    fontWeight: '600',
+  followBtnText: {
+    fontSize: 16,
+    fontWeight: '700',
+    color: '#000',
   },
-  tabsContainer: {
+  messageBtn: {
+    flex: 1,
+    paddingVertical: 14,
+    borderRadius: 12,
+    borderWidth: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  messageBtnText: {
+    fontSize: 16,
+    fontWeight: '700',
+    color: '#fff',
+  },
+  statsRow: {
     flexDirection: 'row',
-    borderBottomWidth: 1,
+    gap: 12,
+    paddingHorizontal: 24,
+    marginTop: 32,
+  },
+  statCard: {
+    flex: 1,
+    padding: 16,
+    borderRadius: 16,
+    borderWidth: 1,
+    alignItems: 'center',
+  },
+  statLabel: {
+    fontSize: 10,
+    fontWeight: '700',
+    letterSpacing: 1,
+    textTransform: 'uppercase',
+    color: PROFILE_COLORS.textMuted,
+  },
+  statValue: {
+    fontSize: 20,
+    fontWeight: '700',
+    color: '#fff',
+    marginTop: 4,
+  },
+  tabBar: {
+    flexDirection: 'row',
+    marginHorizontal: 24,
+    marginTop: 32,
+    padding: 4,
+    borderRadius: 12,
+    borderWidth: 1,
+    backgroundColor: 'rgba(255,255,255,0.05)',
   },
   tab: {
     flex: 1,
-    paddingVertical: 12,
+    paddingVertical: 10,
     alignItems: 'center',
-    borderBottomWidth: 2,
-    borderBottomColor: 'transparent',
+    borderRadius: 10,
+  },
+  tabActive: {
+    backgroundColor: 'rgba(255,255,255,0.1)',
   },
   tabText: {
     fontSize: 14,
-    fontWeight: '600',
+    fontWeight: '500',
   },
-  tabContent: {
-    padding: 16,
-    minHeight: 200,
+  tabTextActive: {
+    fontWeight: '700',
   },
-  emptyText: {
-    fontSize: 16,
-    textAlign: 'center',
-    paddingVertical: 40,
+  announcementsSection: {
+    paddingHorizontal: 24,
+    marginTop: 32,
   },
-  mediaHeader: {
+  announcementsHeader: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
     marginBottom: 16,
   },
-  mediaTitle: {
+  announcementsTitle: {
     fontSize: 18,
-    fontWeight: '600',
+    fontWeight: '700',
+    color: '#fff',
   },
-  viewAllText: {
+  seeAllText: {
     fontSize: 14,
-    fontWeight: '600',
+    fontWeight: '700',
+    color: PROFILE_COLORS.primary,
   },
-  mediaGrid: {
+  announcementCard: {
+    marginBottom: 16,
+  },
+  announcementInner: {
+    borderRadius: 16,
+    overflow: 'hidden',
+    borderWidth: 1,
+    padding: 16,
+  },
+  announcementTop: {
     flexDirection: 'row',
-    flexWrap: 'wrap',
-    gap: 8,
+    justifyContent: 'space-between',
+    alignItems: 'flex-start',
   },
-  mediaItem: {
-    width: (100 - 16) / 3 + '%',
-    aspectRatio: 1,
+  announcementAuthor: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 12,
   },
-  mediaThumbnail: {
+  announcementAvatar: {
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    borderWidth: 2,
+    borderColor: 'rgba(180, 251, 80, 0.2)',
+  },
+  announcementIcon: {
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  announcementAuthorName: {
+    fontSize: 14,
+    fontWeight: '700',
+    color: '#fff',
+  },
+  announcementTime: {
+    fontSize: 10,
+    color: PROFILE_COLORS.textMuted,
+    marginTop: 2,
+  },
+  announcementContent: {
+    fontSize: 14,
+    color: 'rgba(226, 232, 240, 1)',
+    marginTop: 12,
+    lineHeight: 22,
+  },
+  announcementImage: {
     width: '100%',
-    height: '100%',
-    borderRadius: 8,
-    justifyContent: 'center',
-    alignItems: 'center',
+    height: 224,
+    marginTop: 16,
+    borderRadius: 12,
   },
-  bottomNav: {
+  eventCta: {
+    marginTop: 16,
+    padding: 16,
+    borderRadius: 12,
+    backgroundColor: 'rgba(255,255,255,0.05)',
+    borderWidth: 1,
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'space-around',
-    paddingVertical: 8,
-    borderTopWidth: 1,
+    justifyContent: 'space-between',
   },
-  navItem: {
-    padding: 8,
+  eventLabel: {
+    fontSize: 10,
+    fontWeight: '800',
+    letterSpacing: 2,
+    color: '#60a5fa',
+    textTransform: 'uppercase',
   },
-  addBtn: {
-    width: 48,
-    height: 48,
-    borderRadius: 24,
-    justifyContent: 'center',
+  eventTitle: {
+    fontSize: 14,
+    fontWeight: '700',
+    color: '#fff',
+    marginTop: 4,
+  },
+  rsvpBtn: {
+    paddingHorizontal: 20,
+    paddingVertical: 10,
+    borderRadius: 8,
+  },
+  rsvpBtnText: {
+    fontSize: 12,
+    fontWeight: '800',
+    color: '#000',
+  },
+  announcementFooter: {
+    flexDirection: 'row',
     alignItems: 'center',
+    justifyContent: 'space-between',
+    marginTop: 16,
+    paddingTop: 16,
+  },
+  footerActions: {
+    flexDirection: 'row',
+    gap: 16,
+  },
+  footerBtn: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 6,
+  },
+  footerBtnText: {
+    fontSize: 12,
+    color: PROFILE_COLORS.textMuted,
+    fontWeight: '500',
   },
 });
