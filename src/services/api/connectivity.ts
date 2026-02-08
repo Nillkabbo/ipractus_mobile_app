@@ -1,8 +1,25 @@
 /**
  * Connectivity test for API - helps diagnose network issues
  */
+import { Platform } from 'react-native';
 import axios from 'axios';
 import { API_BASE_URL } from '../../config/api';
+
+// Detect if running in Expo Go
+const isExpoGo = !!(global as any).__expo?.isExpoGo || !(global as any).ExpoModules;
+
+/**
+ * Get helpful message based on platform and environment
+ */
+function getEnvironmentHint(): string {
+  if (isExpoGo && Platform.OS === 'ios') {
+    return 'Running in Expo Go on iOS - custom ATS settings do not apply. Consider using a development build.';
+  }
+  if (isExpoGo) {
+    return 'Running in Expo Go - some network features may be limited.';
+  }
+  return 'Running in development build - full network access available.';
+}
 
 export interface ConnectivityResult {
   ok: boolean;
@@ -95,6 +112,7 @@ export async function checkApiConnectivity(): Promise<ConnectivityResult> {
   // First test if ANY network request works with a public API
   if (__DEV__) {
     console.log('[connectivity] Starting network diagnostics...');
+    console.log('[connectivity]', getEnvironmentHint());
   }
   const publicApiResult = await testPublicApi();
 
@@ -154,6 +172,7 @@ export async function checkApiConnectivity(): Promise<ConnectivityResult> {
       e?.name ? `name: ${e.name}` : '',
       code ? `code: ${code}` : '',
       fetchResult.error ? `fetch-error: ${fetchResult.error}` : '',
+      getEnvironmentHint(),
     ]
       .filter(Boolean)
       .join(', ');
